@@ -1,0 +1,10 @@
+/* This file can be used to import all other .scss global files like font imports,
+theming and CSS resets. */
+
+/* 
+    @todo: 
+    Configure storybook webpack internals to handle font imports.
+    Falling back to Google Fonts API in the meanwhile.
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
