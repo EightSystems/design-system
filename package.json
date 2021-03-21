@@ -1,0 +1,38 @@
+{
+    "name": "@eightsystems/design-system",
+    "version": "0.0.1",
+    "description": "A design system used by internal projects at EightSystem, built with Storybook, React and Sass",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EightSystems/design-system.git"
+    },
+    "author": "@EightSystems",
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "@babel/core": "^7.10.2",
+        "@storybook/addon-a11y": "^5.3.19",
+        "@storybook/addon-actions": "^5.3.19",
+        "@storybook/addon-links": "^5.3.19",
+        "@storybook/addons": "^5.3.19",
+        "@storybook/react": "^5.3.19",
+        "babel-loader": "^8.1.0",
+        "css-loader": "^3.5.3",
+        "file-loader": "^6.2.0",
+        "mini-css-extract-plugin": "^0.9.0",
+        "node-sass": "^4.14.1",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "react-scripts": "^3.4.1",
+        "sass-loader": "^8.0.2",
+        "sass-resources-loader": "^2.0.3",
+        "storybook-addon-react-docgen": "^1.2.42",
+        "style-loader": "^1.2.1"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
+    }
+}
