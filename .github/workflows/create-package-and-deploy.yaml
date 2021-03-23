@@ -12,6 +12,14 @@ jobs:
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.OS }}-build
+          ${{ runner.OS }}
     - run: yarn
     - run: yarn build
     - run: echo ${GITHUB_REF##*/}
