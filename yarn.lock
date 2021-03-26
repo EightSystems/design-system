@@ -1523,6 +1523,16 @@
     react-inspector "^4.0.0"
     uuid "^3.3.2"
 
+"@storybook/addon-centered@^5.3.19":
+  version "5.3.21"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-centered/-/addon-centered-5.3.21.tgz#625c56f3a188358ee53040920f8c78f267ae1f2b"
+  integrity sha512-noWVIfN1jeCpMubiS43N2wFTUKEbo2MPR46+YeiYn1wOASyZjnkdV7gl63FCNRgFOz55jQGsrJVz+JJ7xz+rdQ==
+  dependencies:
+    "@storybook/addons" "5.3.21"
+    core-js "^3.0.1"
+    global "^4.3.2"
+    util-deprecate "^1.0.2"
+
 "@storybook/addon-links@^5.3.19":
   version "5.3.21"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-5.3.21.tgz#4bae11c5de77fcce1f5429be3454376870512db2"
@@ -4001,7 +4011,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
