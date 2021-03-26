@@ -1,7 +1,7 @@
-@import '../../styles/global';
+@import "../../styles/global";
 
 .button {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
     appearance: none;
     border-radius: 4px;
@@ -10,7 +10,7 @@
     padding: 18px 24px;
     text-decoration: none;
     text-align: center;
-    transition: 100ms ease-in-out;
+    transition: 150ms ease-in-out;
 
     &--primary {
         background: $color-primary;
@@ -21,6 +21,11 @@
         background: none;
         border: solid 2px $color-primary;
         color: $color-primary;
+    }
+    &--danger {
+        background: $color-danger;
+        border: solid 2px $color-danger;
+        color: $color-primary-contrast;
     }
     &--danger__outline {
         background: none;
@@ -37,6 +42,12 @@
     &--primary__outline:hover {
         background: $color-primary;
         border: solid 2px $color-primary;
+        color: $color-primary-contrast;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    }
+    &--danger:hover {
+        background: $color-danger;
+        border: solid 2px $color-danger;
         color: $color-primary-contrast;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
     }
