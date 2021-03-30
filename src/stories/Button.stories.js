@@ -25,4 +25,3 @@ storiesOf("Button", module).add("Danger Button (Outline)", () => (
         Danger Button Outline
     </Button>
 ))
-
