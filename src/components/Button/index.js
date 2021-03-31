@@ -1,52 +1,51 @@
-import React from "react"
-import "./Button.scss"
-import Proptypes from "prop-types"
-import classnames from "classnames"
+import React from "react";
+import "./Button.scss";
+import Proptypes from "prop-types";
+import classnames from "classnames";
 
-const Button = ({
-    children,
-    color,
-    outline,
-    onClick,
-    disabled,
-    ref,
-    className,
-    "aria-label": ariaLabel,
-}) => {
+const Button = React.forwardRef((props, componentRef) => {
     const buttonClasses = classnames({
-        "button--primary": color === "primary",
-        "button--danger": color === "danger",
-        "button--primary__outline": color === "primary" && outline === true,
-        "button--danger__outline": color === "danger" && outline === true,
-    })
-
+        "button--primary": props.color === "primary",
+        "button--danger": props.color === "danger",
+        "button--primary__outline": props.color === "primary" && props.outline === true,
+        "button--danger__outline": props.color === "danger" && props.outline === true,
+    });
     return (
         <button
-            className={`${className ? className + " " : ""}button ${buttonClasses}`}
-            onClick={onClick}
-            disabled={disabled}
-            ref={ref}
-            aria-label={ariaLabel}
+            className={`${props.className ? props.className + " " : ""}button ${buttonClasses}`}
+            type={props.type}
+            onClick={props.onClick}
+            disabled={props.disabled}
+            onMouseEnter={props.onMouseEnter}
+            onMouseLeave={props.onMouseLeave}
+            onFocus={props.onFocus}
+            onBlur={props.onBlur}
+            aria-label={props.ariaLabel}
+            ref={componentRef}
         >
-            {children}
+            {props.children}
         </button>
-    )
-}
+    );
+});
 
 Button.propTypes = {
-    children: Proptypes.node,
+    children: Proptypes.node.isRequired,
+    className: Proptypes.string,
     color: Proptypes.oneOf(["primary", "danger"]),
-    outline: Proptypes.bool,
+    hasOutline: Proptypes.bool,
+    type: Proptypes.string,
     onClick: Proptypes.func,
     disabled: Proptypes.bool,
-    ref: Proptypes.oneOf([Proptypes.object, Proptypes.func, Proptypes.string]),
-    className: Proptypes.string,
-    "aria-label": Proptypes.string,
-}
+    onMouseEnter: Proptypes.func,
+    onMouseLeave: Proptypes.func,
+    onFocus: Proptypes.func,
+    onBlur: Proptypes.func,
+    ariaLabel: Proptypes.string,
+};
 
 Button.defaultProps = {
     color: "primary",
-    outline: false,
-}
+    hasOutline: false,
+};
 
-export default Button
+export default Button;
