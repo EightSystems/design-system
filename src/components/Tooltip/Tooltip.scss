@@ -1,0 +1,90 @@
+@import "../../styles/global";
+
+$namespace-prefix: "tooltip" !default;
+$placements: "top", "bottom", "left", "right";
+$edges: "start", "", "end";
+$arrow-size: 6px;
+$padding: 4px 8px;
+$color: $color-secondary-contrast;
+
+@mixin arrow($placement, $edge, $width, $color) {
+    @if ($placement == "top") {
+        border-width: $width $width 0;
+        border-top-color: $color;
+        bottom: -$width;
+    } @else if ($placement == "bottom") {
+        border-width: 0 $width $width;
+        border-bottom-color: $color;
+        top: -$width;
+    } @else if ($placement == "left") {
+        border-width: $width 0 $width $width;
+        border-left-color: $color;
+        right: -$width;
+    } @else if ($placement == "right") {
+        border-width: $width $width $width 0;
+        border-right-color: $color;
+        left: -$width;
+    }
+
+    @if ($placement == "top" or $placement == "bottom") {
+        @if ($edge == "start") {
+            left: $width;
+        } @else if ($edge == "end") {
+            right: $width;
+        } @else {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    } @else {
+        @if ($edge == "start") {
+            top: $width;
+        } @else if ($edge == "end") {
+            bottom: $width;
+        } @else {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.#{$namespace-prefix}__popper {
+    pointer-events: none;
+    max-width: calc(100vw - 10px);
+}
+
+.#{$namespace-prefix}__container {
+    font-family: "Inter", sans-serif;
+    position: relative;
+    border-radius: 3px;
+    font-size: 13px;
+    padding: $padding;
+    line-height: 1.4;
+    background-color: $color-secondary;
+    color: $color;
+    outline: 0;
+    pointer-events: auto;
+}
+
+@each $placement in $placements {
+    @each $edge in $edges {
+        @if ($edge == "") {
+            [data-popper-placement="#{$placement}"] {
+                .#{$namespace-prefix}__arrow {
+                    @include arrow($placement, $edge, $arrow-size + 1, $color-secondary);
+                }
+            }
+        } @else {
+            [data-popper-placement="#{$placement}-#{$edge}"] {
+                .#{$namespace-prefix}__arrow {
+                    @include arrow($placement, $edge, $arrow-size + 1, $color-secondary);
+                }
+            }
+        }
+    }
+}
+
+.#{$namespace-prefix}__arrow {
+    position: absolute;
+    border-color: transparent;
+    border-style: solid;
+}

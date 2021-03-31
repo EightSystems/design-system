@@ -1,13 +1,8 @@
-const path = require("path")
+const path = require("path");
 
 module.exports = {
-    stories: ["../src/stories/**/*.stories.js"],
-    addons: [
-        "@storybook/addon-actions",
-        "@storybook/addon-links",
-        "@storybook/addon-a11y",
-        "storybook-addon-react-docgen",
-    ],
+    stories: ["../src/stories/**/*.stories.(js|jsx|mdx)"],
+    addons: ["@storybook/addon-a11y", "storybook-addon-react-docgen"],
 
     webpackFinal: async (config, { configType }) => {
         // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -25,19 +20,17 @@ module.exports = {
                                 {
                                     loader: require.resolve("sass-resources-loader"),
                                     options: {
-                                        resources: [
-                                            path.resolve(__dirname, "../src/styles/_global.scss"),
-                                        ],
+                                        resources: [path.resolve(__dirname, "../src/styles/_global.scss")],
                                     },
                                 },
                             ],
-                        }
+                        };
                     }
-                    return subRule
-                })
+                    return subRule;
+                });
             }
-            return rule
-        })
-        return config
+            return rule;
+        });
+        return config;
     },
-}
+};
