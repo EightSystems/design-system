@@ -1,30 +1,32 @@
 import React from "react";
-import "./Button.scss";
 import Proptypes from "prop-types";
 import classnames from "classnames";
+import * as S from "./styles";
 
 const Button = React.forwardRef((props, componentRef) => {
     const buttonClasses = classnames({
         "button--primary": props.color === "primary",
         "button--danger": props.color === "danger",
-        "button--primary__outline": props.color === "primary" && props.outline === true,
-        "button--danger__outline": props.color === "danger" && props.outline === true,
+        "button--primary__outline": props.color === "primary" && props.hasOutline === true,
+        "button--danger__outline": props.color === "danger" && props.hasOutline === true,
     });
     return (
-        <button
-            className={`${props.className ? props.className + " " : ""}button ${buttonClasses}`}
-            type={props.type}
-            onClick={props.onClick}
-            disabled={props.disabled}
-            onMouseEnter={props.onMouseEnter}
-            onMouseLeave={props.onMouseLeave}
-            onFocus={props.onFocus}
-            onBlur={props.onBlur}
-            aria-label={props.ariaLabel}
-            ref={componentRef}
-        >
-            {props.children}
-        </button>
+        <S.Wrapper>
+            <button
+                className={`${props.className ? props.className + " " : ""}button ${buttonClasses}`}
+                type={props.type}
+                onClick={props.onClick}
+                disabled={props.disabled}
+                onMouseEnter={props.onMouseEnter}
+                onMouseLeave={props.onMouseLeave}
+                onFocus={props.onFocus}
+                onBlur={props.onBlur}
+                aria-label={props.ariaLabel}
+                ref={componentRef}
+            >
+                {props.children}
+            </button>
+        </S.Wrapper>
     );
 });
 
