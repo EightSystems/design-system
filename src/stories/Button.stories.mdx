@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas, Description, Props } from "@storybook/addon-docs/blocks";
+import Button from "../components/Button";
+
+<Meta title="Atoms/Button" component={Button} />
+
+<style>{`
+  .flex-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin: 36px;
+  }
+`}</style>
+
+# Button
+
+<Description>
+    Os botões comunicam ações que o usuário pode realizar com um simples clique ou toque, podendo estar contidos em qualquer lugar da interface, desde caixas de diálogo e modais, até formulários e barras de navegação.
+</Description>
+
+<div className="flex-container">
+    <Button color="primary">Botão Primário</Button>
+</div>
+
+## Variantes
+
+Os botões possuem duas propriedades que definem a base de sua estilização: `color` e `outline`. Os dois podem ser usados
+em conjunto para compor diferentes tipos de botão.
+
+### Botão primário
+
+<Canvas>
+    <Story name="Primary Button">
+        <Button color="primary">Botão Primário</Button>
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Primary Button (Outline)">
+        <Button color="primary" hasOutline={true}>
+            Botão Primário
+        </Button>
+    </Story>
+</Canvas>
+
+### Botão danger
+
+<Canvas>
+    <Story name="Danger Button">
+        <Button color="danger">Botão Danger</Button>
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Danger Button (Outline)">
+        <Button color="danger" hasOutline={true}>
+            Botão Danger
+        </Button>
+    </Story>
+</Canvas>
+
+## Props
+
+<Props of={Button} />
