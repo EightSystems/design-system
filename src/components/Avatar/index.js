@@ -1,22 +1,60 @@
 import React from "react";
+import styled from 'styled-components';
 import Proptypes from "prop-types";
-import classnames from "classnames";
-import * as S from "./styles";
+import { GlobalStyles } from '../../styles/theme'
+import * as V from "../../styles/variables"
+
+const AvatarWrapper = styled.div `
+    ${GlobalStyles};
+    font-family: ${V.FontFaces.Poppins};
+    font-weight: 700;
+    line-height: 1;
+    user-select: none;
+
+    position: relative;
+    overflow: hidden;
+    background: var(--grayShade);
+    color: var(--background);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    &[data-size="large"] {
+        width: 156px;
+        height: 156px;
+        font-size: 48px;
+    }
+    &[data-size="medium"] {
+        width: 100px;
+        height: 100px;
+        font-size: 36px;
+    }
+    &[data-size="small"] {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+    }
+
+    & .avatar__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+`
 
 const Avatar = ({ children, alt, src, size, className }) => {
-    const avatarWrapperClasses = classnames({
-        "avatar__wrapper--large": size === "large",
-        "avatar__wrapper--medium": size === "medium",
-        "avatar__wrapper--small": size === "small",
-    });
 
     return (
-        <S.AvatarWrapper>
-            <div className={`${className ? className + " " : ""}avatar__wrapper ${avatarWrapperClasses}`}>
-                {src ? <img className="avatar__image" alt={alt} src={src} /> : null}
-                {children ? children : null}
-            </div>
-        </S.AvatarWrapper>
+        <AvatarWrapper 
+            className={className}
+            data-size={size}
+        >
+            {src ? <img className="avatar__image" alt={alt} src={src} /> : null}
+            {children ? children : null}
+        </AvatarWrapper>
     );
 };
 
@@ -29,3 +67,4 @@ Avatar.propTypes = {
 };
 
 export default Avatar;
+
