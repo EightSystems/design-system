@@ -1,0 +1,64 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Instalação" />
+
+# Instalação
+
+## Desenvolvimento
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/EightSystems/design-system.git
+cd design-system
+```
+
+Instale as dependências com yarn. Caso use o NVM, tenha certeza de que a versão do node corresponde à 14.16.1
+
+```bash
+yarn install
+```
+
+Quando as dependências estiverem instaladas, execute o preview do storybook com:
+
+```bash
+yarn storybook
+```
+
+Abra [`http://localhost:6006/`](http://localhost:6006/) (ele deve abrir automaticamente no browser) para ver a interface
+do Storybook com a lib de componentes.
+
+## Library de componentes
+
+1. Para instalar a library de componentes, execute:
+
+```bash
+yarn add @8sistemas/design-system
+```
+
+2. Injete o `ThemeProvider` na raiz do projeto:
+
+```jsx
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { ThemeProvider } from "@8sistemas/design-system";
+
+ReactDOM.render(
+    <React.StrictMode>
+        <ThemeProvider />
+        <App />
+    </React.StrictMode>,
+    document.getElementById("root")
+);
+```
+
+3. Use os componentes em qualquer lugar do projeto que esteja no escopo do `ThemeProvider` e da raiz do projeto. Use a
+   documentação como referência para os componentes, props e API's disponíveis.
+
+```jsx
+import React from "react";
+import { Button } from "@8sistemas/design-system";
+
+const Example = () => <Button color="primary">Hello World</Button>;
+```
