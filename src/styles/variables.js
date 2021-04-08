@@ -11,6 +11,8 @@ export const Space = {
 
 export const Color = {
     background: `#fcfcfc`,
+    textPrimary: `090909`,
+    textBody: `#68717A`,
 
     primary: `#00072e`,
     primaryShade: `#000628`,
