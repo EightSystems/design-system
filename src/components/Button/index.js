@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
-import { GlobalStyles } from "../../styles/theme";
 import * as V from "../../styles/variables";
 
 const ButtonWrapper = styled.button`
-    ${GlobalStyles};
     font-family: ${V.FontFaces.Poppins};
     font-size: 18px;
     appearance: none;

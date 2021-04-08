@@ -1,11 +1,9 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Proptypes from "prop-types";
-import { GlobalStyles } from '../../styles/theme'
-import * as V from "../../styles/variables"
+import * as V from "../../styles/variables";
 
-const AvatarWrapper = styled.div `
-    ${GlobalStyles};
+const AvatarWrapper = styled.div`
     font-family: ${V.FontFaces.Poppins};
     font-weight: 700;
     line-height: 1;
@@ -43,15 +41,11 @@ const AvatarWrapper = styled.div `
         height: 100%;
         object-fit: cover;
     }
-`
+`;
 
 const Avatar = ({ children, alt, src, size, className }) => {
-
     return (
-        <AvatarWrapper 
-            className={className}
-            data-size={size}
-        >
+        <AvatarWrapper className={className} data-size={size}>
             {src ? <img className="avatar__image" alt={alt} src={src} /> : null}
             {children ? children : null}
         </AvatarWrapper>
@@ -67,4 +61,3 @@ Avatar.propTypes = {
 };
 
 export default Avatar;
-

@@ -15,26 +15,34 @@ import Avatar from "../components/Avatar";
 # Avatar
 
 <Description>
-    Responsáveis por demonstrar a existência de um usuário, devem cobrir situações em que não há uma foto do usuário disponível.
+    Responsáveis por demonstrar a existência de um usuário, devem cobrir situações em que não há uma foto do usuário
+    disponível.
 </Description>
 
 <div className="flex-container">
-    <Avatar size="medium" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50" />
+    <Avatar
+        size="medium"
+        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50"
+    />
 </div>
 
 ## Avatares com imagem
 
-A propriedade padrão `src` pode ser usada para definir a fonte de uma imagem. 
+A propriedade padrão `src` pode ser usada para definir a fonte de uma imagem.
 
 <Canvas>
     <Story name="Avatar with Image">
-        <Avatar size="medium" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50" />
+        <Avatar
+            size="medium"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50"
+        />
     </Story>
 </Canvas>
 
 ## Avatares com letras
 
-Nas situações em que a imagem não está disponível (quando o usuário ainda não definiu uma imagem de perfil ou houve um erro ao carregar a imagem), as letras iniciais podem ser passadas como uma `string` para `children`.
+Nas situações em que a imagem não está disponível (quando o usuário ainda não definiu uma imagem de perfil ou houve um
+erro ao carregar a imagem), as letras iniciais podem ser passadas como uma `string` para `children`.
 
 <Canvas>
     <Story name="Avatar without Image">
@@ -44,13 +52,17 @@ Nas situações em que a imagem não está disponível (quando o usuário ainda 
 
 ## Tamanhos
 
-O tamanho do componente `Avatar` pode ser definido com a propriedade `size` que aceita os valores `large`, `medium` e `small`.
+O tamanho do componente `Avatar` pode ser definido com a propriedade `size` que aceita os valores `large`, `medium` e
+`small`.
 
 ### Large
 
 <Canvas>
     <Story name="Avatar (Large)">
-        <Avatar size="large" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50" />
+        <Avatar
+            size="large"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50"
+        />
     </Story>
 </Canvas>
 
@@ -58,7 +70,10 @@ O tamanho do componente `Avatar` pode ser definido com a propriedade `size` que 
 
 <Canvas>
     <Story name="Avatar (Medium)">
-        <Avatar size="medium" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50" />
+        <Avatar
+            size="medium"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50"
+        />
     </Story>
 </Canvas>
 
@@ -66,7 +81,10 @@ O tamanho do componente `Avatar` pode ser definido com a propriedade `size` que 
 
 <Canvas>
     <Story name="Avatar (Small)">
-        <Avatar size="small" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50" />
+        <Avatar
+            size="small"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50"
+        />
     </Story>
 </Canvas>
 
