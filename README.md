@@ -1,3 +1,5 @@
+![Eight System's Design System Cover](https://raw.githubusercontent.com/EightSystems/design-system/development/.github/assets/Cover.jpg)
+
 This Design System is used in the building of internal products at @EightSystems. It is built with Storybook, React and Sass.
 
 As this is an internal design system, we don't accept suggestions to change or add new components.
