@@ -4,6 +4,8 @@ import Proptypes from "prop-types";
 import * as T from "../../styles/typography";
 import getUserLanguage from "../../utils/getUserLanguage";
 
+require('intl')
+
 const CurrencyLabelWrapper = styled.h1`
     ${T.CurrencyLabel};
 `;
