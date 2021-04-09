@@ -1,8 +1,14 @@
-const { addDecorator } = require("@storybook/react");
-const { withPropsTable } = require("storybook-addon-react-docgen");
-const { withA11y } = require("@storybook/addon-a11y");
-import centered from "@storybook/addon-centered/react";
+import React from "react";
+import { addDecorator, configure } from "@storybook/react";
+import GlobalStyles from "../src/styles/global";
 
-addDecorator(withPropsTable);
-addDecorator(withA11y);
-addDecorator(centered);
+configure(require.context("../src/stories", true, /\\.stories\\.mdx$/), module);
+
+const GlobalWrapper = storyFn => (
+    <div>
+        <GlobalStyles />
+        {storyFn()}
+    </div>
+);
+
+addDecorator(GlobalWrapper);

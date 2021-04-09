@@ -1,0 +1,91 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import CurrencyLabel from "../components/CurrencyLabel"
+
+<Meta title="Atoms/CurrencyLabel" component={CurrencyLabel} argTypes={{
+    currency: {
+        control: {
+            type: 'select',
+            options: ['BRL', 'USD', 'EUR', 'JPY', 'ARS']
+        }
+    },
+    value: {
+        control: {
+            type: 'number'
+        }
+    },
+    size: {
+        control: {
+            type: 'number',
+            min: 1
+        }
+    }
+}}/>
+
+export const Template = (args) => <CurrencyLabel {...args} />
+
+<style>{`
+  .flex-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin: 36px;
+  }
+`}</style>
+
+# CurrencyLabel
+
+<Description>
+  Um wrapper para a representação de valores monetários, converte um valor puro na unidade monetária requerida de acordo com a API de internacionalização.
+</Description>
+
+<div className="flex-container">
+    <CurrencyLabel currency="BRL" value={123.456} />
+</div>
+
+## API
+
+O `CurrencyLabel` usa a API de internacionalização `Intl.NumberFormat`, e possui duas propriedades obrigatórias:
+
+- `currency(string)` - A unidade monetária que deve ser utilizada na conversão. Os valores possíveis são os códigos de moeda ISO 4217, como "USD" para o dólar americado, ou "BRL" para o real brasileiro. Consulte a lista de moedas disponíveis [aqui](https://www.currency-iso.org/dam/downloads/lists/list_one.xml).
+- `value(number)` - O valor monetário puro que deve ser utilizado na conversão, em formato numérico.
+- `size(number)` - O tamanho da fonte na unidade abaixo, caso não seja enviado, o tamanho padrão do tema é usado.
+- `sizeUnit(['px', 'em', '%'])` - A unidade do tamanho da fonte, por padrão é em `px`
+
+### Real Brasileiro
+<Canvas>
+    <Story name="Real Brasileiro" args={{currency: 'BRL', value: 123.456}}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+### Dólar americano
+<Canvas>
+    <Story name="Dólar Americano" args={{currency: 'USD', value: 456.789}}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+### Yen Japonês
+<Canvas>
+    <Story name="Yen Japonês" args={{currency: 'JPY', value: 3456.789}}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+### Euro com fonte em tamanho 72px
+<Canvas>
+    <Story name="Euro (72px)" args={{currency: 'EUR', value: 123.456, size: 72}}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+### Peso Argentino com fonte em tamanho 2em
+<Canvas>
+    <Story name="Peso Argentino (2em)" args={{currency: 'ARS', value: 123.456, size: 2, sizeUnit: 'em'}}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={CurrencyLabel} />
