@@ -2,7 +2,7 @@ name: Create Storybook Documentation
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   storybook-and-deploy:
     runs-on: ubuntu-latest
