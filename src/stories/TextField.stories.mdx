@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import TextField from "../components/TextField"
+
+<Meta title="Forms/TextField" component={TextField} />
+
+# TextField
+
+Um componente wrapper e um controle de formulário completo que permite a inserção de texto. Ele é a junção dos elementos nativos `<label>` e `<input>`, com suporte ao uso de ícones de ajuda, integração com o componente `Tooltip` para mostrar mensagens de ajuda, e suporte aos atributos nativos de input como `required`, `disabled`, e `type` (com exceção dos tipos que mudam o comportamento do componente para não-texto, mais detalhes em Props).
+
+Esse componente é comumente usado em formulários e caixas de diálogo.
+
+## API
+
+O `TextField` requer duas propriedades obrigatórias, `name` e `label`. 
+
+Variações de validação do componente podem ser alcançadas usando propriedades como `onValidationError` para indicar um erro de validação, e `onValidationSuccess` para indicar uma validação de sucesso, e `validationMessage` para inserir uma mensagem de ajuda durante a validação.
+
+A propriedade `value` será usada para administrar componentes controlados (como por exemplo, ao usar em conjunto com o Formik, mais detalhes na seção Integração com Formik)
+
+<Canvas>
+    <Story name="Regular TextField" args={{name: "inputName", label: "Input Label", placeholder: "Input Placeholder"}}>
+      {args => <TextField {...args} />}
+    </Story>
+</Canvas>
