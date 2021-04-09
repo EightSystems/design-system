@@ -8,22 +8,28 @@ require('intl')
 
 const CurrencyLabelWrapper = styled.h1`
     ${T.CurrencyLabel};
+    ${props => props.size ? `font-size: ${props.size}${props.sizeUnit}` : ''};
 `;
 
-const CurrencyLabel = ({ currency, value, size }) => {
+const CurrencyLabel = ({ currency, value, size, sizeUnit }) => {
     return (
-        <CurrencyLabelWrapper>
-            {new Intl.NumberFormat(`${getUserLanguage()}`, { style: "currency", currency: `${currency}` }).format(
+        <CurrencyLabelWrapper size={size} sizeUnit={sizeUnit}>
+            {new Intl.NumberFormat(getUserLanguage(), { style: "currency", currency }).format(
                 value
             )}
         </CurrencyLabelWrapper>
     );
 };
 
+CurrencyLabel.defaultProps = {
+  sizeUnit: 'px'
+};
+
 CurrencyLabel.propTypes = {
     currency: Proptypes.string.isRequired,
     value: Proptypes.number.isRequired,
     size: Proptypes.number,
+    sizeUnit: Proptypes.oneOf(['px', 'em', '%']),
 };
 
 export default CurrencyLabel;

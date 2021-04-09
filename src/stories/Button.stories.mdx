@@ -31,32 +31,28 @@ em conjunto para compor diferentes tipos de botão.
 ### Botão primário
 
 <Canvas>
-    <Story name="Primary Button">
-        <Button color="primary">Botão Primário</Button>
+    <Story name="Primary Button" args={{color: 'primary', children: ['Botão Primário']}}>
+        {args => <Button {...args} />}
     </Story>
 </Canvas>
 
 <Canvas>
-    <Story name="Primary Button (Outline)">
-        <Button color="primary" hasOutline={true}>
-            Botão Primário
-        </Button>
+    <Story name="Primary Button (Outline)" args={{color: 'primary', hasOutline: true, children: ['Botão Primário']}}>
+        {args => <Button {...args} />}
     </Story>
 </Canvas>
 
 ### Botão danger
 
 <Canvas>
-    <Story name="Danger Button">
-        <Button color="danger">Botão Danger</Button>
+    <Story name="Danger Button" args={{color: 'danger', children: ['Botão Danger']}}>
+        {args => <Button {...args} />}
     </Story>
 </Canvas>
 
 <Canvas>
-    <Story name="Danger Button (Outline)">
-        <Button color="danger" hasOutline={true}>
-            Botão Danger
-        </Button>
+    <Story name="Danger Button (Outline)" args={{color: 'danger', hasOutline: true, children: ['Botão Danger']}}>
+        {args => <Button {...args} />}
     </Story>
 </Canvas>
 
