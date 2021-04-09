@@ -49,7 +49,7 @@ export const FormLabel = css`
     font-family: ${V.FontFaces.Poppins};
     color: var(--text-body);
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 20px;
 `;
 
