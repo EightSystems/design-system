@@ -9,16 +9,77 @@ Um componente wrapper e um controle de formulário completo que permite a inser�
 
 Esse componente é comumente usado em formulários e caixas de diálogo.
 
-## API
+## Variantes
 
-O `TextField` requer duas propriedades obrigatórias, `name` e `label`. 
-
-Variações de validação do componente podem ser alcançadas usando propriedades como `onValidationError` para indicar um erro de validação, e `onValidationSuccess` para indicar uma validação de sucesso, e `validationMessage` para inserir uma mensagem de ajuda durante a validação.
-
-A propriedade `value` será usada para administrar componentes controlados (como por exemplo, ao usar em conjunto com o Formik, mais detalhes na seção Integração com Formik)
+O `TextField` requer duas propriedades obrigatórias, `name` e `label`:
 
 <Canvas>
-    <Story name="Regular TextField" args={{name: "inputName", label: "Input Label", placeholder: "Input Placeholder"}}>
+    <Story 
+      name="Regular TextField" 
+      args={{name: "inputName", label: "Input Label"}}
+    >
       {args => <TextField {...args} />}
     </Story>
 </Canvas>
+
+Variações de validação do componente podem ser alcançadas usando propriedades como `validationError` para indicar um erro de validação, e `validationSuccess` para indicar uma validação de sucesso, e `validationMessage` para inserir uma mensagem de ajuda durante a validação:
+
+### Validação com erro
+
+<Canvas>
+    <Story 
+      name="Error TextField" 
+      args={{name: "inputName", label: "Input Label", value: "Wrong Input", validationError: true, validationMessage: "There seems to be something wrong with your input" }}
+    >
+      {args => <TextField {...args} />}
+    </Story>
+</Canvas>
+
+### Validação de sucesso
+
+<Canvas>
+    <Story 
+      name="Success TextField" 
+      args={{name: "inputName", label: "Input Label", value: "Right Input", validationSuccess: true }}
+    >
+      {args => <TextField {...args} />}
+    </Story>
+</Canvas>
+
+Também é possível criar um `TextField` com um ícone de ajuda que exibirá um Tooltip e fornecerá contexto sobre o tipo de informação que será requerida naquele input, usando as propriedades `icon` e `iconTooltipMessage`:
+
+<Canvas>
+    <Story 
+      name="Information TextField" 
+      args={{name: "inputName", label: "Input Label", icon: "info" }}
+    >
+      {args => <TextField {...args} />}
+    </Story>
+</Canvas>
+
+## Máscaras
+
+Por trás dos panos, os componentes usam a library react-imask para configurar máscaras em campos de texto. Para mais informações sobre as propriedades disponíveis para o controle de máscaras no IMask, tome como referência a [documentação oficial do IMask](https://imask.js.org/).
+
+### Exemplos:
+
+#### Máscara de data:
+<Canvas>
+    <Story 
+      name="Date Masked TextField" 
+    >
+      <TextField 
+        name="date"
+        label="Data de nascimento"
+        mask={Date}
+        pattern="d/`m/`YY"
+        maxLength="10"
+        placeholder="dd/mm/aaaa"
+        min={new Date(1900, 0, 1)}
+        max={new Date(2010, 0, 1)}
+      />
+    </Story>
+</Canvas>
+
+<ArgsTable of={TextField} />
+
