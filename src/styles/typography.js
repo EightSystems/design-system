@@ -48,25 +48,31 @@ export const Body = css`
 export const FormLabel = css`
     font-family: ${V.FontFaces.Poppins};
     color: var(--text-body);
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 20px;
 `;
 
 export const FormInput = css`
     font-family: ${V.FontFaces.Inter};
     color: var(--text-primary);
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 20px;
 `;
 export const PlaceholderFormInput = css`
     font-family: ${V.FontFaces.Inter};
     color: var(--text-body);
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 20px;
 `;
+
+export const FormValidationMessage = css`
+    font-family: ${V.FontFaces.Poppins};
+    color: var(--danger);
+    font-size: 13px;
+`
 
 export const CurrencyLabel = css`
     font-family: ${V.FontFaces.Poppins};
