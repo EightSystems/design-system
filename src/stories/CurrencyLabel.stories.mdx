@@ -34,22 +34,15 @@ export const Template = (args) => <CurrencyLabel {...args} />
 
 # CurrencyLabel
 
-<Description>
-  Um wrapper para a representação de valores monetários, converte um valor puro na unidade monetária requerida de acordo com a API de internacionalização.
-</Description>
+Um wrapper para a representação de valores monetários, converte um valor puro na unidade monetária requerida de acordo com a API de internacionalização.
 
 <div className="flex-container">
     <CurrencyLabel currency="BRL" value={123.456} />
 </div>
 
-## API
+## Variantes
 
-O `CurrencyLabel` usa a API de internacionalização `Intl.NumberFormat`, e possui duas propriedades obrigatórias:
-
-- `currency(string)` - A unidade monetária que deve ser utilizada na conversão. Os valores possíveis são os códigos de moeda ISO 4217, como "USD" para o dólar americado, ou "BRL" para o real brasileiro. Consulte a lista de moedas disponíveis [aqui](https://www.currency-iso.org/dam/downloads/lists/list_one.xml).
-- `value(number)` - O valor monetário puro que deve ser utilizado na conversão, em formato numérico.
-- `size(number)` - O tamanho da fonte na unidade abaixo, caso não seja enviado, o tamanho padrão do tema é usado.
-- `sizeUnit(['px', 'em', '%'])` - A unidade do tamanho da fonte, por padrão é em `px`
+O `CurrencyLabel` usa a API de internacionalização `Intl.NumberFormat`, e possui duas propriedades obrigatórias: `currency` e `value`:
 
 ### Real Brasileiro
 <Canvas>
@@ -71,6 +64,8 @@ O `CurrencyLabel` usa a API de internacionalização `Intl.NumberFormat`, e poss
         {args => <CurrencyLabel {...args} />}
     </Story>
 </Canvas>
+
+Adicionalmente, é possível especificar o tamanho a a unidade de medida para alterar o tamanho de exibição de `CurrencyLabel` com `size` e `sizeUnit`.
 
 ### Euro com fonte em tamanho 72px
 <Canvas>

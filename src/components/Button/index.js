@@ -53,20 +53,14 @@ const ButtonWrapper = styled.button`
 `;
 
 const Button = React.forwardRef((props, componentRef) => {
-    console.log(props);
     return (
         <ButtonWrapper
+            {...props}
             className={props.className}
             data-color={props.color}
             data-hasOutline={props.hasOutline}
             type={props.type}
-            onClick={props.onClick}
             disabled={props.disabled}
-            onMouseEnter={props.onMouseEnter}
-            onMouseLeave={props.onMouseLeave}
-            onFocus={props.onFocus}
-            onBlur={props.onBlur}
-            aria-label={props.ariaLabel}
             ref={componentRef}
         >
             {props.children}
@@ -75,18 +69,20 @@ const Button = React.forwardRef((props, componentRef) => {
 });
 
 Button.propTypes = {
+    /** O conteúdo do botão. */
     children: Proptypes.node.isRequired,
+
+    /** Sobrepõe ou extende as classes de estilo existentes. */
     className: Proptypes.string,
+
+    /** Define a cor contextual do botão. */
     color: Proptypes.oneOf(["primary", "danger"]),
+
+    /** Caso seja `true`, o botão terá um estilo com background vazado e bordas com a cor definida em `color`. */
     hasOutline: Proptypes.bool,
+
+    /** O componente que é usado no nó raiz. Pode ser util quando é usado em conjunto com outros botões em formulários controlados e é necessário evitar o comportamento de submit em determinados botões. */
     type: Proptypes.string,
-    onClick: Proptypes.func,
-    disabled: Proptypes.bool,
-    onMouseEnter: Proptypes.func,
-    onMouseLeave: Proptypes.func,
-    onFocus: Proptypes.func,
-    onBlur: Proptypes.func,
-    ariaLabel: Proptypes.string,
 };
 
 Button.defaultProps = {
