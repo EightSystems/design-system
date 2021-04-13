@@ -5,12 +5,12 @@ import classnames from "classnames";
 import { IMaskMixin } from "react-imask";
 
 import * as T from "../../styles/typography";
-import * as V from "../../styles/variables"
+import * as V from "../../styles/variables";
 import { MdInfo } from "react-icons/md";
-import Tooltip from "../Tooltip"
+import Tooltip from "../Tooltip";
 
 // To be used in the stories if I want to check for actions
-// argTypes={{ onChange: { action: 'onChange' }, onBlur: { action: 'onBlur' }} }  
+// argTypes={{ onChange: { action: 'onChange' }, onBlur: { action: 'onBlur' }} }
 
 const MainWrapper = styled.div`
     display: flex;
@@ -61,34 +61,29 @@ const IconWrapper = styled.div`
     padding-right: 12px;
     height: 100%;
 
-        color: var(--text-body);
+    color: var(--text-body);
     svg {
         cursor: pointer;
         width: 28px;
         height: 28px;
     }
 `;
-const InputValidationMessage = styled.span `
+const InputValidationMessage = styled.span`
     padding-left: 2px;
     ${T.FormValidationMessage};
-`
-const InputValidationContainer = styled.div `
+`;
+const InputValidationContainer = styled.div`
     svg {
         color: var(--danger);
         height: ${V.Space.sm};
         width: ${V.Space.sm};
     }
-    padding-top: 6px; 
+    padding-top: 6px;
     display: flex;
     height: 26px;
-`
+`;
 
-const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => (
-    <InputComponent
-        {...props}
-        ref={inputRef}
-    />
-));
+const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <InputComponent {...props} ref={inputRef} />);
 
 const TextField = props => {
     const [isFocused, setIsFocused] = useState(false);
@@ -113,16 +108,16 @@ const TextField = props => {
                     autoFocus={props.autoFocus}
                     disabled={props.disabled}
                     value={props.value}
-                    onFocus={(e) => {
+                    onFocus={e => {
                         setIsFocused(true);
                         if (props.onFocus) {
-                            props.onFocus(e)
+                            props.onFocus(e);
                         }
                     }}
-                    onBlur={(e) => {
+                    onBlur={e => {
                         setIsFocused(false);
                         if (props.onBlur) {
-                            props.onBlur(e)
+                            props.onBlur(e);
                         }
                     }}
                     onChange={props.onChange}
@@ -140,7 +135,7 @@ const TextField = props => {
                         <InputValidationMessage>{props.validationMessage}</InputValidationMessage>
                     </React.Fragment>
                 ) : null}
-            </InputValidationContainer> 
+            </InputValidationContainer>
         </MainWrapper>
     );
 };
@@ -166,7 +161,7 @@ TextField.propTypes = {
 
     /** Caso seja `true`, o input estará desabilitado. */
     disabled: Proptypes.bool,
-    
+
     /** O valor do elemento `<input>`, requerido para [componentes controlados](https://pt-br.reactjs.org/docs/forms.html#controlled-components). */
     value: Proptypes.any,
 

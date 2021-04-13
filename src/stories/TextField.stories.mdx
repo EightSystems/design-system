@@ -1,11 +1,14 @@
 import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
-import TextField from "../components/TextField"
+import TextField from "../components/TextField";
 
 <Meta title="Forms/TextField" component={TextField} />
 
 # TextField
 
-Um componente wrapper e um controle de formulário completo que permite a inserção de texto. Ele é a junção dos elementos nativos `<label>` e `<input>`, com suporte ao uso de ícones de ajuda, integração com o componente `Tooltip` para mostrar mensagens de ajuda, e suporte aos atributos nativos de input como `required`, `disabled`, e `type` (com exceção dos tipos que mudam o comportamento do componente para não-texto, mais detalhes em Props).
+Um componente wrapper e um controle de formulário completo que permite a inserção de texto. Ele é a junção dos elementos
+nativos `<label>` e `<input>`, com suporte ao uso de ícones de ajuda, integração com o componente `Tooltip` para mostrar
+mensagens de ajuda, e suporte aos atributos nativos de input como `required`, `disabled`, e `type` (com exceção dos
+tipos que mudam o comportamento do componente para não-texto, mais detalhes em Props).
 
 Esse componente é comumente usado em formulários e caixas de diálogo.
 
@@ -14,74 +17,86 @@ Esse componente é comumente usado em formulários e caixas de diálogo.
 O `TextField` requer duas propriedades obrigatórias, `name` e `label`:
 
 <Canvas>
-    <Story 
-      name="Regular TextField" 
-      args={{name: "inputName", label: "Input Label"}}
-    >
-      {args => <TextField {...args} />}
+    <Story name="Regular TextField" args={{ name: "inputName", label: "Input Label" }}>
+        {args => <TextField {...args} />}
     </Story>
 </Canvas>
 
-Variações de validação do componente podem ser alcançadas usando propriedades como `validationError` para indicar um erro de validação, e `validationSuccess` para indicar uma validação de sucesso, e `validationMessage` para inserir uma mensagem de ajuda durante a validação:
+Variações de validação do componente podem ser alcançadas usando propriedades como `validationError` para indicar um
+erro de validação, e `validationSuccess` para indicar uma validação de sucesso, e `validationMessage` para inserir uma
+mensagem de ajuda durante a validação:
 
 ### Validação com erro
 
 <Canvas>
-    <Story 
-      name="Error TextField" 
-      args={{name: "inputName", label: "Input Label", value: "Wrong Input", validationError: true, validationMessage: "There seems to be something wrong with your input" }}
+    <Story
+        name="Error TextField"
+        args={{
+            name: "inputName",
+            label: "Input Label",
+            value: "Wrong Input",
+            validationError: true,
+            validationMessage: "There seems to be something wrong with your input",
+        }}
     >
-      {args => <TextField {...args} />}
+        {args => <TextField {...args} />}
     </Story>
 </Canvas>
 
 ### Validação de sucesso
 
 <Canvas>
-    <Story 
-      name="Success TextField" 
-      args={{name: "inputName", label: "Input Label", value: "Right Input", validationSuccess: true }}
+    <Story
+        name="Success TextField"
+        args={{ name: "inputName", label: "Input Label", value: "Right Input", validationSuccess: true }}
     >
-      {args => <TextField {...args} />}
+        {args => <TextField {...args} />}
     </Story>
 </Canvas>
 
-Também é possível criar um `TextField` com um ícone de ajuda que exibirá um Tooltip e fornecerá contexto sobre o tipo de informação que será requerida naquele input, usando as propriedades `icon` e `iconTooltipMessage`:
+Também é possível criar um `TextField` com um ícone de ajuda que exibirá um Tooltip e fornecerá contexto sobre o tipo de
+informação que será requerida naquele input, usando as propriedades `icon` e `iconTooltipMessage`:
 
 <Canvas>
-    <Story 
-      name="Information TextField" 
-      args={{name: "inputName", label: "Input Label", icon: "info", iconTooltipMessage: "Informação do input", iconTooltipDirection: "left" }}
+    <Story
+        name="Information TextField"
+        args={{
+            name: "inputName",
+            label: "Input Label",
+            icon: "info",
+            iconTooltipMessage: "Informação do input",
+            iconTooltipDirection: "left",
+        }}
     >
-      {args => <TextField {...args} />}
+        {args => <TextField {...args} />}
     </Story>
 </Canvas>
 
 ## Máscaras
 
-Por trás dos panos, os componentes usam a library react-imask para configurar máscaras em campos de texto. Para mais informações sobre as propriedades disponíveis para o controle de máscaras no IMask, tome como referência a [documentação oficial do IMask](https://imask.js.org/).
+Por trás dos panos, os componentes usam a library react-imask para configurar máscaras em campos de texto. Para mais
+informações sobre as propriedades disponíveis para o controle de máscaras no IMask, tome como referência a
+[documentação oficial do IMask](https://imask.js.org/).
 
 ### Exemplos:
 
 #### Máscara de data:
+
 <Canvas>
-    <Story 
-      name="Date Masked TextField" 
-    >
-      <TextField 
-        name="date"
-        label="Data de nascimento"
-        mask={Date}
-        pattern="d/`m/`YY"
-        maxLength="10"
-        placeholder="dd/mm/aaaa"
-        min={new Date(1900, 0, 1)}
-        max={new Date(2010, 0, 1)}
-      />
+    <Story name="Date Masked TextField">
+        <TextField
+            name="date"
+            label="Data de nascimento"
+            mask={Date}
+            pattern="d/`m/`YY"
+            maxLength="10"
+            placeholder="dd/mm/aaaa"
+            min={new Date(1900, 0, 1)}
+            max={new Date(2010, 0, 1)}
+        />
     </Story>
 </Canvas>
 
 ## Props:
 
 <ArgsTable of={TextField} />
-

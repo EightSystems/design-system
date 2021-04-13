@@ -4,25 +4,23 @@ import Proptypes from "prop-types";
 import * as T from "../../styles/typography";
 import getUserLanguage from "../../utils/getUserLanguage";
 
-require('intl')
+require("intl");
 
 const CurrencyLabelWrapper = styled.h1`
     ${T.CurrencyLabel};
-    ${props => props.size ? `font-size: ${props.size}${props.sizeUnit}` : ''};
+    ${props => (props.size ? `font-size: ${props.size}${props.sizeUnit}` : "")};
 `;
 
 const CurrencyLabel = ({ currency, value, size, sizeUnit }) => {
     return (
         <CurrencyLabelWrapper size={size} sizeUnit={sizeUnit}>
-            {new Intl.NumberFormat(getUserLanguage(), { style: "currency", currency }).format(
-                value
-            )}
+            {new Intl.NumberFormat(getUserLanguage(), { style: "currency", currency }).format(value)}
         </CurrencyLabelWrapper>
     );
 };
 
 CurrencyLabel.defaultProps = {
-  sizeUnit: 'px'
+    sizeUnit: "px",
 };
 
 // - `size(number)` - O tamanho da fonte na unidade abaixo, caso não seja enviado, o tamanho padrão do tema é usado.
@@ -39,7 +37,7 @@ CurrencyLabel.propTypes = {
     size: Proptypes.number,
 
     /** Caso seja especificado, define a unidade a ser usada em conjunto com `size`. */
-    sizeUnit: Proptypes.oneOf(['px', 'em', '%']),
+    sizeUnit: Proptypes.oneOf(["px", "em", "%"]),
 };
 
 export default CurrencyLabel;

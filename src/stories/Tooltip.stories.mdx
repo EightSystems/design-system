@@ -13,23 +13,18 @@ import Button from "../components/Button";
   }
 `}</style>
 
-
-
 # Tooltip
 
 ## Variantes
 
 <Canvas>
-    <Story 
-      name="Test Tooltip"
-      args={{ content: 'Thanks', direction: 'top' }}
-    >
-        {args => 
-          <div className="flex-container">
-            <Tooltip {...args}>
-              <Button>Click me</Button>
-            </Tooltip>
-          </div>
-        }
+    <Story name="Test Tooltip" args={{ content: "Thanks", direction: "top" }}>
+        {args => (
+            <div className="flex-container">
+                <Tooltip {...args}>
+                    <Button>Click me</Button>
+                </Tooltip>
+            </div>
+        )}
     </Story>
 </Canvas>
