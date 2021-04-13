@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
 import * as V from "../../styles/variables";
+import { MdDone } from "react-icons/md"
 
 const StepContainer = styled.div`
     display: flex;
@@ -9,7 +10,7 @@ const StepContainer = styled.div`
     align-items: center;
 `;
 const StepIcon = styled.svg`
-    color: var(--secondary);
+    color: var(--text-body);
     width: 12px;
     height: 12px;
     user-select: none;
@@ -17,18 +18,8 @@ const StepIcon = styled.svg`
         width: 12px;
         height: 12px;
     }
-`;
-const StepConnector = styled.div`
-    flex: 1 1 auto;
-    top: 47px;
-    left: calc(-50% + 20px);
-    right: calc(50% + 20px);
-    position: absolute;
-    span {
-        display: block;
-        border-top-style: solid;
-        border-top-width: 1px;
-        border-color: var(--gray);
+    &[data-isActive="true"] {
+        color: var(--secondary);
     }
 `;
 const LabelContainer = styled.span`
@@ -38,7 +29,7 @@ const LabelContainer = styled.span`
     margin-top: 12px;
     max-width: 250px;
     text-align: center;
-    color: var(--text-primary);
+    color: var(--text-body);
 
     &[data-isActive="true"] {
         font-weight: 700;
@@ -49,14 +40,10 @@ const LabelContainer = styled.span`
 const Step = props => {
     return (
         <React.Fragment>
-            {props.stepIsFirst ? null : (
-                <StepConnector>
-                    <span />
-                </StepConnector>
-            )}
             <StepContainer>
-                <StepIcon>
+                <StepIcon data-isActive={props.stepIsActive}>
                     <circle cx="6" cy="6" r="6"></circle>
+                    {props.stepIsFinished ? (<MdDone />) : (<text>{props.stepNumber}</text>)}
                 </StepIcon>
                 <LabelContainer data-isActive={props.stepIsActive}>{props.stepLabel}</LabelContainer>
             </StepContainer>
@@ -68,11 +55,14 @@ Step.propTypes = {
     /** Rótulo que identifica a etapa atual. */
     stepLabel: Proptypes.string.isRequired,
 
-    /** Caso seja `false`, a linha de continuidade entre o stepper não será renderizada. */
-    stepIsFirst: Proptypes.bool.isRequired,
-
     /** Caso seja `true`, o step será destacado como ativo. */
     stepIsActive: Proptypes.bool.isRequired,
+
+    /** Caso seja `true`, o step será destacado com um ícone que indica a conclusão da etapa. */
+    stepIsFinished: Proptypes.bool.isRequired,
+
+    /** Identifica o número da etapa quando ela ainda não foi concluída. */
+    stepNumber: Proptypes.number.isRequired,
 };
 
 export default Step;
