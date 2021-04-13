@@ -89,8 +89,12 @@ const Tooltip = props => {
         setActive(false);
     };
 
+    const performAction = () => {
+        active ? hideTip() : showTip()
+    }
+
     return (
-        <TooltipWrapper onMouseEnter={showTip} onMouseLeave={hideTip}>
+        <TooltipWrapper onClick={performAction}>
             {props.children}
             {active && (
                 <div className={`tooltip__tip ${props.direction || "top"}`}>

@@ -51,7 +51,7 @@ Também é possível criar um `TextField` com um ícone de ajuda que exibirá um
 <Canvas>
     <Story 
       name="Information TextField" 
-      args={{name: "inputName", label: "Input Label", icon: "info" }}
+      args={{name: "inputName", label: "Input Label", icon: "info", iconTooltipMessage: "Informação do input", iconTooltipDirection: "left" }}
     >
       {args => <TextField {...args} />}
     </Story>

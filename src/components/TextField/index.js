@@ -7,11 +7,10 @@ import { IMaskMixin } from "react-imask";
 import * as T from "../../styles/typography";
 import * as V from "../../styles/variables"
 import { MdInfo } from "react-icons/md";
+import Tooltip from "../Tooltip"
 
 // To be used in the stories if I want to check for actions
 // argTypes={{ onChange: { action: 'onChange' }, onBlur: { action: 'onBlur' }} }  
-
-// @todo: Implement tooltip with icon after the Tooltip component creation
 
 const MainWrapper = styled.div`
     display: flex;
@@ -59,10 +58,11 @@ const IconWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 16px;
+    padding-right: 12px;
+    height: 100%;
 
-    svg {
         color: var(--text-body);
+    svg {
         cursor: pointer;
         width: 28px;
         height: 28px;
@@ -127,7 +127,11 @@ const TextField = props => {
                     }}
                     onChange={props.onChange}
                 />
-                {props.icon ? <IconWrapper>{props.icon === "info" ? <MdInfo /> : null}</IconWrapper> : null}
+                {props.icon ? (
+                    <Tooltip content={props.iconTooltipMessage} position={props.iconTooltipDirection}>
+                        <IconWrapper>{props.icon === "info" ? <MdInfo /> : null}</IconWrapper>
+                    </Tooltip>
+                ) : null}
             </InputWrapper>
             <InputValidationContainer>
                 {props.validationMessage ? (
@@ -186,6 +190,12 @@ TextField.propTypes = {
 
     /** Caso seja especificado, definirá que tipo de ícone deverá ser exibido dentro do componente. */
     icon: Proptypes.oneOf(["info"]),
+
+    /** Caso seja especificado, definirá qual mensagem deve aparecer dentro do tooltip ao clicar no ícone. */
+    iconTooltipMessage: Proptypes.string,
+
+    /** Caso seja especificado, definirá em qual direção deve ficar o tooltip ao clicar no ícone. */
+    iconTooltipDirection: Proptypes.oneOf(["top", "left", "right", "bottom"]),
 
     /** Caso seja especificado, definirá que o input deve tomar todo o espaço disponível dentro do container. */
     fullWidth: Proptypes.bool,
