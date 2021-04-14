@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
 import * as V from "../../styles/variables";
-import { MdDone } from "react-icons/md"
 
 const StepContainer = styled.div`
     display: flex;
@@ -18,7 +17,7 @@ const StepIcon = styled.svg`
         width: 12px;
         height: 12px;
     }
-    &[data-isActive="true"] {
+    &[data-active="true"] {
         color: var(--secondary);
     }
 `;
@@ -31,7 +30,7 @@ const LabelContainer = styled.span`
     text-align: center;
     color: var(--text-body);
 
-    &[data-isActive="true"] {
+    &[data-active="true"] {
         font-weight: 700;
         color: var(--secondary);
     }
@@ -40,12 +39,11 @@ const LabelContainer = styled.span`
 const Step = props => {
     return (
         <React.Fragment>
-            <StepContainer>
-                <StepIcon data-isActive={props.stepIsActive}>
+            <StepContainer {...props}>
+                <StepIcon data-active={props.active}>
                     <circle cx="6" cy="6" r="6"></circle>
-                    {props.stepIsFinished ? (<MdDone />) : (<text>{props.stepNumber}</text>)}
                 </StepIcon>
-                <LabelContainer data-isActive={props.stepIsActive}>{props.stepLabel}</LabelContainer>
+                <LabelContainer data-active={props.active}>{props.label}</LabelContainer>
             </StepContainer>
         </React.Fragment>
     );
@@ -53,16 +51,10 @@ const Step = props => {
 
 Step.propTypes = {
     /** Rótulo que identifica a etapa atual. */
-    stepLabel: Proptypes.string.isRequired,
+    label: Proptypes.node.isRequired,
 
     /** Caso seja `true`, o step será destacado como ativo. */
-    stepIsActive: Proptypes.bool.isRequired,
-
-    /** Caso seja `true`, o step será destacado com um ícone que indica a conclusão da etapa. */
-    stepIsFinished: Proptypes.bool.isRequired,
-
-    /** Identifica o número da etapa quando ela ainda não foi concluída. */
-    stepNumber: Proptypes.number.isRequired,
+    active: Proptypes.bool
 };
 
 export default Step;
