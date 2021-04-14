@@ -38,14 +38,12 @@ const LabelContainer = styled.span`
 
 const Step = props => {
     return (
-        <React.Fragment>
-            <StepContainer {...props}>
-                <StepIcon data-active={props.active}>
-                    <circle cx="6" cy="6" r="6"></circle>
-                </StepIcon>
-                <LabelContainer data-active={props.active}>{props.label}</LabelContainer>
-            </StepContainer>
-        </React.Fragment>
+        <StepContainer {...props}>
+            <StepIcon data-active={props.active}>
+                <circle cx="6" cy="6" r="6"></circle>
+            </StepIcon>
+            <LabelContainer data-active={props.active}>{props.label}</LabelContainer>
+        </StepContainer>
     );
 };
 
