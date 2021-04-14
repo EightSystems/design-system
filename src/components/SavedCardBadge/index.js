@@ -64,7 +64,7 @@ const ContentWrapperColumn = styled.div`
     padding: 0 ${V.Space.sm};
 `;
 const IconWrapper = styled.div`
-    img {
+    img, svg {
         width: ${V.Space.lg};
         height: ${V.Space.lg};
     }
