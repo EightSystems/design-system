@@ -83,7 +83,7 @@ const SavedCardBadge = props => {
         <MainWrapper onClick={props.onClick}>
             <ContentWrapperRow>
                 <IconWrapper>
-                    <img src={brandIconMapping[props.cardBrand.toLowerCase()]} />
+                    <img src={brandIconMapping[props.cardBrand.toLowerCase()]} alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`}/>
                 </IconWrapper>
                 <ContentWrapperColumn>
                     <HighlightedContentLabel>
