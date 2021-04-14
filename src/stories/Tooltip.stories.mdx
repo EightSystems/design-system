@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import Tooltip from "../components/Tooltip";
+import Button from "../components/Button";
+
+<Meta title="Atoms/Tooltip" component={Tooltip} />
+
+<style>{`
+  .flex-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin: 36px;
+  }
+`}</style>
+
+# Tooltip
+
+## Variantes
+
+<Canvas>
+    <Story name="Test Tooltip" args={{ content: "Thanks", direction: "top" }}>
+        {args => (
+            <div className="flex-container">
+                <Tooltip {...args}>
+                    <Button>Click me</Button>
+                </Tooltip>
+            </div>
+        )}
+    </Story>
+</Canvas>

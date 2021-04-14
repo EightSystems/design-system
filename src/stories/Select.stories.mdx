@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import Select from "../components/Select";
+
+<Meta title="Forms/Select" component={Select} />
+
+# Select
+
+Um componente wrapper e um controle de formulário completo que permite a seleção de opções. Ele é a junção dos elementos
+nativos `<label>` e `<select>`.
+
+Esse componente é comumente usado em formulários e caixas de diálogo.
+
+## Variantes
+
+O `Select` requer três propriedades obrigatórias, `name`, `label`, e `children`:
+
+<Canvas>
+    <Story name="Regular Select" args={{ name: "selectName", label: "Select Label" }}>
+        {args => (
+            <Select {...args}>
+                <option value="1">Default Option</option>
+                <option value="2">Option 2</option>
+            </Select>
+        )}
+    </Story>
+</Canvas>
+
+Variações de validação do componente podem ser alcançadas usando propriedades como `validationError` para indicar um
+erro de validação, e `validationSuccess` para indicar uma validação de sucesso, e `validationMessage` para inserir uma
+mensagem de ajuda durante a validação:
+
+### Validação com erro
+
+<Canvas>
+    <Story
+        name="Error Select"
+        args={{
+            name: "selectName",
+            label: "Select Label",
+            validationError: true,
+            validationMessage: "There seems to be something wrong with your select",
+        }}
+    >
+        {args => (
+            <Select {...args}>
+                <option value="1">Default Option</option>
+                <option value="2">Option 2</option>
+            </Select>
+        )}
+    </Story>
+</Canvas>
+
+### Validação com sucesso
+
+<Canvas>
+    <Story name="Success Select" args={{ name: "selectName", label: "Select Label", validationSuccess: true }}>
+        {args => (
+            <Select {...args}>
+                <option value="1">Default Option</option>
+                <option value="2">Option 2</option>
+            </Select>
+        )}
+    </Story>
+</Canvas>

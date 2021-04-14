@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import * as V from "../../styles/variables"
+import * as V from "../../styles/variables";
 
 const TooltipWrapper = styled.div`
     display: inline-block;
@@ -34,44 +34,44 @@ const TooltipWrapper = styled.div`
         margin-left: calc(6px * -1);
     }
 
-        .top {
-            top: calc(35px * -1);
-        }
-        .top::before {
-            top: 100%;
-            border-top-color: var(--secondary);
-        }
-        .right {
-            left: calc(100% + 35px);
-            top: 50%;
-            transform: translateX(0) translateY(-50%);
-        }
-        .right::before {
-            left: calc(6px * -1);
-            top: 50%;
-            transform: translateX(0) translateY(-50%);
-            border-right-color: var(--secondary);
-        }
-        .bottom {
-            bottom: calc(35px * -1);
-        }
-        .bottom::before {
-            bottom: 100%;
-            border-bottom-color: var(--secondary);
-        }
-        .left {
-            left: auto;
-            right: calc(100% + 35px);
-            top: 50%;
-            transform: translateX(0) translateY(-50%);
-        }
-        .left::before {
-            left: auto;
-            right: calc(6px * -2);
-            top: 50%;
-            transform: translateX(0) translateY(-50%);
-            border-left-color: var(--secondary);
-        }
+    .top {
+        top: calc(35px * -1);
+    }
+    .top::before {
+        top: 100%;
+        border-top-color: var(--secondary);
+    }
+    .right {
+        left: calc(100% + 35px);
+        top: 50%;
+        transform: translateX(0) translateY(-50%);
+    }
+    .right::before {
+        left: calc(6px * -1);
+        top: 50%;
+        transform: translateX(0) translateY(-50%);
+        border-right-color: var(--secondary);
+    }
+    .bottom {
+        bottom: calc(35px * -1);
+    }
+    .bottom::before {
+        bottom: 100%;
+        border-bottom-color: var(--secondary);
+    }
+    .left {
+        left: auto;
+        right: calc(100% + 35px);
+        top: 50%;
+        transform: translateX(0) translateY(-50%);
+    }
+    .left::before {
+        left: auto;
+        right: calc(6px * -2);
+        top: 50%;
+        transform: translateX(0) translateY(-50%);
+        border-left-color: var(--secondary);
+    }
 `;
 
 const Tooltip = props => {
@@ -89,14 +89,14 @@ const Tooltip = props => {
         setActive(false);
     };
 
+    const performAction = () => {
+        active ? hideTip() : showTip();
+    };
+
     return (
-        <TooltipWrapper onMouseEnter={showTip} onMouseLeave={hideTip}>
+        <TooltipWrapper onClick={performAction}>
             {props.children}
-            {active && (
-                <div className={`tooltip__tip ${props.direction || "top"}`}>
-                    {props.content}
-                </div>
-            )}
+            {active && <div className={`tooltip__tip ${props.direction || "top"}`}>{props.content}</div>}
         </TooltipWrapper>
     );
 };

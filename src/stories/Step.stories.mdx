@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import Step from "../components/Step";
+
+<Meta title="Atoms/Step" component={Step} />
+
+# Step
+
+> **Importante**: Esse componente faz parte de um componente composto e não foi projetado para ser usado de maneira independente.
+
+Um componente que representa uma etapa em uma conjunto de etapas do componente `<Stepper>`. Deve receber obrigatoriamente as propriedades `stepLabel`, `stepIsFirst`, e `stepIsActive`.
+
+<Canvas>
+    <Story name="Step (Não-ativo)" args={{ stepLabel: "Confirmação de pagamento", stepIsActive: false }}>
+        {args => <Step {...args} />}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Step (Ativo)" args={{ stepLabel: "Confirmação de pagamento", stepIsActive: true }}>
+        {args => <Step {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Step} />
+
+
+
