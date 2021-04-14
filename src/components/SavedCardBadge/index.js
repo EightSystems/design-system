@@ -68,6 +68,9 @@ const IconWrapper = styled.div`
         width: ${V.Space.lg};
         height: ${V.Space.lg};
     }
+    svg {
+        color: var(--primaryTint);
+    }
 `;
 const ContentLabel = styled.p`
     color: var(--text-primary);
