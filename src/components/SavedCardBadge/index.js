@@ -4,8 +4,36 @@ import Proptypes from "prop-types";
 
 import * as V from "../../styles/variables";
 import { BiChevronRight } from "react-icons/bi";
-import { FaCcVisa } from "react-icons/fa"
-import "../../assets/icons/mastercard.svg";
+
+const brandIconMapping = {
+    'amex': require('../../assets/icons/american-express.svg'),
+    'american-express': require('../../assets/icons/american-express.svg'),
+    'cirrus': require('../../assets/icons/cirrus.svg'),
+    'diners': require('../../assets/icons/diners.svg'),
+    'discover': require('../../assets/icons/discover.svg'),
+    'elo': require('../../assets/icons/elo.svg'),
+    'hiper': require('../../assets/icons/hiper.svg'),
+    'jcb': require('../../assets/icons/jcb.svg'),
+    'mastercard': require('../../assets/icons/mastercard.svg'),
+    'maestro': require('../../assets/icons/maestro.svg'),
+    'visa-electron': require('../../assets/icons/visa-electron.svg'),
+    'visa': require('../../assets/icons/visa.svg'),
+}
+
+const brandNameMapping = {
+    'amex': 'American Express',
+    'american-express': 'American Express',
+    'cirrus': 'Cirrus',
+    'diners': 'Diners Club',
+    'discover': 'Discover',
+    'elo': 'ELO',
+    'hiper': 'Hipercard',
+    'jcb': 'JCB',
+    'mastercard': 'MasterCard',
+    'maestro': 'Maestro',
+    'visa-electron': 'Visa Electron',
+    'visa': 'Visa',
+}
 
 // @WIP: This component is not yet finished, does not have a well-defined API, and it's not ready for production use.
 // @todo: Storybook can't handle SVG parsing as of now due to custom webpack-config. Will have to look into it later for the custom CcBrand Icons.
@@ -20,7 +48,7 @@ const MainWrapper = styled.div`
     max-width: 500px;
     cursor: pointer;
     transition: 150ms ease-in-out;
-    
+
     :hover {
         box-shadow: 0px 0px 8px rgba(0, 0, 50, 0.1);
     }
@@ -36,8 +64,7 @@ const ContentWrapperColumn = styled.div`
     padding: 0 ${V.Space.sm};
 `;
 const IconWrapper = styled.div`
-    svg {
-        color: var(--primaryTint);
+    img {
         width: ${V.Space.lg};
         height: ${V.Space.lg};
     }
@@ -53,14 +80,14 @@ const HighlightedContentLabel = styled(ContentLabel)`
 
 const SavedCardBadge = props => {
     return (
-        <MainWrapper>
+        <MainWrapper onClick={props.onClick}>
             <ContentWrapperRow>
                 <IconWrapper>
-                    <FaCcVisa />
+                    <img src={brandIconMapping[props.cardBrand.toLowerCase()]} alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`}/>
                 </IconWrapper>
                 <ContentWrapperColumn>
                     <HighlightedContentLabel>
-                        {props.cardBrand} terminado em {props.cardLastDigits}
+                        {brandNameMapping[props.cardBrand.toLowerCase()]} terminado em {props.cardLastDigits}
                     </HighlightedContentLabel>
                     {props.cardIdentifier ? <ContentLabel>{props.cardIdentifier}</ContentLabel> : null}
                 </ContentWrapperColumn>
@@ -71,5 +98,12 @@ const SavedCardBadge = props => {
         </MainWrapper>
     );
 };
+
+SavedCardBadge.propTypes = {
+    cardBrand: Proptypes.oneOf(Object.keys(brandNameMapping)).isRequired,
+    cardIdentifier: Proptypes.string,
+    cardLastDigits: Proptypes.string.isRequired,
+    onClick: Proptypes.func
+}
 
 export default SavedCardBadge;

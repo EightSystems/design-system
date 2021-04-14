@@ -6,7 +6,7 @@ import SavedCardBadge from "../components/SavedCardBadge";
 # SavedCardBadge
 
 <Canvas>
-    <Story name="SavedCardBadge">
-        <SavedCardBadge cardBrand="Mastercard" cardLastDigits="0132" cardIdentifier="Cartão da Firma" />
+    <Story name="SavedCardBadge" args={{cardBrand: 'maestro', cardLastDigits: '0132', cardIdentifier: 'Cartão da Firma'}} argTypes={{onClick: {action: 'onClick'}}}>
+        {args => <SavedCardBadge {...args} />}
     </Story>
 </Canvas>

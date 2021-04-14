@@ -58,8 +58,10 @@ const Select = props => {
     return (
         <MainWrapper>
             <InputLabel for={props.name}>{props.label}</InputLabel>
-            <SelectComponent 
+            <SelectComponent
                 {...props}
+                aria-label={props.label}
+                aria-required={props.required}
                 name={props.name}
                 placeholder={props.placeholder}
                 className={selectClasses}
