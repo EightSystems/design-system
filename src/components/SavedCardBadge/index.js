@@ -4,11 +4,11 @@ import Proptypes from "prop-types";
 
 import * as V from "../../styles/variables";
 import { BiChevronRight } from "react-icons/bi";
-import { FaCcVisa, FaCcMastercard } from "react-icons/fa"
+import { FaCcVisa } from "react-icons/fa"
 import "../../assets/icons/mastercard.svg";
 
 // @WIP: This component is not yet finished, does not have a well-defined API, and it's not ready for production use.
-// @todo: Storybook can't handle SVG parsing aas of now due to custom webpack-config. Will have to look into it later for the custom CcBrand Icons.
+// @todo: Storybook can't handle SVG parsing as of now due to custom webpack-config. Will have to look into it later for the custom CcBrand Icons.
 
 const MainWrapper = styled.div`
     display: flex;
@@ -62,7 +62,7 @@ const SavedCardBadge = props => {
                     <HighlightedContentLabel>
                         {props.cardBrand} terminado em {props.cardLastDigits}
                     </HighlightedContentLabel>
-                    <ContentLabel>{props.cardIdentifier}</ContentLabel>
+                    {props.cardIdentifier ? <ContentLabel>{props.cardIdentifier}</ContentLabel> : null}
                 </ContentWrapperColumn>
             </ContentWrapperRow>
             <IconWrapper>
