@@ -101,6 +101,8 @@ const TextField = props => {
             <InputWrapper className={inputClasses}>
                 <MaskedStyledInput
                     {...props}
+                    aria-label={props.label}
+                    aria-required={props.required}
                     name={props.name}
                     placeholder={props.placeholder}
                     type={props.type}
