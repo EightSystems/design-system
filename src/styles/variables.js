@@ -10,7 +10,7 @@ export const Space = {
 };
 
 export const Color = {
-    background: `#fcfcfc`,
+    background: `#F7F9FC`,
     textPrimary: `090909`,
     textBody: `#68717A`,
 
@@ -19,7 +19,7 @@ export const Color = {
     primaryTint: `#1a2043`,
     primaryContrast: `#f6f6f6`,
 
-    secondary: `#109bff`,
+    secondary: `#005694`,
     secondaryShade: `#36abe0`,
     secondaryTint: `#50c8ff`,
     secondaryContrast: `#f6f6f6`,

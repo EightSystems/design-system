@@ -5,18 +5,20 @@ import Step from "../components/Step";
 
 # Step
 
-> **Importante**: Esse componente faz parte de um componente composto e não foi projetado para ser usado de maneira independente.
+> **Importante**: Esse componente faz parte de um componente composto e não foi projetado para ser usado de maneira
+> independente.
 
-Um componente que representa uma etapa em uma conjunto de etapas do componente `<Stepper>`. Deve receber obrigatoriamente as propriedades `stepLabel`, `stepIsFirst`, e `stepIsActive`.
+Um componente que representa uma etapa em uma conjunto de etapas do componente `<Stepper>`. Deve receber
+obrigatoriamente as propriedades `label`, e `active`.
 
 <Canvas>
-    <Story name="Step (Não-ativo)" args={{ stepLabel: "Confirmação de pagamento", stepIsActive: false }}>
+    <Story name="Step (Não-ativo)" args={{ label: "Confirmação de pagamento", active: false }}>
         {args => <Step {...args} />}
     </Story>
 </Canvas>
 
 <Canvas>
-    <Story name="Step (Ativo)" args={{ stepLabel: "Confirmação de pagamento", stepIsActive: true }}>
+    <Story name="Step (Ativo)" args={{ label: "Confirmação de pagamento", active: true }}>
         {args => <Step {...args} />}
     </Story>
 </Canvas>
@@ -24,6 +26,3 @@ Um componente que representa uma etapa em uma conjunto de etapas do componente `
 ## Props
 
 <ArgsTable of={Step} />
-
-
-

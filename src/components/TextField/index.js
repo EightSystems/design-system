@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
+import { uniqueId } from 'lodash';
 import classnames from "classnames";
 import { IMaskMixin } from "react-imask";
 
@@ -95,12 +96,14 @@ const TextField = props => {
         "input--success": props.validationSuccess,
     });
 
+    const elementUniqueId = uniqueId(props.name);
     return (
         <MainWrapper>
-            <InputLabel for={props.name}>{props.label}</InputLabel>
+            <InputLabel for={elementUniqueId}>{props.label}</InputLabel>
             <InputWrapper className={inputClasses}>
                 <MaskedStyledInput
                     {...props}
+                    id={elementUniqueId}
                     aria-label={props.label}
                     aria-required={props.required}
                     name={props.name}
@@ -150,7 +153,7 @@ TextField.propTypes = {
     label: Proptypes.string.isRequired,
 
     /** Tipo do elemento `<input>`. Deve ser um atributo `type` valido para o elemento `<input>` do HTML5, e aplicável para inputs de texto. */
-    type: Proptypes.oneOf(["password", "email"]),
+    type: Proptypes.oneOf(["password", "email", "text", "tel", "number", "search", "url"]),
 
     /** A dica curta exibida na entrada antes que o usuário insira um valor. */
     placeholder: Proptypes.string,

@@ -4,9 +4,9 @@ import Step from "../components/Step";
 
 <Meta title="Molecules/Stepper" component={Stepper} />
 
-# Stepper (WIP)
+# Stepper
 
-O stepper exibe o progresso por meio de uma sequência de etapas lógicas. 
+O stepper exibe o progresso por meio de uma sequência de etapas lógicas lineares.
 
 <Canvas>
     <Story name="Stepper Regular" args={{ activeStep: 1 }}>
@@ -19,3 +19,44 @@ O stepper exibe o progresso por meio de uma sequência de etapas lógicas.
         )}
     </Story>
 </Canvas>
+
+Para montar um Stepper é necessário que o componente Stepper encapsule dois ou mais componentes [`<Step>`](),
+responsáveis por criar cada uma das etapas do Step. A composição básica pode ser alcançada da seguinte forma:
+
+```jsx
+import React from "react";
+import { Step, Stepper, Button } from "@8-sistemas/design-system";
+
+export default function ComponentThatWillUseStepper() {
+    const [activeStep, setActiveStep] = useState(0);
+
+    const handleNext = () => {
+        setActiveStep(prevActiveStep => prevActiveStep + 1);
+    };
+
+    const handleBack = () => {
+        setActiveStep(prevActiveStep => prevActiveStep - 1);
+    };
+
+    const handleReset = () => {
+        setActiveStep(0);
+    };
+
+    return (
+        <Stepper activeStep={activeStep}>
+            <Step label='Cobrança' />
+            <Step label='Meio de pagamento' />
+            <Step label='Revisão' />
+        </Stepper>
+
+        {/* You can choose to render different components, or navigate to different routes based on the activeStep state */}
+
+        <Button disabled={activeStep === 0} onClick={handleBack}>Back</Button>
+        <Button onClick={handleNext}>Next</Button>
+    )
+}
+```
+
+## Props
+
+<ArgsTable of={Stepper} />
