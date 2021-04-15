@@ -44,7 +44,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "storybook": "start-storybook -p 6006",
-        "build": "npx babel --root-mode upward src -d dist --ignore **/*.stories.mdx",
+        "build": "npx babel --root-mode upward src -d dist --ignore **/*.stories.mdx --no-comments",
         "build-storybook": "build-storybook",
         "format": "prettier --write \"**/*.{js,jsx,json,mdx}\""
     },
