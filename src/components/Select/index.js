@@ -12,10 +12,10 @@ const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
     .input--error {
-        border: solid 1.5px var(--danger);
+        border: ${V.Border.danger};
     }
     .input--success {
-        border: solid 1.5px var(--success);
+        border: ${V.Border.success};
     }
 `;
 const InputLabel = styled.label`
@@ -26,12 +26,12 @@ const SelectComponent = styled.select`
     ${T.FormInput};
     padding: 12px 12px;
     width: 100%;
-    border: solid 1.5px var(--gray);
+    border: ${V.Border.default};
     border-radius: 4px;
     transition: 150ms ease-in-out;
     :focus {
         outline: none;
-        border: solid 1.5px var(--secondary);
+        border: ${V.Border.hover};
         box-shadow: 0px 0px 8px rgba(0, 7, 46, 0.2);
     }
 `;
