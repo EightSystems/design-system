@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import PaymentMethodItem from "../components/PaymentMethodItem";
+
+<Meta title="Molecules/PaymentMethodItem" component={PaymentMethodItem} />
+
+# PaymentMethodItem
+
+Componente para representar métodos de pagamento. Deve receber obrigatóriamente as propriedades: `paymentMethod` e `paymentMethodIcon`.
+
+<style>{`
+  .flex-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    max-width: 270px;
+  }
+`}</style>
+
+<Canvas>
+    <Story
+        name="Regular Payment Method Item"
+        args={{ paymentMethod: "Cartão de Crédito", paymentMethodDescription: "Processamento instântaneo e seguro.", paymentMethodIcon: "creditCard" }}
+        argTypes={{ onClick: { action: "onClick" } }}
+    >
+        {args => <div className="flex-container">
+          <PaymentMethodItem {...args} />
+        </div>}
+    </Story>
+</Canvas>
+
+<ArgsTable of={PaymentMethodItem} />
