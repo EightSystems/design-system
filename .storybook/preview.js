@@ -14,17 +14,17 @@ const GlobalWrapper = storyFn => (
 addDecorator(GlobalWrapper);
 
 export const parameters = {
-  backgrounds: {
-    default: 'ochopag',
-    values: [
-      {
-        name: 'ochopag',
-        value: '#F7F9FC',
+    backgrounds: {
+        default: "ochopag",
+        values: [
+            {
+                name: "ochopag",
+                value: "#F7F9FC",
+            },
+            {
+                name: "white",
+                value: "#FFFFFF",
+            },
+        ],
     },
-    {
-      name: 'white',
-      value: '#FFFFFF',
-    }
-    ],
-  },
 };

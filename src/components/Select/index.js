@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
-import { uniqueId } from 'lodash';
+import { uniqueId } from "lodash";
 import classnames from "classnames";
 
 import { MdInfo } from "react-icons/md";

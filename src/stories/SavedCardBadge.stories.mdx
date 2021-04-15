@@ -5,12 +5,27 @@ import SavedCardBadge from "../components/SavedCardBadge";
 
 # SavedCardBadge
 
+Componente que exibe um método de pagamento préviamente usado pelo usuário, e pode ser clicado para que o usuário troque o método de pagamento.
+
+<style>{`
+  .flex-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+  }
+`}</style>
+
 <Canvas>
     <Story
-        name="SavedCardBadge"
+        name="Regular SavedCardBadge"
         args={{ cardBrand: "maestro", cardLastDigits: "0132", cardIdentifier: "Cartão da Firma" }}
         argTypes={{ onClick: { action: "onClick" } }}
     >
-        {args => <SavedCardBadge {...args} />}
+        {args => <div className="flex-container">
+            <SavedCardBadge {...args} />
+        </div>}
     </Story>
 </Canvas>
+
+<ArgsTable of={SavedCardBadge} />
