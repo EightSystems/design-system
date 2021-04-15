@@ -9,26 +9,25 @@ const StepperContainer = styled.div`
     justify-content: space-around;
 `;
 
-const Stepper = React.forwardRef(
-    ({children, ...props}, componentRef) => (
-        <StepperContainer {...props} className={props.className} ref={componentRef}>
-            {children && children.map((step, index) => {
+const Stepper = React.forwardRef(({ children, ...props }, componentRef) => (
+    <StepperContainer {...props} className={props.className} ref={componentRef}>
+        {children &&
+            children.map((step, index) => {
                 return React.cloneElement(step, {
                     ...step.props,
                     index,
-                    active: props.activeStep === index
+                    active: props.activeStep === index,
                 });
             })}
-        </StepperContainer>
-    )
-);
+    </StepperContainer>
+));
 
 Stepper.propTypes = {
     /** Dois ou mais componentes `<Step>` */
     children: Proptypes.node.isRequired,
 
-   /** Define o passo ativo (baseado no index zero). */
-   activeStep: Proptypes.number,
-}
+    /** Define o passo ativo (baseado no index zero). */
+    activeStep: Proptypes.number,
+};
 
 export default Stepper;

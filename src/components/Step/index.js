@@ -52,7 +52,7 @@ Step.propTypes = {
     label: Proptypes.node.isRequired,
 
     /** Caso seja `true`, o step será destacado como ativo. */
-    active: Proptypes.bool
+    active: Proptypes.bool,
 };
 
 export default Step;

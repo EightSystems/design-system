@@ -65,7 +65,9 @@ const Select = props => {
                 name={props.name}
                 placeholder={props.placeholder}
                 className={selectClasses}
-            >{props.children}</SelectComponent>
+            >
+                {props.children}
+            </SelectComponent>
             <InputValidationContainer>
                 {props.validationMessage ? (
                     <React.Fragment>

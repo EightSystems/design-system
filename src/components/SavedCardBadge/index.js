@@ -6,34 +6,34 @@ import * as V from "../../styles/variables";
 import { BiChevronRight } from "react-icons/bi";
 
 const brandIconMapping = {
-    'amex': require('../../assets/icons/american-express.svg'),
-    'american-express': require('../../assets/icons/american-express.svg'),
-    'cirrus': require('../../assets/icons/cirrus.svg'),
-    'diners': require('../../assets/icons/diners.svg'),
-    'discover': require('../../assets/icons/discover.svg'),
-    'elo': require('../../assets/icons/elo.svg'),
-    'hiper': require('../../assets/icons/hiper.svg'),
-    'jcb': require('../../assets/icons/jcb.svg'),
-    'mastercard': require('../../assets/icons/mastercard.svg'),
-    'maestro': require('../../assets/icons/maestro.svg'),
-    'visa-electron': require('../../assets/icons/visa-electron.svg'),
-    'visa': require('../../assets/icons/visa.svg'),
-}
+    amex: require("../../assets/icons/american-express.svg"),
+    "american-express": require("../../assets/icons/american-express.svg"),
+    cirrus: require("../../assets/icons/cirrus.svg"),
+    diners: require("../../assets/icons/diners.svg"),
+    discover: require("../../assets/icons/discover.svg"),
+    elo: require("../../assets/icons/elo.svg"),
+    hiper: require("../../assets/icons/hiper.svg"),
+    jcb: require("../../assets/icons/jcb.svg"),
+    mastercard: require("../../assets/icons/mastercard.svg"),
+    maestro: require("../../assets/icons/maestro.svg"),
+    "visa-electron": require("../../assets/icons/visa-electron.svg"),
+    visa: require("../../assets/icons/visa.svg"),
+};
 
 const brandNameMapping = {
-    'amex': 'American Express',
-    'american-express': 'American Express',
-    'cirrus': 'Cirrus',
-    'diners': 'Diners Club',
-    'discover': 'Discover',
-    'elo': 'ELO',
-    'hiper': 'Hipercard',
-    'jcb': 'JCB',
-    'mastercard': 'MasterCard',
-    'maestro': 'Maestro',
-    'visa-electron': 'Visa Electron',
-    'visa': 'Visa',
-}
+    amex: "American Express",
+    "american-express": "American Express",
+    cirrus: "Cirrus",
+    diners: "Diners Club",
+    discover: "Discover",
+    elo: "ELO",
+    hiper: "Hipercard",
+    jcb: "JCB",
+    mastercard: "MasterCard",
+    maestro: "Maestro",
+    "visa-electron": "Visa Electron",
+    visa: "Visa",
+};
 
 // @WIP: This component is not yet finished, does not have a well-defined API, and it's not ready for production use.
 // @todo: Storybook can't handle SVG parsing as of now due to custom webpack-config. Will have to look into it later for the custom CcBrand Icons.
@@ -64,7 +64,8 @@ const ContentWrapperColumn = styled.div`
     padding: 0 ${V.Space.sm};
 `;
 const IconWrapper = styled.div`
-    img, svg {
+    img,
+    svg {
         width: ${V.Space.lg};
         height: ${V.Space.lg};
     }
@@ -86,7 +87,10 @@ const SavedCardBadge = props => {
         <MainWrapper onClick={props.onClick}>
             <ContentWrapperRow>
                 <IconWrapper>
-                    <img src={brandIconMapping[props.cardBrand.toLowerCase()]} alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`}/>
+                    <img
+                        src={brandIconMapping[props.cardBrand.toLowerCase()]}
+                        alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`}
+                    />
                 </IconWrapper>
                 <ContentWrapperColumn>
                     <HighlightedContentLabel>
@@ -96,7 +100,7 @@ const SavedCardBadge = props => {
                 </ContentWrapperColumn>
             </ContentWrapperRow>
             <IconWrapper>
-                <BiChevronRight className="arrow-icon"/>
+                <BiChevronRight className="arrow-icon" />
             </IconWrapper>
         </MainWrapper>
     );
@@ -106,7 +110,7 @@ SavedCardBadge.propTypes = {
     cardBrand: Proptypes.oneOf(Object.keys(brandNameMapping)).isRequired,
     cardIdentifier: Proptypes.string,
     cardLastDigits: Proptypes.string.isRequired,
-    onClick: Proptypes.func
-}
+    onClick: Proptypes.func,
+};
 
 export default SavedCardBadge;
