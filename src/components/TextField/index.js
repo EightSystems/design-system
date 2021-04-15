@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
-import { uniqueId } from 'lodash';
+import { uniqueId } from "lodash";
 import classnames from "classnames";
 import { IMaskMixin } from "react-imask";
 
@@ -10,24 +10,18 @@ import * as V from "../../styles/variables";
 import { MdInfo } from "react-icons/md";
 import Tooltip from "../Tooltip";
 
-// To be used in the stories if I want to check for actions
-// argTypes={{ onChange: { action: 'onChange' }, onBlur: { action: 'onBlur' }} }
-
 const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
     .input--focused {
-        border: solid 1.5px var(--secondary);
-        box-shadow: 0px 0px 8px rgba(0, 7, 46, 0.2);
+        border: ${V.Border.hover};
+        box-shadow: ${V.BoxShadow.default};
     }
     .input--error {
-        border: solid 1.5px var(--danger);
+        border: ${V.Border.danger};
     }
     .input--success {
-        border: solid 1.5px var(--success);
-    }
-    .input__full-width {
-        width: 100%;
+        border: ${V.Border.success};
     }
 `;
 const InputLabel = styled.label`
@@ -36,8 +30,7 @@ const InputLabel = styled.label`
 `;
 const InputWrapper = styled.div`
     display: flex;
-    width: 50%;
-    border: solid 1.5px var(--gray);
+    border: ${V.Border.default};
     border-radius: 4px;
     background: #fcfcfc;
     transition: 150ms ease-in-out;
@@ -91,7 +84,6 @@ const TextField = props => {
 
     const inputClasses = classnames({
         "input--focused": isFocused === true,
-        "input__full-width": props.fullWidth,
         "input--error": props.validationError,
         "input--success": props.validationSuccess,
     });
@@ -196,14 +188,10 @@ TextField.propTypes = {
 
     /** Caso seja especificado, definirá em qual direção deve ficar o tooltip ao clicar no ícone. */
     iconTooltipDirection: Proptypes.oneOf(["top", "left", "right", "bottom"]),
-
-    /** Caso seja especificado, definirá que o input deve tomar todo o espaço disponível dentro do container. */
-    fullWidth: Proptypes.bool,
 };
 
 TextField.defaultProps = {
     value: "",
-    fullWidth: false,
 };
 
 export default TextField;
