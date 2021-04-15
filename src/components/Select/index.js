@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
+import { uniqueId } from 'lodash';
 import classnames from "classnames";
 
 import { MdInfo } from "react-icons/md";
@@ -55,11 +56,14 @@ const Select = props => {
         "input--success": props.validationSuccess,
     });
 
+    const elementUniqueId = uniqueId(props.name);
+
     return (
         <MainWrapper>
-            <InputLabel for={props.name}>{props.label}</InputLabel>
+            <InputLabel for={elementUniqueId}>{props.label}</InputLabel>
             <SelectComponent
                 {...props}
+                id={elementUniqueId}
                 aria-label={props.label}
                 aria-required={props.required}
                 name={props.name}

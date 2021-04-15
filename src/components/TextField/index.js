@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
+import { uniqueId } from 'lodash';
 import classnames from "classnames";
 import { IMaskMixin } from "react-imask";
 
@@ -95,12 +96,14 @@ const TextField = props => {
         "input--success": props.validationSuccess,
     });
 
+    const elementUniqueId = uniqueId(props.name);
     return (
         <MainWrapper>
-            <InputLabel for={props.name}>{props.label}</InputLabel>
+            <InputLabel for={elementUniqueId}>{props.label}</InputLabel>
             <InputWrapper className={inputClasses}>
                 <MaskedStyledInput
                     {...props}
+                    id={elementUniqueId}
                     aria-label={props.label}
                     aria-required={props.required}
                     name={props.name}
