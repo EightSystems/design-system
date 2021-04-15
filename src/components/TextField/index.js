@@ -150,7 +150,7 @@ TextField.propTypes = {
     label: Proptypes.string.isRequired,
 
     /** Tipo do elemento `<input>`. Deve ser um atributo `type` valido para o elemento `<input>` do HTML5, e aplicável para inputs de texto. */
-    type: Proptypes.oneOf(["password", "email"]),
+    type: Proptypes.oneOf(["password", "email", "text", "tel", "number", "search", "url"]),
 
     /** A dica curta exibida na entrada antes que o usuário insira um valor. */
     placeholder: Proptypes.string,
