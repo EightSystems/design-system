@@ -35,22 +35,20 @@ const brandNameMapping = {
     visa: "Visa",
 };
 
-// @WIP: This component is not yet finished, does not have a well-defined API, and it's not ready for production use.
-// @todo: Storybook can't handle SVG parsing as of now due to custom webpack-config. Will have to look into it later for the custom CcBrand Icons.
-
 const MainWrapper = styled.div`
+    background: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: solid 1.5px var(--gray);
+    border: ${V.Border.default};
     border-radius: 4px;
     padding: ${V.Space.default} ${V.Space.default};
-    max-width: 500px;
     cursor: pointer;
     transition: 150ms ease-in-out;
 
     :hover {
-        box-shadow: 0px 0px 8px rgba(0, 0, 50, 0.1);
+        border: ${V.Border.hover};
+        box-shadow: ${V.BoxShadow.default};
     }
 `;
 const ContentWrapperRow = styled.div`
@@ -64,13 +62,13 @@ const ContentWrapperColumn = styled.div`
     padding: 0 ${V.Space.sm};
 `;
 const IconWrapper = styled.div`
+    display: flex;
+    align-items: center;
     img,
     svg {
         width: ${V.Space.lg};
         height: ${V.Space.lg};
-    }
-    svg {
-        color: var(--primaryTint);
+        color: var(--secondary);
     }
 `;
 const ContentLabel = styled.p`

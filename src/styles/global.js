@@ -6,7 +6,7 @@ import * as V from "./variables";
 const GlobalStyles = createGlobalStyle`
     ${fontFaces};
 
-    html {
+    :root {
         --background: ${V.Color.background};
         --text-primary: ${V.Color.textPrimary};
         --text-body: ${V.Color.textBody};
@@ -34,6 +34,8 @@ const GlobalStyles = createGlobalStyle`
         --dangerTint: ${V.Color.dangerTint};
         --success: ${V.Color.success};
         --pending: ${V.Color.pending};
+
+        --white: ${V.Color.white};
     }
 
     html, body, div, span, applet, object, iframe,
