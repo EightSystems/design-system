@@ -2,7 +2,7 @@
     "name": "@8sistemas/design-system",
     "version": "0.0.1",
     "engines": {
-        "node": "14.*.*"
+	"node": ">= 10"
     },
     "description": "A design system used by internal projects at EightSystem, built with Storybook, React and Sass",
     "repository": {
