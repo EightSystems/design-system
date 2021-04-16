@@ -11,7 +11,7 @@ export const Space = {
 
 export const Color = {
     background: `#F7F9FC`,
-    textPrimary: `090909`,
+    textPrimary: `#090909`,
     textBody: `#68717A`,
 
     primary: `#00072e`,
@@ -37,12 +37,13 @@ export const Color = {
     gray: `#b4b6c0`,
     grayShade: `#808289`,
     grayTint: `#9d9fa6`,
+    lightGray: `#E7E9F2`,
 
-    white: `#ffffff`,
+    white: `#FFFFFF`,
 };
 
 export const BoxShadow = {
-    default: `0px 0px 8px rgba(0, 0, 30, 0.1)`,
+    default: `0px 0px 8px rgba(0, 0, 30, 0.15)`,
 }
 
 export const Border = {
@@ -50,6 +51,7 @@ export const Border = {
     hover: `solid 1px var(--secondary)`,
     danger: `solid 1px var(--danger)`,
     success: `solid 1px var(--success)`,
+    light: `solid 1px var(--lightGray)`,
 }
 
 export const FontFaces = {

@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
         --gray: ${V.Color.gray};
         --grayShade: ${V.Color.grayShade};
         --grayTint: ${V.Color.grayTint};
+        --lightGray: ${V.Color.lightGray};
 
         --danger: ${V.Color.danger};
         --dangerTint: ${V.Color.dangerTint};
@@ -51,6 +52,7 @@ const GlobalStyles = createGlobalStyle`
   figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
+    color: var(--text-primary);
     border: 0;
     font: inherit;
     font-size: 100%;
