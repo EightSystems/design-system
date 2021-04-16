@@ -25,7 +25,6 @@ const MainWrapper = styled.div`
         box-shadow: ${V.BoxShadow.default};
     }
 `;
-
 const IconWrapper = styled.div`
     img,
     svg {
