@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
+import { uniqueId } from "lodash";
 
 const StepperContainer = styled.div`
     display: flex;
@@ -13,6 +14,7 @@ const Stepper = React.forwardRef(({ children, ...props }, componentRef) => (
             children.map((step, index) => {
                 return React.cloneElement(step, {
                     ...step.props,
+                    key: uniqueId("id-accordion"),
                     index,
                     active: props.activeStep === index,
                 });

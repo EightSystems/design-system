@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
 
+import { isFunction } from 'lodash';
 import { Collapse } from "react-collapse";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import * as V from "../../styles/variables";
@@ -38,15 +39,21 @@ const AccordionItemIconWrapper = styled.div`
 `;
 
 const AccordionItem = props => {
+    const isOpen = props.isOpen ? (
+        isFunction(props.isOpen) ?
+            props.isOpen(props.id || props.label) :
+            props.isOpen
+    ) : false;
+
     return (
         <AccordionWrapper>
-            <AccordionItemContainer>
+            <AccordionItemContainer onClick={props.onClick ? () => props.onClick(props.id || props.label) : null}>
                 <AccordionItemIconWrapper>
-                    {props.isOpen ? <BiChevronDown /> : <BiChevronRight />}
+                    {isOpen ? <BiChevronDown /> : <BiChevronRight />}
                 </AccordionItemIconWrapper>
                 <AccordionItemLabel>{props.label}</AccordionItemLabel>
             </AccordionItemContainer>
-            <Collapse isOpened={props.isOpen}>{props.children}</Collapse>
+            <Collapse isOpened={isOpen}>{props.children}</Collapse>
             <AccordionItemUnderline />
         </AccordionWrapper>
     );
@@ -60,7 +67,10 @@ AccordionItem.propTypes = {
     label: Proptypes.string.isRequired,
 
     /** Define se o `<AccordionItem>` está aberto ou não. É controlado através do index repassado pelo componente parente `<Accordion>`. */
-    isOpen: Proptypes.bool.isRequired,
+    isOpen: Proptypes.oneOfType([
+        Proptypes.bool,
+        Proptypes.func
+    ]),
 };
 
 export default AccordionItem;
