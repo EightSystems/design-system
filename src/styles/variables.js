@@ -44,7 +44,7 @@ export const Color = {
 
 export const BoxShadow = {
     default: `0px 0px 8px rgba(0, 0, 30, 0.15)`,
-}
+};
 
 export const Border = {
     default: `solid 1px var(--grayTint)`,
@@ -52,7 +52,7 @@ export const Border = {
     danger: `solid 1px var(--danger)`,
     success: `solid 1px var(--success)`,
     light: `solid 1px var(--lightGray)`,
-}
+};
 
 export const FontFaces = {
     Poppins:
