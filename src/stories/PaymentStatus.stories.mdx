@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import PaymentStatus from "../components/PaymentStatus";
+
+<Meta title="Molecules/PaymentStatus" component={PaymentStatus} />
+
+# PaymentStatus
+
+Usado para representar o status atual de uma transação. Suporta a demonstração de estados de sucesso, falha, e pendência.
+
+<Canvas>
+    <Story
+        name="PaymentStatus"
+        args={{
+            status: "approved",
+            statusTitle: "Pagamento Aprovado",
+            statusDescription: "Seu pagamento à Alena Aragão realizado com sucesso.",
+            currency: "BRL",
+            currencyValue: 150,
+        }}
+    >
+        {args => <PaymentStatus {...args} />}
+    </Story>
+</Canvas>
+
+<ArgsTable of={PaymentStatus} />
