@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import Accordion from "../components/Accordion";
 import AccordionItem from "../components/AccordionItem";
@@ -8,11 +8,14 @@ import PaymentMethodItem from "../components/PaymentMethodItem";
 
 # Accordion
 
+Agrupam conjuntos de funcionalidades de um mesmo grupo que pode ser expandido ou colapsado. Quando um dos itens expande,
+todos os outros itens fecham.
+
 <Canvas>
     <Story name="Accordion" args={{ initialIndex: "credit-card" }}>
-        {args =>
+        {args => (
             <Accordion {...args}>
-                {(childProps) => {
+                {childProps => {
                     return (
                         <Fragment>
                             <AccordionItem label="Cartão de crédio/débito" id="credit-card" {...childProps}>
@@ -33,8 +36,56 @@ import PaymentMethodItem from "../components/PaymentMethodItem";
                     );
                 }}
             </Accordion>
-        }
+        )}
     </Story>
 </Canvas>
 
+## Variantes
 
+O `<Accordion>` recebe obrigatoriamente as propriedades `children` e `initialIndex`.
+
+Para evitar o que o componente seja remontado em cada nova interação, `children` deve ser uma função que retorna os
+items do `<Accordion>` com o componente `<AccordionItem>` (veja a referência de API de desse componente aqui).
+
+A propriedade `initialIndex` controla o primeiro item do Accordion que deve estar aberto quando o componente é montado
+pela primeira vez, e deve ser uma string correspondente à propriedade `id` do componente `<AccordionItem>`.
+
+A composição de um Accordion completo deve ser similar ao seguinte fragmento de código:
+
+```jsx
+import React from "react";
+import { Accordion, AccordionItem, PaymentMethodItem } from "@8sistemas/design-system";
+
+const ComponentWithAccordion = () => {
+    return (
+        <Accordion initialIndex="credit-card">
+            {childProps => {
+                return (
+                    <React.Fragment>
+                        <AccordionItem label="Cartão de crédio/débito" id="credit-card" {...childProps}>
+                            <PaymentMethodItem
+                                paymentMethod="Cartão de crédito"
+                                paymentMethodDescription="Pagamento instântaneo e seguro"
+                                paymentMethodIcon="creditCard"
+                            />
+                        </AccordionItem>
+                        <AccordionItem label="Boleto bancário" id="boleto" {...childProps}>
+                            <PaymentMethodItem
+                                paymentMethod="Boleto bancário"
+                                paymentMethodDescription="Pagamento aprovado em até dois dias úteis"
+                                paymentMethodIcon="bankSlip"
+                            />
+                        </AccordionItem>
+                    </React.Fragment>
+                );
+            }}
+        </Accordion>
+    );
+};
+
+export default ComponentWithAccordion;
+```
+
+## Props
+
+<ArgsTable of={Accordion} />

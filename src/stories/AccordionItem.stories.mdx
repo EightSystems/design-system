@@ -22,7 +22,7 @@ Um componente que representa um item colapsável dentro de um conjunto (veja mai
 
 <Canvas>
     <Story name="AccordionItem" args={{ isOpen: true, label: "Cartões de Crédito/Débito" }}>
-        {args =>
+        {args => (
             <AccordionItem {...args}>
                 <div className="content-container">
                     <PaymentMethodItem
@@ -37,10 +37,10 @@ Um componente que representa um item colapsável dentro de um conjunto (veja mai
                     />
                 </div>
             </AccordionItem>
-        }
+        )}
     </Story>
 </Canvas>
 
-## Props 
+## Props
 
 <ArgsTable of={AccordionItem} />
