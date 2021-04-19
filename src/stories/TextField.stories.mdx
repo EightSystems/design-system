@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { CodeSandbox } from "mdx-embed";
 import TextField from "../components/TextField";
 
 <Meta title="Forms/TextField" component={TextField} />
@@ -94,6 +95,14 @@ informações sobre as propriedades disponíveis para o controle de máscaras no
             min={new Date(1900, 0, 1)}
             max={new Date(2010, 0, 1)}
         />
+    </Story>
+</Canvas>
+
+## Integração com Formik:
+
+<Canvas>
+    <Story name="Formik">
+        <CodeSandbox codeSandboxId="snowy-butterfly-4sv3m" />
     </Story>
 </Canvas>
 

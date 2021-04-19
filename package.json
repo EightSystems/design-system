@@ -2,7 +2,7 @@
     "name": "@8sistemas/design-system",
     "version": "0.0.1",
     "engines": {
-	"node": ">= 10"
+        "node": ">= 10"
     },
     "description": "A design system used by internal projects at EightSystem, built with Storybook, React and Sass",
     "repository": {
@@ -32,6 +32,7 @@
         "babel-loader": "^8.1.0",
         "babel-plugin-styled-components": "^1.12.0",
         "babel-preset-minify": "^0.5.1",
+        "mdx-embed": "^0.0.19",
         "path": "^0.12.7",
         "prettier": "^2.2.1",
         "prop-types": "^15.7.2",
@@ -39,6 +40,7 @@
         "react-dom": "^17.0.1",
         "react-icons": "^4.2.0",
         "react-scripts": "^3.4.1",
+        "storybook-addon-mdx-embed": "^0.0.19",
         "styled-components": "^4.4.1"
     },
     "scripts": {

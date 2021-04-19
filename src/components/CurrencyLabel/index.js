@@ -1,19 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
-import * as T from "../../styles/typography";
+import * as V from "../../styles/variables";
 import getUserLanguage from "../../utils/getUserLanguage";
 
 require("intl");
 
 const CurrencyLabelWrapper = styled.h1`
-    ${T.CurrencyLabel};
+    font-family: ${V.FontFaces.Poppins};
+    font-size: 36px;
+    font-weight: 700;
     ${props => (props.size ? `font-size: ${props.size}${props.sizeUnit}` : "")};
+
+    &[data-color="light"] {
+        color: var(--primaryContrast);
+    }
+    &[data-color="dark"] {
+        color: var(--text-primary);
+    }
 `;
 
-const CurrencyLabel = ({ currency, value, size, sizeUnit }) => {
+const CurrencyLabel = ({ currency, value, size, sizeUnit, color }) => {
     return (
-        <CurrencyLabelWrapper size={size} sizeUnit={sizeUnit}>
+        <CurrencyLabelWrapper size={size} sizeUnit={sizeUnit} data-color={color}>
             {new Intl.NumberFormat(getUserLanguage(), { style: "currency", currency }).format(value)}
         </CurrencyLabelWrapper>
     );
@@ -22,9 +31,6 @@ const CurrencyLabel = ({ currency, value, size, sizeUnit }) => {
 CurrencyLabel.defaultProps = {
     sizeUnit: "px",
 };
-
-// - `size(number)` - O tamanho da fonte na unidade abaixo, caso não seja enviado, o tamanho padrão do tema é usado.
-// - `sizeUnit(['px', 'em', '%'])` - A unidade do tamanho da fonte, por padrão é em `px`
 
 CurrencyLabel.propTypes = {
     /** A unidade monetária que deve ser utilizada na conversão. Os valores possíveis são os códigos de moeda ISO 4217, como "USD" para o dólar americado, ou "BRL" para o real brasileiro. Consulte a lista de moedas disponíveis [aqui](https://www.currency-iso.org/dam/downloads/lists/list_one.xml) */
@@ -38,6 +44,9 @@ CurrencyLabel.propTypes = {
 
     /** Caso seja especificado, define a unidade a ser usada em conjunto com `size`. */
     sizeUnit: Proptypes.oneOf(["px", "em", "%"]),
+
+    /** Cor que deve ser usada na string de texto. */
+    color: Proptypes.string,
 };
 
 export default CurrencyLabel;

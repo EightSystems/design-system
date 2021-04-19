@@ -1,28 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
 
-// @WIP: This component is not yet finished, does not have a well-defined API,
-// and it's not ready for production use.
+const AccordionContainer = styled.div`
+    display: block;
+`;
 
-const AccordionContainer = styled.div``;
+const Accordion = React.forwardRef(({ children, ...props }, componentRef) => {
+    const [currentIndexOpen, setCurrentIndexOpen] = useState(props.initialIndex || 0);
 
-const Accordion = React.forwardRef(({ children, ...props }, componentRef) => (
-    <Accordion {...props} className={props.className} ref={componentRef}>
-        {children &&
-            children.map((step, index) => {
-                return React.cloneElement(step, {
-                    ...step.props,
-                    index,
-                    active: props.activeStep === index,
-                });
-            })}
-    </Accordion>
-));
+    const setCurrentIndex = currentIndex => setCurrentIndexOpen(currentIndex === currentIndexOpen ? -1 : currentIndex);
+
+    return (
+        <AccordionContainer {...props} className={props.className} ref={componentRef}>
+            {children &&
+                children({
+                    isOpen: index => index === currentIndexOpen,
+                    onClick: index => setCurrentIndex(index),
+                })}
+        </AccordionContainer>
+    );
+});
 
 Accordion.propTypes = {
-    /** Um ou mais componentes `<AccordionItem>` */
-    children: Proptypes.node.isRequired,
+    /** Uma função que deve retornar um ou mais componentes `<AccordionItem>` */
+    children: Proptypes.func.isRequired,
+
+    /** Identificador do item que estará aberto durante a primeira montagem do componente  */
+    initalIndex: Proptypes.any,
 };
 
 export default Accordion;
