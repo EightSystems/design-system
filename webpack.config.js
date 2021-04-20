@@ -21,13 +21,13 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader']
       },
-      { 
+      {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
         include: path.resolve(__dirname, './src')
       },
       {
-        test: /\.(png|jpg|gif|svg)$/i,
+        test: /\.(png|jpg|gif)$/i,
         use: [
           {
             loader: 'url-loader',
@@ -36,6 +36,15 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+          test: /\.svg$/,
+          use: ['@svgr/webpack', {
+              loader: 'url-loader',
+              options: {
+                  limit: 123456789
+              }
+          }],
       },
     ]
   }

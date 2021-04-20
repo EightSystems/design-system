@@ -4,10 +4,14 @@ import Proptypes from "prop-types";
 
 import * as V from "../../styles/variables";
 
+import { ReactComponent as CreditCardSvg } from '../../assets/icons/credit-card.svg';
+import { ReactComponent as BankSlipSvg } from '../../assets/icons/bank-slip.svg';
+
 const paymentMethodIcon = {
-    creditCard: require("../../assets/icons/credit-card.svg"),
-    bankSlip: require("../../assets/icons/bank-slip.svg"),
+    creditCard: CreditCardSvg,
+    bankSlip: BankSlipSvg,
 };
+
 const paymentMethodName = {
     creditCard: "Cartão de crédito",
     bankSlip: "Boleto bancário",
@@ -48,14 +52,13 @@ const ContentTitle = styled(ContentLabel)`
 `;
 
 const PaymentMethodItem = props => {
+    const IconCompoment = paymentMethodIcon[props.paymentMethodIcon];
+
     return (
         <MainWrapper {...props}>
             <ContentTitle>{props.paymentMethod}</ContentTitle>
             <IconWrapper>
-                <img
-                    src={paymentMethodIcon[props.paymentMethodIcon]}
-                    alt={`Ícone ${paymentMethodName[props.paymentMethodIcon]}`}
-                />
+                <IconCompoment alt={`Ícone ${paymentMethodName[props.paymentMethodIcon]}`}/>
             </IconWrapper>
             {props.paymentMethodDescription ? <ContentLabel>{props.paymentMethodDescription}</ContentLabel> : null}
         </MainWrapper>
