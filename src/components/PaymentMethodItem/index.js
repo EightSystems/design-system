@@ -8,6 +8,10 @@ const paymentMethodIcon = {
     creditCard: require("../../assets/icons/credit-card.svg"),
     bankSlip: require("../../assets/icons/bank-slip.svg"),
 };
+const paymentMethodName = {
+    creditCard: "Cartão de crédito",
+    bankSlip: "Boleto bancário",
+}
 
 const MainWrapper = styled.div`
     background: var(--white);
@@ -50,7 +54,7 @@ const PaymentMethodItem = props => {
             <IconWrapper>
                 <img
                     src={paymentMethodIcon[props.paymentMethodIcon]}
-                    alt={`Ícone ${paymentMethodIcon[props.paymentMethodIcon]}`}
+                    alt={`Ícone ${paymentMethodName[props.paymentMethodIcon]}`}
                 />
             </IconWrapper>
             {props.paymentMethodDescription ? <ContentLabel>{props.paymentMethodDescription}</ContentLabel> : null}

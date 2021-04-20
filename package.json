@@ -31,9 +31,10 @@
         "@storybook/react": "^6.2.3",
         "babel-core": "^6.26.3",
         "babel-loader": "^8.1.0",
-        "babel-plugin-styled-components": "^1.12.0",
         "babel-plugin-file-loader": "^2.0.0",
+        "babel-plugin-styled-components": "^1.12.0",
         "babel-preset-minify": "^0.5.1",
+        "clean-webpack-plugin": "^4.0.0-alpha.0",
         "mdx-embed": "^0.0.19",
         "path": "^0.12.7",
         "prettier": "^2.2.1",
@@ -41,22 +42,26 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-scripts": "^3.4.1",
-        "storybook-addon-mdx-embed": "^0.0.19"
+        "storybook-addon-mdx-embed": "^0.0.19",
+        "url-loader": "^4.1.1",
+        "webpack": "^5.34.0",
+        "webpack-cli": "^4.6.0",
+        "webpack-node-externals": "^2.5.2"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "storybook": "start-storybook -p 6006",
-        "build": "npx babel --root-mode upward src -d dist --ignore **/*.stories.mdx --no-comments",
+        "build": "webpack --mode production",
         "build-storybook": "build-storybook",
         "format": "prettier --write \"**/*.{js,jsx,json,mdx}\""
     },
     "dependencies": {
-        "styled-components": "^4.4.1",
         "classnames": "^2.2.6",
         "intl": "^1.2.5",
         "lodash": "^4.17.21",
         "react-collapse": "^5.1.0",
         "react-icons": "^4.2.0",
-        "react-imask": "^6.0.7"
+        "react-imask": "^6.0.7",
+        "styled-components": "^4.4.1"
     }
 }
