@@ -5,17 +5,17 @@ import Proptypes from "prop-types";
 import * as V from "../../styles/variables";
 import { BiChevronRight } from "react-icons/bi";
 
-import { ReactComponent as AmexSvg } from '../../assets/icons/american-express.svg';
-import { ReactComponent as CirrusSvg } from '../../assets/icons/cirrus.svg';
-import { ReactComponent as DinersSvg } from '../../assets/icons/diners.svg';
-import { ReactComponent as DiscoverSvg } from '../../assets/icons/discover.svg';
-import { ReactComponent as EloSvg } from '../../assets/icons/elo.svg';
-import { ReactComponent as HiperSvg } from '../../assets/icons/hiper.svg';
-import { ReactComponent as JcbSvg } from '../../assets/icons/jcb.svg';
-import { ReactComponent as MastercardSvg } from '../../assets/icons/mastercard.svg';
-import { ReactComponent as MaestroSvg } from '../../assets/icons/maestro.svg';
-import { ReactComponent as VisaElectronSvg } from '../../assets/icons/visa-electron.svg';
-import { ReactComponent as VisaSvg } from '../../assets/icons/visa.svg';
+import { ReactComponent as AmexSvg } from "../../assets/icons/american-express.svg";
+import { ReactComponent as CirrusSvg } from "../../assets/icons/cirrus.svg";
+import { ReactComponent as DinersSvg } from "../../assets/icons/diners.svg";
+import { ReactComponent as DiscoverSvg } from "../../assets/icons/discover.svg";
+import { ReactComponent as EloSvg } from "../../assets/icons/elo.svg";
+import { ReactComponent as HiperSvg } from "../../assets/icons/hiper.svg";
+import { ReactComponent as JcbSvg } from "../../assets/icons/jcb.svg";
+import { ReactComponent as MastercardSvg } from "../../assets/icons/mastercard.svg";
+import { ReactComponent as MaestroSvg } from "../../assets/icons/maestro.svg";
+import { ReactComponent as VisaElectronSvg } from "../../assets/icons/visa-electron.svg";
+import { ReactComponent as VisaSvg } from "../../assets/icons/visa.svg";
 
 const brandIconMapping = {
     amex: AmexSvg,
@@ -29,7 +29,7 @@ const brandIconMapping = {
     mastercard: MastercardSvg,
     maestro: MaestroSvg,
     "visa-electron": VisaElectronSvg,
-    visa: VisaSvg
+    visa: VisaSvg,
 };
 
 const brandNameMapping = {
@@ -57,6 +57,7 @@ const MainWrapper = styled.div`
     padding: ${V.Space.default} ${V.Space.default};
     cursor: pointer;
     transition: 150ms ease-in-out;
+    user-select: none;
 
     :hover {
         border: ${V.Border.hover};
@@ -99,9 +100,7 @@ const SavedCardBadge = props => {
         <MainWrapper onClick={props.onClick}>
             <ContentWrapperRow>
                 <IconWrapper>
-                    <IconCompoment
-                        alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`}
-                    />
+                    <IconCompoment alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`} />
                 </IconWrapper>
                 <ContentWrapperColumn>
                     <HighlightedContentLabel>

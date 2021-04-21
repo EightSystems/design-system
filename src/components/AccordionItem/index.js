@@ -22,6 +22,7 @@ const AccordionItemLabel = styled.p`
     font-family: ${V.FontFaces.Inter};
     font-size: 20px;
     font-weight: 700;
+    user-select: none;
 `;
 const AccordionItemUnderline = styled.div`
     width: 100%;
