@@ -43,11 +43,11 @@ const AvatarWrapper = styled.div`
     }
 `;
 
-const Avatar = ({ children, alt, src, size, className }) => {
+const Avatar = props => {
     return (
-        <AvatarWrapper className={className} data-size={size}>
-            {src ? <img className="avatar__image" alt={alt} src={src} /> : null}
-            {children ? children : null}
+        <AvatarWrapper {...props} className={props.className} data-size={props.size}>
+            {props.src ? <img className="avatar__image" alt={props.alt} src={props.src} /> : null}
+            {props.children ? props.children : null}
         </AvatarWrapper>
     );
 };

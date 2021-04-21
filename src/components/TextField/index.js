@@ -26,7 +26,7 @@ const MainWrapper = styled.div`
 `;
 const InputLabel = styled.label`
     ${T.FormLabel};
-    padding-bottom: 4px;
+    padding-bottom: ${V.Space.xs};
 `;
 const InputWrapper = styled.div`
     display: flex;
@@ -74,7 +74,7 @@ const InputValidationContainer = styled.div`
     }
     padding-top: 6px;
     display: flex;
-    height: 26px;
+    height: ${V.Space.md};
 `;
 
 const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <InputComponent {...props} ref={inputRef} />);
@@ -91,7 +91,7 @@ const TextField = props => {
     const elementUniqueId = uniqueId(props.name);
     return (
         <MainWrapper>
-            <InputLabel for={elementUniqueId}>{props.label}</InputLabel>
+            <InputLabel htmlFor={elementUniqueId}>{props.label}</InputLabel>
             <InputWrapper className={inputClasses}>
                 <MaskedStyledInput
                     {...props}
@@ -169,7 +169,7 @@ TextField.propTypes = {
     onBlur: Proptypes.func,
 
     /** Controlador de evento de formulário com componente controlado onChange presente no React. */
-    onChange: Proptypes.func.isRequired,
+    onChange: Proptypes.func,
 
     /** Caso seja `true`, o input indicará um erro, e a mensagem definida em `validationMessage` será exibida abaixo do input. Essa informação é geralmente obtida através do controlador de formulário.*/
     validationError: Proptypes.bool,

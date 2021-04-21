@@ -60,7 +60,7 @@ const Select = props => {
 
     return (
         <MainWrapper>
-            <InputLabel for={elementUniqueId}>{props.label}</InputLabel>
+            <InputLabel htmlFor={elementUniqueId}>{props.label}</InputLabel>
             <SelectComponent
                 {...props}
                 id={elementUniqueId}
