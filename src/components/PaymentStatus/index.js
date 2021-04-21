@@ -4,6 +4,7 @@ import Proptypes from "prop-types";
 
 import * as V from "../../styles/variables";
 import { MdError, MdCheckCircle } from "react-icons/md";
+import { AiFillClockCircle } from "react-icons/ai";
 import CurrencyLabel from "../CurrencyLabel";
 
 const PaymentStatusWrapper = styled.div`
@@ -54,7 +55,7 @@ const PaymentStatus = props => {
             <IconWrapper>
                 {props.status === "approved" ? <MdCheckCircle /> : null}
                 {props.status === "refused" ? <MdError /> : null}
-                {props.status === "pending" ? <MdError /> : null}
+                {props.status === "pending" ? <AiFillClockCircle /> : null}
             </IconWrapper>
 
             <PaymentStatusTitle>{props.statusTitle}</PaymentStatusTitle>

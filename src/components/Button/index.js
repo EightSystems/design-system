@@ -14,6 +14,7 @@ const ButtonWrapper = styled.button`
     text-decoration: none;
     text-align: center;
     transition: 150ms ease-in-out;
+    user-select: none;
 
     &[data-color="primary"] {
         background: var(--primary);
@@ -38,7 +39,7 @@ const ButtonWrapper = styled.button`
         border: solid 2px var(--danger);
         color: var(--primaryContrast);
 
-        &[data-hasOutline="true"] {
+        &[data-outline="true"] {
             background: none;
             border: solid 2px var(--danger);
             color: var(--danger);
@@ -58,7 +59,7 @@ const Button = React.forwardRef((props, componentRef) => {
             {...props}
             className={props.className}
             data-color={props.color}
-            data-hasOutline={props.hasOutline}
+            data-outline={props.hasOutline}
             type={props.type}
             disabled={props.disabled}
             ref={componentRef}

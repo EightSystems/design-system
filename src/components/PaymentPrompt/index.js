@@ -23,7 +23,7 @@ const PromptLabel = styled.p`
 
 const PaymentPrompt = props => {
     return (
-        <PaymentPrompWrapper>
+        <PaymentPrompWrapper {...props} >
             {props.avatarSrc ? (
                 <Avatar src={props.avatarSrc} size={props.avatarSize} alt={props.avatarAlt} />
             ) : (
