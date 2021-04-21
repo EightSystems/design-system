@@ -58,6 +58,7 @@
     },
     "dependencies": {
         "classnames": "^2.2.6",
+        "dinero.js": "^1.8.1",
         "intl": "^1.2.5",
         "lodash": "^4.17.21",
         "react-collapse": "^5.1.0",
