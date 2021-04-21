@@ -43,7 +43,7 @@ export const Color = {
 };
 
 export const BoxShadow = {
-    default: `0px 0px 8px rgba(0, 0, 30, 0.15)`,
+    default: `0px 0px 10px rgba(0, 7, 46, 0.2)`,
 };
 
 export const Border = {
