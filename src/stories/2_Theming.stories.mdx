@@ -1,0 +1,79 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Tematização" />
+
+# Tematização
+
+## Webfonts
+
+Por padrão, o design-system utiliza as fontes **Poppins** e **Inter**. As fontes estão disponíveis a partir do
+`ThemeProvider` injetado na raiz do projeto, e pode ser usado em qualquer componente do projeto através das variáveis
+CSS `--fontFace-Inter` e `--fontFace-Poppins`.
+
+```css
+p {
+    font-family: var(--fontFace-Inter);
+}
+```
+
+## Cores
+
+Todas as cores que estão disponível por padrão no design-system também estão disponíveis através de variáveis CSS
+providas pelo `ThemeProvider`:
+
+```
+--background
+--text-primary
+--text-body
+
+--primary
+--primaryShade
+--primaryTint
+--primaryContrast
+
+--secondary
+--secondaryShade
+--secondaryTint
+--secondaryContrast
+
+--tertiary
+--tertiaryShade
+--tertiaryTint
+--tertiaryContrast
+
+--gray
+--grayShade
+--grayTint
+--lightGray
+
+--danger
+--dangerTint
+--success
+--pending
+
+--white
+```
+
+## Outras propriedades
+
+Outras propriedades usadas no design-system também ficam disponíveis no escopo do `ThemeProvider`:
+ 
+
+```
+--space-xxs
+--space-xs: 
+--space-sm
+--space-default
+--space-md
+--space-lg
+--space-xlg
+--space-xxlg
+
+--border-default
+--border-hover
+--border-danger
+--border-success
+--border-light
+
+--boxShadow-default
+```

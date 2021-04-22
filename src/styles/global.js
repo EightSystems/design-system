@@ -37,6 +37,26 @@ const GlobalStyles = createGlobalStyle`
         --pending: ${V.Color.pending};
 
         --white: ${V.Color.white};
+
+        --space-xxs: ${V.Space.xxs};
+        --space-xs: ${V.Space.xs};
+        --space-sm: ${V.Space.sm};
+        --space-default: ${V.Space.default};
+        --space-md: ${V.Space.md};
+        --space-lg: ${V.Space.lg};
+        --space-xlg: ${V.Space.xlg};
+        --space-xxlg: ${V.Space.xxlg};
+
+        --border-default: ${V.Border.default};
+        --border-hover: ${V.Border.hover};
+        --border-danger: ${V.Border.danger};
+        --border-success: ${V.Border.success};
+        --border-light: ${V.Border.light};
+
+        --boxShadow-default: ${V.BoxShadow.default};
+
+        --fontFace-Inter: ${V.FontFaces.Inter};
+        --fontFace-Poppins: ${V.FontFaces.Poppins};
     }
 
     html, body, div, span, applet, object, iframe,
