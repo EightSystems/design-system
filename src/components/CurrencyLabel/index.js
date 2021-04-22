@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
-import Dinero from 'dinero.js'
+import Dinero from "dinero.js";
 
 import * as V from "../../styles/variables";
 import getUserLanguage from "../../utils/getUserLanguage";
 
-import CurrencyList from './currencyList.json'
+import CurrencyList from "./currencyList.json";
 
 require("intl");
 
@@ -25,14 +25,13 @@ const CurrencyLabelWrapper = styled.h1`
 `;
 
 const CurrencyLabel = ({ currency, value, size, sizeUnit, color }) => {
-    const currencyUnit = Dinero({ amount: value, currency, precision: CurrencyList[currency], }).toUnit()
+    const currencyUnit = Dinero({ amount: value, currency, precision: CurrencyList[currency] }).toUnit();
 
     return (
         <CurrencyLabelWrapper size={size} sizeUnit={sizeUnit} data-color={color}>
-            {new Intl.NumberFormat(getUserLanguage(), { style: 'currency', currency }).format(currencyUnit)}
+            {new Intl.NumberFormat(getUserLanguage(), { style: "currency", currency }).format(currencyUnit)}
         </CurrencyLabelWrapper>
     );
-    
 };
 
 CurrencyLabel.defaultProps = {

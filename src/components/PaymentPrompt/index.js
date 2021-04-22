@@ -6,7 +6,7 @@ import * as V from "../../styles/variables";
 import Avatar from "../Avatar";
 import CurrencyLabel from "../CurrencyLabel";
 
-const PaymentPrompWrapper = styled.div`
+const PaymentPromptWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,7 @@ const PromptLabel = styled.p`
 
 const PaymentPrompt = props => {
     return (
-        <PaymentPrompWrapper {...props} >
+        <PaymentPromptWrapper {...props}>
             {props.avatarSrc ? (
                 <Avatar src={props.avatarSrc} size={props.avatarSize} alt={props.avatarAlt} />
             ) : (
@@ -38,7 +38,7 @@ const PaymentPrompt = props => {
                 sizeUnit={props.currencySizeUnit}
                 value={props.currencyValue}
             />
-        </PaymentPrompWrapper>
+        </PaymentPromptWrapper>
     );
 };
 
