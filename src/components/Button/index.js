@@ -26,7 +26,8 @@ const ButtonWrapper = styled.button`
             border: solid 2px var(--primary);
             color: var(--primary);
         }
-        &:hover, :focus {
+        &:hover,
+        :focus {
             background: var(--primaryTint);
             border: solid 2px var(--primaryTint);
             color: var(--primaryContrast);
@@ -45,7 +46,8 @@ const ButtonWrapper = styled.button`
             border: solid 2px var(--danger);
             color: var(--danger);
         }
-        &:hover, :focus {
+        &:hover,
+        :focus {
             background: var(--dangerTint);
             border: solid 2px var(--dangerTint);
             color: var(--primaryContrast);

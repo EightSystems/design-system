@@ -50,12 +50,14 @@ const AccordionItem = props => {
             : props.isOpen
         : false;
 
-    const onClickHandler = props.onClick ? (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+    const onClickHandler = props.onClick
+        ? event => {
+              event.preventDefault();
+              event.stopPropagation();
 
-        props.onClick(props.id || props.label)   
-    } : null;
+              props.onClick(props.id || props.label);
+          }
+        : null;
 
     return (
         <AccordionWrapper>

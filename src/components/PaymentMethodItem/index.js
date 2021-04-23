@@ -28,7 +28,8 @@ const MainWrapper = styled.button`
     cursor: pointer;
     transition: 150ms ease-in-out;
 
-    :hover, :focus {
+    :hover,
+    :focus {
         border: ${V.Border.hover};
         box-shadow: ${V.BoxShadow.default};
         outline: none;
