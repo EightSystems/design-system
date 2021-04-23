@@ -17,7 +17,7 @@ const paymentMethodName = {
     bankSlip: "Boleto bancário",
 };
 
-const MainWrapper = styled.div`
+const MainWrapper = styled.button`
     background: var(--white);
     display: flex;
     flex-direction: column;
@@ -28,9 +28,10 @@ const MainWrapper = styled.div`
     cursor: pointer;
     transition: 150ms ease-in-out;
 
-    :hover {
+    :hover, :focus {
         border: ${V.Border.hover};
         box-shadow: ${V.BoxShadow.default};
+        outline: none;
     }
 `;
 const IconWrapper = styled.div`

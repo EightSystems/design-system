@@ -47,7 +47,7 @@ const brandNameMapping = {
     visa: "Visa",
 };
 
-const MainWrapper = styled.div`
+const MainWrapper = styled.button`
     background: var(--white);
     display: flex;
     justify-content: space-between;
@@ -59,9 +59,10 @@ const MainWrapper = styled.div`
     transition: 150ms ease-in-out;
     user-select: none;
 
-    :hover {
+    :hover, :focus {
         border: ${V.Border.hover};
         box-shadow: ${V.BoxShadow.default};
+        outline: none;
     }
 `;
 const ContentWrapperRow = styled.div`
@@ -88,6 +89,7 @@ const ContentLabel = styled.p`
     color: var(--text-primary);
     font-family: ${V.FontFaces.Inter};
     font-size: 16px;
+    text-align: left;
 `;
 const HighlightedContentLabel = styled(ContentLabel)`
     font-weight: 700;
