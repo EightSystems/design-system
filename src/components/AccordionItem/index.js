@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Proptypes from "prop-types";
 
 import { isFunction } from "lodash";
-import { Collapse } from "react-collapse";
+import { UnmountClosed } from "react-collapse";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import * as V from "../../styles/variables";
 
@@ -13,10 +13,13 @@ const AccordionWrapper = styled.div`
         transition: height 300ms ease-in-out;
     }
 `;
-const AccordionItemContainer = styled.div`
+const AccordionItemContainer = styled.button`
     display: flex;
     align-items: center;
     cursor: pointer;
+    :focus {
+        outline: none;
+    }
 `;
 const AccordionItemLabel = styled.p`
     font-family: ${V.FontFaces.Inter};
@@ -47,13 +50,22 @@ const AccordionItem = props => {
             : props.isOpen
         : false;
 
+    const onClickHandler = props.onClick
+        ? event => {
+              event.preventDefault();
+              event.stopPropagation();
+
+              props.onClick(props.id || props.label);
+          }
+        : null;
+
     return (
         <AccordionWrapper>
-            <AccordionItemContainer onClick={props.onClick ? () => props.onClick(props.id || props.label) : null}>
+            <AccordionItemContainer onMouseDown={onClickHandler} onFocus={onClickHandler}>
                 <AccordionItemIconWrapper>{isOpen ? <BiChevronDown /> : <BiChevronRight />}</AccordionItemIconWrapper>
                 <AccordionItemLabel>{props.label}</AccordionItemLabel>
             </AccordionItemContainer>
-            <Collapse isOpened={isOpen}>{props.children}</Collapse>
+            <UnmountClosed isOpened={isOpen}>{props.children}</UnmountClosed>
             <AccordionItemUnderline />
         </AccordionWrapper>
     );

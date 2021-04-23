@@ -26,11 +26,13 @@ const ButtonWrapper = styled.button`
             border: solid 2px var(--primary);
             color: var(--primary);
         }
-        &:hover {
+        &:hover,
+        :focus {
             background: var(--primaryTint);
             border: solid 2px var(--primaryTint);
             color: var(--primaryContrast);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+            outline: none;
         }
     }
 
@@ -44,11 +46,13 @@ const ButtonWrapper = styled.button`
             border: solid 2px var(--danger);
             color: var(--danger);
         }
-        &:hover {
+        &:hover,
+        :focus {
             background: var(--dangerTint);
             border: solid 2px var(--dangerTint);
             color: var(--primaryContrast);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+            outline: none;
         }
     }
 `;
