@@ -24,7 +24,7 @@ const CurrencyLabelWrapper = styled.h1`
     }
 `;
 
-const CurrencyLabel = ({ currency, value, size, sizeUnit, color }) => {
+const CurrencyLabel = ({ currency, value, size, sizeUnit, color, props }) => {
     const currencyUnit = Dinero({ amount: value, currency, precision: CurrencyList[currency] }).toUnit();
 
     return (
