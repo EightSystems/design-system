@@ -60,7 +60,7 @@ const AccordionItem = props => {
         : null;
 
     return (
-        <AccordionWrapper>
+        <AccordionWrapper {...props}>
             <AccordionItemContainer onMouseDown={onClickHandler} onFocus={onClickHandler}>
                 <AccordionItemIconWrapper>{isOpen ? <BiChevronDown /> : <BiChevronRight />}</AccordionItemIconWrapper>
                 <AccordionItemLabel>{props.label}</AccordionItemLabel>

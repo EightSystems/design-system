@@ -90,7 +90,7 @@ const TextField = props => {
 
     const elementUniqueId = uniqueId(props.name);
     return (
-        <MainWrapper>
+        <MainWrapper className={props.controlClass}>
             <InputLabel htmlFor={elementUniqueId}>{props.label}</InputLabel>
             <InputWrapper className={inputClasses}>
                 <MaskedStyledInput
@@ -188,6 +188,9 @@ TextField.propTypes = {
 
     /** Caso seja especificado, definirá em qual direção deve ficar o tooltip ao clicar no ícone. */
     iconTooltipDirection: Proptypes.oneOf(["top", "left", "right", "bottom"]),
+
+    /** Injeta classes personalizadas no container ao redor de todo o controlador (label + input). */
+    controlClass: Proptypes.string,
 };
 
 TextField.defaultProps = {

@@ -100,7 +100,7 @@ const SavedCardBadge = props => {
     const IconCompoment = brandIconMapping[props.cardBrand.toLowerCase()];
 
     return (
-        <MainWrapper onClick={props.onClick}>
+        <MainWrapper {...props} onClick={props.onClick}>
             <ContentWrapperRow>
                 <IconWrapper>
                     <IconCompoment alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`} />

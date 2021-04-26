@@ -28,7 +28,7 @@ const CurrencyLabel = ({ currency, value, size, sizeUnit, color }) => {
     const currencyUnit = Dinero({ amount: value, currency, precision: CurrencyList[currency] }).toUnit();
 
     return (
-        <CurrencyLabelWrapper size={size} sizeUnit={sizeUnit} data-color={color}>
+        <CurrencyLabelWrapper {...props} size={size} sizeUnit={sizeUnit} data-color={color}>
             {new Intl.NumberFormat(getUserLanguage(), { style: "currency", currency }).format(currencyUnit)}
         </CurrencyLabelWrapper>
     );
