@@ -79,63 +79,81 @@ const InputValidationContainer = styled.div`
 
 const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <InputComponent {...props} ref={inputRef} />);
 
-const TextField = props => {
-    const [isFocused, setIsFocused] = useState(false);
+class TextField extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isFocused: false,
+        };
+    }
 
-    const inputClasses = classnames({
-        "input--focused": isFocused === true,
-        "input--error": props.validationError,
-        "input--success": props.validationSuccess,
-    });
+    render() {
+        const inputClasses = classnames({
+            "input--focused": this.state.isFocused === true,
+            "input--error": this.props.validationError,
+            "input--success": this.props.validationSuccess,
+        });
 
-    const elementUniqueId = uniqueId(props.name);
-    return (
-        <MainWrapper className={props.controlClass}>
-            <InputLabel htmlFor={elementUniqueId}>{props.label}</InputLabel>
-            <InputWrapper className={inputClasses}>
-                <MaskedStyledInput
-                    {...props}
-                    id={elementUniqueId}
-                    aria-label={props.label}
-                    aria-required={props.required}
-                    name={props.name}
-                    placeholder={props.placeholder}
-                    type={props.type}
-                    autoComplete={props.autoComplete}
-                    autoFocus={props.autoFocus}
-                    disabled={props.disabled}
-                    value={props.value}
-                    onFocus={e => {
-                        setIsFocused(true);
-                        if (props.onFocus) {
-                            props.onFocus(e);
-                        }
-                    }}
-                    onBlur={e => {
-                        setIsFocused(false);
-                        if (props.onBlur) {
-                            props.onBlur(e);
-                        }
-                    }}
-                    onChange={props.onChange}
-                />
-                {props.icon ? (
-                    <Tooltip content={props.iconTooltipMessage} position={props.iconTooltipDirection}>
-                        <IconWrapper>{props.icon === "info" ? <MdInfo /> : null}</IconWrapper>
-                    </Tooltip>
-                ) : null}
-            </InputWrapper>
-            <InputValidationContainer>
-                {props.validationMessage ? (
-                    <React.Fragment>
-                        <MdInfo />
-                        <InputValidationMessage>{props.validationMessage}</InputValidationMessage>
-                    </React.Fragment>
-                ) : null}
-            </InputValidationContainer>
-        </MainWrapper>
-    );
-};
+        const elementUniqueId = uniqueId(this.props.name);
+        return (
+            <MainWrapper className={this.props.controlClass}>
+                <InputLabel htmlFor={elementUniqueId}>{this.props.label}</InputLabel>
+                <InputWrapper className={inputClasses}>
+                    <MaskedStyledInput
+                        {...this.props}
+                        id={elementUniqueId}
+                        aria-label={this.props.label}
+                        aria-required={this.props.required}
+                        name={this.props.name}
+                        placeholder={this.props.placeholder}
+                        type={this.props.type}
+                        autoComplete={this.props.autoComplete}
+                        autoFocus={this.props.autoFocus}
+                        disabled={this.props.disabled}
+                        onFocus={e => {
+                            this.setState(
+                                {
+                                    isFocused: true,
+                                },
+                                () => {
+                                    if (this.props.onFocus) {
+                                        this.props.onFocus(e);
+                                    }
+                                }
+                            );
+                        }}
+                        onBlur={e => {
+                            this.setState(
+                                {
+                                    isFocused: false,
+                                },
+                                () => {
+                                    if (this.props.onBlur) {
+                                        this.props.onBlur(e);
+                                    }
+                                }
+                            );
+                        }}
+                        onChange={this.props.onChange}
+                    />
+                    {this.props.icon ? (
+                        <Tooltip content={this.props.iconTooltipMessage} position={this.props.iconTooltipDirection}>
+                            <IconWrapper>{this.props.icon === "info" ? <MdInfo /> : null}</IconWrapper>
+                        </Tooltip>
+                    ) : null}
+                </InputWrapper>
+                <InputValidationContainer>
+                    {this.props.validationMessage ? (
+                        <React.Fragment>
+                            <MdInfo />
+                            <InputValidationMessage>{this.props.validationMessage}</InputValidationMessage>
+                        </React.Fragment>
+                    ) : null}
+                </InputValidationContainer>
+            </MainWrapper>
+        );
+    }
+}
 
 TextField.propTypes = {
     /** Atributo de nome do elemento `<input>`. Por padrão, o nome também será repassado para o atributo `for` do elemento `<label>`. */
