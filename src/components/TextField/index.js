@@ -37,6 +37,7 @@ const InputWrapper = styled.div`
 `;
 const InputComponent = styled.input`
     ${T.FormInput};
+    border-radius: 4px;
     padding: 12px 12px;
     width: 100%;
     border: none;
