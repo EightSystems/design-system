@@ -44,6 +44,8 @@ const AccordionItemIconWrapper = styled.div`
 `;
 
 const AccordionItem = props => {
+    const {onClick, onMouseDown, onFocus, ...propsWithoutEventHandlers} = props;
+
     const isOpen = props.isOpen
         ? isFunction(props.isOpen)
             ? props.isOpen(props.id || props.label)
@@ -59,8 +61,9 @@ const AccordionItem = props => {
           }
         : null;
 
+
     return (
-        <AccordionWrapper {...props}>
+        <AccordionWrapper {...propsWithoutEventHandlers}>
             <AccordionItemContainer onMouseDown={onClickHandler} onFocus={onClickHandler}>
                 <AccordionItemIconWrapper>{isOpen ? <BiChevronDown /> : <BiChevronRight />}</AccordionItemIconWrapper>
                 <AccordionItemLabel>{props.label}</AccordionItemLabel>
