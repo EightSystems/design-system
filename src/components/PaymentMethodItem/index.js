@@ -6,15 +6,21 @@ import * as V from "../../styles/variables";
 
 import { ReactComponent as CreditCardSvg } from "../../assets/icons/credit-card.svg";
 import { ReactComponent as BankSlipSvg } from "../../assets/icons/bank-slip.svg";
+import { ReactComponent as Pix } from "../../assets/icons/pix.svg";
+import { ReactComponent as PicPay } from "../../assets/icons/picpay.svg";
 
 const paymentMethodIcon = {
     creditCard: CreditCardSvg,
     bankSlip: BankSlipSvg,
+    pix: Pix,
+    picpay: PicPay,
 };
 
 const paymentMethodName = {
     creditCard: "Cartão de crédito",
     bankSlip: "Boleto bancário",
+    pix: "PIX",
+    picpay: "PicPay"
 };
 
 const MainWrapper = styled.button`
@@ -38,9 +44,9 @@ const MainWrapper = styled.button`
 const IconWrapper = styled.div`
     img,
     svg {
-        width: ${V.Space.lg};
+        width: ${V.Space.xxlg};
         height: ${V.Space.lg};
-        color: var(--primaryTint);
+        color: var(--white);
     }
 `;
 const ContentLabel = styled.p`
@@ -57,7 +63,7 @@ const PaymentMethodItem = props => {
     const IconCompoment = paymentMethodIcon[props.paymentMethodIcon];
 
     return (
-        <MainWrapper {...props}>
+        <MainWrapper {...props} onClick={props.onClick}>
             <ContentTitle>{props.paymentMethod}</ContentTitle>
             <IconWrapper>
                 <IconCompoment alt={`Ícone ${paymentMethodName[props.paymentMethodIcon]}`} />
@@ -76,6 +82,9 @@ PaymentMethodItem.propTypes = {
 
     /** Ícone que deve ser usado no item de método de pagamento. */
     paymentMethodIcon: Proptypes.oneOf(Object.keys(paymentMethodIcon)).isRequired,
+
+    /** Função que deve ser disparada ao declarar a propriedade onClick. */
+    onClick: Proptypes.func,
 };
 
 export default PaymentMethodItem;
