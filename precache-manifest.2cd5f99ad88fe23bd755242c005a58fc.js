@@ -28,12 +28,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "7.4ec997ea.iframe.bundle.js"
   },
   {
-    "revision": "8cbfd053b418de1645aaf411b0b13c11",
+    "revision": "a36e7508ba0280fde49f35005b60817b",
     "url": "iframe.html"
   },
   {
-    "revision": "1afaf73959d4905210ef",
-    "url": "main.fe71c32f.iframe.bundle.js"
+    "revision": "716564a134c37a2bb9bb",
+    "url": "main.9dabd27e.iframe.bundle.js"
   },
   {
     "revision": "70190434bc7b6bc1dfec",
@@ -82,6 +82,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "a8eceaee35be8fc7385dafe55502bc63",
     "url": "static/media/mastercard.a8eceaee.svg"
+  },
+  {
+    "revision": "614e1827596183c8eecc8122acbe7e0a",
+    "url": "static/media/picpay.614e1827.svg"
+  },
+  {
+    "revision": "f7cb538a69e55df84a6646325a32f3b6",
+    "url": "static/media/pix.f7cb538a.svg"
   },
   {
     "revision": "9b5cc99d64b11cf0f9d72e0d8dd87e19",

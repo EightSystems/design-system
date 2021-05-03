@@ -1,7 +1,7 @@
 {
   "files": {
     "0.2ff85955.iframe.bundle.js": "./0.2ff85955.iframe.bundle.js",
-    "main.js": "./main.fe71c32f.iframe.bundle.js",
+    "main.js": "./main.9dabd27e.iframe.bundle.js",
     "runtime~main.js": "./runtime~main.5b62e033.iframe.bundle.js",
     "vendors~main.js": "./vendors~main.882fb3a3.iframe.bundle.js",
     "vendors~main.js.map": "./vendors~main.882fb3a3.iframe.bundle.js.map",
@@ -14,7 +14,7 @@
     "4.868bc9df.iframe.bundle.js.LICENSE.txt": "./4.868bc9df.iframe.bundle.js.LICENSE.txt",
     "6.7fbd6c47.iframe.bundle.js.LICENSE.txt": "./6.7fbd6c47.iframe.bundle.js.LICENSE.txt",
     "iframe.html": "./iframe.html",
-    "precache-manifest.1ef0d45388130e47db40a199cf0b2917.js": "./precache-manifest.1ef0d45388130e47db40a199cf0b2917.js",
+    "precache-manifest.2cd5f99ad88fe23bd755242c005a58fc.js": "./precache-manifest.2cd5f99ad88fe23bd755242c005a58fc.js",
     "service-worker.js": "./service-worker.js",
     "static/media/american-express.d25e4d9d.svg": "./static/media/american-express.d25e4d9d.svg",
     "static/media/bank-slip.671c62bf.svg": "./static/media/bank-slip.671c62bf.svg",
@@ -27,6 +27,8 @@
     "static/media/jcb.e8a9f1bc.svg": "./static/media/jcb.e8a9f1bc.svg",
     "static/media/maestro.b47ccaf1.svg": "./static/media/maestro.b47ccaf1.svg",
     "static/media/mastercard.a8eceaee.svg": "./static/media/mastercard.a8eceaee.svg",
+    "static/media/picpay.614e1827.svg": "./static/media/picpay.614e1827.svg",
+    "static/media/pix.f7cb538a.svg": "./static/media/pix.f7cb538a.svg",
     "static/media/visa-electron.9b5cc99d.svg": "./static/media/visa-electron.9b5cc99d.svg",
     "static/media/visa.5e290704.svg": "./static/media/visa.5e290704.svg",
     "vendors~main.882fb3a3.iframe.bundle.js.LICENSE.txt": "./vendors~main.882fb3a3.iframe.bundle.js.LICENSE.txt"
@@ -34,6 +36,6 @@
   "entrypoints": [
     "runtime~main.5b62e033.iframe.bundle.js",
     "vendors~main.882fb3a3.iframe.bundle.js",
-    "main.fe71c32f.iframe.bundle.js"
+    "main.9dabd27e.iframe.bundle.js"
   ]
 }
