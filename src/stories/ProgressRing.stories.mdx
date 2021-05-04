@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import ProgressRing from "../components/ProgressRing";
+import Button from "../components/Button";
+
+<Meta title="Atoms/ProgressRing" component={ProgressRing} />
+
+# ProgressRing
+
+Um componente usado para indicar progresso. Faz parte do conjunto de componentes que compõem o [Stepper], e pode ser usado individualmente como um indicador de progresso ou Spinner.
+
+<Canvas>
+    <Story name="ProgressRing" args={{ radius: 30, stroke: 4, strokeColor: "gray", progress: 50 }}>
+        {args => <ProgressRing {...args} />}
+    </Story>
+</Canvas>
+
+Adicionalmente, também é possível definir propriedades como `text`, `textColor`, `textXAxis`, `textYAxis` e `textFontSize` para definir e posicionar uma string de text dentro do círculo:
+
+<Canvas>
+    <Story name="ProgressRing with text" args={{ radius: 34, stroke: 4, strokeColor: "gray", progress: 75, text: "3 de 4", textColor: "gray", textXAxis: 17, textYAxis: 38, textFontSize: 12 }}>
+        {args => <ProgressRing {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={ProgressRing} />
