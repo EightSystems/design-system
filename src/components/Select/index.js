@@ -17,6 +17,19 @@ const MainWrapper = styled.div`
     .input--success {
         border: ${V.Border.success};
     }
+
+    &:after {
+        content: ">";
+        pointer-events: none;
+        font-family: ${V.FontFaces.Poppins};
+        font-size: 24px;
+        font-weight: 600;
+        position: relative;
+        bottom: 58px;
+        margin-left: calc(100% - 35px);
+        color: var(--grayShade);
+        transform: rotate(90deg);
+    }
 `;
 const InputLabel = styled.label`
     ${T.FormLabel};
@@ -24,6 +37,7 @@ const InputLabel = styled.label`
 `;
 const SelectComponent = styled.select`
     ${T.FormInput};
+    appearance: none;
     padding: 12px 12px;
     width: 100%;
     border: ${V.Border.default};
@@ -33,6 +47,10 @@ const SelectComponent = styled.select`
         outline: none;
         border: ${V.Border.hover};
         box-shadow: 0px 0px 8px rgba(0, 7, 46, 0.2);
+    }
+
+    ::-ms-expand {
+        display: none;
     }
 `;
 const InputValidationMessage = styled.span`
