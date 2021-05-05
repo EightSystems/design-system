@@ -23,6 +23,7 @@ const ActiveStepLabel = styled.h1`
     color: var(--text-primary);
     font-family: ${V.FontFaces.Poppins};
     font-size: 18px;
+    line-height: 16px;
     font-weight: 700;
     ${media.tablet`
         font-size: 16px;
@@ -52,7 +53,9 @@ const Stepper = React.forwardRef(({ children, ...props }, componentRef) => (
         />
         <TextContainer>
             <ActiveStepLabel>{props.activeStepLabel}</ActiveStepLabel>
-            <NextStepLabel>Próximo: {props.nextStepLabel}</NextStepLabel>
+            { props.nextStepLabel ? (
+                <NextStepLabel>Próximo: {props.nextStepLabel}</NextStepLabel>
+            ) : null } 
         </TextContainer>
     </StepperContainer>
 ));
@@ -62,7 +65,7 @@ Stepper.propTypes = {
     activeStepLabel: Proptypes.string.isRequired,
 
     /** String de texto que deve ser exibido como próxima etapa. */
-    nextStepLabel: Proptypes.string.isRequired,
+    nextStepLabel: Proptypes.string,
 
     /** Porcentagem que deve ser usada no anél de progresso do Stepper. */
     currentStepPercentage: Proptypes.number.isRequired,
