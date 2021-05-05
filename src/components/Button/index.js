@@ -21,7 +21,7 @@ const ButtonWrapper = styled.button`
         border: solid 2px var(--primary);
         color: var(--primaryContrast);
 
-        &[data-hasOutline="true"] {
+        &[data-outline="true"] {
             background: none;
             border: solid 2px var(--primary);
             color: var(--primary);
@@ -55,6 +55,26 @@ const ButtonWrapper = styled.button`
             outline: none;
         }
     }
+
+    &[data-color="secondary"] {
+        background: var(--text-body);
+        border: solid 2px var(--text-body);
+        color: var(--primaryContrast);
+
+        &[data-outline="true"] {
+            background: none;
+            border: solid 2px var(--text-body);
+            color: var(--text-body);
+        }
+        &:hover,
+        :focus {
+            background: var(--grayShade);
+            border: solid 2px var(--grayShade);
+            color: var(--primaryContrast);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+            outline: none;
+        }
+    }
 `;
 
 const Button = React.forwardRef((props, componentRef) => {
@@ -81,7 +101,7 @@ Button.propTypes = {
     className: Proptypes.string,
 
     /** Define a cor contextual do botão. */
-    color: Proptypes.oneOf(["primary", "danger"]),
+    color: Proptypes.oneOf(["primary", "secondary", "danger",]),
 
     /** Caso seja `true`, o botão terá um estilo com background vazado e bordas com a cor definida em `color`. */
     hasOutline: Proptypes.bool,
