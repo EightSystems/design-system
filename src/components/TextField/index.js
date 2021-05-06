@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Proptypes from "prop-types";
 import { uniqueId } from "lodash";
 import classnames from "classnames";
@@ -7,7 +7,10 @@ import { IMaskMixin } from "react-imask";
 
 import * as T from "../../styles/typography";
 import * as V from "../../styles/variables";
+
 import { MdInfo } from "react-icons/md";
+import ClipLoader from "react-spinners/ClipLoader";
+
 import Tooltip from "../Tooltip";
 
 const MainWrapper = styled.div`
@@ -55,7 +58,6 @@ const IconWrapper = styled.div`
     align-items: center;
     padding-right: 12px;
     height: 100%;
-
     color: var(--text-body);
     svg {
         cursor: pointer;
@@ -77,6 +79,9 @@ const InputValidationContainer = styled.div`
     display: flex;
     height: ${V.Space.md};
 `;
+const SpinnerOverride = css `
+    margin-top: 8px;
+`
 
 const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <InputComponent {...props} ref={inputRef} />);
 
@@ -100,47 +105,56 @@ class TextField extends React.Component {
             <MainWrapper className={this.props.controlClass}>
                 <InputLabel htmlFor={elementUniqueId}>{this.props.label}</InputLabel>
                 <InputWrapper className={inputClasses}>
-                    <MaskedStyledInput
-                        {...this.props}
-                        id={elementUniqueId}
-                        aria-label={this.props.label}
-                        aria-required={this.props.required}
-                        name={this.props.name}
-                        placeholder={this.props.placeholder}
-                        type={this.props.type}
-                        autoComplete={this.props.autoComplete}
-                        autoFocus={this.props.autoFocus}
-                        disabled={this.props.disabled}
-                        onFocus={e => {
-                            this.setState(
-                                {
-                                    isFocused: true,
-                                },
-                                () => {
-                                    if (this.props.onFocus) {
-                                        this.props.onFocus(e);
+                    {this.props.children ? (
+                        this.props.children
+                    ) : (
+                        <MaskedStyledInput
+                            {...this.props}
+                            id={elementUniqueId}
+                            aria-label={this.props.label}
+                            aria-required={this.props.required}
+                            name={this.props.name}
+                            placeholder={this.props.placeholder}
+                            type={this.props.type}
+                            autoComplete={this.props.autoComplete}
+                            autoFocus={this.props.autoFocus}
+                            disabled={this.props.disabled}
+                            onFocus={e => {
+                                this.setState(
+                                    {
+                                        isFocused: true,
+                                    },
+                                    () => {
+                                        if (this.props.onFocus) {
+                                            this.props.onFocus(e);
+                                        }
                                     }
-                                }
-                            );
-                        }}
-                        onBlur={e => {
-                            this.setState(
-                                {
-                                    isFocused: false,
-                                },
-                                () => {
-                                    if (this.props.onBlur) {
-                                        this.props.onBlur(e);
+                                );
+                            }}
+                            onBlur={e => {
+                                this.setState(
+                                    {
+                                        isFocused: false,
+                                    },
+                                    () => {
+                                        if (this.props.onBlur) {
+                                            this.props.onBlur(e);
+                                        }
                                     }
-                                }
-                            );
-                        }}
-                        onChange={this.props.onChange}
-                    />
-                    {this.props.icon ? (
+                                );
+                            }}
+                            onChange={this.props.onChange}
+                        />
+                    )}
+                    {this.props.icon && this.props.iconTooltipMessage ? (
                         <Tooltip content={this.props.iconTooltipMessage} position={this.props.iconTooltipDirection}>
                             <IconWrapper>{this.props.icon === "info" ? <MdInfo /> : null}</IconWrapper>
                         </Tooltip>
+                    ) : null}
+                    {this.props.icon === "loadingSpinner" ? (
+                        <IconWrapper>
+                            <ClipLoader css={SpinnerOverride} size={24} color="gray" />
+                        </IconWrapper>
                     ) : null}
                 </InputWrapper>
                 <InputValidationContainer>
@@ -200,7 +214,7 @@ TextField.propTypes = {
     validationMessage: Proptypes.string,
 
     /** Caso seja especificado, definirá que tipo de ícone deverá ser exibido dentro do componente. */
-    icon: Proptypes.oneOf(["info"]),
+    icon: Proptypes.oneOf(["info", "loadingSpinner"]),
 
     /** Caso seja especificado, definirá qual mensagem deve aparecer dentro do tooltip ao clicar no ícone. */
     iconTooltipMessage: Proptypes.string,
@@ -210,6 +224,9 @@ TextField.propTypes = {
 
     /** Injeta classes personalizadas no container ao redor de todo o controlador (label + input). */
     controlClass: Proptypes.string,
+
+    /** (Opcional) Em alguns raros casos será necessário usar o componente provido por um pacote de validação (como o cpf-cnpj-mask). Nesse caso, passe o componente fornecido como um children de TextField, e o input será renderizado no lugar do input nativo. */
+    children: Proptypes.node,
 };
 
 TextField.defaultProps = {
