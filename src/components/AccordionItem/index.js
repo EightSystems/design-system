@@ -17,6 +17,7 @@ const AccordionItemContainer = styled.button`
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: 100%;
     :focus {
         outline: none;
     }
