@@ -31,9 +31,6 @@ export * from "./components/SavedCardBadge";
 export { default as Select } from "./components/Select";
 export * from "./components/Select";
 
-export { default as Step } from "./components/Step";
-export * from "./components/Step";
-
 export { default as Stepper } from "./components/Stepper";
 export * from "./components/Stepper";
 
@@ -42,3 +39,6 @@ export * from "./components/TextField";
 
 export { default as Tooltip } from "./components/Tooltip";
 export * from "./components/Tooltip";
+
+export { default as Skeleton } from "./components/Skeleton";
+export * from "./components/Skeleton";
