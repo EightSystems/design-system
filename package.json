@@ -22,6 +22,7 @@
         "@babel/core": "^7.13.14",
         "@babel/preset-env": "^7.13.12",
         "@babel/preset-react": "^7.12.13",
+        "@emotion/babel-plugin": "^11.3.0",
         "@storybook/addon-a11y": "^6.2.7",
         "@storybook/addon-actions": "^6.2.3",
         "@storybook/addon-essentials": "^6.2.3",
@@ -57,7 +58,6 @@
         "format": "prettier --write \"**/*.{js,jsx,json,mdx}\""
     },
     "dependencies": {
-        "@emotion/babel-plugin": "^11.3.0",
         "classnames": "^2.2.6",
         "dinero.js": "^1.8.1",
         "intl": "^1.2.5",
