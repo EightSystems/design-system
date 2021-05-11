@@ -69,7 +69,7 @@ See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
 ***************************************************************************** */
 
-/*! axe v4.1.4
+/*! axe v4.2.0
  * Copyright (c) 2021 Deque Systems, Inc.
  *
  * Your use of this Source Code Form is subject to the terms of the Mozilla Public
