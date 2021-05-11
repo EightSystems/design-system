@@ -78,7 +78,7 @@ const DialogWrapper = styled(Dialog)`
         left: ${props => `calc(50% - calc(${props.width}px / 2))`};
         opacity: 0;
         transition: 0.3s ease-in-out;
-    }  
+    }
     .bottom-center__mounted {
         opacity: 1;
         transform: translate(0px, 0px);
@@ -142,12 +142,11 @@ const Toast = React.forwardRef((props, componentRef) => {
     const { width, height } = useContainerDimensions(toastWrapperRef);
     const [isVisible, setIsVisible] = useState(false);
 
-    
     useEffect(() => {
         /* On each render, check for props.visible value, and switch the state if props.visible value changes */
-        const getToastVisibility = (props) => {
+        const getToastVisibility = props => {
             props ? setIsVisible(true) : setIsVisible(false);
-        }
+        };
         getToastVisibility(props.showToast);
     }, [props.showToast]);
 
@@ -167,27 +166,22 @@ const Toast = React.forwardRef((props, componentRef) => {
         "bottom-left__mounted": isVisible && props.position === "bottom-left",
         "bottom-center__mounted": isVisible && props.position === "bottom-center",
         "bottom-right__mounted": isVisible && props.position === "bottom-right",
-
     });
 
     return (
         <DialogWrapper
             /* Dialog component will always be open, as to not trigger remounts and add unecessary complexity */
             open={true}
-
             /* Will be triggered by the same function called on the onClose prop that will be exposed via the Toast component,
             in order to account for outside clicks, for example. */
             /* This is ugly ternary condition is necessary until I find out a way of handling funrions on props on Storybook MDX declarations, else
             it will complain and crash as the <Dialog> component has func as a required type. */
             onClose={props.onClose ? props.onClose : () => console.log("Fucking Storybook")}
-
             ref={componentRef}
             id={elementUniqueId}
-
             /* Computed width and height values that will be used by styled-components to determinate animations */
             width={width}
             height={height}
-
             /* Set to focus on the close button as to trigger the <FocusTrap /> error handling from the <Dialog> component */
             initialFocus={closeButtonRef}
         >

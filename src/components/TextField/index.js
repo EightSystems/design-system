@@ -79,9 +79,9 @@ const InputValidationContainer = styled.div`
     display: flex;
     height: ${V.Space.md};
 `;
-const SpinnerOverride = css `
+const SpinnerOverride = css`
     margin-top: 8px;
-`
+`;
 
 const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <InputComponent {...props} ref={inputRef} />);
 

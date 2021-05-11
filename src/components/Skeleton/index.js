@@ -23,14 +23,16 @@ const SkeletonWrapper = styled.div`
 `;
 
 const Skeleton = props => {
-    return <SkeletonWrapper 
-      {...props} 
-      borderRadius={props.borderRadius}
-      isCircular={props.isCircular}
-      size={props.size}
-      animationSpeed={props.animationSpeed}  
-      className={props.className}
-    />;
+    return (
+        <SkeletonWrapper
+            {...props}
+            borderRadius={props.borderRadius}
+            isCircular={props.isCircular}
+            size={props.size}
+            animationSpeed={props.animationSpeed}
+            className={props.className}
+        />
+    );
 };
 
 Skeleton.propTypes = {

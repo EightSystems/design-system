@@ -101,7 +101,7 @@ Button.propTypes = {
     className: Proptypes.string,
 
     /** Define a cor contextual do botão. */
-    color: Proptypes.oneOf(["primary", "secondary", "danger",]),
+    color: Proptypes.oneOf(["primary", "secondary", "danger"]),
 
     /** Caso seja `true`, o botão terá um estilo com background vazado e bordas com a cor definida em `color`. */
     hasOutline: Proptypes.bool,

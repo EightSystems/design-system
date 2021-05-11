@@ -6,8 +6,18 @@ import Stepper from "../components/Stepper";
 # Stepper
 
 O stepper exibe o progresso por meio de uma sequência de etapas lógicas lineares.
+
 <Canvas>
-    <Story name="Stepper" args={{ activeStepLabel: "Meio de pagamento", nextStepLabel: "Revisão", currentStepPercentage: 50, currentStep: 2, maxSteps: 4 }}>
+    <Story
+        name="Stepper"
+        args={{
+            activeStepLabel: "Meio de pagamento",
+            nextStepLabel: "Revisão",
+            currentStepPercentage: 50,
+            currentStep: 2,
+            maxSteps: 4,
+        }}
+    >
         {args => <Stepper {...args} />}
     </Story>
 </Canvas>

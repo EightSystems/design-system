@@ -16,9 +16,9 @@ const StepperContainer = styled.div`
         justify-content: flex-start;
     `};
 `;
-const TextContainer = styled.div `
-  padding-left: var(--space-xs);
-`
+const TextContainer = styled.div`
+    padding-left: var(--space-xs);
+`;
 const ActiveStepLabel = styled.h1`
     color: var(--text-primary);
     font-family: ${V.FontFaces.Poppins};
@@ -53,9 +53,7 @@ const Stepper = React.forwardRef(({ children, ...props }, componentRef) => (
         />
         <TextContainer>
             <ActiveStepLabel>{props.activeStepLabel}</ActiveStepLabel>
-            { props.nextStepLabel ? (
-                <NextStepLabel>Próximo: {props.nextStepLabel}</NextStepLabel>
-            ) : null } 
+            {props.nextStepLabel ? <NextStepLabel>Próximo: {props.nextStepLabel}</NextStepLabel> : null}
         </TextContainer>
     </StepperContainer>
 ));
