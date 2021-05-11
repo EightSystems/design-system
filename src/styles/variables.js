@@ -32,6 +32,7 @@ export const Color = {
     danger: `#cf2525`,
     dangerTint: `#db2626`,
     success: `#20c997`,
+    successShade: `#148060`,
     pending: `#db7804`,
 
     gray: `#b4b6c0`,
@@ -58,6 +59,5 @@ export const FontFaces = {
     Poppins:
         "Poppins, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif",
 
-    Inter:
-        "Inter, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif",
+    Inter: "Inter, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif",
 };

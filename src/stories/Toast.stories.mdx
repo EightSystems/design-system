@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import Toast from "../components/Toast";
+
+<Meta title="Overlays/Toast" component={Toast} />
+
+<Canvas>
+    <Story
+        name="Info Toast"
+        args={{
+            title: "Ação neutra",
+            description: "Uma ação neutra foi realizada.",
+            status: "info",
+            position: "bottom-right",
+            showToast: true,
+        }}
+    >
+        {args => <Toast {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Toast} />

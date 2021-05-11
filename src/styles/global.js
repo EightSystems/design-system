@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
         --danger: ${V.Color.danger};
         --dangerTint: ${V.Color.dangerTint};
         --success: ${V.Color.success};
+        --successShade: ${V.Color.successShade};
         --pending: ${V.Color.pending};
 
         --white: ${V.Color.white};

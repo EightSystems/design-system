@@ -42,3 +42,6 @@ export * from "./components/Tooltip";
 
 export { default as Skeleton } from "./components/Skeleton";
 export * from "./components/Skeleton";
+
+export { default as Toast } from "./components/Toast";
+export * from "./components/Toast";

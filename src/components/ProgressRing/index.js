@@ -11,7 +11,6 @@ const StyledCircle = styled.circle`
 const StyledText = styled.text`
     font-family: ${V.FontFaces.Poppins};
     font-weight: 700;
-    
 `;
 
 const ProgressRing = props => {
@@ -33,13 +32,13 @@ const ProgressRing = props => {
                 cy={props.radius}
             />
             {props.text ? (
-                <StyledText 
-                  text-anchor="middle"
-                  alignment-baseline="central" 
-                  fill={props.textColor}
-                  fontSize={props.textFontSize}
-                  x={props.textXAxis} 
-                  y={props.textYAxis}
+                <StyledText
+                    text-anchor="middle"
+                    alignment-baseline="central"
+                    fill={props.textColor}
+                    fontSize={props.textFontSize}
+                    x={props.textXAxis}
+                    y={props.textYAxis}
                 >
                     {props.text}
                 </StyledText>
@@ -60,7 +59,7 @@ ProgressRing.propTypes = {
 
     /** Caso especificada, define a string de texto que deve estar dentro do anél de progresso. */
     text: Proptypes.string,
-    
+
     /** Caso especificada, define a cor do texto dentro do anél de progresso. */
     textColor: Proptypes.string,
 

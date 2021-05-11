@@ -20,7 +20,7 @@ const paymentMethodName = {
     creditCard: "Cartão de crédito",
     bankSlip: "Boleto bancário",
     pix: "PIX",
-    picpay: "PicPay"
+    picpay: "PicPay",
 };
 
 const MainWrapper = styled.button`
