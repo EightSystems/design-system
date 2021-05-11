@@ -58,6 +58,7 @@
         "format": "prettier --write \"**/*.{js,jsx,json,mdx}\""
     },
     "dependencies": {
+        "@headlessui/react": "^1.2.0",
         "classnames": "^2.2.6",
         "dinero.js": "^1.8.1",
         "intl": "^1.2.5",
