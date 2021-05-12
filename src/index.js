@@ -45,3 +45,9 @@ export * from "./components/Skeleton";
 
 export { default as Toast } from "./components/Toast";
 export * from "./components/Toast";
+
+export { useDetectOutsideClick } from "./hooks/useDetectOutsideClick";
+export * from "./hooks/useDetectOutsideClick";
+
+export { useContainerDimensions } from "./hooks/useContainerDimensions";
+export * from "./hooks/useContainerDimensions";
