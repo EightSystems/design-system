@@ -65,8 +65,9 @@ const Modal = props => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
+                    <StyledDialogOverlay />
                 </Transition.Child>
-                <StyledDialogOverlay />
+                
                 <Transition.Child
                     enter="ease-out duration-300"
                     enterFrom="opacity-0"
@@ -75,9 +76,7 @@ const Modal = props => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <ModalWrapper>
-                        {props.children}
-                    </ModalWrapper>
+                    <ModalWrapper>{props.children}</ModalWrapper>
                 </Transition.Child>
             </StyledDialog>
         </Transition>
