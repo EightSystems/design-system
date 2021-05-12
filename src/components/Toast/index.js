@@ -12,7 +12,7 @@ import * as V from "../../styles/variables";
 const DialogWrapper = styled.div`
     position: fixed;
     z-index: 10;
-    visibility: ${props => props.showToast ? "visible" : "hidden"};
+    visibility: ${props => (props.showToast ? "visible" : "hidden")};
 
     .top-left {
         transform: ${props => (props.width ? `translate(-${props.width + 20}px, 0px)` : `translate(-400px , 0px)`)};
@@ -140,14 +140,14 @@ const Toast = React.forwardRef((props, componentRef) => {
     /* Get width and height values from the ToastContainer to be used on the transitions between visible and non-visible states */
     const { width, height } = useContainerDimensions(toastWrapperRef);
     const [isVisible, setIsVisible] = useState(false);
-    
+
     useEffect(() => {
         /* On each render, check for props.visible value, and switch the state if props.visible value changes */
         const getToastVisibility = props => {
             props ? setIsVisible(true) : setIsVisible(false);
         };
 
-        getToastVisibility(props.showToast)
+        getToastVisibility(props.showToast);
     }, [props.showToast]);
 
     const positionClasses = classnames({
@@ -172,11 +172,9 @@ const Toast = React.forwardRef((props, componentRef) => {
         <DialogWrapper
             ref={componentRef}
             id={elementUniqueId}
-
             /* Computed width and height values that will be used by styled-components to determinate animations */
             width={width}
             height={height}
-
             showToast={props.showToast}
         >
             <ToastWrapper ref={toastWrapperRef} className={positionClasses} data-status={props.status}>
