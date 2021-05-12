@@ -189,8 +189,6 @@ const Toast = React.forwardRef((props, componentRef) => {
                     <ToastDescription>{props.description}</ToastDescription>
                 </TextWrapper>
 
-                {/* test  */}
-
                 <button ref={closeButtonRef} onClick={props.onClose}>
                     <MdClose className="close-icon" />
                 </button>
