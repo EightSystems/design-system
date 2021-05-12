@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
 import styled from "styled-components";
 import Proptypes from "prop-types";
-import { Dialog } from "@headlessui/react";
 import { uniqueId } from "lodash";
 import { useContainerDimensions } from "../../hooks/useContainerDimensions";
 
@@ -10,10 +9,10 @@ import { MdError, MdCheckCircle, MdClose } from "react-icons/md";
 
 import * as V from "../../styles/variables";
 
-const DialogWrapper = styled(Dialog)`
+const DialogWrapper = styled.div`
     position: fixed;
     z-index: 10;
-    overflow-y: auto;
+    visibility: ${props => props.showToast ? "visible" : "hidden"};
 
     .top-left {
         transform: ${props => (props.width ? `translate(-${props.width + 20}px, 0px)` : `translate(-400px , 0px)`)};
@@ -113,13 +112,13 @@ const TextWrapper = styled.div`
     font-family: ${V.FontFaces.Inter};
     margin-right: var(--space-md);
 `;
-const ToastTitle = styled(Dialog.Title)`
+const ToastTitle = styled.h2`
     color: var(--secondaryContrast);
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
 `;
-const ToastDescription = styled(Dialog.Description)`
+const ToastDescription = styled.p`
     color: var(--secondaryContrast);
     font-size: 14px;
     font-weight: 400;
@@ -141,13 +140,14 @@ const Toast = React.forwardRef((props, componentRef) => {
     /* Get width and height values from the ToastContainer to be used on the transitions between visible and non-visible states */
     const { width, height } = useContainerDimensions(toastWrapperRef);
     const [isVisible, setIsVisible] = useState(false);
-
+    
     useEffect(() => {
         /* On each render, check for props.visible value, and switch the state if props.visible value changes */
         const getToastVisibility = props => {
             props ? setIsVisible(true) : setIsVisible(false);
         };
-        getToastVisibility(props.showToast);
+
+        getToastVisibility(props.showToast)
     }, [props.showToast]);
 
     const positionClasses = classnames({
@@ -170,22 +170,15 @@ const Toast = React.forwardRef((props, componentRef) => {
 
     return (
         <DialogWrapper
-            /* Dialog component will always be open, as to not trigger remounts and add unecessary complexity */
-            open={true}
-            /* Will be triggered by the same function called on the onClose prop that will be exposed via the Toast component,
-            in order to account for outside clicks, for example. */
-            /* This is ugly ternary condition is necessary until I find out a way of handling funrions on props on Storybook MDX declarations, else
-            it will complain and crash as the <Dialog> component has func as a required type. */
-            onClose={props.onClose ? props.onClose : () => console.log("Fucking Storybook")}
             ref={componentRef}
             id={elementUniqueId}
+
             /* Computed width and height values that will be used by styled-components to determinate animations */
             width={width}
             height={height}
-            /* Set to focus on the close button as to trigger the <FocusTrap /> error handling from the <Dialog> component */
-            initialFocus={closeButtonRef}
+
+            showToast={props.showToast}
         >
-            <Dialog.Overlay />
             <ToastWrapper ref={toastWrapperRef} className={positionClasses} data-status={props.status}>
                 <ContextIconWrapper>
                     {props.status === "info" || props.status === "success" ? <MdCheckCircle /> : <MdError />}
@@ -195,6 +188,8 @@ const Toast = React.forwardRef((props, componentRef) => {
                     <ToastTitle>{props.title}</ToastTitle>
                     <ToastDescription>{props.description}</ToastDescription>
                 </TextWrapper>
+
+                {/* test  */}
 
                 <button ref={closeButtonRef} onClick={props.onClose}>
                     <MdClose className="close-icon" />
@@ -211,14 +206,11 @@ Toast.propTypes = {
     /** Define se o componente Toast está visível */
     showToast: Proptypes.bool.isRequired,
 
-    /** Define por quanto tempo o toast deve ficar visível (em `ms`) antes de desaparecer sem nenhuma interação do usuário */
-    timeout: Proptypes.number,
+    /** A função que deve ser disparada quando o botão de fechar o toast for clicado. */
+    onClose: Proptypes.any,
 
-    /** Define uma função que deve ser executada quando o toast for fechado. */
-    onClose: Proptypes.func.isRequired,
-
-    /** O título do Toast */
-    title: Proptypes.string,
+    /** O título do Toast. */
+    title: Proptypes.string.isRequired,
 
     /** A descrição do Toast. */
     description: Proptypes.string,
