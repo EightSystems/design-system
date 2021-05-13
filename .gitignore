@@ -106,4 +106,5 @@ public
 storybook-static
 .DS_Store
 .idea
+.vscode
 
