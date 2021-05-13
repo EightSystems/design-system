@@ -34,6 +34,9 @@ export * from "./components/Select";
 export { default as Stepper } from "./components/Stepper";
 export * from "./components/Stepper";
 
+export { default as ProgressRing } from "./components/ProgressRing";
+export * from "./components/ProgressRing";
+
 export { default as TextField } from "./components/TextField";
 export * from "./components/TextField";
 
