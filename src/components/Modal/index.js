@@ -32,7 +32,6 @@ const StyledDialog = styled(Dialog)`
     .duration-200 {
         transition-duration: 200ms;
     }
-    .
 `;
 const StyledDialogOverlay = styled(Dialog.Overlay)`
     position: fixed;
