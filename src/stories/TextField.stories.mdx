@@ -56,7 +56,7 @@ mensagem de ajuda durante a validação:
 </Canvas>
 
 Também é possível criar um `TextField` com um ícone de ajuda que exibirá um Tooltip e fornecerá contexto sobre o tipo de
-informação que será requerida naquele input, usando as propriedades `icon` e `iconTooltipMessage`:
+informação que será requerida naquele input, usando as propriedades `icon` para mostrar o ícone e `tooltipContent`, `tooltipPlacement` e `tooltipOffset` para configurar o conteúdo e posicionamento do tooltip:
 
 <Canvas>
     <Story
@@ -64,7 +64,10 @@ informação que será requerida naquele input, usando as propriedades `icon` e 
         args={{
             name: "inputName",
             label: "Input Label",
-            icon: "loadingSpinner",
+            icon: "info",
+            tooltipContent: "A vida é bela", 
+            tooltipPlacement: "top-start", 
+            tooltipOffset: [0, 6]
         }}
     >
         {args => <TextField {...args} />}
@@ -93,14 +96,6 @@ informações sobre as propriedades disponíveis para o controle de máscaras no
             min={new Date(1900, 0, 1)}
             max={new Date(2010, 0, 1)}
         />
-    </Story>
-</Canvas>
-
-## Integração com Formik:
-
-<Canvas>
-    <Story name="Formik">
-        <CodeSandbox codeSandboxId="snowy-butterfly-4sv3m" />
     </Story>
 </Canvas>
 
