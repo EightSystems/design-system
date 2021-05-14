@@ -46,8 +46,10 @@ const Tooltip = props => {
                             static
                         >
                             {typeof props.tooltipContent === "string" ? (
-                                <span tabIndex={0}>{props.tooltipContent}</span> 
-                            ) : props.tooltipContent}
+                                <span tabIndex={0}>{props.tooltipContent}</span>
+                            ) : (
+                                props.tooltipContent
+                            )}
                         </PopoverWrapper>
                     )}
                 </React.Fragment>
@@ -68,6 +70,9 @@ const isValidReactElement = (props, propName, componentName) => {
 };
 
 Tooltip.propTypes = {
+    /** Sobrepõe ou extende as classes de estilo existentes. */
+    className: Proptypes.string,
+
     /** Determina ao redor de qual elemento o Tooltip deve ser renderizado */
     children: Proptypes.node.isRequired,
 
