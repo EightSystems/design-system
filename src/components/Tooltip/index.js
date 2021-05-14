@@ -1,104 +1,100 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Popover } from "@headlessui/react";
+import Proptypes from "prop-types";
+import { usePopper } from "react-popper";
 
-import * as V from "../../styles/variables";
-
-const TooltipWrapper = styled.div`
-    display: inline-block;
-    position: relative;
-
-    .tooltip__tip {
-        font-family: ${V.FontFaces.Inter};
-        position: absolute;
-        border-radius: 4px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 8px;
-        color: var(--background);
-        background: var(--secondary);
-        font-size: 14px;
-        line-height: 1;
-        z-index: 100;
-        white-space: nowrap;
-    }
-
-    .tooltip__tip::before {
-        content: " ";
-        left: 50%;
-        border: solid transparent;
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-        border-width: 6px;
-        margin-left: calc(6px * -1);
-    }
-
-    .top {
-        top: calc(35px * -1);
-    }
-    .top::before {
-        top: 100%;
-        border-top-color: var(--secondary);
-    }
-    .right {
-        left: calc(100% + 35px);
-        top: 50%;
-        transform: translateX(0) translateY(-50%);
-    }
-    .right::before {
-        left: calc(6px * -1);
-        top: 50%;
-        transform: translateX(0) translateY(-50%);
-        border-right-color: var(--secondary);
-    }
-    .bottom {
-        bottom: calc(35px * -1);
-    }
-    .bottom::before {
-        bottom: 100%;
-        border-bottom-color: var(--secondary);
-    }
-    .left {
-        left: auto;
-        right: calc(100% + 35px);
-        top: 50%;
-        transform: translateX(0) translateY(-50%);
-    }
-    .left::before {
-        left: auto;
-        right: calc(6px * -2);
-        top: 50%;
-        transform: translateX(0) translateY(-50%);
-        border-left-color: var(--secondary);
-    }
+const PopoverWrapper = styled(Popover.Panel)`
+    background-color: var(--secondary);
+    padding: 4px 6px;
+    border-radius: 3px;
+    box-shadow: var(--boxShadow-default);
 `;
 
 const Tooltip = props => {
-    let timeout;
-    const [active, setActive] = useState(false);
+    const placement = props.placement;
+    const offset = props.offset;
 
-    const showTip = () => {
-        timeout = setTimeout(() => {
-            setActive(true);
-        }, props.delay || 0);
-    };
-
-    const hideTip = () => {
-        clearInterval(timeout);
-        setActive(false);
-    };
-
-    const performAction = () => {
-        active ? hideTip() : showTip();
-    };
+    const [referenceElement, setReferenceElement] = useState();
+    const [popperElement, setPopperElement] = useState();
+    const { styles, attributes } = usePopper(referenceElement, popperElement, {
+        placement: placement,
+        modifiers: [
+            {
+                name: "offset",
+                options: {
+                    offset: offset,
+                },
+            },
+        ],
+    });
 
     return (
-        <TooltipWrapper onClick={performAction}>
-            {props.children}
-            {active && <div className={`tooltip__tip ${props.direction || "top"}`}>{props.content}</div>}
-        </TooltipWrapper>
+        <Popover>
+            {({ open }) => (
+                <React.Fragment>
+                    <Popover.Button style={{ width: "fit-content" }} ref={setReferenceElement} as="div">
+                        {props.children}
+                    </Popover.Button>
+
+                    {open && (
+                        <PopoverWrapper
+                            className={props.className}
+                            ref={setPopperElement}
+                            style={styles.popper}
+                            {...attributes.popper}
+                            static
+                        >
+                            {typeof props.tooltipContent === "string" ? (
+                                <span tabIndex={0}>{props.tooltipContent}</span> 
+                            ) : props.tooltipContent}
+                        </PopoverWrapper>
+                    )}
+                </React.Fragment>
+            )}
+        </Popover>
     );
+};
+
+const isValidReactElement = (props, propName, componentName) => {
+    if (!React.isValidElement(props[propName])) {
+        return new Error(
+            `@8sistemas/design-system: Invalid prop ${propName} passed to ${componentName}. Expected the prop ${propName} to be a React element. Consider writing a functional component that returns a valid React element.` +
+                "See: https://reactjs.org/docs/rendering-elements.html"
+        );
+    }
+
+    return null;
+};
+
+Tooltip.propTypes = {
+    /** Determina ao redor de qual elemento o Tooltip deve ser renderizado */
+    children: Proptypes.node.isRequired,
+
+    /** Determina o conteúdo interno do Tooltip. Deve ser um elemento React válido */
+    tooltipContent: Proptypes.oneOfType([isValidReactElement, Proptypes.string]).isRequired,
+
+    /** Define o a distância entre o Tooltip e o componente ao qual ele está atracado */
+    offset: Proptypes.array.isRequired,
+
+    /** Determina o posicionamento do Tooltip em relação ao componente ao qual ele está atracado */
+    placement: Proptypes.oneOf([
+        "auto",
+        "auto-start",
+        "auto-end",
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "right",
+        "right-start",
+        "right-end",
+        "left",
+        "left-start",
+        "left-end",
+    ]).isRequired,
 };
 
 export default Tooltip;
