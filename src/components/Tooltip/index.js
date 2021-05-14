@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Popover } from "@headlessui/react";
 import Proptypes from "prop-types";
 import { usePopper } from "react-popper";
+import { isValidReactElement } from "../../utils/validation/isValidReactElement"
 
 const PopoverWrapper = styled(Popover.Panel)`
     background-color: var(--secondary);
@@ -33,7 +34,7 @@ const Tooltip = props => {
         <Popover>
             {({ open }) => (
                 <React.Fragment>
-                    <Popover.Button style={{ width: "fit-content" }} ref={setReferenceElement} as="div">
+                    <Popover.Button style={{ width: "fit-content", height: "100%" }} ref={setReferenceElement} as="div">
                         {props.children}
                     </Popover.Button>
 
@@ -56,17 +57,6 @@ const Tooltip = props => {
             )}
         </Popover>
     );
-};
-
-const isValidReactElement = (props, propName, componentName) => {
-    if (!React.isValidElement(props[propName])) {
-        return new Error(
-            `@8sistemas/design-system: Invalid prop ${propName} passed to ${componentName}. Expected the prop ${propName} to be a React element. Consider writing a functional component that returns a valid React element.` +
-                "See: https://reactjs.org/docs/rendering-elements.html"
-        );
-    }
-
-    return null;
 };
 
 Tooltip.propTypes = {
