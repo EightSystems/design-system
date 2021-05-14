@@ -4,6 +4,7 @@ import Proptypes from "prop-types";
 import { uniqueId } from "lodash";
 import classnames from "classnames";
 import { IMaskMixin } from "react-imask";
+import { isValidReactElement } from "../../utils/validation/isValidReactElement";
 
 import * as T from "../../styles/typography";
 import * as V from "../../styles/variables";
@@ -146,8 +147,13 @@ class TextField extends React.Component {
                             onChange={this.props.onChange}
                         />
                     )}
-                    {this.props.icon && this.props.iconTooltipMessage ? (
-                        <Tooltip content={this.props.iconTooltipMessage} position={this.props.iconTooltipDirection}>
+                    {this.props.icon && this.props.tooltipContent ? (
+                        <Tooltip
+                            tooltipContent={this.props.tooltipContent}
+                            placement={this.props.tooltipPlacement}
+                            offset={this.props.tooltipOffset}
+                            className={this.props.tooltipClass}
+                        >
                             <IconWrapper>{this.props.icon === "info" ? <MdInfo /> : null}</IconWrapper>
                         </Tooltip>
                     ) : null}
@@ -216,11 +222,33 @@ TextField.propTypes = {
     /** Caso seja especificado, definirá que tipo de ícone deverá ser exibido dentro do componente. */
     icon: Proptypes.oneOf(["info", "loadingSpinner"]),
 
-    /** Caso seja especificado, definirá qual mensagem deve aparecer dentro do tooltip ao clicar no ícone. */
-    iconTooltipMessage: Proptypes.string,
+    /** Determina o conteúdo interno do Tooltip. Deve ser um elemento React válido */
+    tooltipContent: Proptypes.oneOfType([isValidReactElement, Proptypes.string]).isRequired,
 
-    /** Caso seja especificado, definirá em qual direção deve ficar o tooltip ao clicar no ícone. */
-    iconTooltipDirection: Proptypes.oneOf(["top", "left", "right", "bottom"]),
+    /** Define o a distância entre o Tooltip e o componente ao qual ele está atracado */
+    tooltipOffset: Proptypes.array.isRequired,
+
+    /** Determina o posicionamento do Tooltip em relação ao componente ao qual ele está atracado */
+    tooltipPlacement: Proptypes.oneOf([
+        "auto",
+        "auto-start",
+        "auto-end",
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "right",
+        "right-start",
+        "right-end",
+        "left",
+        "left-start",
+        "left-end",
+    ]).isRequired,
+
+    /** Sobrepõe ou extende as classes de estilo do componente Tooltip. */
+    tooltipClass: Proptypes.string,
 
     /** Injeta classes personalizadas no container ao redor de todo o controlador (label + input). */
     controlClass: Proptypes.string,
