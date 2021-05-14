@@ -59,6 +59,7 @@
     },
     "dependencies": {
         "@headlessui/react": "^1.2.0",
+        "@popperjs/core": "^2.9.2",
         "classnames": "^2.2.6",
         "dinero.js": "^1.8.1",
         "intl": "^1.2.5",
@@ -66,6 +67,7 @@
         "react-collapse": "^5.1.0",
         "react-icons": "^4.2.0",
         "react-imask": "^6.0.7",
+        "react-popper": "^2.2.5",
         "react-spinners": "^0.10.6",
         "styled-components": "^4.4.1"
     }
