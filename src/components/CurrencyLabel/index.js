@@ -2,35 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
 import Dinero from "dinero.js";
-
-import * as V from "../../styles/variables";
+import * as S from "./styled";
 import getUserLanguage from "../../utils/getUserLanguage";
-
 import CurrencyList from "./currencyList.json";
-
 require("intl");
-
-const CurrencyLabelWrapper = styled.h1`
-    font-family: ${V.FontFaces.Poppins};
-    font-size: 36px;
-    font-weight: 700;
-    ${props => (props.size ? `font-size: ${props.size}${props.sizeUnit}` : "")};
-
-    &[data-color="light"] {
-        color: var(--primaryContrast);
-    }
-    &[data-color="dark"] {
-        color: var(--text-primary);
-    }
-`;
 
 const CurrencyLabel = ({ currency, value, size, sizeUnit, color, props }) => {
     const currencyUnit = Dinero({ amount: value, currency, precision: CurrencyList[currency] }).toUnit();
 
     return (
-        <CurrencyLabelWrapper {...props} size={size} sizeUnit={sizeUnit} data-color={color}>
+        <S.CurrencyLabelWrapper {...props} size={size} sizeUnit={sizeUnit} data-color={color}>
             {new Intl.NumberFormat(getUserLanguage(), { style: "currency", currency }).format(currencyUnit)}
-        </CurrencyLabelWrapper>
+        </S.CurrencyLabelWrapper>
     );
 };
 

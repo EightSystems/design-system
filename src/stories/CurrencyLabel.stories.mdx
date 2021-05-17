@@ -27,23 +27,10 @@ import CurrencyLabel from "../components/CurrencyLabel";
 
 export const Template = args => <CurrencyLabel {...args} />;
 
-<style>{`
-  .flex-container {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    margin: 36px;
-  }
-`}</style>
-
 # CurrencyLabel
 
 Um wrapper para a representação de valores monetários, converte um valor puro na unidade monetária requerida de acordo
 com a API de internacionalização.
-
-<div className="flex-container">
-    <CurrencyLabel currency="BRL" value={123456} />
-</div>
 
 ## Variantes
 

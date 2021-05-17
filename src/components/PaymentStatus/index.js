@@ -1,69 +1,26 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
+import * as S from "./styled";
 
-import * as V from "../../styles/variables";
 import { MdError, MdCheckCircle } from "react-icons/md";
 import { AiFillClockCircle } from "react-icons/ai";
 import CurrencyLabel from "../CurrencyLabel";
 
-const PaymentStatusWrapper = styled.div`
-    font-family: ${V.FontFaces.Inter};
-    box-shadow: ${V.BoxShadow.default};
-    padding: ${V.Space.default};
-    text-align: center;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &[data-background="approved"] {
-        background: var(--primary);
-    }
-    &[data-background="refused"] {
-        background: var(--danger);
-    }
-    &[data-background="pending"] {
-        background: var(--pending);
-    }
-`;
-const IconWrapper = styled.div`
-    margin-top: ${V.Space.default};
-    margin-bottom: ${V.Space.default};
-    svg {
-        width: ${V.Space.xlg};
-        height: ${V.Space.xlg};
-        color: var(--primaryContrast);
-    }
-`;
-const PaymentStatusTitle = styled.h1`
-    margin-bottom: ${V.Space.default};
-    color: var(--primaryContrast);
-    font-size: 36px;
-    font-weight: 700;
-`;
-const PaymentStatusDescription = styled.p`
-    margin-top: ${V.Space.default};
-    margin-bottom: ${V.Space.default};
-    color: var(--primaryContrast);
-    font-size: 18px;
-`;
-
 const PaymentStatus = props => {
     return (
-        <PaymentStatusWrapper data-background={props.status}>
-            <IconWrapper>
+        <S.PaymentStatusWrapper data-background={props.status}>
+            <S.IconWrapper>
                 {props.status === "approved" ? <MdCheckCircle /> : null}
                 {props.status === "refused" ? <MdError /> : null}
                 {props.status === "pending" ? <AiFillClockCircle /> : null}
-            </IconWrapper>
+            </S.IconWrapper>
 
-            <PaymentStatusTitle>{props.statusTitle}</PaymentStatusTitle>
+            <S.PaymentStatusTitle>{props.statusTitle}</S.PaymentStatusTitle>
 
             <CurrencyLabel currency={props.currency} value={props.currencyValue} color="light" />
 
-            <PaymentStatusDescription>{props.statusDescription}</PaymentStatusDescription>
-        </PaymentStatusWrapper>
+            <S.PaymentStatusDescription>{props.statusDescription}</S.PaymentStatusDescription>
+        </S.PaymentStatusWrapper>
     );
 };
 

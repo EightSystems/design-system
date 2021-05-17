@@ -1,29 +1,13 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
-import * as V from "../../styles/variables";
+import * as S from "./styled";
 
 import Avatar from "../Avatar";
 import CurrencyLabel from "../CurrencyLabel";
 
-const PaymentPromptWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
-const PromptLabel = styled.p`
-    color: var(--text-body);
-    font-family: ${V.FontFaces.Inter};
-    font-size: 20px;
-    text-align: center;
-
-    margin-top: ${V.Space.default};
-    margin-bottom: ${V.Space.default};
-`;
-
 const PaymentPrompt = props => {
     return (
-        <PaymentPromptWrapper {...props}>
+        <S.PaymentPromptWrapper {...props}>
             {props.avatarSrc ? (
                 <Avatar src={props.avatarSrc} size={props.avatarSize} alt={props.avatarAlt} />
             ) : (
@@ -31,14 +15,14 @@ const PaymentPrompt = props => {
                     {props.avatarChildren}
                 </Avatar>
             )}
-            <PromptLabel>{props.promptLabel}</PromptLabel>
+            <S.PromptLabel>{props.promptLabel}</S.PromptLabel>
             <CurrencyLabel
                 currency={props.currency}
                 size={props.currencySize}
                 sizeUnit={props.currencySizeUnit}
                 value={props.currencyValue}
             />
-        </PaymentPromptWrapper>
+        </S.PaymentPromptWrapper>
     );
 };
 

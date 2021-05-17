@@ -1,9 +1,9 @@
 import React from "react";
 import GlobalStyles from "../../styles/global";
 
-const ThemeProvider = props => {
+const GlobalInjector = props => {
     return <GlobalStyles {...props} />;
 };
 
 export { default as GlobalStyles } from "../../styles/global";
-export default ThemeProvider;
+export default GlobalInjector;

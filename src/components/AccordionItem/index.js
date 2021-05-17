@@ -1,48 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
 
 import { isFunction } from "lodash";
 import { UnmountClosed } from "react-collapse";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
-import * as V from "../../styles/variables";
 
-const AccordionWrapper = styled.div`
-    margin-top: ${V.Space.xs};
-    .ReactCollapse--collapse {
-        transition: height 300ms ease-in-out;
-    }
-`;
-const AccordionItemContainer = styled.button`
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    width: 100%;
-    :focus {
-        outline: none;
-    }
-`;
-const AccordionItemLabel = styled.p`
-    font-family: ${V.FontFaces.Inter};
-    font-size: 20px;
-    font-weight: 700;
-    user-select: none;
-`;
-const AccordionItemUnderline = styled.div`
-    width: 100%;
-    border-top: ${V.Border.light};
-    margin-top: ${V.Space.xs};
-`;
-const AccordionItemIconWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    img,
-    svg {
-        width: ${V.Space.md};
-        height: ${V.Space.md};
-        color: var(--secondary);
-    }
-`;
+import * as S from "./styled";
 
 const AccordionItem = props => {
     const { onClick, onMouseDown, onFocus, ...propsWithoutEventHandlers } = props;
@@ -63,14 +26,14 @@ const AccordionItem = props => {
         : null;
 
     return (
-        <AccordionWrapper {...propsWithoutEventHandlers}>
-            <AccordionItemContainer onMouseDown={onClickHandler} onFocus={onClickHandler}>
-                <AccordionItemIconWrapper>{isOpen ? <BiChevronDown /> : <BiChevronRight />}</AccordionItemIconWrapper>
-                <AccordionItemLabel>{props.label}</AccordionItemLabel>
-            </AccordionItemContainer>
+        <S.AccordionWrapper {...propsWithoutEventHandlers}>
+            <S.AccordionItemContainer onMouseDown={onClickHandler} onFocus={onClickHandler}>
+                <S.AccordionItemIconWrapper>{isOpen ? <BiChevronDown /> : <BiChevronRight />}</S.AccordionItemIconWrapper>
+                <S.AccordionItemLabel>{props.label}</S.AccordionItemLabel>
+            </S.AccordionItemContainer>
             <UnmountClosed isOpened={isOpen}>{props.children}</UnmountClosed>
-            <AccordionItemUnderline />
-        </AccordionWrapper>
+            <S.AccordionItemUnderline />
+        </S.AccordionWrapper>
     );
 };
 

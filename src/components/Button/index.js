@@ -1,85 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
-import * as V from "../../styles/variables";
-
-const ButtonWrapper = styled.button`
-    font-family: ${V.FontFaces.Poppins};
-    font-size: 18px;
-    appearance: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 18px 24px;
-    text-decoration: none;
-    text-align: center;
-    transition: 150ms ease-in-out;
-    user-select: none;
-
-    &[data-color="primary"] {
-        background: var(--primary);
-        border: solid 2px var(--primary);
-        color: var(--primaryContrast);
-
-        &[data-outline="true"] {
-            background: none;
-            border: solid 2px var(--primary);
-            color: var(--primary);
-        }
-        &:hover,
-        :focus {
-            background: var(--primaryTint);
-            border: solid 2px var(--primaryTint);
-            color: var(--primaryContrast);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
-            outline: none;
-        }
-    }
-
-    &[data-color="danger"] {
-        background: var(--danger);
-        border: solid 2px var(--danger);
-        color: var(--primaryContrast);
-
-        &[data-outline="true"] {
-            background: none;
-            border: solid 2px var(--danger);
-            color: var(--danger);
-        }
-        &:hover,
-        :focus {
-            background: var(--dangerTint);
-            border: solid 2px var(--dangerTint);
-            color: var(--primaryContrast);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
-            outline: none;
-        }
-    }
-
-    &[data-color="secondary"] {
-        background: var(--text-body);
-        border: solid 2px var(--text-body);
-        color: var(--primaryContrast);
-
-        &[data-outline="true"] {
-            background: none;
-            border: solid 2px var(--text-body);
-            color: var(--text-body);
-        }
-        &:hover,
-        :focus {
-            background: var(--grayShade);
-            border: solid 2px var(--grayShade);
-            color: var(--primaryContrast);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
-            outline: none;
-        }
-    }
-`;
+import * as S from "./styled";
 
 const Button = React.forwardRef((props, componentRef) => {
     return (
-        <ButtonWrapper
+        <S.ButtonWrapper
             {...props}
             className={props.className}
             data-color={props.color}
@@ -89,7 +14,7 @@ const Button = React.forwardRef((props, componentRef) => {
             ref={componentRef}
         >
             {props.children}
-        </ButtonWrapper>
+        </S.ButtonWrapper>
     );
 });
 

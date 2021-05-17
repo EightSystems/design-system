@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
+import * as S from "./styled";
 
-import * as V from "../../styles/variables";
 import { BiChevronRight } from "react-icons/bi";
 
 import { ReactComponent as AmexSvg } from "../../assets/icons/american-express.svg";
@@ -47,75 +46,26 @@ const brandNameMapping = {
     visa: "Visa",
 };
 
-const MainWrapper = styled.button`
-    background: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: ${V.Border.default};
-    border-radius: 4px;
-    padding: ${V.Space.default} ${V.Space.default};
-    cursor: pointer;
-    transition: 150ms ease-in-out;
-    user-select: none;
-
-    :hover,
-    :focus {
-        border: ${V.Border.hover};
-        box-shadow: ${V.BoxShadow.default};
-        outline: none;
-    }
-`;
-const ContentWrapperRow = styled.div`
-    display: flex;
-    flex-direction: row;
-`;
-const ContentWrapperColumn = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 ${V.Space.sm};
-`;
-const IconWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    img,
-    svg {
-        width: ${V.Space.lg};
-        height: ${V.Space.lg};
-        color: var(--secondary);
-    }
-`;
-const ContentLabel = styled.p`
-    color: var(--text-primary);
-    font-family: ${V.FontFaces.Inter};
-    font-size: 16px;
-    text-align: left;
-`;
-const HighlightedContentLabel = styled(ContentLabel)`
-    font-weight: 700;
-`;
-
 const SavedCardBadge = props => {
-    const IconCompoment = brandIconMapping[props.cardBrand.toLowerCase()];
+    const IconComponent = brandIconMapping[props.cardBrand.toLowerCase()];
 
     return (
-        <MainWrapper {...props} onClick={props.onClick}>
-            <ContentWrapperRow>
-                <IconWrapper>
-                    <IconCompoment alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`} />
-                </IconWrapper>
-                <ContentWrapperColumn>
-                    <HighlightedContentLabel>
+        <S.MainWrapper {...props} onClick={props.onClick}>
+            <S.ContentWrapperRow>
+                <S.IconWrapper>
+                    <IconComponent alt={`Ícone ${brandNameMapping[props.cardBrand.toLowerCase()]}`} />
+                </S.IconWrapper>
+                <S.ContentWrapperColumn>
+                    <S.HighlightedContentLabel>
                         {brandNameMapping[props.cardBrand.toLowerCase()]} terminado em {props.cardLastDigits}
-                    </HighlightedContentLabel>
-                    {props.cardIdentifier ? <ContentLabel>{props.cardIdentifier}</ContentLabel> : null}
-                </ContentWrapperColumn>
-            </ContentWrapperRow>
-            <IconWrapper>
+                    </S.HighlightedContentLabel>
+                    {props.cardIdentifier ? <S.ContentLabel>{props.cardIdentifier}</S.ContentLabel> : null}
+                </S.ContentWrapperColumn>
+            </S.ContentWrapperRow>
+            <S.IconWrapper>
                 <BiChevronRight className="arrow-icon" />
-            </IconWrapper>
-        </MainWrapper>
+            </S.IconWrapper>
+        </S.MainWrapper>
     );
 };
 
