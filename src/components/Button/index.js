@@ -25,6 +25,9 @@ const ButtonWrapper = styled.button`
             background: none;
             border: solid 2px var(--primary);
             color: var(--primary);
+            svg {
+                color: var(--primary)
+            }
         }
         &:hover,
         :focus {
@@ -33,7 +36,11 @@ const ButtonWrapper = styled.button`
             color: var(--primaryContrast);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
             outline: none;
+            svg {
+                color: var(--primaryContrast)
+            }
         }
+        
     }
 
     &[data-color="danger"] {

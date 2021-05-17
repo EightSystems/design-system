@@ -7,26 +7,14 @@ import { UnmountClosed } from "react-collapse";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import * as V from "../../styles/variables";
 
+import Button from "../Button";
+
 const AccordionWrapper = styled.div`
     margin-top: ${V.Space.xs};
     .ReactCollapse--collapse {
         transition: height 300ms ease-in-out;
+        padding-top: var(--space-xs);
     }
-`;
-const AccordionItemContainer = styled.button`
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    width: 100%;
-    :focus {
-        outline: none;
-    }
-`;
-const AccordionItemLabel = styled.p`
-    font-family: ${V.FontFaces.Inter};
-    font-size: 20px;
-    font-weight: 700;
-    user-select: none;
 `;
 const AccordionItemUnderline = styled.div`
     width: 100%;
@@ -40,8 +28,13 @@ const AccordionItemIconWrapper = styled.div`
     svg {
         width: ${V.Space.md};
         height: ${V.Space.md};
-        color: var(--secondary);
     }
+`;
+const AccordionItemContainerButton = styled(Button)`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--space-xs);
 `;
 
 const AccordionItem = props => {
@@ -64,10 +57,21 @@ const AccordionItem = props => {
 
     return (
         <AccordionWrapper {...propsWithoutEventHandlers}>
-            <AccordionItemContainer onMouseDown={onClickHandler} onFocus={onClickHandler}>
-                <AccordionItemIconWrapper>{isOpen ? <BiChevronDown /> : <BiChevronRight />}</AccordionItemIconWrapper>
-                <AccordionItemLabel>{props.label}</AccordionItemLabel>
-            </AccordionItemContainer>
+            {isOpen ? (
+                <AccordionItemContainerButton hasOutline="true" onMouseDown={onClickHandler} onFocus={onClickHandler}>
+                    <AccordionItemIconWrapper data-open={isOpen}>
+                        <BiChevronDown />
+                    </AccordionItemIconWrapper>
+                    {props.label}
+                </AccordionItemContainerButton>
+            ) : (
+                <AccordionItemContainerButton hasOutline="true" onMouseDown={onClickHandler} onFocus={onClickHandler}>
+                    <AccordionItemIconWrapper data-open={isOpen}>
+                        <BiChevronRight />
+                    </AccordionItemIconWrapper>
+                    {props.label}
+                </AccordionItemContainerButton>
+            )}
             <UnmountClosed isOpened={isOpen}>{props.children}</UnmountClosed>
             <AccordionItemUnderline />
         </AccordionWrapper>
