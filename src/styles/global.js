@@ -1,66 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-import { fontFaces } from "./typography";
-
-import * as V from "./variables";
 
 const GlobalStyles = createGlobalStyle`
-    ${fontFaces};
 
-    :root {
-        --background: ${V.Color.background};
-        --text-primary: ${V.Color.textPrimary};
-        --text-body: ${V.Color.textBody};
-
-        --primary: ${V.Color.primary};
-        --primaryShade: ${V.Color.primaryShade};
-        --primaryTint: ${V.Color.primaryTint};
-        --primaryContrast: ${V.Color.primaryContrast};
-
-        --secondary: ${V.Color.secondary};
-        --secondaryShade: ${V.Color.secondaryShade};
-        --secondaryTint: ${V.Color.secondaryTint};
-        --secondaryContrast: ${V.Color.secondaryContrast};
-
-        --tertiary: ${V.Color.tertiary};
-        --tertiaryShade: ${V.Color.tertiaryShade};
-        --tertiaryTint: ${V.Color.tertiaryTint};
-        --tertiaryContrast: ${V.Color.tertiaryContrast};
-
-        --gray: ${V.Color.gray};
-        --grayShade: ${V.Color.grayShade};
-        --grayTint: ${V.Color.grayTint};
-        --lightGray: ${V.Color.lightGray};
-
-        --danger: ${V.Color.danger};
-        --dangerTint: ${V.Color.dangerTint};
-        --success: ${V.Color.success};
-        --successShade: ${V.Color.successShade};
-        --pending: ${V.Color.pending};
-
-        --white: ${V.Color.white};
-
-        --space-xxs: ${V.Space.xxs};
-        --space-xs: ${V.Space.xs};
-        --space-sm: ${V.Space.sm};
-        --space-default: ${V.Space.default};
-        --space-md: ${V.Space.md};
-        --space-lg: ${V.Space.lg};
-        --space-xlg: ${V.Space.xlg};
-        --space-xxlg: ${V.Space.xxlg};
-
-        --border-default: ${V.Border.default};
-        --border-hover: ${V.Border.hover};
-        --border-danger: ${V.Border.danger};
-        --border-success: ${V.Border.success};
-        --border-light: ${V.Border.light};
-
-        --boxShadow-default: ${V.BoxShadow.default};
-
-        --fontFace-Inter: ${V.FontFaces.Inter};
-        --fontFace-Poppins: ${V.FontFaces.Poppins};
-    }
-
-    html, body, div, span, applet, object, iframe,
+  html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp,
@@ -73,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
   figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
-    color: var(--text-primary);
+    color: ${({ theme }) => theme.colors.textPrimary};
     border: 0;
     font: inherit;
     font-size: 100%;
@@ -132,10 +74,10 @@ const GlobalStyles = createGlobalStyle`
     -webkit-appearance: none;
   }
   *::placeholder {
-    color: var(--secondaryColor);
+    color: ${({ theme }) => theme.colors.secondary};
   }
   *::-webkit-input-placeholder {
-    color: var(--secondaryColor);
+    color: ${({ theme }) => theme.colors.secondary};
   }
 
   @media (prefers-reduced-motion: reduce) {
