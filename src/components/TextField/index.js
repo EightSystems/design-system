@@ -9,7 +9,7 @@ import { isValidReactElement } from "../../utils/validation/isValidReactElement"
 import * as T from "../../styles/typography";
 import * as V from "../../styles/variables";
 
-import { MdInfo } from "react-icons/md";
+import { MdInfo, MdCheck, MdError } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 
 import Tooltip from "../Tooltip";
@@ -60,6 +60,14 @@ const IconWrapper = styled.div`
     padding-right: 12px;
     height: 100%;
     color: var(--text-body);
+    &[data-success="true"] {
+        color: var(--success);
+        align-self: center;
+    }
+    &[data-success="false"] {
+        color: var(--danger);
+        align-self: center;
+    }
     svg {
         cursor: pointer;
         width: 28px;
@@ -162,6 +170,16 @@ class TextField extends React.Component {
                             <ClipLoader css={SpinnerOverride} size={24} color="gray" />
                         </IconWrapper>
                     ) : null}
+                    {this.props.icon === "success" ? (
+                        <IconWrapper data-success={true}>
+                            <MdCheck />
+                        </IconWrapper>
+                    ) : null}
+                    {this.props.icon === "error" ? (
+                        <IconWrapper data-success={false}>
+                            <MdError />
+                        </IconWrapper>
+                    ) : null}
                 </InputWrapper>
                 <InputValidationContainer>
                     {this.props.validationMessage ? (
@@ -220,7 +238,7 @@ TextField.propTypes = {
     validationMessage: Proptypes.string,
 
     /** Caso seja especificado, definirá que tipo de ícone deverá ser exibido dentro do componente. */
-    icon: Proptypes.oneOf(["info", "loadingSpinner"]),
+    icon: Proptypes.oneOf(["info", "loadingSpinner", "success", "error"]),
 
     /** Determina o conteúdo interno do Tooltip. Deve ser um elemento React válido */
     tooltipContent: Proptypes.oneOfType([isValidReactElement, Proptypes.string]).isRequired,

@@ -5,7 +5,7 @@ import * as V from "../../styles/variables";
 
 const ButtonWrapper = styled.button`
     font-family: ${V.FontFaces.Poppins};
-    font-size: 18px;
+    font-size: 16px;
     appearance: none;
     border-radius: 4px;
     cursor: pointer;
