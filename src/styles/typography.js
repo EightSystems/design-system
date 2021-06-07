@@ -1,5 +1,4 @@
 import { css } from "styled-components";
-import { theme } from "./theme";
 
 export const fontFaces = css`
     // Poppins Regular, Medium, Semibold & Bold
@@ -10,7 +9,7 @@ export const fontFaces = css`
 `;
 
 export const Heading1 = css`
-    font-family: ${theme.fontFaces.Poppins};
+    font-family: ${({ theme }) => theme.fontFaces.Poppins};
     color: var(--text-primary);
     font-size: 48px;
     font-weight: 700;
@@ -22,7 +21,7 @@ export const Heading1 = css`
 `;
 
 export const Heading2 = css`
-    font-family: ${theme.fontFaces.Poppins};
+    font-family: ${({ theme }) => theme.fontFaces.Poppins};
     color: var(--text-primary);
     font-size: 36px;
     font-weight: 700;
@@ -34,7 +33,7 @@ export const Heading2 = css`
 `;
 
 export const Body = css`
-    font-family: ${theme.fontFaces.Inter};
+    font-family: ${({ theme }) => theme.fontFaces.Inter};
     color: var(--text-body);
     font-size: 18px;
     font-weight: 400;
@@ -46,7 +45,7 @@ export const Body = css`
 `;
 
 export const FormLabel = css`
-    font-family: ${theme.fontFaces.Poppins};
+    font-family: ${({ theme }) => theme.fontFaces.Poppins};
     color: var(--text-body);
     font-size: 14px;
     font-weight: 500;
@@ -54,14 +53,14 @@ export const FormLabel = css`
 `;
 
 export const FormInput = css`
-    font-family: ${theme.fontFaces.Poppins};
+    font-family: ${({ theme }) => theme.fontFaces.Poppins};
     color: var(--text-primary);
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
 `;
 export const PlaceholderFormInput = css`
-    font-family: ${theme.fontFaces.Poppins};
+    font-family: ${({ theme }) => theme.fontFaces.Poppins};
     color: var(--text-body);
     font-size: 14px;
     font-weight: 400;
@@ -69,13 +68,13 @@ export const PlaceholderFormInput = css`
 `;
 
 export const FormValidationMessage = css`
-    font-family: ${theme.fontFaces.Poppins};
+    font-family: ${({ theme }) => theme.fontFaces.Poppins};
     color: var(--danger);
     font-size: 13px;
 `;
 
 export const CurrencyLabel = css`
-    font-family: ${theme.fontFaces.Poppins};
+    font-family: ${({ theme }) => theme.fontFaces.Poppins};
     color: var(--text-primary);
     font-size: 36px;
     font-weight: 700;
