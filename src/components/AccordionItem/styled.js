@@ -16,7 +16,7 @@ export const AccordionItemContainer = styled.button`
     }
 `;
 export const AccordionItemLabel = styled.p`
-    font-family: ${props => props.theme.fontFaces.Inter};
+    font-family: ${props => props.theme.fontFaces.primary};
     font-size: 20px;
     font-weight: 700;
     user-select: none;

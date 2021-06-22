@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AvatarWrapper = styled.div`
-    font-family: ${props => props.theme.fontFaces.Poppins};
+    font-family: ${props => props.theme.fontFaces.secondary};
     font-weight: 700;
     line-height: 1;
     user-select: none;

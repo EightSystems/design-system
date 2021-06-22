@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CurrencyLabelWrapper = styled.h1`
-    font-family: ${props => props.theme.fontFaces.Poppins};
+    font-family: ${props => props.theme.fontFaces.secondary};
     font-size: 36px;
     font-weight: 700;
     ${props => (props.size ? `font-size: ${props.size}${props.sizeUnit}` : "")};

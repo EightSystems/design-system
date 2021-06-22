@@ -5,23 +5,43 @@ import * as S from "./styled";
 import Avatar from "../Avatar";
 import CurrencyLabel from "../CurrencyLabel";
 
-const PaymentPrompt = props => {
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {string} promptLabel
+ * @property {any} avatarChildren
+ * @property {string} avatarAlt
+ * @property {string} avatarSrc
+ * @property {string} avatarSize
+ * @property {string} currency
+ * @property {number} currencyValue
+ * @property {number} currencySize
+ * @property {string} currencySizeUnit
+ */
+const PaymentPrompt = ({
+    promptLabel,
+    avatarChildren,
+    avatarAlt,
+    avatarSrc,
+    avatarSize,
+    currency,
+    currencyValue,
+    currencySize,
+    currencySizeUnit,
+    props,
+}) => {
     return (
         <S.PaymentPromptWrapper {...props}>
-            {props.avatarSrc ? (
-                <Avatar src={props.avatarSrc} size={props.avatarSize} alt={props.avatarAlt} />
+            {avatarSrc ? (
+                <Avatar src={avatarSrc} size={avatarSize} alt={avatarAlt} />
             ) : (
-                <Avatar alt={props.avatarAlt} size={props.avatarSize}>
-                    {props.avatarChildren}
+                <Avatar alt={avatarAlt} size={avatarSize}>
+                    {avatarChildren}
                 </Avatar>
             )}
-            <S.PromptLabel>{props.promptLabel}</S.PromptLabel>
-            <CurrencyLabel
-                currency={props.currency}
-                size={props.currencySize}
-                sizeUnit={props.currencySizeUnit}
-                value={props.currencyValue}
-            />
+            <S.PromptLabel>{promptLabel}</S.PromptLabel>
+            <CurrencyLabel currency={currency} size={currencySize} sizeUnit={currencySizeUnit} value={currencyValue} />
         </S.PaymentPromptWrapper>
     );
 };

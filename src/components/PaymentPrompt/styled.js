@@ -7,7 +7,7 @@ export const PaymentPromptWrapper = styled.div`
 `;
 export const PromptLabel = styled.p`
     color: ${props => props.theme.colors.textBody};
-    font-family: ${props => props.theme.fontFaces.Inter};
+    font-family: ${props => props.theme.fontFaces.primary};
     font-size: 20px;
     text-align: center;
     margin-top: ${props => props.theme.space.default};

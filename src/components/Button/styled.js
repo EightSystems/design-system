@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonWrapper = styled.button`
-    font-family: ${props => props.theme.fontFaces.Poppins};
+    font-family: ${props => props.theme.fontFaces.primary};
     font-size: 16px;
     appearance: none;
     border-radius: 4px;

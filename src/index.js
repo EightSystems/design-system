@@ -4,23 +4,23 @@ export * from "./components/GlobalInjector";
 export { default as Theme } from "./styles/theme";
 export * from "./styles/theme";
 
-// export { default as Accordion } from "./components/Accordion";
-// export * from "./components/Accordion";
+export { default as Accordion } from "./components/Accordion";
+export * from "./components/Accordion";
 
-// export { default as AccordionItem } from "./components/AccordionItem";
-// export * from "./components/AccordionItem";
+export { default as AccordionItem } from "./components/AccordionItem";
+export * from "./components/AccordionItem";
 
-// export { default as Avatar } from "./components/Avatar";
-// export * from "./components/Avatar";
+export { default as Avatar } from "./components/Avatar";
+export * from "./components/Avatar";
 
 export { default as Button } from "./components/Button";
 export * from "./components/Button";
 
-// export { default as CurrencyLabel } from "./components/CurrencyLabel";
-// export * from "./components/CurrencyLabel";
+export { default as CurrencyLabel } from "./components/CurrencyLabel";
+export * from "./components/CurrencyLabel";
 
-// export { default as PaymentMethodItem } from "./components/PaymentMethodItem";
-// export * from "./components/PaymentMethodItem";
+export { default as PaymentMethodItem } from "./components/PaymentMethodItem";
+export * from "./components/PaymentMethodItem";
 
 // export { default as PaymentPrompt } from "./components/PaymentPrompt";
 // export * from "./components/PaymentPrompt";
@@ -55,8 +55,8 @@ export * from "./components/Button";
 // export { default as Modal } from "./components/Modal";
 // export * from "./components/Modal";
 
-// export { useDetectOutsideClick } from "./hooks/useDetectOutsideClick";
-// export * from "./hooks/useDetectOutsideClick";
+export { useDetectOutsideClick } from "./hooks/useDetectOutsideClick";
+export * from "./hooks/useDetectOutsideClick";
 
-// export { useContainerDimensions } from "./hooks/useContainerDimensions";
-// export * from "./hooks/useContainerDimensions";
+export { useContainerDimensions } from "./hooks/useContainerDimensions";
+export * from "./hooks/useContainerDimensions";

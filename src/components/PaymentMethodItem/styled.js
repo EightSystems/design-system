@@ -29,7 +29,7 @@ export const IconWrapper = styled.div`
 export const ContentLabel = styled.p`
     color: ${props => props.theme.colors.textPrimary};
     text-align: center;
-    font-family: ${props => props.theme.fontFaces.Inter};
+    font-family: ${props => props.theme.fontFaces.primary};
     font-size: 16px;
 `;
 export const ContentTitle = styled(ContentLabel)`

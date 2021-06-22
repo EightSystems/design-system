@@ -7,6 +7,13 @@ import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 
 import * as S from "./styled";
 
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {string} label
+ * @property {{bool \ function}} isOpen
+ */
 const AccordionItem = props => {
     const { onClick, onMouseDown, onFocus, ...propsWithoutEventHandlers } = props;
 
@@ -28,7 +35,9 @@ const AccordionItem = props => {
     return (
         <S.AccordionWrapper {...propsWithoutEventHandlers}>
             <S.AccordionItemContainer onMouseDown={onClickHandler} onFocus={onClickHandler}>
-                <S.AccordionItemIconWrapper>{isOpen ? <BiChevronDown /> : <BiChevronRight />}</S.AccordionItemIconWrapper>
+                <S.AccordionItemIconWrapper>
+                    {isOpen ? <BiChevronDown /> : <BiChevronRight />}
+                </S.AccordionItemIconWrapper>
                 <S.AccordionItemLabel>{props.label}</S.AccordionItemLabel>
             </S.AccordionItemContainer>
             <UnmountClosed isOpened={isOpen}>{props.children}</UnmountClosed>
@@ -38,13 +47,13 @@ const AccordionItem = props => {
 };
 
 AccordionItem.propTypes = {
-    /** Componentes que devem estar dentro do `<AccordionItem>`. */
+    /** Components that must be inside the`<AccordionItem>`. */
     children: Proptypes.node.isRequired,
 
-    /** Título que deve ser exibido nesse item do Accordion. */
+    /** Title that will be shown on this Accordion item. */
     label: Proptypes.string.isRequired,
 
-    /** Define se o `<AccordionItem>` está aberto ou não. É controlado através do index repassado pelo componente parente `<Accordion>`. */
+    /** Defines if the `<AccordionItem>` is open or not. It's controlled by the index on the parent `<Accordion>` component. */
     isOpen: Proptypes.oneOfType([Proptypes.bool, Proptypes.func]),
 };
 

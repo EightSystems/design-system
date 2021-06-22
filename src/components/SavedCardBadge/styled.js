@@ -41,7 +41,7 @@ export const IconWrapper = styled.div`
 `;
 export const ContentLabel = styled.p`
     color: ${props => props.theme.colors.primary};
-    font-family: ${props => props.theme.fontFaces.Inter};
+    font-family: ${props => props.theme.fontFaces.primary};
     font-size: 16px;
     text-align: left;
 `;

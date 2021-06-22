@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PaymentStatusWrapper = styled.div`
-    font-family: ${props => props.theme.fontFaces.Inter};
+    font-family: ${props => props.theme.fontFaces.primary};
     box-shadow: ${props => props.theme.boxShadow.default};
     padding: ${props => props.theme.space.default};
     text-align: center;

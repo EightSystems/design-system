@@ -1,17 +1,6 @@
 import React from "react";
 import Proptypes from "prop-types";
-import styled from "styled-components";
-
-import * as V from "../../styles/variables";
-
-const StyledCircle = styled.circle`
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-`;
-const StyledText = styled.text`
-    font-family: ${V.FontFaces.Poppins};
-    font-weight: 700;
-`;
+import * as S from "./styled"
 
 const ProgressRing = props => {
     const normalizedRadius = props.radius - props.stroke * 2;
@@ -21,7 +10,7 @@ const ProgressRing = props => {
 
     return (
         <svg height={props.radius * 2} width={props.radius * 2}>
-            <StyledCircle
+            <S.StyledCircle
                 stroke={props.strokeColor}
                 fill="transparent"
                 strokeWidth={props.stroke}
@@ -32,7 +21,7 @@ const ProgressRing = props => {
                 cy={props.radius}
             />
             {props.text ? (
-                <StyledText
+                <S.StyledText
                     text-anchor="middle"
                     alignment-baseline="central"
                     fill={props.textColor}
@@ -41,7 +30,7 @@ const ProgressRing = props => {
                     y={props.textYAxis}
                 >
                     {props.text}
-                </StyledText>
+                </S.StyledText>
             ) : null}
         </svg>
     );
