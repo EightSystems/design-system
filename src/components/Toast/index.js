@@ -7,7 +7,7 @@ import { useContainerDimensions } from "../../hooks/useContainerDimensions";
 
 import { MdError, MdCheckCircle, MdClose } from "react-icons/md";
 
-import * as V from "../../styles/variables";
+import Theme from "../../styles/theme";
 
 const DialogWrapper = styled.div`
     position: fixed;
@@ -87,7 +87,7 @@ const ToastWrapper = styled.div`
     position: fixed;
     display: flex;
     align-items: flex-start;
-    box-shadow: ${V.BoxShadow.default};
+    box-shadow: ${Theme.BoxShadow.default};
     border-radius: 3px;
     padding: var(--space-sm) var(--space-default);
     &[data-status="info"] {
@@ -109,7 +109,7 @@ const ToastWrapper = styled.div`
     }
 `;
 const TextWrapper = styled.div`
-    font-family: ${V.FontFaces.Inter};
+    font-family: ${Theme.FontFaces.Inter};
     margin-right: var(--space-md);
 `;
 const ToastTitle = styled.h2`

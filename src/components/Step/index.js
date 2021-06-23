@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
-import * as V from "../../styles/variables";
 
 const StepContainer = styled.div`
     display: flex;
@@ -22,7 +21,7 @@ const StepIcon = styled.svg`
     }
 `;
 const LabelContainer = styled.span`
-    font-family: ${V.FontFaces.Poppins};
+    font-family: ${props => props.theme.fontFaces.primary};
     font-size: 14px;
     font-weight: 500;
     margin-top: 12px;

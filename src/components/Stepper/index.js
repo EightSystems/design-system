@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Proptypes from "prop-types";
 
-import * as V from "../../styles/variables";
 import media from "../../styles/media";
 
 import ProgressRing from "../ProgressRing";
@@ -21,7 +20,7 @@ const TextContainer = styled.div`
 `;
 const ActiveStepLabel = styled.h1`
     color: var(--text-primary);
-    font-family: ${V.FontFaces.Poppins};
+    font-family: ${props => props.theme.fontFaces.primary};
     font-size: 18px;
     line-height: 16px;
     font-weight: 700;
@@ -31,7 +30,7 @@ const ActiveStepLabel = styled.h1`
 `;
 const NextStepLabel = styled.h2`
     color: var(--text-body);
-    font-family: ${V.FontFaces.Poppins};
+    font-family: ${props => props.theme.fontFaces.primary};
     font-size: 16px;
     ${media.tablet`
         font-size: 14px;

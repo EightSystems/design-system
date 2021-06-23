@@ -7,7 +7,7 @@ import { IMaskMixin } from "react-imask";
 import { isValidReactElement } from "../../utils/validation/isValidReactElement";
 
 import * as T from "../../styles/typography";
-import * as V from "../../styles/variables";
+import Theme from "../../styles/theme";
 
 import { MdInfo } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -18,23 +18,23 @@ const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
     .input--focused {
-        border: ${V.Border.hover};
-        box-shadow: ${V.BoxShadow.default};
+        border: ${Theme.Border.hover};
+        box-shadow: ${Theme.BoxShadow.default};
     }
     .input--error {
-        border: ${V.Border.danger};
+        border: ${Theme.Border.danger};
     }
     .input--success {
-        border: ${V.Border.success};
+        border: ${Theme.Border.success};
     }
 `;
 const InputLabel = styled.label`
     ${T.FormLabel};
-    padding-bottom: ${V.Space.xs};
+    padding-bottom: var(--space-xxs);
 `;
 const InputWrapper = styled.div`
     display: flex;
-    border: ${V.Border.default};
+    border: ${Theme.Border.default};
     border-radius: 4px;
     background: #fcfcfc;
     transition: 150ms ease-in-out;
@@ -73,12 +73,12 @@ const InputValidationMessage = styled.span`
 const InputValidationContainer = styled.div`
     svg {
         color: var(--danger);
-        height: ${V.Space.sm};
-        width: ${V.Space.sm};
+        height: ${Theme.Space.sm};
+        width: ${Theme.Space.sm};
     }
     padding-top: 6px;
     display: flex;
-    height: ${V.Space.md};
+    height: ${Theme.Space.md};
 `;
 const SpinnerOverride = css`
     margin-top: 8px;
