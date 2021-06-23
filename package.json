@@ -11,18 +11,24 @@
     },
     "main": "dist/index.js",
     "files": [
-        "/dist",
-        "/public"
+        "dist"
     ],
     "author": "@EightSystems",
     "license": "MIT",
     "private": false,
+    "peerDependencies": {
+        "react": ">=17.0.1",
+        "react-dom": ">=17.0.1",
+        "react-icons": ">=4.2.0",
+        "styled-components": ">=5.3.0"
+    },
     "devDependencies": {
-        "@babel/cli": "^7.13.14",
-        "@babel/core": "^7.13.14",
-        "@babel/preset-env": "^7.13.12",
-        "@babel/preset-react": "^7.12.13",
-        "@emotion/babel-plugin": "^11.3.0",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^15.1.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-typescript": "^8.2.1",
+        "@rollup/plugin-url": "^5.0.1",
         "@storybook/addon-a11y": "^6.2.7",
         "@storybook/addon-actions": "^6.2.3",
         "@storybook/addon-essentials": "^6.2.3",
@@ -30,13 +36,7 @@
         "@storybook/node-logger": "^6.2.3",
         "@storybook/preset-create-react-app": "^3.1.7",
         "@storybook/react": "^6.2.3",
-        "@svgr/webpack": "^5.5.0",
-        "babel-core": "^6.26.3",
-        "babel-loader": "^8.1.0",
-        "babel-plugin-file-loader": "^2.0.0",
-        "babel-plugin-styled-components": "^1.12.0",
-        "babel-preset-minify": "^0.5.1",
-        "clean-webpack-plugin": "^4.0.0-alpha.0",
+        "@svgr/rollup": "^5.4.0",
         "mdx-embed": "^0.0.19",
         "path": "^0.12.7",
         "prettier": "^2.2.1",
@@ -44,17 +44,23 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-scripts": "^3.4.1",
+        "rollup": "^2.32.1",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-multi-input": "^1.3.1",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-postcss": "^3.1.8",
+        "rollup-plugin-typescript2": "^0.28.0",
         "storybook-addon-mdx-embed": "^0.0.19",
-        "url-loader": "^4.1.1",
-        "webpack": "^5.34.0",
-        "webpack-cli": "^4.6.0",
-        "webpack-node-externals": "^2.5.2"
+        "ts-loader": "^9.2.3",
+        "typescript": "~4.0.3",
+        "url-loader": "^4.1.1"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "storybook": "start-storybook -p 6006",
-        "build": "webpack --mode production",
         "build-storybook": "build-storybook",
+        "build-ds": "tsc && tsc -m es6 --outDir lib-esm",
+        "build": "rollup -c",
         "format": "prettier --write \"**/*.{js,jsx,json,mdx}\""
     },
     "dependencies": {
@@ -70,5 +76,10 @@
         "react-popper": "^2.2.5",
         "react-spinners": "^0.10.6",
         "styled-components": "^4.4.1"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js,jsx,json,css,html,md,yml}": [
+            "yarn format"
+        ]
     }
 }

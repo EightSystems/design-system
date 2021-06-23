@@ -2,17 +2,10 @@ import React from "react";
 import Proptypes from "prop-types";
 import * as S from "./styled";
 
-/* Older implementation of the icon import statements:
-import { ReactComponent as CreditCardSvg } from "../../assets/icons/credit-card.svg";
-import { ReactComponent as BankSlipSvg } from "../../assets/icons/bank-slip.svg";
+import { ReactComponent as CreditCard } from "../../assets/icons/credit-card.svg";
+import { ReactComponent as BankSlip } from "../../assets/icons/bank-slip.svg";
 import { ReactComponent as Pix } from "../../assets/icons/pix.svg";
-import { ReactComponent as PicPay } from "../../assets/icons/picpay.svg";
-*/
-
-import CreditCard from "../../assets/icons/CreditCard";
-import BankSlip from "../../assets/icons/BankSlip";
-import Pix from "../../assets/icons/Pix";
-import Picpay from "../../assets/icons/Picpay";
+import { ReactComponent as Picpay } from "../../assets/icons/picpay.svg";
 
 const paymentMethodIconGroup = {
     creditCard: CreditCard,
