@@ -17,7 +17,7 @@ const Modal = props => {
                 >
                     <S.StyledDialogOverlay />
                 </Transition.Child>
-                
+
                 <Transition.Child
                     enter="ease-out duration-300"
                     enterFrom="opacity-0"

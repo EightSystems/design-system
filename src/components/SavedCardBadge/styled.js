@@ -14,7 +14,7 @@ export const MainWrapper = styled.button`
 
     :hover,
     :focus {
-      border: solid 1px ${props => props.theme.colors.secondary};
+        border: solid 1px ${props => props.theme.colors.secondary};
         box-shadow: ${props => props.theme.boxShadow.default};
         outline: none;
     }

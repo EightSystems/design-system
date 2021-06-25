@@ -5,40 +5,10 @@ import Proptypes from "prop-types";
 import media from "../../styles/media";
 
 import ProgressRing from "../ProgressRing";
-
-const StepperContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    ${media.tablet`
-        justify-content: flex-start;
-    `};
-`;
-const TextContainer = styled.div`
-    padding-left: var(--space-xs);
-`;
-const ActiveStepLabel = styled.h1`
-    color: var(--text-primary);
-    font-family: ${props => props.theme.fontFaces.primary};
-    font-size: 18px;
-    line-height: 16px;
-    font-weight: 700;
-    ${media.tablet`
-        font-size: 16px;
-    `};
-`;
-const NextStepLabel = styled.h2`
-    color: var(--text-body);
-    font-family: ${props => props.theme.fontFaces.primary};
-    font-size: 16px;
-    ${media.tablet`
-        font-size: 14px;
-    `};
-`;
+import * as S from "./styled";
 
 const Stepper = React.forwardRef(({ children, ...props }, componentRef) => (
-    <StepperContainer {...props} className={props.className} ref={componentRef}>
+    <S.StepperContainer {...props} className={props.className} ref={componentRef}>
         <ProgressRing
             progress={props.currentStepPercentage}
             radius={30}
@@ -50,11 +20,11 @@ const Stepper = React.forwardRef(({ children, ...props }, componentRef) => (
             textXAxis={12}
             textYAxis={34}
         />
-        <TextContainer>
-            <ActiveStepLabel>{props.activeStepLabel}</ActiveStepLabel>
+        <S.TextContainer>
+            <S.ActiveStepLabel>{props.activeStepLabel}</S.ActiveStepLabel>
             {props.nextStepLabel ? <NextStepLabel>Próximo: {props.nextStepLabel}</NextStepLabel> : null}
-        </TextContainer>
-    </StepperContainer>
+        </S.TextContainer>
+    </S.StepperContainer>
 ));
 
 Stepper.propTypes = {

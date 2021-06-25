@@ -1,90 +1,18 @@
 import React from "react";
-import styled, { css } from "styled-components";
 import Proptypes from "prop-types";
 import { uniqueId } from "lodash";
 import classnames from "classnames";
 import { IMaskMixin } from "react-imask";
 import { isValidReactElement } from "../../utils/validation/isValidReactElement";
 
-import * as T from "../../styles/typography";
-import Theme from "../../styles/theme";
-
 import { MdInfo } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 
 import Tooltip from "../Tooltip";
 
-const MainWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    .input--focused {
-        border: ${Theme.Border.hover};
-        box-shadow: ${Theme.BoxShadow.default};
-    }
-    .input--error {
-        border: ${Theme.Border.danger};
-    }
-    .input--success {
-        border: ${Theme.Border.success};
-    }
-`;
-const InputLabel = styled.label`
-    ${T.FormLabel};
-    padding-bottom: var(--space-xxs);
-`;
-const InputWrapper = styled.div`
-    display: flex;
-    border: ${Theme.Border.default};
-    border-radius: 4px;
-    background: #fcfcfc;
-    transition: 150ms ease-in-out;
-`;
-const InputComponent = styled.input`
-    ${T.FormInput};
-    border-radius: 4px;
-    padding: 12px 12px;
-    width: 100%;
-    border: none;
-    border-color: none;
-    :focus {
-        outline: none;
-    }
-    ::placeholder {
-        ${T.PlaceholderFormInput};
-    }
-`;
-const IconWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 12px;
-    height: 100%;
-    color: var(--text-body);
-    svg {
-        cursor: pointer;
-        width: 28px;
-        height: 28px;
-    }
-`;
-const InputValidationMessage = styled.span`
-    padding-left: 2px;
-    ${T.FormValidationMessage};
-`;
-const InputValidationContainer = styled.div`
-    svg {
-        color: var(--danger);
-        height: ${Theme.Space.sm};
-        width: ${Theme.Space.sm};
-    }
-    padding-top: 6px;
-    display: flex;
-    height: ${Theme.Space.md};
-`;
-const SpinnerOverride = css`
-    margin-top: 8px;
-`;
+import * as S from "./styled";
 
-const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <InputComponent {...props} ref={inputRef} />);
+const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <S.InputComponent {...props} ref={inputRef} />);
 
 class TextField extends React.Component {
     constructor(props) {
@@ -103,9 +31,9 @@ class TextField extends React.Component {
 
         const elementUniqueId = uniqueId(this.props.name);
         return (
-            <MainWrapper className={this.props.controlClass}>
-                <InputLabel htmlFor={elementUniqueId}>{this.props.label}</InputLabel>
-                <InputWrapper className={inputClasses}>
+            <S.MainWrapper className={this.props.controlClass}>
+                <S.InputLabel htmlFor={elementUniqueId}>{this.props.label}</S.InputLabel>
+                <S.InputWrapper className={inputClasses}>
                     {this.props.children ? (
                         this.props.children
                     ) : (
@@ -158,50 +86,52 @@ class TextField extends React.Component {
                         </Tooltip>
                     ) : null}
                     {this.props.icon === "loadingSpinner" ? (
-                        <IconWrapper>
+                        <S.IconWrapper>
                             <ClipLoader css={SpinnerOverride} size={24} color="gray" />
-                        </IconWrapper>
+                        </S.IconWrapper>
                     ) : null}
-                </InputWrapper>
-                <InputValidationContainer>
+                </S.InputWrapper>
+                <S.InputValidationContainer>
                     {this.props.validationMessage ? (
                         <React.Fragment>
                             <MdInfo />
-                            <InputValidationMessage>{this.props.validationMessage}</InputValidationMessage>
+                            <S.InputValidationMessage>{this.props.validationMessage}</S.InputValidationMessage>
                         </React.Fragment>
                     ) : null}
-                </InputValidationContainer>
-            </MainWrapper>
+                </S.InputValidationContainer>
+            </S.MainWrapper>
         );
     }
 }
 
 TextField.propTypes = {
-    /** Atributo de nome do elemento `<input>`. Por padrão, o nome também será repassado para o atributo `for` do elemento `<label>`. */
+    /** Attribute `name` from the <input> element. By default, the value of this prop will also be passed to the
+     * attribute `for` of the `<label>` element. */
     name: Proptypes.string.isRequired,
 
-    /** String que deve ser repassada para o elemento `<label>`. */
+    /** String that will be passed to the `<label>` element. */
     label: Proptypes.string.isRequired,
 
-    /** Tipo do elemento `<input>`. Deve ser um atributo `type` valido para o elemento `<input>` do HTML5, e aplicável para inputs de texto. */
+    /** Type of the <input> element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
     type: Proptypes.oneOf(["password", "email", "text", "tel", "number", "search", "url"]),
 
-    /** A dica curta exibida na entrada antes que o usuário insira um valor. */
+    /** The short tip showed inside the `<input>` element before the user inserts a value. */
     placeholder: Proptypes.string,
 
-    /** Fornece capacidades de auto-complete ao user agent baseado na [especificação](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute). */
+    /** This prop helps user fill forms faster, especially on mobile device. You can learn more about it on the 
+    [especification page](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute).  */
     autoComplete: Proptypes.string,
 
-    /** Caso seja `true`, o elemento `<input>` desse controlador estará focado durante a primeira montagem.*/
+    /** If `true`, the `<input>` element of this controller will be focused during first mount. */
     autoFocus: Proptypes.bool,
 
-    /** Caso seja `true`, o input estará desabilitado. */
+    /** If `true`, the `<input>` will be disabled. */
     disabled: Proptypes.bool,
 
-    /** O valor do elemento `<input>`, requerido para [componentes controlados](https://pt-br.reactjs.org/docs/forms.html#controlled-components). */
+    /** The value of the `<input>` element, required for [controlled components](https://pt-br.reactjs.org/docs/forms.html#controlled-components) */
     value: Proptypes.any,
 
-    /** Controlador de [evento sintético](https://pt-br.reactjs.org/docs/events.html#focus-events) onFocus presente no React. */
+    /** [SyntheticEvent](https://pt-br.reactjs.org/docs/events.html#focus-events) controller for `onFocus` present on React. */
     onFocus: Proptypes.func,
 
     /** Controlador de [evento sintético](https://pt-br.reactjs.org/docs/events.html#focus-events) onBlur  presente no React. */
@@ -210,25 +140,26 @@ TextField.propTypes = {
     /** Controlador de evento de formulário com componente controlado onChange presente no React. */
     onChange: Proptypes.func,
 
-    /** Caso seja `true`, o input indicará um erro, e a mensagem definida em `validationMessage` será exibida abaixo do input. Essa informação é geralmente obtida através do controlador de formulário.*/
+    /** If `true` the input will indicate an error, and the message defined on 'validationMessage' props will be shown on the input.
+    This is usually populated by the form controller state. */
     validationError: Proptypes.bool,
 
-    /** Caso seja `true` o input indicará sucesso. */
+    /** If `true` the input will indicate success. */
     validationSuccess: Proptypes.bool,
 
-    /** Caso seja especificado, será mostrado abaixo do input sempre que a propriedade `validationError` for `true`*/
+    /** If specified, text string will be shown bellow input whenever the `validationError` props is `true`. */
     validationMessage: Proptypes.string,
 
-    /** Caso seja especificado, definirá que tipo de ícone deverá ser exibido dentro do componente. */
+    /** If specified, will define what of icon will be shown inside the component. */
     icon: Proptypes.oneOf(["info", "loadingSpinner"]),
 
-    /** Determina o conteúdo interno do Tooltip. Deve ser um elemento React válido */
+    /** If specified, determinates the content inside the Tooltip. Must be a valid React element. */
     tooltipContent: Proptypes.oneOfType([isValidReactElement, Proptypes.string]).isRequired,
 
-    /** Define o a distância entre o Tooltip e o componente ao qual ele está atracado */
+    /** Defines the distance between the Tooltip and the component to which it is attached. */
     tooltipOffset: Proptypes.array.isRequired,
 
-    /** Determina o posicionamento do Tooltip em relação ao componente ao qual ele está atracado */
+    /** Determinates where the Tooltip will be positioned in relation to the component it's attached */
     tooltipPlacement: Proptypes.oneOf([
         "auto",
         "auto-start",
@@ -247,13 +178,14 @@ TextField.propTypes = {
         "left-end",
     ]).isRequired,
 
-    /** Sobrepõe ou extende as classes de estilo do componente Tooltip. */
+    /** Overrides or extends the style classes from the Tooltip component. */
     tooltipClass: Proptypes.string,
 
-    /** Injeta classes personalizadas no container ao redor de todo o controlador (label + input). */
+    /** Injects custom classes in the container that wraps the entire controller (label + input). */
     controlClass: Proptypes.string,
 
-    /** (Opcional) Em alguns raros casos será necessário usar o componente provido por um pacote de validação (como o cpf-cnpj-mask). Nesse caso, passe o componente fornecido como um children de TextField, e o input será renderizado no lugar do input nativo. */
+    /** (Optional) In some instances, it's necessary to use the component provided by a validation package (like cpf-cnpj-mask).
+    In this case provide this component as the `<TextField>` children and it will render instead of the native input.  */
     children: Proptypes.node,
 };
 

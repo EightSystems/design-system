@@ -1,6 +1,6 @@
 import React from "react";
 import Proptypes from "prop-types";
-import * as S from "./styled"
+import * as S from "./styled";
 
 const ProgressRing = props => {
     const normalizedRadius = props.radius - props.stroke * 2;

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const AccordionWrapper = styled.div`
     margin-top: ${props => props.theme.space.xs};
@@ -35,4 +35,4 @@ export const AccordionItemIconWrapper = styled.div`
         height: ${props => props.theme.space.md};
         color: var(--secondary);
     }
-`
+`;
