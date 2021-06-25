@@ -49,11 +49,11 @@ const Theme = {
     },
 
     border: {
-        default: `solid 1px var(--grayTint)`,
-        hover: `solid 1px var(--secondary)`,
-        danger: `solid 1px var(--danger)`,
-        success: `solid 1px var(--success)`,
-        light: `solid 1px var(--lightGray)`,
+        default: `solid 1px #9d9fa6`,
+        hover: `solid 1px #36abe0`,
+        danger: `solid 1px #cf2525`,
+        success: `solid 1px #20c997`,
+        light: `solid 1px #E7E9F2`,
     },
 
     fontFaces: {

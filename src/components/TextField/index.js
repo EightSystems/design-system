@@ -82,12 +82,12 @@ class TextField extends React.Component {
                             offset={this.props.tooltipOffset}
                             className={this.props.tooltipClass}
                         >
-                            <IconWrapper>{this.props.icon === "info" ? <MdInfo /> : null}</IconWrapper>
+                            <S.IconWrapper>{this.props.icon === "info" ? <MdInfo /> : null}</S.IconWrapper>
                         </Tooltip>
                     ) : null}
                     {this.props.icon === "loadingSpinner" ? (
                         <S.IconWrapper>
-                            <ClipLoader css={SpinnerOverride} size={24} color="gray" />
+                            <ClipLoader css={S.SpinnerOverride} size={24} color="gray" />
                         </S.IconWrapper>
                     ) : null}
                 </S.InputWrapper>

@@ -15,10 +15,10 @@ export const MainWrapper = styled.div`
         content: ">";
         pointer-events: none;
         font-family: ${props => props.theme.fontFaces.secondary};
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 600;
         position: relative;
-        bottom: 58px;
+        bottom: 52px;
         margin-left: calc(100% - 35px);
         color: ${props => props.theme.colors.grayShade};
         transform: rotate(90deg);
@@ -38,7 +38,7 @@ export const SelectComponent = styled.select`
     transition: 150ms ease-in-out;
     :focus {
         outline: none;
-        border: ${props => props.default.border.hover};
+        border: ${props => props.theme.border.hover};
         box-shadow: 0px 0px 8px rgba(0, 7, 46, 0.2);
     }
 

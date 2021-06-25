@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "../../styles/media";
 
 export const StepperContainer = styled.div`
     display: flex;
@@ -10,10 +11,10 @@ export const StepperContainer = styled.div`
     `};
 `;
 export const TextContainer = styled.div`
-    padding-left: var(--space-xs);
+    padding-left: ${props => props.theme.space.xs};
 `;
 export const ActiveStepLabel = styled.h1`
-    color: var(--text-primary);
+    color: ${props => props.theme.colors.textPrimary};
     font-family: ${props => props.theme.fontFaces.primary};
     font-size: 18px;
     line-height: 16px;
@@ -23,7 +24,7 @@ export const ActiveStepLabel = styled.h1`
     `};
 `;
 export const NextStepLabel = styled.h2`
-    color: var(--text-body);
+    color: ${props => props.theme.colors.textPrimary};
     font-family: ${props => props.theme.fontFaces.primary};
     font-size: 16px;
     ${media.tablet`

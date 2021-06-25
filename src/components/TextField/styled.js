@@ -46,7 +46,7 @@ export const IconWrapper = styled.div`
     align-items: center;
     padding-right: 12px;
     height: 100%;
-    color: ${props => props.theme.color.textBody};
+    color: ${props => props.theme.colors.textBody};
     svg {
         cursor: pointer;
         width: 28px;
@@ -59,7 +59,7 @@ export const InputValidationMessage = styled.span`
 `;
 export const InputValidationContainer = styled.div`
     svg {
-        color: ${props => props.theme.color.danger};
+        color: ${props => props.theme.colors.danger};
         height: ${props => props.theme.space.sm};
         width: ${props => props.theme.space.sm};
     }

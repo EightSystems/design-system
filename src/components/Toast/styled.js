@@ -78,20 +78,20 @@ export const ToastWrapper = styled.div`
     position: fixed;
     display: flex;
     align-items: flex-start;
-    box-shadow: ${Theme.BoxShadow.default};
+    box-shadow: ${props => props.theme.boxShadow.default};
     border-radius: 3px;
-    padding: var(--space-sm) var(--space-default);
+    padding: 1.6rem; 
     &[data-status="info"] {
-        background: var(--secondary);
+        background: ${props => props.theme.colors.secondary};
     }
     &[data-status="warning"] {
-        background: var(--danger);
+        background: ${props => props.theme.colors.danger};
     }
     &[data-status="success"] {
-        background: var(--successShade);
+        background: ${props => props.theme.colors.successShade};
     }
     .close-icon {
-        color: var(--secondaryContrast);
+        color: ${props => props.theme.colors.secondaryContrast};
         width: 16px;
         height: 16px;
     }
@@ -100,24 +100,24 @@ export const ToastWrapper = styled.div`
     }
 `;
 export const TextWrapper = styled.div`
-    font-family: ${Theme.FontFaces.Inter};
-    margin-right: var(--space-md);
+    font-family: ${props => props.theme.fontFaces.secondary};
+    margin-right: ${props => props.theme.space.md};
 `;
 export const ToastTitle = styled.h2`
-    color: var(--secondaryContrast);
+    color: ${props => props.theme.colors.secondaryContrast};
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
 `;
 export const ToastDescription = styled.p`
-    color: var(--secondaryContrast);
+    color: ${props => props.theme.colors.secondaryContrast};
     font-size: 14px;
     font-weight: 400;
 `;
 export const ContextIconWrapper = styled.div`
     svg {
-        color: var(--secondaryContrast);
-        margin-right: var(--space-sm);
+        color: ${props => props.theme.colors.secondaryContrast};
+        margin-right: ${props => props.theme.space.sm};
         width: 36px;
         height: 36px;
     }

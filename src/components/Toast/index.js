@@ -1,13 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
-import styled from "styled-components";
 import Proptypes from "prop-types";
 import { uniqueId } from "lodash";
 import { useContainerDimensions } from "../../hooks/useContainerDimensions";
 
 import { MdError, MdCheckCircle, MdClose } from "react-icons/md";
 
-import Theme from "../../styles/theme";
+import * as S from "./styled";
 
 const Toast = React.forwardRef((props, componentRef) => {
     const elementUniqueId = uniqueId(props.title);
@@ -46,7 +45,7 @@ const Toast = React.forwardRef((props, componentRef) => {
     });
 
     return (
-        <DialogWrapper
+        <S.DialogWrapper
             ref={componentRef}
             id={elementUniqueId}
             /* Computed width and height values that will be used by styled-components to determinate animations */
@@ -54,21 +53,21 @@ const Toast = React.forwardRef((props, componentRef) => {
             height={height}
             showToast={props.showToast}
         >
-            <ToastWrapper ref={toastWrapperRef} className={positionClasses} data-status={props.status}>
-                <ContextIconWrapper>
+            <S.ToastWrapper ref={toastWrapperRef} className={positionClasses} data-status={props.status}>
+                <S.ContextIconWrapper>
                     {props.status === "info" || props.status === "success" ? <MdCheckCircle /> : <MdError />}
-                </ContextIconWrapper>
+                </S.ContextIconWrapper>
 
-                <TextWrapper>
-                    <ToastTitle>{props.title}</ToastTitle>
-                    <ToastDescription>{props.description}</ToastDescription>
-                </TextWrapper>
+                <S.TextWrapper>
+                    <S.ToastTitle>{props.title}</S.ToastTitle>
+                    <S.ToastDescription>{props.description}</S.ToastDescription>
+                </S.TextWrapper>
 
                 <button ref={closeButtonRef} onClick={props.onClose}>
                     <MdClose className="close-icon" />
                 </button>
-            </ToastWrapper>
-        </DialogWrapper>
+            </S.ToastWrapper>
+        </S.DialogWrapper>
     );
 });
 
