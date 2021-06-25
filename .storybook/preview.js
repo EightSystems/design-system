@@ -7,13 +7,13 @@ import GlobalStyles from "../src/styles/global";
 configure(require.context("../src/stories", true, /\\.stories\\.mdx$/), module);
 
 export const decorators = [
-    (Story) => (
+    Story => (
         <ThemeProvider theme={Theme}>
             <GlobalStyles />
             <Story />
         </ThemeProvider>
-    )
-]
+    ),
+];
 
 export const parameters = {
     backgrounds: {

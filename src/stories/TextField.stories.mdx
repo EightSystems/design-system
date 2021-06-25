@@ -56,7 +56,8 @@ mensagem de ajuda durante a validação:
 </Canvas>
 
 Também é possível criar um `TextField` com um ícone de ajuda que exibirá um Tooltip e fornecerá contexto sobre o tipo de
-informação que será requerida naquele input, usando as propriedades `icon` para mostrar o ícone e `tooltipContent`, `tooltipPlacement` e `tooltipOffset` para configurar o conteúdo e posicionamento do tooltip:
+informação que será requerida naquele input, usando as propriedades `icon` para mostrar o ícone e `tooltipContent`,
+`tooltipPlacement` e `tooltipOffset` para configurar o conteúdo e posicionamento do tooltip:
 
 <Canvas>
     <Story
@@ -65,9 +66,9 @@ informação que será requerida naquele input, usando as propriedades `icon` pa
             name: "inputName",
             label: "Input Label",
             icon: "info",
-            tooltipContent: "A vida é bela", 
-            tooltipPlacement: "top-start", 
-            tooltipOffset: [0, 6]
+            tooltipContent: "A vida é bela",
+            tooltipPlacement: "top-start",
+            tooltipOffset: [0, 6],
         }}
     >
         {args => <TextField {...args} />}
