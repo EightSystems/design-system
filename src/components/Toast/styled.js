@@ -80,7 +80,7 @@ export const ToastWrapper = styled.div`
     align-items: flex-start;
     box-shadow: ${props => props.theme.boxShadow.default};
     border-radius: 3px;
-    padding: 1.6rem; 
+    padding: 1.6rem;
     &[data-status="info"] {
         background: ${props => props.theme.colors.secondary};
     }
