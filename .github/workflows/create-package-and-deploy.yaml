@@ -14,6 +14,7 @@ jobs:
               uses: actions/setup-node@v2
               with:
                   node-version: "12.x"
+                  token: ${{ secrets.NPM_SEMANTIC_TOKEN }}
                   registry-url: "https://registry.npmjs.org"
             - name: Install dependencies
               run: yarn
