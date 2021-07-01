@@ -12,9 +12,11 @@ jobs:
               uses: actions/checkout@v2
             - name: Setup Node.js
               uses: actions/setup-node@v2
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_SEMANTIC_TOKEN }}
               with:
                   node-version: "12.x"
-                  token: ${{ secrets.NPM_SEMANTIC_TOKEN }}
+                  always-auth: true
                   registry-url: "https://registry.npmjs.org"
             - name: Install dependencies
               run: yarn
