@@ -1,28 +1,26 @@
-name: Node.js Package
+name: Release NPM Package
 on:
-  release:
-    types: [created]
+    push:
+        branches:
+            - main
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: fregante/setup-git-user@v1
-    # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '12.x'
-        registry-url: 'https://registry.npmjs.org'
-    - name: Cache node modules
-      uses: actions/cache@v2
-      with:
-        path: node_modules
-        key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.OS }}-build
-          ${{ runner.OS }}
-    - run: yarn
-    - run: yarn build
-    - run: yarn publish --new-version ${GITHUB_REF##*/} --access public
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "12.x"
+                  registry-url: "https://registry.npmjs.org"
+            - name: Install dependencies
+              run: yarn
+            - name: Build distribution package
+              run: yarn build
+            - name: Release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+              run: npx semantic-release
