@@ -1,42 +1,19 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
 
 import { isFunction } from "lodash";
 import { UnmountClosed } from "react-collapse";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
-import * as V from "../../styles/variables";
 
-import Button from "../Button";
+import * as S from "./styled";
 
-const AccordionWrapper = styled.div`
-    margin-top: ${V.Space.xs};
-    .ReactCollapse--collapse {
-        transition: height 300ms ease-in-out;
-        padding-top: var(--space-xs);
-    }
-`;
-const AccordionItemUnderline = styled.div`
-    width: 100%;
-    border-top: ${V.Border.light};
-    margin-top: ${V.Space.xs};
-`;
-const AccordionItemIconWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    img,
-    svg {
-        width: ${V.Space.md};
-        height: ${V.Space.md};
-    }
-`;
-const AccordionItemContainerButton = styled(Button)`
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: var(--space-xs);
-`;
-
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {string} label
+ * @property {{bool \ function}} isOpen
+ */
 const AccordionItem = props => {
     const { onClick, onMouseDown, onFocus, ...propsWithoutEventHandlers } = props;
 
@@ -56,36 +33,27 @@ const AccordionItem = props => {
         : null;
 
     return (
-        <AccordionWrapper {...propsWithoutEventHandlers}>
-            {isOpen ? (
-                <AccordionItemContainerButton hasOutline="true" onMouseDown={onClickHandler} onFocus={onClickHandler}>
-                    <AccordionItemIconWrapper data-open={isOpen}>
-                        <BiChevronDown />
-                    </AccordionItemIconWrapper>
-                    {props.label}
-                </AccordionItemContainerButton>
-            ) : (
-                <AccordionItemContainerButton hasOutline="true" onMouseDown={onClickHandler} onFocus={onClickHandler}>
-                    <AccordionItemIconWrapper data-open={isOpen}>
-                        <BiChevronRight />
-                    </AccordionItemIconWrapper>
-                    {props.label}
-                </AccordionItemContainerButton>
-            )}
+        <S.AccordionWrapper {...propsWithoutEventHandlers}>
+            <S.AccordionItemContainer onMouseDown={onClickHandler} onFocus={onClickHandler}>
+                <S.AccordionItemIconWrapper>
+                    {isOpen ? <BiChevronDown /> : <BiChevronRight />}
+                </S.AccordionItemIconWrapper>
+                <S.AccordionItemLabel>{props.label}</S.AccordionItemLabel>
+            </S.AccordionItemContainer>
             <UnmountClosed isOpened={isOpen}>{props.children}</UnmountClosed>
-            <AccordionItemUnderline />
-        </AccordionWrapper>
+            <S.AccordionItemUnderline />
+        </S.AccordionWrapper>
     );
 };
 
 AccordionItem.propTypes = {
-    /** Componentes que devem estar dentro do `<AccordionItem>`. */
+    /** Components that must be inside the`<AccordionItem>`. */
     children: Proptypes.node.isRequired,
 
-    /** Título que deve ser exibido nesse item do Accordion. */
+    /** Title that will be shown on this Accordion item. */
     label: Proptypes.string.isRequired,
 
-    /** Define se o `<AccordionItem>` está aberto ou não. É controlado através do index repassado pelo componente parente `<Accordion>`. */
+    /** Defines if the `<AccordionItem>` is open or not. It's controlled by the index on the parent `<Accordion>` component. */
     isOpen: Proptypes.oneOfType([Proptypes.bool, Proptypes.func]),
 };
 

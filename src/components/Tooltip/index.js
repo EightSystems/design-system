@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { Popover } from "@headlessui/react";
 import Proptypes from "prop-types";
 import { usePopper } from "react-popper";
-import { isValidReactElement } from "../../utils/validation/isValidReactElement"
+import { isValidReactElement } from "../../utils/validation/isValidReactElement";
 
 const PopoverWrapper = styled(Popover.Panel)`
-    background-color: var(--secondary);
+    background-color: ${props => props.theme.colors.secondary};
+    box-shadow: ${props => props.theme.boxShadow.default};
     padding: 4px 6px;
     border-radius: 3px;
-    box-shadow: var(--boxShadow-default);
 `;
 
 const Tooltip = props => {

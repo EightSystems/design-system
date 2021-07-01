@@ -1,5 +1,8 @@
-export { default as ThemeProvider } from "./components/ThemeProvider";
-export * from "./components/ThemeProvider";
+export { default as GlobalInjetor } from "./components/GlobalInjector";
+export * from "./components/GlobalInjector";
+
+export { default as Theme } from "./styles/theme";
+export * from "./styles/theme";
 
 export { default as Accordion } from "./components/Accordion";
 export * from "./components/Accordion";

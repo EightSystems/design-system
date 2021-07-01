@@ -1,33 +1,34 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
 
-const AccordionContainer = styled.div`
-    display: block;
-`;
-
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {any} initialIndex
+ */
 const Accordion = React.forwardRef(({ children, ...props }, componentRef) => {
     const [currentIndexOpen, setCurrentIndexOpen] = useState(props.initialIndex || 0);
 
     const setCurrentIndex = currentIndex => setCurrentIndexOpen(currentIndex === currentIndexOpen ? -1 : currentIndex);
 
     return (
-        <AccordionContainer {...props} className={props.className} ref={componentRef}>
+        <div {...props} className={props.className} ref={componentRef} style={{ display: "block " }}>
             {children &&
                 children({
                     isOpen: index => index === currentIndexOpen,
                     onClick: index => setCurrentIndex(index),
                 })}
-        </AccordionContainer>
+        </div>
     );
 });
 
 Accordion.propTypes = {
-    /** Uma função que deve retornar um ou mais componentes `<AccordionItem>` */
+    /** A function that must return one or more `<AccordionItem>` components. */
     children: Proptypes.func.isRequired,
 
-    /** Identificador do item que estará aberto durante a primeira montagem do componente  */
-    initalIndex: Proptypes.any,
+    /** Index of the item that must be open when the component mounts for the first time. */
+    initialIndex: Proptypes.any,
 };
 
 export default Accordion;

@@ -27,11 +27,7 @@ Componente para representar métodos de pagamento. Deve receber obrigatóriament
         }}
         argTypes={{ onClick: { action: "onClick" } }}
     >
-        {args => (
-            <div className="flex-container">
-                <PaymentMethodItem {...args} />
-            </div>
-        )}
+        {args => <PaymentMethodItem {...args} />}
     </Story>
 </Canvas>
 

@@ -1,36 +1,28 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
 import Dinero from "dinero.js";
-
-import * as V from "../../styles/variables";
+import * as S from "./styled";
 import getUserLanguage from "../../utils/getUserLanguage";
-
 import CurrencyList from "./currencyList.json";
-
 require("intl");
 
-const CurrencyLabelWrapper = styled.h1`
-    font-family: ${V.FontFaces.Poppins};
-    font-size: 36px;
-    font-weight: 700;
-    ${props => (props.size ? `font-size: ${props.size}${props.sizeUnit}` : "")};
-
-    &[data-color="light"] {
-        color: var(--primaryContrast);
-    }
-    &[data-color="dark"] {
-        color: var(--text-primary);
-    }
-`;
-
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {string} currency
+ * @property {number} value
+ * @property {number} size
+ * @property {string} sizeUnit
+ * @property {string} color
+ */
 const CurrencyLabel = ({ currency, value, size, sizeUnit, color, props }) => {
     const currencyUnit = Dinero({ amount: value, currency, precision: CurrencyList[currency] }).toUnit();
 
     return (
-        <CurrencyLabelWrapper {...props} size={size} sizeUnit={sizeUnit} data-color={color}>
+        <S.CurrencyLabelWrapper {...props} size={size} sizeUnit={sizeUnit} data-color={color}>
             {new Intl.NumberFormat(getUserLanguage(), { style: "currency", currency }).format(currencyUnit)}
-        </CurrencyLabelWrapper>
+        </S.CurrencyLabelWrapper>
     );
 };
 
@@ -39,19 +31,21 @@ CurrencyLabel.defaultProps = {
 };
 
 CurrencyLabel.propTypes = {
-    /** A unidade monetária que deve ser utilizada na conversão. Os valores possíveis são os códigos de moeda ISO 4217, como "USD" para o dólar americado, ou "BRL" para o real brasileiro. Consulte a lista de moedas disponíveis [aqui](https://www.currency-iso.org/dam/downloads/lists/list_one.xml) */
+    /** The monetary unit that will be used in the conversion. The possible values are ISO 4217 currency codes,
+     * like "USD" for the American dollar, or "BRL" for Brazillian real. You can look at the availbale currency codes
+     * [here](https://www.currency-iso.org/dam/downloads/lists/list_one.xml) */
     currency: Proptypes.string.isRequired,
 
-    /** O valor monetário puro que deve ser utilizado na conversão, em formato numérico. */
+    /** The value that will be used in the conversion, in numeric format. */
     value: Proptypes.number.isRequired,
 
-    /** Caso seja especificado, define o tamanho da fonte junto com a unidade de `sizeUnit`. */
+    /** If specified, defines the font size along with the unit given in the `sizeUnit` prop. */
     size: Proptypes.number,
 
-    /** Caso seja especificado, define a unidade a ser usada em conjunto com `size`. */
+    /** If specified, defines the unit to be used with the `size` prop. */
     sizeUnit: Proptypes.oneOf(["px", "em", "%"]),
 
-    /** Cor que deve ser usada na string de texto. */
+    /** Color that will be used on the text string. */
     color: Proptypes.string,
 };
 

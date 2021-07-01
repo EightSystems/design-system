@@ -1,19 +1,17 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
+import * as S from "./styled";
 
-import * as V from "../../styles/variables";
-
-import { ReactComponent as CreditCardSvg } from "../../assets/icons/credit-card.svg";
-import { ReactComponent as BankSlipSvg } from "../../assets/icons/bank-slip.svg";
+import { ReactComponent as CreditCard } from "../../assets/icons/credit-card.svg";
+import { ReactComponent as BankSlip } from "../../assets/icons/bank-slip.svg";
 import { ReactComponent as Pix } from "../../assets/icons/pix.svg";
-import { ReactComponent as PicPay } from "../../assets/icons/picpay.svg";
+import { ReactComponent as Picpay } from "../../assets/icons/picpay.svg";
 
-const paymentMethodIcon = {
-    creditCard: CreditCardSvg,
-    bankSlip: BankSlipSvg,
+const paymentMethodIconGroup = {
+    creditCard: CreditCard,
+    bankSlip: BankSlip,
     pix: Pix,
-    picpay: PicPay,
+    picpay: Picpay,
 };
 
 const paymentMethodName = {
@@ -23,67 +21,49 @@ const paymentMethodName = {
     picpay: "PicPay",
 };
 
-const MainWrapper = styled.button`
-    background: var(--white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: ${V.Border.default};
-    border-radius: 4px;
-    padding: ${V.Space.default} ${V.Space.default};
-    cursor: pointer;
-    transition: 150ms ease-in-out;
+/* Older implementation of the icon injector:
+const IconCompoment = paymentMethodIcon[props.paymentMethodIcon];
+<IconComponent alt={`Ícone ${paymentMethodName[paymentMethodIcon]}`} />
+*/
 
-    :hover,
-    :focus {
-        border: ${V.Border.hover};
-        box-shadow: ${V.BoxShadow.default};
-        outline: none;
-    }
-`;
-const IconWrapper = styled.div`
-    img,
-    svg {
-        width: ${V.Space.xxlg};
-        height: ${V.Space.lg};
-        color: var(--white);
-    }
-`;
-const ContentLabel = styled.p`
-    color: var(--text-primary);
-    text-align: center;
-    font-family: ${V.FontFaces.Inter};
-    font-size: 16px;
-`;
-const ContentTitle = styled(ContentLabel)`
-    font-weight: 700;
-`;
-
-const PaymentMethodItem = props => {
-    const IconCompoment = paymentMethodIcon[props.paymentMethodIcon];
-
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {string} paymentMethod
+ * @property {string} paymentMethodDescription
+ * @property {string} paymentMethodIcon
+ * @property {function} onClick
+ *
+ * @todo Add better error handling when using unsuported icons.
+ * @todo Improve acessibility for SVG icons by populating the title and ARIA attributes correctly.
+ */
+const PaymentMethodItem = ({ onClick, paymentMethod, paymentMethodDescription, paymentMethodIcon, props }) => {
     return (
-        <MainWrapper {...props} onClick={props.onClick}>
-            <ContentTitle>{props.paymentMethod}</ContentTitle>
-            <IconWrapper>
-                <IconCompoment alt={`Ícone ${paymentMethodName[props.paymentMethodIcon]}`} />
-            </IconWrapper>
-            {props.paymentMethodDescription ? <ContentLabel>{props.paymentMethodDescription}</ContentLabel> : null}
-        </MainWrapper>
+        <S.MainWrapper {...props} onClick={onClick}>
+            <S.ContentTitle>{paymentMethod}</S.ContentTitle>
+            <S.IconWrapper>
+                {paymentMethodIcon === "creditCard" ? <CreditCard /> : null}
+                {paymentMethodIcon === "bankSlip" ? <BankSlip /> : null}
+                {paymentMethodIcon === "pix" ? <Pix /> : null}
+                {paymentMethodIcon === "picpay" ? <Picpay /> : null}
+            </S.IconWrapper>
+            {paymentMethodDescription ? <S.ContentLabel>{paymentMethodDescription}</S.ContentLabel> : null}
+        </S.MainWrapper>
     );
 };
 
 PaymentMethodItem.propTypes = {
-    /** Título do método de pagamento. */
+    /** Payment method title. */
     paymentMethod: Proptypes.string.isRequired,
 
-    /** Descrição do método de pagamento.  */
+    /** Payment method description.  */
     paymentMethodDescription: Proptypes.string,
 
-    /** Ícone que deve ser usado no item de método de pagamento. */
-    paymentMethodIcon: Proptypes.oneOf(Object.keys(paymentMethodIcon)).isRequired,
+    /** Icon that must be used in the payment method item. */
+    paymentMethodIcon: Proptypes.oneOf(Object.keys(paymentMethodIconGroup)).isRequired,
 
-    /** Função que deve ser disparada ao declarar a propriedade onClick. */
+    /** Function that must be fired when onClick prop is declared. */
     onClick: Proptypes.func,
 };
 

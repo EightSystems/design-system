@@ -1,136 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
-import styled from "styled-components";
 import Proptypes from "prop-types";
 import { uniqueId } from "lodash";
 import { useContainerDimensions } from "../../hooks/useContainerDimensions";
 
 import { MdError, MdCheckCircle, MdClose } from "react-icons/md";
 
-import * as V from "../../styles/variables";
-
-const DialogWrapper = styled.div`
-    position: fixed;
-    z-index: 10;
-    visibility: ${props => (props.showToast ? "visible" : "hidden")};
-
-    .top-left {
-        transform: ${props => (props.width ? `translate(-${props.width + 20}px, 0px)` : `translate(-400px , 0px)`)};
-        top: 12px;
-        left: 12px;
-        opacity: 0;
-        transition: 0.3s ease-in-out;
-    }
-    .top-left__mounted {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-
-    .top-right {
-        transform: ${props => (props.width ? `translate(${props.width + 20}px, 0px)` : `translate(400px , 0px)`)};
-        top: 12px;
-        right: 12px;
-        opacity: 0;
-        transition: 0.3s ease-in-out;
-    }
-    .top-right__mounted {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-    .top-center {
-        transform: ${props => (props.width ? `translate(0px, -${props.height + 20}px)` : `translate(400px , 0px)`)};
-        top: 12px;
-        left: ${props => `calc(50% - calc(${props.width}px / 2))`};
-        opacity: 0;
-        transition: 0.3s ease-in-out;
-    }
-    .top-center__mounted {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-
-    .bottom-left {
-        transform: ${props => (props.width ? `translate(-${props.width + 20}px, 0px)` : `translate(-400px , 0px)`)};
-        bottom: 12px;
-        left: 12px;
-        opacity: 0;
-        transition: 0.3s ease-in-out;
-    }
-    .bottom-left__mounted {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-    .bottom-right {
-        transform: ${props => (props.width ? `translate(${props.width + 20}px, 0px)` : `translate(400px , 0px)`)};
-        bottom: 12px;
-        right: 12px;
-        opacity: 0;
-        transition: 0.3s ease-in-out;
-    }
-    .bottom-right__mounted {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-    .bottom-center {
-        transform: ${props => (props.width ? `translate(0px, ${props.height + 20}px)` : `translate(400px , 0px)`)};
-        bottom: 12px;
-        left: ${props => `calc(50% - calc(${props.width}px / 2))`};
-        opacity: 0;
-        transition: 0.3s ease-in-out;
-    }
-    .bottom-center__mounted {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-`;
-const ToastWrapper = styled.div`
-    position: fixed;
-    display: flex;
-    align-items: flex-start;
-    box-shadow: ${V.BoxShadow.default};
-    border-radius: 3px;
-    padding: var(--space-sm) var(--space-default);
-    &[data-status="info"] {
-        background: var(--secondary);
-    }
-    &[data-status="warning"] {
-        background: var(--danger);
-    }
-    &[data-status="success"] {
-        background: var(--successShade);
-    }
-    .close-icon {
-        color: var(--secondaryContrast);
-        width: 16px;
-        height: 16px;
-    }
-    button {
-        cursor: pointer;
-    }
-`;
-const TextWrapper = styled.div`
-    font-family: ${V.FontFaces.Inter};
-    margin-right: var(--space-md);
-`;
-const ToastTitle = styled.h2`
-    color: var(--secondaryContrast);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
-`;
-const ToastDescription = styled.p`
-    color: var(--secondaryContrast);
-    font-size: 14px;
-    font-weight: 400;
-`;
-const ContextIconWrapper = styled.div`
-    svg {
-        color: var(--secondaryContrast);
-        margin-right: var(--space-sm);
-        width: 36px;
-        height: 36px;
-    }
-`;
+import * as S from "./styled";
 
 const Toast = React.forwardRef((props, componentRef) => {
     const elementUniqueId = uniqueId(props.title);
@@ -169,7 +45,7 @@ const Toast = React.forwardRef((props, componentRef) => {
     });
 
     return (
-        <DialogWrapper
+        <S.DialogWrapper
             ref={componentRef}
             id={elementUniqueId}
             /* Computed width and height values that will be used by styled-components to determinate animations */
@@ -177,21 +53,21 @@ const Toast = React.forwardRef((props, componentRef) => {
             height={height}
             showToast={props.showToast}
         >
-            <ToastWrapper ref={toastWrapperRef} className={positionClasses} data-status={props.status}>
-                <ContextIconWrapper>
+            <S.ToastWrapper ref={toastWrapperRef} className={positionClasses} data-status={props.status}>
+                <S.ContextIconWrapper>
                     {props.status === "info" || props.status === "success" ? <MdCheckCircle /> : <MdError />}
-                </ContextIconWrapper>
+                </S.ContextIconWrapper>
 
-                <TextWrapper>
-                    <ToastTitle>{props.title}</ToastTitle>
-                    <ToastDescription>{props.description}</ToastDescription>
-                </TextWrapper>
+                <S.TextWrapper>
+                    <S.ToastTitle>{props.title}</S.ToastTitle>
+                    <S.ToastDescription>{props.description}</S.ToastDescription>
+                </S.TextWrapper>
 
                 <button ref={closeButtonRef} onClick={props.onClose}>
                     <MdClose className="close-icon" />
                 </button>
-            </ToastWrapper>
-        </DialogWrapper>
+            </S.ToastWrapper>
+        </S.DialogWrapper>
     );
 });
 

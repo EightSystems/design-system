@@ -1,72 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
 import { uniqueId } from "lodash";
 import classnames from "classnames";
 
 import { MdInfo } from "react-icons/md";
-import * as T from "../../styles/typography";
-import * as V from "../../styles/variables";
-
-const MainWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    .input--error {
-        border: ${V.Border.danger};
-    }
-    .input--success {
-        border: ${V.Border.success};
-    }
-
-    &:after {
-        content: ">";
-        pointer-events: none;
-        font-family: ${V.FontFaces.Poppins};
-        font-size: 24px;
-        font-weight: 600;
-        position: relative;
-        bottom: 58px;
-        margin-left: calc(100% - 35px);
-        color: var(--grayShade);
-        transform: rotate(90deg);
-    }
-`;
-const InputLabel = styled.label`
-    ${T.FormLabel};
-    padding-bottom: 4px;
-`;
-const SelectComponent = styled.select`
-    ${T.FormInput};
-    appearance: none;
-    padding: 12px 12px;
-    width: 100%;
-    border: ${V.Border.default};
-    border-radius: 4px;
-    transition: 150ms ease-in-out;
-    :focus {
-        outline: none;
-        border: ${V.Border.hover};
-        box-shadow: 0px 0px 8px rgba(0, 7, 46, 0.2);
-    }
-
-    ::-ms-expand {
-        display: none;
-    }
-`;
-const InputValidationMessage = styled.span`
-    padding-left: 2px;
-    ${T.FormValidationMessage};
-`;
-const InputValidationContainer = styled.div`
-    svg {
-        color: var(--danger);
-        height: ${V.Space.sm};
-        width: ${V.Space.sm};
-    }
-    padding-top: 6px;
-    display: flex;
-    height: 26px;
-`;
+import * as S from "./styled";
 
 const Select = props => {
     const selectClasses = classnames({
@@ -77,9 +15,9 @@ const Select = props => {
     const elementUniqueId = uniqueId(props.name);
 
     return (
-        <MainWrapper>
-            <InputLabel htmlFor={elementUniqueId}>{props.label}</InputLabel>
-            <SelectComponent
+        <S.MainWrapper>
+            <S.InputLabel htmlFor={elementUniqueId}>{props.label}</S.InputLabel>
+            <S.SelectComponent
                 {...props}
                 id={elementUniqueId}
                 aria-label={props.label}
@@ -89,16 +27,16 @@ const Select = props => {
                 className={selectClasses}
             >
                 {props.children}
-            </SelectComponent>
-            <InputValidationContainer>
+            </S.SelectComponent>
+            <S.InputValidationContainer>
                 {props.validationMessage ? (
                     <React.Fragment>
                         <MdInfo />
-                        <InputValidationMessage>{props.validationMessage}</InputValidationMessage>
+                        <S.InputValidationMessage>{props.validationMessage}</S.InputValidationMessage>
                     </React.Fragment>
                 ) : null}
-            </InputValidationContainer>
-        </MainWrapper>
+            </S.InputValidationContainer>
+        </S.MainWrapper>
     );
 };
 

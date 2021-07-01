@@ -1,44 +1,48 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
-import * as V from "../../styles/variables";
+import * as S from "./styled";
 
 import Avatar from "../Avatar";
 import CurrencyLabel from "../CurrencyLabel";
 
-const PaymentPromptWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
-const PromptLabel = styled.p`
-    color: var(--text-body);
-    font-family: ${V.FontFaces.Inter};
-    font-size: 20px;
-    text-align: center;
-
-    margin-top: ${V.Space.default};
-    margin-bottom: ${V.Space.default};
-`;
-
-const PaymentPrompt = props => {
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {string} promptLabel
+ * @property {any} avatarChildren
+ * @property {string} avatarAlt
+ * @property {string} avatarSrc
+ * @property {string} avatarSize
+ * @property {string} currency
+ * @property {number} currencyValue
+ * @property {number} currencySize
+ * @property {string} currencySizeUnit
+ */
+const PaymentPrompt = ({
+    promptLabel,
+    avatarChildren,
+    avatarAlt,
+    avatarSrc,
+    avatarSize,
+    currency,
+    currencyValue,
+    currencySize,
+    currencySizeUnit,
+    props,
+}) => {
     return (
-        <PaymentPromptWrapper {...props}>
-            {props.avatarSrc ? (
-                <Avatar src={props.avatarSrc} size={props.avatarSize} alt={props.avatarAlt} />
+        <S.PaymentPromptWrapper {...props}>
+            {avatarSrc ? (
+                <Avatar src={avatarSrc} size={avatarSize} alt={avatarAlt} />
             ) : (
-                <Avatar alt={props.avatarAlt} size={props.avatarSize}>
-                    {props.avatarChildren}
+                <Avatar alt={avatarAlt} size={avatarSize}>
+                    {avatarChildren}
                 </Avatar>
             )}
-            <PromptLabel>{props.promptLabel}</PromptLabel>
-            <CurrencyLabel
-                currency={props.currency}
-                size={props.currencySize}
-                sizeUnit={props.currencySizeUnit}
-                value={props.currencyValue}
-            />
-        </PaymentPromptWrapper>
+            <S.PromptLabel>{promptLabel}</S.PromptLabel>
+            <CurrencyLabel currency={currency} size={currencySize} sizeUnit={currencySizeUnit} value={currencyValue} />
+        </S.PaymentPromptWrapper>
     );
 };
 
