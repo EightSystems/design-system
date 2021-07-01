@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { IMaskMixin } from "react-imask";
 import { isValidReactElement } from "../../utils/validation/isValidReactElement";
 
-import { MdInfo } from "react-icons/md";
+import { MdInfo, MdCheck, MdError } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 
 import Tooltip from "../Tooltip";
@@ -152,7 +152,7 @@ TextField.propTypes = {
 
     /** If specified, will define what of icon will be shown inside the component. */
     icon: Proptypes.oneOf(["info", "loadingSpinner"]),
-
+    
     /** If specified, determinates the content inside the Tooltip. Must be a valid React element. */
     tooltipContent: Proptypes.oneOfType([isValidReactElement, Proptypes.string]).isRequired,
 
