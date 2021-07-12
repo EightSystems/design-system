@@ -6,6 +6,17 @@ import classnames from "classnames";
 import { MdInfo } from "react-icons/md";
 import * as S from "./styled";
 
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {number} name
+ * @property {string} label
+ * @property {string} placeholder
+ * @property {string} validationError
+ * @property {number} validationSuccess
+ * @property {number} validationMessage
+ */
 const Select = props => {
     const selectClasses = classnames({
         "input--error": props.validationError,

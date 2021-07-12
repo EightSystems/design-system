@@ -5,40 +5,37 @@ import Button from "../components/Button";
 
 # Button
 
-<Description>
-    Os botões comunicam ações que o usuário pode realizar com um simples clique ou toque, podendo estar contidos em
-    qualquer lugar da interface, desde caixas de diálogo e modais, até formulários e barras de navegação.
-</Description>
+The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an
+action, or performing a delete operation.
 
-## Variantes
+## Import
 
-Os botões possuem duas propriedades que definem a base de sua estilização: `color` e `outline`. Os dois podem ser usados
-em conjunto para compor diferentes tipos de botão.
+```jsx
+import { Button } from "@8sistemas/design-system";
+```
 
-### Botão primário
+## Usage
 
 <Canvas>
-    <Story name="Primary Button" args={{ color: "primary", children: ["Botão Primário"] }}>
+    <Story name="Primary Button" args={{ color: "primary", children: ["Primary Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>
 
+## Button Variants
+
+Use the `hasOutline` prop to determinate if the button will be of the outlined variant.
+
 <Canvas>
-    <Story name="Primary Button (Outline)" args={{ color: "primary", hasOutline: true, children: ["Botão Primário"] }}>
+    <Story name="Primary Button (Outline)" args={{ color: "primary", hasOutline: true, children: ["Outlined Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>
 
-### Botão danger
+Use the `color` prop to determinate the color of the button using the `Theme` available primary colors.
 
 <Canvas>
-    <Story name="Danger Button" args={{ color: "danger", children: ["Botão Danger"] }}>
-        {args => <Button {...args} />}
-    </Story>
-</Canvas>
-
-<Canvas>
-    <Story name="Danger Button (Outline)" args={{ color: "danger", hasOutline: true, children: ["Botão Danger"] }}>
+    <Story name="Danger Button" args={{ color: "danger", children: ["Danger Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>

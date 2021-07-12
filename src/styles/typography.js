@@ -10,7 +10,7 @@ export const fontFaces = css`
 
 export const Heading1 = css`
     font-family: ${({ theme }) => theme.fontFaces.primary};
-    color: var(--text-primary);
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 48px;
     font-weight: 700;
     line-height: 64px;
@@ -22,7 +22,7 @@ export const Heading1 = css`
 
 export const Heading2 = css`
     font-family: ${({ theme }) => theme.fontFaces.primary};
-    color: var(--text-primary);
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 36px;
     font-weight: 700;
     line-height: 48px;
@@ -34,7 +34,7 @@ export const Heading2 = css`
 
 export const Body = css`
     font-family: ${({ theme }) => theme.fontFaces.secondary};
-    color: var(--text-body);
+    color: ${({ theme }) => theme.colors.textBody};
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
@@ -46,7 +46,7 @@ export const Body = css`
 
 export const FormLabel = css`
     font-family: ${({ theme }) => theme.fontFaces.secondary};
-    color: var(--text-body);
+    color: ${({ theme }) => theme.colors.textBody};
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -54,28 +54,28 @@ export const FormLabel = css`
 
 export const FormInput = css`
     font-family: ${({ theme }) => theme.fontFaces.secondary};
-    color: var(--text-primary);
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
 `;
 export const PlaceholderFormInput = css`
     font-family: ${({ theme }) => theme.fontFaces.secondary};
-    color: var(--text-body);
+    color: ${({ theme }) => theme.colors.textBody};
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
 `;
 
 export const FormValidationMessage = css`
-    font-family: ${({ theme }) => theme.fontFaces.secondary};
-    color: var(--danger);
+    font-family: ${({ theme }) => theme.fontFaces.primary};
+    color: ${({ theme }) => theme.colors.danger};
     font-size: 13px;
 `;
 
 export const CurrencyLabel = css`
     font-family: ${({ theme }) => theme.fontFaces.primary};
-    color: var(--text-primary);
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 36px;
     font-weight: 700;
 

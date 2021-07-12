@@ -9,7 +9,7 @@ import CurrencyLabel from "../CurrencyLabel";
  * @type {React.FC<Props>}
  *
  * @typedef {Object} Props
- * @property {string} promptLabel
+ * @property {string} label
  * @property {any} avatarChildren
  * @property {string} avatarAlt
  * @property {string} avatarSrc
@@ -20,7 +20,7 @@ import CurrencyLabel from "../CurrencyLabel";
  * @property {string} currencySizeUnit
  */
 const PaymentPrompt = ({
-    promptLabel,
+    label,
     avatarChildren,
     avatarAlt,
     avatarSrc,
@@ -40,7 +40,7 @@ const PaymentPrompt = ({
                     {avatarChildren}
                 </Avatar>
             )}
-            <S.PromptLabel>{promptLabel}</S.PromptLabel>
+            <S.PromptLabel>{label}</S.PromptLabel>
             <CurrencyLabel currency={currency} size={currencySize} sizeUnit={currencySizeUnit} value={currencyValue} />
         </S.PaymentPromptWrapper>
     );
@@ -52,7 +52,7 @@ PaymentPrompt.defaultProps = {
 
 PaymentPrompt.propTypes = {
     /** Texto que deve ser usado na label central, pode ser uma descrição de ação ou uma mensagem do usuário. */
-    promptLabel: Proptypes.string.isRequired,
+    label: Proptypes.string.isRequired,
 
     /** Usado para renderizar ícones ou elementos de texto dentro do Avatar se `src` não estiver definido. Pode ser um elemento ou apenas uma string. */
     avatarChildren: Proptypes.node,
