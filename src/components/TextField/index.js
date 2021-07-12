@@ -105,14 +105,14 @@ class TextField extends React.Component {
 }
 
 TextField.propTypes = {
-    /** Attribute `name` from the <input> element. By default, the value of this prop will also be passed to the
+    /** Attribute `name` from the `<input>` element. By default, the value of this prop will also be passed to the
      * attribute `for` of the `<label>` element. */
     name: Proptypes.string.isRequired,
 
     /** String that will be passed to the `<label>` element. */
     label: Proptypes.string.isRequired,
 
-    /** Type of the <input> element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
+    /** Type of the `<input>` element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
     type: Proptypes.oneOf(["password", "email", "text", "tel", "number", "search", "url"]),
 
     /** The short tip showed inside the `<input>` element before the user inserts a value. */
@@ -154,10 +154,10 @@ TextField.propTypes = {
     icon: Proptypes.oneOf(["info", "loadingSpinner"]),
 
     /** If specified, determinates the content inside the Tooltip. Must be a valid React element. */
-    tooltipContent: Proptypes.oneOfType([isValidReactElement, Proptypes.string]).isRequired,
+    tooltipContent: Proptypes.oneOfType([isValidReactElement, Proptypes.string]),
 
     /** Defines the distance between the Tooltip and the component to which it is attached. */
-    tooltipOffset: Proptypes.array.isRequired,
+    tooltipOffset: Proptypes.array,
 
     /** Determinates where the Tooltip will be positioned in relation to the component it's attached */
     tooltipPlacement: Proptypes.oneOf([
@@ -176,7 +176,7 @@ TextField.propTypes = {
         "left",
         "left-start",
         "left-end",
-    ]).isRequired,
+    ]),
 
     /** Overrides or extends the style classes from the Tooltip component. */
     tooltipClass: Proptypes.string,
