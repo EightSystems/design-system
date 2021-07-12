@@ -14,11 +14,11 @@ export const MainWrapper = styled.div`
     &:after {
         content: ">";
         pointer-events: none;
-        font-family: ${props => props.theme.fontFaces.secondary};
-        font-size: 20px;
+        font-family: ${props => props.theme.fontFaces.primary};
+        font-size: 18px;
         font-weight: 600;
         position: relative;
-        bottom: 52px;
+        bottom: 50px;
         margin-left: calc(100% - 35px);
         color: ${props => props.theme.colors.grayShade};
         transform: rotate(90deg);
@@ -34,6 +34,7 @@ export const SelectComponent = styled.select`
     padding: 12px 12px;
     width: 100%;
     border: ${props => props.theme.border.default};
+    background: ${props => props.theme.colors.white};
     border-radius: 4px;
     transition: 150ms ease-in-out;
     :focus {
