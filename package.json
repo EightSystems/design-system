@@ -68,7 +68,8 @@
         "build-storybook": "build-storybook",
         "build": "rollup -c",
         "format": "prettier --write \"**/*.{js,jsx,json,mdx}\"",
-        "local:publish": "rm -rf dist/ && yarn build && yalc publish --files --no-scripts"
+        "local:publish": "rm -rf dist/ && yarn build && yalc publish --files --no-scripts",
+        "husky": "husky install"
     },
     "dependencies": {
         "@headlessui/react": "^1.2.0",
