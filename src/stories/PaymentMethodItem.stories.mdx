@@ -5,8 +5,8 @@ import PaymentMethodItem from "../components/PaymentMethodItem";
 
 # PaymentMethodItem
 
-Componente para representar métodos de pagamento. Deve receber obrigatóriamente as propriedades: `paymentMethod` e
-`paymentMethodIcon`.
+A simple card component used to represent payment methods. Must obligatorily receive the properties: `title`,
+`description` and `icon`.
 
 <style>{`
   .flex-container {
@@ -21,9 +21,9 @@ Componente para representar métodos de pagamento. Deve receber obrigatóriament
     <Story
         name="Regular Payment Method Item"
         args={{
-            paymentMethod: "Cartão de Crédito",
-            paymentMethodDescription: "Processamento instântaneo e seguro.",
-            paymentMethodIcon: "creditCard",
+            title: "Cartão de Crédito",
+            description: "Processamento instântaneo e seguro.",
+            icon: "creditCard",
         }}
         argTypes={{ onClick: { action: "onClick" } }}
     >
