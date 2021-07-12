@@ -152,7 +152,7 @@ TextField.propTypes = {
 
     /** If specified, will define what of icon will be shown inside the component. */
     icon: Proptypes.oneOf(["info", "loadingSpinner"]),
-    
+
     /** If specified, determinates the content inside the Tooltip. Must be a valid React element. */
     tooltipContent: Proptypes.oneOfType([isValidReactElement, Proptypes.string]).isRequired,
 
