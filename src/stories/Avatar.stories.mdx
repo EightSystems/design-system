@@ -1,18 +1,23 @@
-import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import Avatar from "../components/Avatar";
 
 <Meta title="Atoms/Avatar" component={Avatar} />
 
 # Avatar
 
-<Description>
-    Responsáveis por demonstrar a existência de um usuário, devem cobrir situações em que não há uma foto do usuário
-    disponível.
-</Description>
+The `Avatar` component is used to represent a user, and displays the profile picture, initials or fallback icon.
 
-## Avatares com imagem
+## Import
 
-A propriedade padrão `src` pode ser usada para definir a fonte de uma imagem.
+```jsx
+import { Avatar } from "@8sistemas/design-system";
+```
+
+## Usage
+
+### Avatars with image
+
+The default prop `src` can be used to point to a image source.
 
 <Canvas>
     <Story
@@ -27,21 +32,23 @@ A propriedade padrão `src` pode ser usada para definir a fonte de uma imagem.
     </Story>
 </Canvas>
 
-## Avatares com letras
+### Avatar with letters
 
 Nas situações em que a imagem não está disponível (quando o usuário ainda não definiu uma imagem de perfil ou houve um
 erro ao carregar a imagem), as letras iniciais podem ser passadas como uma `string` para `children`.
 
+In situations where the image is not available (user has yet to define the profile image or there was an error while
+loading it from the server), the initial letters can be passes as a `string` to `children`.
+
 <Canvas>
-    <Story name="Avatar without Image" args={{ size: "medium", children: ["EL"] }}>
+    <Story name="Avatar with letters" args={{ size: "medium", children: ["EL"] }}>
         {args => <Avatar {...args} />}
     </Story>
 </Canvas>
 
-## Tamanhos
+## Sizes
 
-O tamanho do componente `Avatar` pode ser definido com a propriedade `size` que aceita os valores `large`, `medium` e
-`small`.
+The `Avatar` size can be defined by using the `size` prop.
 
 ### Large
 

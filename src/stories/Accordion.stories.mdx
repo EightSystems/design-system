@@ -8,8 +8,7 @@ import PaymentMethodItem from "../components/PaymentMethodItem";
 
 # Accordion
 
-Agrupam conjuntos de funcionalidades de um mesmo grupo que pode ser expandido ou colapsado. Quando um dos itens expande,
-todos os outros itens fecham.
+Accordions display a list of high-level options that can expand/collapse to reveal more information.
 
 <Canvas>
     <Story name="Accordion" args={{ initialIndex: "credit-card" }}>
@@ -40,17 +39,29 @@ todos os outros itens fecham.
     </Story>
 </Canvas>
 
-## Variantes
+## Import
 
-O `<Accordion>` recebe obrigatoriamente as propriedades `children` e `initialIndex`.
+The library exports 2 Accordion related components:
 
-Para evitar o que o componente seja remontado em cada nova interação, `children` deve ser uma função que retorna os
-items do `<Accordion>` com o componente `<AccordionItem>` (veja a referência de API de desse componente aqui).
+-   `Accordion` The wrapper that receives `AccordionItem` instances as children for each collapsible item of the
+    Accordion.
+-   `AccordionItem` A single Accordion item.
 
-A propriedade `initialIndex` controla o primeiro item do Accordion que deve estar aberto quando o componente é montado
-pela primeira vez, e deve ser uma string correspondente à propriedade `id` do componente `<AccordionItem>`.
+```jsx
+import { Accordion, AccordionItem } from "@8sistemas/design-system";
+```
 
-A composição de um Accordion completo deve ser similar ao seguinte fragmento de código:
+## Usage
+
+The `Accordion` component obligatorily takes a `children` element and optionally takes the `initialIndex` prop.
+
+To avoid the component from suffering a remount on each new interaction, `children` must be a function that returns
+`Accordion` items with the component `AccordionItem`.
+
+The `initialIndex` prop controls the first `Accordion` item that should be open when the component is mounted for the
+first time, and must be a string that matches the `id` prop from the `AccordionItem`.
+
+The following is a basic composition of the `Accordion`:
 
 ```jsx
 import React from "react";
