@@ -5,18 +5,17 @@ import PaymentStatus from "../components/PaymentStatus";
 
 # PaymentStatus
 
-Usado para representar o status atual de uma transação. Suporta a demonstração de estados de sucesso, falha, e
-pendência.
+Used to represent the current status of an transaction.
 
 <Canvas>
     <Story
         name="PaymentStatus"
         args={{
             status: "approved",
-            statusTitle: "Pagamento Aprovado",
-            statusDescription: "Seu pagamento à Alena Aragão realizado com sucesso.",
+            title: "Pagamento Aprovado",
+            description: "Seu pagamento à Alena Aragão realizado com sucesso.",
             currency: "BRL",
-            currencyValue: 150,
+            value: 150,
         }}
     >
         {args => <PaymentStatus {...args} />}
