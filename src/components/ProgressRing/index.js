@@ -2,6 +2,20 @@ import React from "react";
 import Proptypes from "prop-types";
 import * as S from "./styled";
 
+/**
+ * @type {React.FC<Props>}
+ *
+ * @typedef {Object} Props
+ * @property {number} radius
+ * @property {number} stroke
+ * @property {string} strokeColor
+ * @property {string} text
+ * @property {string} textColor
+ * @property {number} textFontSize
+ * @property {number} textXAxis
+ * @property {number} textYAxis
+ * @property {number} progress
+ */
 const ProgressRing = props => {
     const normalizedRadius = props.radius - props.stroke * 2;
     const circumference = normalizedRadius * 2 * Math.PI;
