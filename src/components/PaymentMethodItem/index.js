@@ -21,47 +21,55 @@ const paymentMethodName = {
     picpay: "PicPay",
 };
 
-/* Older implementation of the icon injector:
-const IconCompoment = paymentMethodIcon[props.paymentMethodIcon];
-<IconComponent alt={`Ícone ${paymentMethodName[paymentMethodIcon]}`} />
-*/
-
 /**
  * @type {React.FC<Props>}
  *
  * @typedef {Object} Props
- * @property {string} paymentMethod
- * @property {string} paymentMethodDescription
- * @property {string} paymentMethodIcon
+ * @property {string} title
+ * @property {string} description
+ * @property {string} icon
  * @property {function} onClick
  *
  * @todo Add better error handling when using unsuported icons.
  * @todo Improve acessibility for SVG icons by populating the title and ARIA attributes correctly.
  */
-const PaymentMethodItem = ({ onClick, paymentMethod, paymentMethodDescription, paymentMethodIcon, props }) => {
+const PaymentMethodItem = ({ onClick, title, description, icon, props }) => {
     return (
         <S.MainWrapper {...props} onClick={onClick}>
-            <S.ContentTitle>{paymentMethod}</S.ContentTitle>
+            <S.ContentTitle>{title}</S.ContentTitle>
             <S.IconWrapper>
-                {paymentMethodIcon === "creditCard" ? <CreditCard /> : null}
-                {paymentMethodIcon === "bankSlip" ? <BankSlip /> : null}
-                {paymentMethodIcon === "pix" ? <Pix /> : null}
-                {paymentMethodIcon === "picpay" ? <Picpay /> : null}
+                {icon === "creditCard" ? <CreditCard /> : null}
+                {icon === "bankSlip" ? <BankSlip /> : null}
+                {icon === "pix" ? <Pix /> : null}
+                {icon === "picpay" ? <Picpay /> : null}
             </S.IconWrapper>
-            {paymentMethodDescription ? <S.ContentLabel>{paymentMethodDescription}</S.ContentLabel> : null}
+            {description ? <S.ContentLabel>{description}</S.ContentLabel> : null}
         </S.MainWrapper>
     );
 };
 
+const isValidPaymentIcon = function (props, propName, componentName) {
+    const validIcons = Object.keys(paymentMethodIconGroup);
+    const prop = props[propName];
+
+    if (!paymentMethodIconGroup[prop]) {
+        return new Error(
+            `Invalid prop ${propName} passed to ${componentName} Expected one of the following string patterns: ${validIcons.join(
+                ", "
+            )}`
+        );
+    }
+};
+
 PaymentMethodItem.propTypes = {
     /** Payment method title. */
-    paymentMethod: Proptypes.string.isRequired,
+    title: Proptypes.string.isRequired,
 
     /** Payment method description.  */
-    paymentMethodDescription: Proptypes.string,
+    description: Proptypes.string,
 
     /** Icon that must be used in the payment method item. */
-    paymentMethodIcon: Proptypes.oneOf(Object.keys(paymentMethodIconGroup)).isRequired,
+    icon: isValidPaymentIcon,
 
     /** Function that must be fired when onClick prop is declared. */
     onClick: Proptypes.func,
