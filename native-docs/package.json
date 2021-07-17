@@ -8,16 +8,20 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "preinstall": "npm run refresh-design-system",
-    "refresh-design-system": "rm -rf node_modules/@8sistemas/design-system && cd ../base && npm install && npm run build",
-    "copy-compiled-design-system": "cp -Rp ../base/dist node_modules/@8sistemas/design-system"
+    "sync-ds-dependencies": "rm -rf node_modules/@8sistemas/design-system && yarn install"
   },
   "dependencies": {
-    "styled-components": "^5.3.0",
-    "react-icons": "^4.2.0",
-    "@8sistemas/design-system": "file:../base/dist",
+    "@8sistemas/design-system": "file:../base",
+    "@mdx-js/runtime": "^1.6.22",
+    "asyncstorage-down": "^4.2.0",
+    "node-libs-react-native": "^1.2.1",
+    "path-dirname": "^1.0.2",
     "react": "17.0.1",
-    "react-native": "0.64.2"
+    "react-icons": "^4.2.0",
+    "react-native": "0.64.2",
+    "react-native-fit-image": "^1.5.5",
+    "react-native-level-fs": "^3.0.1",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
-import Button from "../components/Button";
+import Button from "@8sistemas/design-system/components/Button";
 
 <Meta title="Atoms/Button" component={Button} />
 
@@ -36,14 +36,6 @@ Use the `color` prop to determinate the color of the button using the `Theme` av
 
 <Canvas>
     <Story name="Danger Button" args={{ color: "danger", children: ["Danger Button"] }}>
-        {args => <Button {...args} />}
-    </Story>
-</Canvas>
-
-Secondary Button Sample
-
-<Canvas>
-    <Story name="Secondary Button" args={{ color: "secondary", children: ["Secondary Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>
