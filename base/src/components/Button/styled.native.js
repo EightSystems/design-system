@@ -1,26 +1,28 @@
 import React from 'react';
-import { Text, Pressable } from 'react-native';
+import { Pressable } from 'react-native';
 
 import styled, {css} from "styled-components/native";
 
-const ButtonTest = ({style, children, onClick}) => {
+const Button = ({style, children, onClick}) => {
     return (
         <Pressable onPress={onClick}>
-            <Text style={style}>
+            <ButtonLabel style={style}>
                 {children}
-            </Text>
+            </ButtonLabel>
         </Pressable>
     )
 }
 
-export const ButtonWrapper = styled(ButtonTest)`
-    font-family: 'System';
+const ButtonLabel = styled.Text `
+    font-family: 'Poppins-SemiBold';
     font-size: 16px;
-    border-radius: 4px;
-    font-weight: 600;
-    padding: 18px 24px;
     text-decoration: none;
-    text-align: center;
+`
+
+export const ButtonWrapper = styled(Button)`
+    border-radius: 6px;
+    padding: 12px 22px;
+    text-align: center; 
 
     ${props => props['data-color'] == 'primary' ? css`
         background: ${props => props.theme.colors.primary};
@@ -28,7 +30,7 @@ export const ButtonWrapper = styled(ButtonTest)`
         color: ${props => props.theme.colors.primaryContrast};
 
         ${props => props['data-outline'] ? css`
-            background: white;
+            background: transparent;
             border: solid 2px ${props => props.theme.colors.primary};
             color: ${props => props.theme.colors.primary};
         ` : null}
