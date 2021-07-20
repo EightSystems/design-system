@@ -5,6 +5,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "devtools": "react-devtools",
+    "link:react-native": "react-native link",
     "sync:dependencies": "rm -rf node_modules/@8sistemas/design-system && yarn install"
   },
   "dependencies": {
@@ -27,6 +29,7 @@
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",
     "metro-react-native-babel-preset": "^0.64.0",
+    "react-devtools": "<4.11.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
