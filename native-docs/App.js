@@ -9,7 +9,9 @@ import NativeUIExplorer from "./src/views/NativeUIExplorer";
 
 const App = () => {
   return (
-    <SafeAreaView style={{ backgroundColor: "white", width: "100%", height: "100%" }}>
+    <SafeAreaView
+      style={{ backgroundColor: "white", width: "100%", height: "100%" }}
+    >
       <StatusBar />
       <ThemeProvider theme={Theme}>
         <NativeUIExplorer />

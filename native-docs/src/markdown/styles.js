@@ -8,10 +8,14 @@ export const styles = StyleSheet.create({
   root: {},
   view: {},
   codeBlock: {
+    fontFamily: "UbuntuMono-Regular",
+    fontSize: 15,
     borderWidth: 1,
     borderColor: '#CCCCCC',
-    backgroundColor: '#f5f5f5',
-    padding: 10,
+    backgroundColor: '#CCCCCC',
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
     borderRadius: 4,
   },
   codeInline: {
@@ -33,21 +37,39 @@ export const styles = StyleSheet.create({
   heading: {},
   heading1: {
     fontSize: 32,
+    fontWeight: "700",
+    paddingBottom: 8,
+    paddingTop: 16,
   },
   heading2: {
     fontSize: 24,
+    fontWeight: "700",
+    paddingBottom: 8,
+    paddingTop: 16,
   },
   heading3: {
     fontSize: 18,
+    fontWeight: "700",
+    paddingBottom: 8,
+    paddingTop: 16,
   },
   heading4: {
     fontSize: 16,
+    fontWeight: "700",
+    paddingBottom: 8,
+    paddingTop: 16,
   },
   heading5: {
     fontSize: 13,
+    fontWeight: "700",
+    paddingBottom: 8,
+    paddingTop: 16,
   },
   heading6: {
     fontSize: 11,
+    fontWeight: "700",
+    paddingBottom: 8,
+    paddingTop: 16,
   },
   hr: {
     backgroundColor: '#000000',
@@ -103,6 +125,8 @@ export const styles = StyleSheet.create({
   },
   div: {},
   paragraph: {
+    fontFamily: "Inter Regular",
+    fontSize: 16,
     marginTop: 10,
     marginBottom: 10,
     flexWrap: 'wrap',
@@ -142,7 +166,9 @@ export const styles = StyleSheet.create({
   strikethrough: {
     textDecorationLine: 'line-through',
   },
-  pre: {},
+  pre: {
+    fontFamily: "Ubuntu Mono",
+  },
   link: {},
   image: {
     flex: 1,
