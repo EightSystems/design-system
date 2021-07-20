@@ -68,7 +68,7 @@
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "build": "rollup -c && cp -p package.json dist/package.json",
-        "format": "prettier --write \"**/*.{js,jsx,json,mdx}\"",
+        "format": "prettier --write \"**/*.{js,jsx,json}\"",
         "local:publish": "rm -rf dist/ && yarn build && yalc publish --files --no-scripts",
         "husky": "husky install"
     },
