@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+# [0.4.0](https://github.com/EightSystems/design-system/compare/v0.3.0...v0.4.0) (2021-07-21)
+
+
+### Features
+
+* added list view for native app components ([2abfc6c](https://github.com/EightSystems/design-system/commit/2abfc6c717247c062227dd6e07e6ad829bac80cc))
+* changed markdown styles for the mdx renderer ([c6bec0a](https://github.com/EightSystems/design-system/commit/c6bec0ad4f9d7b4e43fcd858420bfd764afbb356))
+* tweaked native button component ([483c086](https://github.com/EightSystems/design-system/commit/483c08639e46146e3237100b438511dce3ff1753))
+
 # [0.3.0](https://github.com/EightSystems/design-system/compare/v0.2.0...v0.3.0) (2021-07-13)
 
 # [0.2.0](https://github.com/EightSystems/design-system/compare/v0.1.0...v0.2.0) (2021-07-12)
