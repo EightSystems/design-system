@@ -2,7 +2,8 @@ name: Release NPM Package
 on:
     push:
         branches:
-            -main
+            - main
+            - development
 
 -jobs:
     release:
