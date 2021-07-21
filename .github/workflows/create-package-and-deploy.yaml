@@ -7,25 +7,25 @@ on:
 
 jobs:
     release:
-    name: Release
-    runs-on: ubuntu-latest
-    steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Setup Node.js
-          uses: actions/setup-node@v2
-          env: 
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_SEMANTIC_TOKEN }}
-          with:
-              node-version: "12.x"
-              always-auth: true
-              registry-url: "https://registry.npmjs.org"
-        - name: Install dependencies
-          working-directory: ./packages/core
-          run: yarn build
-        - name: Release package
-        - working-directory: ./packages/core
-          run: yarn publish:npm
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            NPM_TOKEN: ${{ secrets.NPM_SEMANTIC_TOKEN }}
+        name: Release
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              env: 
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_SEMANTIC_TOKEN }}
+              with:
+                  node-version: "12.x"
+                  always-auth: true
+                  registry-url: "https://registry.npmjs.org"
+            - name: Install dependencies
+              working-directory: ./packages/core
+              run: yarn build
+            - name: Release package
+            - working-directory: ./packages/core
+              run: yarn publish:npm
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_SEMANTIC_TOKEN }}
