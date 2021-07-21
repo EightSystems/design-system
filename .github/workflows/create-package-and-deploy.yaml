@@ -5,7 +5,7 @@ on:
             - main
             - development
 
--jobs:
+jobs:
     release:
     name: Release
     runs-on: ubuntu-latest
