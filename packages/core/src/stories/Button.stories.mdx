@@ -5,8 +5,7 @@ import Button from "../components/Button";
 
 # Button
 
-The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an
-action, or performing a delete operation.
+The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
 
 ## Import
 
@@ -36,6 +35,14 @@ Use the `color` prop to determinate the color of the button using the `Theme` av
 
 <Canvas>
     <Story name="Danger Button" args={{ color: "danger", children: ["Danger Button"] }}>
+        {args => <Button {...args} />}
+    </Story>
+</Canvas>
+
+Secondary Button Sample
+
+<Canvas>
+    <Story name="Secondary Button" args={{ color: "secondary", children: ["Secondary Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>
