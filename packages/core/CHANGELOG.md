@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+# [0.5.0](https://github.com/EightSystems/design-system/compare/v0.4.0...v0.5.0) (2021-07-21)
+
+
+### Features
+
+* react-native UI Explorer boilerplate, CI improvements ([2aa7281](https://github.com/EightSystems/design-system/commit/2aa72810682e46d12de28225d16ab7202f79464e))
+
 # [0.4.0](https://github.com/EightSystems/design-system/compare/v0.3.0...v0.4.0) (2021-07-21)
 
 
