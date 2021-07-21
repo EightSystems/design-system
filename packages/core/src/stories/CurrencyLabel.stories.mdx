@@ -1,0 +1,85 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import CurrencyLabel from "../components/CurrencyLabel";
+
+<Meta
+    title="Atoms/CurrencyLabel"
+    component={CurrencyLabel}
+    argTypes={{
+        currency: {
+            control: {
+                type: "select",
+                options: ["BRL", "USD", "EUR", "JPY", "ARS", "OMR"],
+            },
+        },
+        value: {
+            control: {
+                type: "number",
+            },
+        },
+        size: {
+            control: {
+                type: "number",
+                min: 1,
+            },
+        },
+    }}
+/>
+
+export const Template = args => <CurrencyLabel {...args} />;
+
+# CurrencyLabel
+
+Um wrapper para a representação de valores monetários, converte um valor puro na unidade monetária requerida de acordo
+com a API de internacionalização.
+
+## Variantes
+
+O `CurrencyLabel` usa a API de internacionalização `Intl.NumberFormat`, e possui duas propriedades obrigatórias:
+`currency` e `value`:
+
+### Real Brasileiro
+
+<Canvas>
+    <Story name="Real Brasileiro" args={{ currency: "BRL", value: 123456 }}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+### Dólar americano
+
+<Canvas>
+    <Story name="Dólar Americano" args={{ currency: "USD", value: 456789 }}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+### Yen Japonês
+
+<Canvas>
+    <Story name="Yen Japonês" args={{ currency: "JPY", value: 3456789 }}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+Adicionalmente, é possível especificar o tamanho a a unidade de medida para alterar o tamanho de exibição de
+`CurrencyLabel` com `size` e `sizeUnit`.
+
+### Euro com fonte em tamanho 72px
+
+<Canvas>
+    <Story name="Euro (72px)" args={{ currency: "EUR", value: 123456, size: 72 }}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+### Peso Argentino com fonte em tamanho 2em
+
+<Canvas>
+    <Story name="Peso Argentino (2em)" args={{ currency: "ARS", value: 123456, size: 2, sizeUnit: "em" }}>
+        {args => <CurrencyLabel {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={CurrencyLabel} />

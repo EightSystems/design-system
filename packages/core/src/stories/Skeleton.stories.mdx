@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import Skeleton from "../components/Skeleton";
+
+<Meta title="Atoms/Skeleton" component={Skeleton} />
+
+# Skeleton
+
+O Skeleton é usado para demonstrar o estado de carregamento simulando o "esqueleto" de um componente.
+
+## Variantes
+
+O Skeleton pode ser renderizado com uma forma retangular ao declarar apenas a propriedade `size`, que irá determinar a
+altura do componente (a largura será determinada pelo container do Skeleton). Adicionalmente, a propriedade borderRadius
+pode ser usada para arredondar as bordas do Skeleton:
+
+<Canvas>
+    <Story name="Skeleton Regular" args={{ borderRadius: 2, size: 30 }}>
+        {args => <Skeleton {...args} />}
+    </Story>
+</Canvas>
+
+O Skeleton também pode ser renderizado no formato circular ao usar as propriedades `size` e `isCircular`. Nesse caso, a
+propriedade `borderRadius` é ignorada.
+
+<Canvas>
+    <Story name="Skeleton Circular" args={{ isCircular: true, size: 80 }}>
+        {args => <Skeleton {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Skeleton} />
