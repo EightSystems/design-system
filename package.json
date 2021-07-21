@@ -1,0 +1,37 @@
+{
+    "name": "@8sistemas/core",
+    "description": "A design system used by internal projects at EightSystems.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EightSystems/design-system.git"
+    },
+    "author": "@EightSystems",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "@commitlint/cli": "^12.1.4",
+        "@commitlint/config-conventional": "^12.1.4",
+        "husky": "^5.2.0",
+        "lint-staged": "^11.0.0",
+        "prettier": "^2.2.1",
+        "npm-run-all": "^4.1.5"
+    },
+    "scripts": {
+        "format": "prettier --write \"**/*.{js,jsx,json}\"",
+        "husky": "husky install",
+        "run-p": "yarn npm-run-all",
+        "install:core": "cd packages/core && yarn install",
+        "install:docs": "cd packages/docs && yarn install",
+        "remove:core": "cd packages/core && rm -rf yarn.lock && rm -rf node_modules",
+        "remove:docs": "cd packages/docs && rm -rf yarn.lock && rm -rf node_modules",
+        "remove:root": "rm -rf yarn.lock && rm -rf node_modules",
+        "postinstall": "run-p install:*",
+        "prepare": "yarn husky",
+        "clean:deps": "run-p remove:*"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js,jsx,json,css,html,md,yml}": [
+            "yarn format"
+        ]
+    }
+}
