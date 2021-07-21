@@ -24,7 +24,7 @@ jobs:
               working-directory: ./packages/core
               run: yarn build
             - name: Release package
-            - working-directory: ./packages/core
+              working-directory: ./packages/core
               run: yarn publish:npm
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
