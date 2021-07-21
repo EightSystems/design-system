@@ -1,0 +1,39 @@
+{
+    "name": "native-docs",
+    "private": false,
+    "license": "MIT",
+    "scripts": {
+        "android": "react-native run-android",
+        "ios": "react-native run-ios",
+        "start": "react-native start",
+        "devtools": "react-devtools",
+        "link:react-native": "react-native link",
+        "sync:dependencies": "rm -rf node_modules/@8sistemas/design-system && yarn install"
+    },
+    "dependencies": {
+        "@8sistemas/design-system": "file:../core",
+        "@mdx-js/runtime": "^1.6.22",
+        "asyncstorage-down": "^4.2.0",
+        "node-libs-react-native": "^1.2.1",
+        "path-dirname": "^1.0.2",
+        "react": "17.0.1",
+        "react-icons": "^4.2.0",
+        "react-native": "0.64.2",
+        "react-native-fit-image": "^1.5.5",
+        "react-native-level-fs": "^3.0.1",
+        "styled-components": "^5.3.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.9",
+        "@babel/runtime": "^7.12.5",
+        "@react-native-community/masked-view": "^0.1.11",
+        "@react-navigation/native": "^5.9.4",
+        "@react-navigation/stack": "^5.14.5",
+        "metro-react-native-babel-preset": "^0.64.0",
+        "react-devtools": "<4.11.0",
+        "react-native-gesture-handler": "^1.10.3",
+        "react-native-reanimated": "^2.2.0",
+        "react-native-safe-area-context": "^3.2.0",
+        "react-native-screens": "^3.4.0"
+    }
+}
