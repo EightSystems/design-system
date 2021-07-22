@@ -10,9 +10,14 @@ A wrapper component and form control that allows the selection of options. It's 
 
 This component is commonly used in forms and dialog boxes.
 
-## Variants
+## Import
 
-O `Select` requer três propriedades obrigatórias, `name`, `label`, e `children`:
+```jsx
+import { Select } from "@8sistemas/design-system"
+```
+## Select Variants
+
+The `Select` component has three obligatory props, `name`, `label`, `children`.
 
 <Canvas>
     <Story name="Regular Select" args={{ name: "selectName", label: "Select Label" }}>
@@ -25,9 +30,7 @@ O `Select` requer três propriedades obrigatórias, `name`, `label`, e `children
     </Story>
 </Canvas>
 
-Variações de validação do componente podem ser alcançadas usando propriedades como `validationError` para indicar um
-erro de validação, e `validationSuccess` para indicar uma validação de sucesso, e `validationMessage` para inserir uma
-mensagem de ajuda durante a validação:
+Validation states from the components can be achieved by using the prop `validationError` to indicate a validation error, and `validationSuccess` to indicate validation success, and `validationError` to show a error message bellow the input.
 
 ### Validação com erro
 

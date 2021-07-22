@@ -5,13 +5,11 @@ import Skeleton from "../components/Skeleton";
 
 # Skeleton
 
-O Skeleton é usado para demonstrar o estado de carregamento simulando o "esqueleto" de um componente.
+The Skeleton is used to demonstrate a loading state, simulating the component's skeleton.
 
 ## Variantes
 
-O Skeleton pode ser renderizado com uma forma retangular ao declarar apenas a propriedade `size`, que irá determinar a
-altura do componente (a largura será determinada pelo container do Skeleton). Adicionalmente, a propriedade borderRadius
-pode ser usada para arredondar as bordas do Skeleton:
+The Skeleton can be rendered as a retangular shape by declaring only the `size` prop, that will determinate the component height, (component width will be determinated by the container's dimensions). Aditionally, the `borderRadius` prop can be used to round the component's borders.
 
 <Canvas>
     <Story name="Skeleton Regular" args={{ borderRadius: 2, size: 30 }}>
@@ -19,8 +17,7 @@ pode ser usada para arredondar as bordas do Skeleton:
     </Story>
 </Canvas>
 
-O Skeleton também pode ser renderizado no formato circular ao usar as propriedades `size` e `isCircular`. Nesse caso, a
-propriedade `borderRadius` é ignorada.
+The Skeleton can also be rendered as a circular shape by using the props `size` and `isCircular`. In that case, the prop `borderRadius` is ignored.
 
 <Canvas>
     <Story name="Skeleton Circular" args={{ isCircular: true, size: 80 }}>
