@@ -9,9 +9,11 @@
         "type": "git",
         "url": "https://github.com/EightSystems/design-system.git"
     },
-    "main": "dist/index.js",
+    "main": "dist/web/index.js",
+    "react-native": "mobile/native/index.js",
     "files": [
-        "dist"
+        "dist",
+        "mobile"
     ],
     "author": "@EightSystems",
     "license": "MIT",
@@ -76,8 +78,8 @@
     "scripts": {
         "storybook": "start-storybook -p 6006",
         "build:storybook": "build-storybook",
-        "build": "rollup -c && cp -p package.json dist/package.json",
-        "publish:local": "rm -rf dist/ && yarn build && yalc publish --files --no-scripts",
+        "build": "rollup -c",
+        "publish:local": "rm -rf dist/ && rm -rf native/ && yarn build && yalc publish --files --no-scripts",
         "publish:npm": "yarn semantic-release"
     }
 }

@@ -28,9 +28,6 @@
         /* Will generate correspondent .d.ts files for each .js/.ts file */
         "declaration": true,
 
-        /* Emit .js files with JSX changed to the equivalent React.createElement calls */
-        "jsx": "react",
-
         /* Specify the module resolution strategy to Node.js defaults */
         "moduleResolution": "node",
 
@@ -59,7 +56,6 @@
     },
 
     /* Specifies an array of filenames or patterns to include in the program */
-    "include": ["src/**/*"],
 
     /* Specifies an array of filenames or patterns that should be skipped when resolving include */
     "exclude": ["node_modules", "build", "dist", "rollup.config.js"]
