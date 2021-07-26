@@ -1,8 +1,5 @@
 {
     "compilerOptions": {
-        /* Where the Typescript compiler will output build files */
-        "outDir": "build",
-
         /* This will compile every import and export into require() and module.exports declarations, 
         the default syntax in a Node environment */
         "module": "esnext",

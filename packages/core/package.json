@@ -9,7 +9,7 @@
         "type": "git",
         "url": "https://github.com/EightSystems/design-system.git"
     },
-    "main": "dist/index.js",
+    "main": "dist/web.js",
     "files": [
         "dist"
     ],
@@ -76,7 +76,7 @@
     "scripts": {
         "storybook": "start-storybook -p 6006",
         "build:storybook": "build-storybook",
-        "build": "rollup -c && cp -p package.json dist/package.json",
+        "build": "rm -rf dist/ && rollup -c",
         "publish:local": "rm -rf dist/ && yarn build && yalc publish --files --no-scripts",
         "publish:npm": "yarn semantic-release"
     }

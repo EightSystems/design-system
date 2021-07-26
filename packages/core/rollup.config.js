@@ -8,41 +8,53 @@ import svgr from "@svgr/rollup";
 import json from "@rollup/plugin-json";
 import multiInput from "rollup-plugin-multi-input";
 
-export default {
-    input: ["src/**/*.js"],
+const webInput = "./src/web.js";
+
+const outputOptions = {
+    format: "cjs",
+    exports: "named",
+    sourcemap: true,
+    preserveModules: false,
+    preserveModulesRoot: "src",
+};
+
+const defaultPlugins = [
+    multiInput(),
+    external(),
+    postcss({
+        modules: true,
+    }),
+    url(),
+    svgr({
+        svgoConfig: {
+            plugins: {
+                removeViewBox: false,
+            },
+        },
+    }),
+    json(),
+    resolve(),
+    commonjs(),
+];
+
+const webConfig = {
+    input: webInput,
     output: [
         {
             dir: "dist",
-            format: "cjs",
-            exports: "named",
-            sourcemap: true,
-            preserveModules: false,
-            preserveModulesRoot: "src",
+            ...outputOptions,
         },
     ],
     plugins: [
-        multiInput(),
-        external(),
-        postcss({
-            modules: true,
-        }),
-        url(),
-        svgr({
-            svgoConfig: {
-                plugins: {
-                    removeViewBox: false,
-                },
-            },
-        }),
-        json(),
-        resolve(),
         typescript({
             tsconfig: "./tsconfig.json",
             abortOnError: false,
             clean: true,
             include: ["*.ts+(|x)", "**/*.ts+(|x)", "*.js+(|x)", "**/*.js+(|x)"],
-            exclude: ["node_modules/**"],
+            exclude: ["node_modules/**", "dist", "rollup.config.js", "*.native.js+(|x)", "native.js"],
         }),
-        commonjs(),
+        ...defaultPlugins,
     ],
 };
+
+export default [webConfig];
