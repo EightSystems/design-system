@@ -110,6 +110,7 @@ storybook-static
 lib
 lib-esm
 _bundles
+mobile
 
 # OSX
 #
