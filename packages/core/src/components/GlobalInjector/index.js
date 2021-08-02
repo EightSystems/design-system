@@ -4,10 +4,6 @@ import { ThemeProvider } from "styled-components";
 import Theme from "../../styles/theme";
 import { merge } from "lodash";
 
-const GlobalInjector = props => {
-    return <GlobalStyles {...props} />;
-};
-
 export const ThemeProviderInjector = props => {
     const themeMerge = merge(Theme, props.theme || {});
 
@@ -19,5 +15,4 @@ export const ThemeProviderInjector = props => {
     );
 };
 
-export { default as GlobalStyles } from "../../styles/global";
-export default GlobalInjector;
+export default ThemeProviderInjector;
