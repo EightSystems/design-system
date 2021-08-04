@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonWrapper = styled.button`
-    font-family: ${props => props.theme.fontFaces.primary};
+    font-family: ${props => props.theme.typography.fontFaces.primary};
     font-size: 16px;
     appearance: none;
     border-radius: 4px;
@@ -28,7 +28,7 @@ export const ButtonWrapper = styled.button`
             background: ${props => props.theme.colors.primaryTint};
             border: solid 2px ${props => props.theme.colors.primaryTint};
             color: ${props => props.theme.colors.primaryContrast};
-            box-shadow: ${props => props.theme.boxShadow.default};
+            box-shadow: ${props => props.theme.shadows.xs};
             outline: none;
         }
     }
@@ -48,7 +48,7 @@ export const ButtonWrapper = styled.button`
             background: ${props => props.theme.colors.dangerTint};
             border: solid 2px ${props => props.theme.colors.dangerTint};
             color: ${props => props.theme.colors.primaryContrast};
-            box-shadow: ${props => props.theme.boxShadow.default};
+            box-shadow: ${props => props.theme.shadows.xs};
             outline: none;
         }
     }
@@ -68,7 +68,7 @@ export const ButtonWrapper = styled.button`
             background: ${props => props.theme.colors.grayShade};
             border: solid 2px ${props => props.theme.colors.grayShade};
             color: ${props => props.theme.colors.primaryContrast};
-            box-shadow: ${props => props.theme.boxShadow.default};
+            box-shadow: ${props => props.theme.shadows.xs};
             outline: none;
         }
     }
