@@ -14,20 +14,18 @@ import * as S from "./styled.native";
  * @property {any} startIcon - If valid, uses the defined startIcon.
  * @property {any} endIcon - If valid, uses the defined endIcon.
  * @property {boolean} disabled - If true, the button shows a disabled style and doesn't respond to user action.
- *
  */
-
-const Button = ({ children, color, variant, isLoading, size, startIcon, endIcon, disabled, _text }) => {
+const Button = props => {
     return (
         <S.ButtonPressable
-            data-color={color}
-            data-variant={variant}
-            data-size={size}
-            data-disabled={disabled}
-            onPress={onClick}
+            {...props}
+            data-color={props.color}
+            data-variant={props.variant}
+            data-size={props.size}
+            data-disabled={props.disabled}
         >
             {/* {startIcon && React.isValidElement(<S.IconWrapper>{startIcon}</S.IconWrapper>) ? startIcon : null} */}
-            <S.StyledText>{children}</S.StyledText>
+            <S.StyledText data-size={props.size}>{props.children}</S.StyledText>
             {/* {endIcon && React.isValidElement(endIcon) ? <S.IconWrapper>{endIcon}</S.IconWrapper> : null} */}
         </S.ButtonPressable>
     );
@@ -45,4 +43,4 @@ Button.propTypes = {
     disabled: Proptypes.bool,
 };
 
-export default React.memo(React.forwardRef(Button));
+export default Button;

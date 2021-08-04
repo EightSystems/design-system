@@ -1,14 +1,14 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import Theme from "../src/styles/theme";
+import { theme } from "../src/theme";
 import { configure } from "@storybook/react";
 import GlobalStyles from "../src/styles/global";
 configure(require.context("../src/stories", true, /\\.stories\\.mdx$/), module);
 
 export const decorators = [
     Story => (
-        <ThemeProvider theme={Theme}>
+        <ThemeProvider theme={theme}>
             <GlobalStyles />
             <Story />
         </ThemeProvider>
