@@ -4,6 +4,10 @@ import { Pressable, Text } from "react-native";
 export const ButtonPressable = styled(Pressable)`
     border-radius: ${props => props.borderRadius || "5px"};
     background: ${props => props.theme.colors.primary};
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     ${props =>
         props["data-size"] == "small"
             ? css`
@@ -25,7 +29,6 @@ export const ButtonPressable = styled(Pressable)`
     ${props =>
         props["data-color"] == "primary"
             ? css`
-                  border: solid 2px ${props => props.theme.colors.primary};
                   color: ${props => props.theme.colors.primaryContrast};
                   ${props =>
                       props["data-variant"] === "solid"
@@ -33,17 +36,30 @@ export const ButtonPressable = styled(Pressable)`
                                 background: ${props => props.theme.colors.primary};
                             `
                           : null}
+                  ${props =>
+                      props["data-variant"] == "outline"
+                          ? css`
+                                background: transparent;
+                                border: solid 2px ${props.theme.colors.primary};
+                            `
+                          : null}
               `
             : null}
     ${props =>
         props["data-color"] == "secondary"
             ? css`
-                  border: solid 2px ${props => props.theme.colors.secondary};
                   color: ${props => props.theme.colors.secondaryContrast};
                   ${props =>
                       props["data-variant"] == "solid"
                           ? css`
                                 background: ${props => props.theme.colors.secondary};
+                            `
+                          : null}
+                  ${props =>
+                      props["data-variant"] == "outline"
+                          ? css`
+                                background: transparent;
+                                border: solid 2px ${props.theme.colors.secondary};
                             `
                           : null}
               `
@@ -57,6 +73,13 @@ export const ButtonPressable = styled(Pressable)`
                       props["data-variant"] == "solid"
                           ? css`
                                 background: ${props => props.theme.colors.tertiary};
+                            `
+                          : null}
+                  ${props =>
+                      props["data-variant"] == "outline"
+                          ? css`
+                                background: transparent;
+                                border: solid 2px ${props.theme.colors.tertiary};
                             `
                           : null}
               `
