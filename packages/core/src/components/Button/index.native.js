@@ -1,4 +1,4 @@
-import React from "react";
+import React, { isValidElement } from "react";
 import Proptypes from "prop-types";
 import { ActivityIndicator } from "react-native";
 
@@ -14,6 +14,7 @@ import * as S from "./styled.native";
  * @property {string} size
  * @property {any} startIcon
  * @property {any} endIcon
+ * @property {number} iconPadding
  * @property {boolean} disabled
  *
  * @property {boolean} android_disableSound
@@ -30,14 +31,6 @@ import * as S from "./styled.native";
  * @todo Implement support for `startIcon` and `endIcon` props.
  */
 const Button = React.forwardRef((props, componentRef) => {
-    if (props.startIcon && React.isValidElement(props.startIcon)) {
-        props.startIcon = React.Children.map(props.startIcon, (child, index) => {
-            return React.cloneElement(child, {
-                key: `button-start-icon-${index}`,
-            });
-        });
-    }
-
     return (
         <S.ButtonPressable
             {...props}
@@ -56,9 +49,28 @@ const Button = React.forwardRef((props, componentRef) => {
                     <Spacer size={12} />
                 </React.Fragment>
             ) : null}
+
+            {props.startIcon && isValidElement(props.startIcon)
+                ? React.Children.map(props.startIcon, child => {
+                      return React.cloneElement(child);
+                  })
+                : null}
+            {props.startIcon && isValidElement(props.startIcon) ? (
+                <Spacer size={props.iconPadding ? props.iconPadding : 0} />
+            ) : null}
+
             <S.StyledText data-size={props.size} data-color={props.color}>
                 {props.children}
             </S.StyledText>
+
+            {props.endIcon && isValidElement(props.endIcon) ? (
+                <Spacer size={props.iconPadding ? props.iconPadding : 0} />
+            ) : null}
+            {props.endIcon && isValidElement(props.endIcon)
+                ? React.Children.map(props.endIcon, child => {
+                      return React.cloneElement(child);
+                  })
+                : null}
         </S.ButtonPressable>
     );
 });
