@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import media from "../../styles/media";
+import media from "../../theme/media";
 
 export const StepperContainer = styled.div`
     display: flex;

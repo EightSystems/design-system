@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as T from "../../styles/typography";
+import * as T from "../../theme/typography";
 
 export const MainWrapper = styled.div`
     display: flex;

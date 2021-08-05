@@ -1,10 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import Proptypes from "prop-types";
 
-import media from "../../styles/media";
-
-import Theme from "../../styles/theme";
+import { theme } from "../../theme";
 import ProgressRing from "../ProgressRing";
 import * as S from "./styled";
 
@@ -14,9 +11,9 @@ const Stepper = React.forwardRef(({ children, ...props }, componentRef) => (
             progress={props.currentStepPercentage}
             radius={30}
             stroke={3}
-            strokeColor={Theme.colors.secondary}
+            strokeColor={theme.colors.secondary}
             text={`${props.currentStep} de ${props.maxSteps}`}
-            textColor={Theme.colors.secondary}
+            textColor={theme.colors.secondary}
             textFontSize={12}
             textXAxis={12}
             textYAxis={34}

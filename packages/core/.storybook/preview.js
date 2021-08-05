@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 
 import { theme } from "../src/theme";
 import { configure } from "@storybook/react";
-import GlobalStyles from "../src/styles/global";
+import GlobalStyles from "../src/theme/global";
 configure(require.context("../src/stories", true, /\\.stories\\.mdx$/), module);
 
 export const decorators = [
