@@ -1,22 +1,25 @@
 import { theme as Theme } from "./theme";
-import Accordion from "./components/Accordion";
-import AccordionItem from "./components/AccordionItem";
-import Avatar from "./components/Avatar";
-import Button from "./components/Button";
-import CurrencyLabel from "./components/CurrencyLabel";
-import PaymentMethodItem from "./components/PaymentMethodItem";
-import PaymentPrompt from "./components/PaymentPrompt";
-import PaymentStatus from "./components/PaymentStatus";
-import SavedCardBadge from "./components/SavedCardBadge";
-import Select from "./components/Select";
-import Stepper from "./components/Stepper";
-import ProgressRing from "./components/ProgressRing";
-import TextField from "./components/TextField";
-import Tooltip from "./components/Tooltip";
-import Skeleton from "./components/Skeleton";
-import Toast from "./components/Toast";
-import Modal from "./components/Modal";
-import ThemeProviderInjector from "./components/ThemeProviderInjector";
+import ThemeProviderInjector from "./components/core/ThemeProviderInjector";
+
+import Accordion from "./components/composites/Accordion";
+import AccordionItem from "./components/composites/AccordionItem";
+import PaymentMethodItem from "./components/composites/PaymentMethodItem";
+import PaymentPrompt from "./components/composites/PaymentMethodItem";
+import PaymentStatus from "./components/composites/PaymentStatus";
+import SavedCardBadge from "./components/composites/SavedCardBadge";
+import Stepper from "./components/composites/Stepper";
+import Tooltip from "./components/composites/Tooltip";
+import Modal from "./components/composites/Modal";
+
+import Avatar from "./components/primitives/Avatar";
+import Button from "./components/primitives/Button";
+import CurrencyLabel from "./components/primitives/CurrencyLabel";
+import Select from "./components/primitives/Select";
+import ProgressRing from "./components/primitives/ProgressRing";
+import TextField from "./components/primitives/TextField";
+import Skeleton from "./components/primitives/Skeleton";
+import Toast from "./components/primitives/Toast";
+
 import { useDetectOutsideClick } from "./hooks/useDetectOutsideClick";
 import { useContainerDimensions } from "./hooks/useContainerDimensions";
 import { useExtendedTheme } from "./hooks/useExtendedTheme";
