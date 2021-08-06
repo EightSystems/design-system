@@ -12,7 +12,7 @@ export const shadows = {
 };
 
 export const nativeShadows = {
-    0: {
+    xxs: {
         shadowColor: colors.dark,
         shadowOffset: {
             widht: 0,
@@ -22,7 +22,7 @@ export const nativeShadows = {
         shadowRadius: 1.0,
         elevation: 1,
     },
-    1: {
+    xs: {
         shadowColor: colors.dark,
         shadowOffset: {
             width: 0,
@@ -32,7 +32,7 @@ export const nativeShadows = {
         shadowRadius: 1.41,
         elevation: 2,
     },
-    2: {
+    sm: {
         shadowColor: colors.dark,
         shadowOffset: {
             width: 0,
@@ -42,7 +42,7 @@ export const nativeShadows = {
         shadowRadius: 2.22,
         elevation: 3,
     },
-    3: {
+    default: {
         shadowColor: colors.dark,
         shadowOffset: {
             width: 0,
@@ -52,7 +52,7 @@ export const nativeShadows = {
         shadowRadius: 2.62,
         elevation: 4,
     },
-    4: {
+    md: {
         shadowColor: colors.dark,
         shadowOffset: {
             width: 0,
@@ -62,7 +62,7 @@ export const nativeShadows = {
         shadowRadius: 3.84,
         elevation: 5,
     },
-    5: {
+    lg: {
         shadowColor: colors.dark,
         shadowOffset: {
             width: 0,
@@ -72,7 +72,7 @@ export const nativeShadows = {
         shadowRadius: 4.65,
         elevation: 6,
     },
-    6: {
+    xlg: {
         shadowColor: colors.dark,
         shadowOffset: {
             width: 0,
@@ -82,34 +82,14 @@ export const nativeShadows = {
         shadowRadius: 4.65,
         elevation: 7,
     },
-    7: {
+    xxlg: {
         shadowColor: colors.dark,
         shadowOffset: {
             width: 0,
-            height: 4,
+            height: 11,
         },
-        shadowOpacity: 0.3,
-        shadowRadius: 4.65,
-        elevation: 8,
-    },
-    8: {
-        shadowColor: colors.dark,
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.32,
-        shadowRadius: 5.46,
-        elevation: 9,
-    },
-    9: {
-        shadowColor: colors.dark,
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.34,
-        shadowRadius: 6.27,
-        elevation: 10,
+        shadowOpacity: 0.45,
+        shadowRadius: 14.78,
+        elevation: 22,
     },
 };
