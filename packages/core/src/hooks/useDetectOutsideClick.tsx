@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import * as React from "react";
 
-export const useDetectOutsideClick = (el, initialState) => {
-    const [isActive, setIsActive] = useState(initialState);
-    useEffect(() => {
+export const useDetectOutsideClick = (el: any, initialState: boolean) => {
+    const [isActive, setIsActive] = React.useState(initialState);
+    React.useEffect(() => {
         const onClick = e => {
             if (el.current !== null && !el.current.contains(e.target)) {
                 setIsActive(!isActive);
