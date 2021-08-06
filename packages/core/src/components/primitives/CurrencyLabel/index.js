@@ -2,7 +2,7 @@ import React from "react";
 import Proptypes from "prop-types";
 import Dinero from "dinero.js";
 import * as S from "./styled";
-import getUserLanguage from "../../utils/getUserLanguage";
+import getUserLanguage from "../../../utils/getUserLanguage";
 import CurrencyList from "./currencyList.json";
 require("intl");
 

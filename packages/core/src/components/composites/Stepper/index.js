@@ -1,8 +1,8 @@
 import React from "react";
 import Proptypes from "prop-types";
 
-import { theme } from "../../theme";
-import ProgressRing from "../ProgressRing";
+import { theme } from "../../../theme";
+import ProgressRing from "../../primitives/ProgressRing";
 import * as S from "./styled";
 
 const Stepper = React.forwardRef(({ children, ...props }, componentRef) => (

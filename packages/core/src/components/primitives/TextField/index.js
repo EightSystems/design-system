@@ -3,12 +3,12 @@ import Proptypes from "prop-types";
 import { uniqueId } from "lodash";
 import classnames from "classnames";
 import { IMaskMixin } from "react-imask";
-import { isValidReactElement } from "../../utils/validation/isValidReactElement";
+import { isValidReactElement } from "../../../utils/validation/isValidReactElement";
 
 import { MdInfo, MdCheck, MdError } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 
-import Tooltip from "../Tooltip";
+import Tooltip from "../../composites/Tooltip";
 
 import * as S from "./styled";
 

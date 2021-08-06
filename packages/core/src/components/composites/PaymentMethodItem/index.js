@@ -2,10 +2,10 @@ import React from "react";
 import Proptypes from "prop-types";
 import * as S from "./styled";
 
-import { ReactComponent as CreditCard } from "../../assets/icons/credit-card.svg";
-import { ReactComponent as BankSlip } from "../../assets/icons/bank-slip.svg";
-import { ReactComponent as Pix } from "../../assets/icons/pix.svg";
-import { ReactComponent as Picpay } from "../../assets/icons/picpay.svg";
+import { ReactComponent as CreditCard } from "../../../assets/icons/credit-card.svg";
+import { ReactComponent as BankSlip } from "../../../assets/icons/bank-slip.svg";
+import { ReactComponent as Pix } from "../../../assets/icons/pix.svg";
+import { ReactComponent as Picpay } from "../../../assets/icons/picpay.svg";
 
 const paymentMethodIconGroup = {
     creditCard: CreditCard,

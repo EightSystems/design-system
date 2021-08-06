@@ -1,7 +1,8 @@
 import React from "react";
 import Proptypes from "prop-types";
-import GlobalStyles from "../../theme/global";
 import { ThemeProvider } from "styled-components";
+
+import GlobalStyles from "../../../theme/global";
 
 /**
  * @type {React.FC<Props>}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Popover } from "@headlessui/react";
 import Proptypes from "prop-types";
 import { usePopper } from "react-popper";
-import { isValidReactElement } from "../../utils/validation/isValidReactElement";
+import { isValidReactElement } from "../../../utils/validation/isValidReactElement";
 
 const PopoverWrapper = styled(Popover.Panel)`
     background-color: ${props => props.theme.colors.secondary};

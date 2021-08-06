@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
 import Proptypes from "prop-types";
 import { uniqueId } from "lodash";
-import { useContainerDimensions } from "../../hooks/useContainerDimensions";
+import { useContainerDimensions } from "../../../hooks/useContainerDimensions";
 
 import { MdError, MdCheckCircle, MdClose } from "react-icons/md";
 
