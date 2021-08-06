@@ -5,7 +5,6 @@ import * as S from "./styled";
 
 /**
  * @type {React.FC<Props>}
- *
  * @typedef {Object} Props
  * @property {string} className
  * @property {string} color
