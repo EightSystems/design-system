@@ -43,6 +43,8 @@
         "@storybook/preset-create-react-app": "^3.1.7",
         "@storybook/react": "^6.2.3",
         "@svgr/rollup": "^5.4.0",
+        "@types/react": "^17.0.16",
+        "@types/react-native": "^0.64.12",
         "path": "^0.12.7",
         "prop-types": "^15.7.2",
         "react-native": "0.64.2",
