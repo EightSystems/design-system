@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useContainerDimensions = myRef => {
+export const useContainerDimensions = (myRef: any) => {
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
     useEffect(() => {
         const getDimensions = () => ({
