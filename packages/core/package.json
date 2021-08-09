@@ -48,6 +48,8 @@
         "path": "^0.12.7",
         "prop-types": "^15.7.2",
         "react-native": "0.64.2",
+        "react-native-masked-text": "^1.13.0",
+        "react-native-vector-icons": "^8.1.0",
         "react-scripts": "^3.4.1",
         "rollup": "^2.32.1",
         "rollup-plugin-babel": "^4.4.0",
