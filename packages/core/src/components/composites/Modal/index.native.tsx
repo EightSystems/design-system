@@ -13,6 +13,7 @@ import {
 import { nativeTheme } from "../../../theme";
 
 export type ModalProps = RNModalProps & {
+    children: React.ReactNode;
     backdropStyle?: StyleProp<ViewStyle>;
     overlayStyle?: StyleProp<ViewStyle>;
     onBackdropPress?(): void;
@@ -26,21 +27,22 @@ const Modal = ({
     overlayStyle,
     onBackdropPress = () => null,
     fullScreen = false,
-    ModalComponent = RNModal,
     isOpen,
-}) => (
-    <ModalComponent visible={isOpen} onRequestClose={onBackdropPress}>
-        <TouchableWithoutFeedback onPress={onBackdropPress}>
-            <View style={StyleSheet.flatten([styles.backdrop, backdropStyle])} />
-        </TouchableWithoutFeedback>
+}: ModalProps) => {
+    return (
+        <RNModal visible={isOpen} onRequestClose={onBackdropPress} animationType="fade" transparent>
+            <TouchableWithoutFeedback onPress={onBackdropPress}>
+                <View style={StyleSheet.flatten([styles.backdrop, backdropStyle])} />
+            </TouchableWithoutFeedback>
 
-        <View style={styles.container} pointerEvents="box-none">
-            <View style={StyleSheet.flatten([styles.overlay, fullScreen && styles.fullscreen, overlayStyle])}>
-                {children}
+            <View style={styles.container} pointerEvents="box-none">
+                <View style={StyleSheet.flatten([styles.overlay, fullScreen && styles.fullscreen, overlayStyle])}>
+                    {children}
+                </View>
             </View>
-        </View>
-    </ModalComponent>
-);
+        </RNModal>
+    );
+};
 
 const styles = StyleSheet.create({
     backdrop: {
@@ -51,8 +53,7 @@ const styles = StyleSheet.create({
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: nativeTheme.colors.dark,
-        opacity: 0.4,
+        backgroundColor: "rgba(34, 36, 40, 0.4)",
     },
     container: {
         flex: 1,
