@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInputProps, StyleProp, ViewProps, Text } from "react-native";
+import { TextInputProps, StyleProp, ViewProps } from "react-native";
 import { uniqueId } from "lodash";
 import * as S from "./styled.native";
 
@@ -12,23 +12,6 @@ export type TextFieldProps = TextInputProps & {
 
     /** String of text used as the input placeholder. */
     placeholder?: any;
-
-    /** Determinates the input type. This prop accepts valid `type` values for the traditional web `<input>` element, as well as valid values for the native TextInput `autoCompleteType` props */
-    type?:
-        | "cc-csc"
-        | "cc-exp"
-        | "cc-exp-month"
-        | "cc-exp-year"
-        | "cc-number"
-        | "email"
-        | "name"
-        | "password"
-        | "postal-code"
-        | "street-address"
-        | "tel"
-        | "username"
-        | "off"
-        | undefined;
 
     /** Determinates if autoComplete should be used for this input. */
     autoComplete?: string;
@@ -61,11 +44,13 @@ export type TextFieldProps = TextInputProps & {
     children?: React.ReactNode;
 };
 
+/**
+ * @todo Add `startIcon` and `endIcon` support, with Tooltip extensions.
+ */
 const TextField = ({
     name,
     label,
     placeholder,
-    type,
     autoComplete,
     disabled,
     validationSuccess,
