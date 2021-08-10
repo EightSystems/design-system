@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { View, TextInput } from "react-native";
+import { View, TextInput, Text } from "react-native";
 
 export const MainWrapper = styled(View)`
     flex: 1;
@@ -7,34 +7,42 @@ export const MainWrapper = styled(View)`
 `;
 
 export const InputLabel = styled(Text)`
-    font-family: ${props => props.theme.nativeTypography.fontFaces.secondaryRegular};
-    color: ${props => props.theme.colors.medium};
+    font-family: ${props => props.theme.nativeTypography.fontFaces.primarySemiBold};
+    color: ${props => props.theme.colors.darkTint};
     font-size: 16px;
+    margin-bottom: 2px;
 `;
 
 export const InputWrapper = styled(View)`
-    border: solid 2px ${props => props.theme.colors.dark};
+    background: ${({ theme }) => theme.colors.light};
+    border-bottom-color: ${({ theme }) => theme.colors.light};
+    border-bottom-width: 2px;
     border-radius: 4px;
     ${props =>
         props["data-validationSuccess"] == true
             ? css`
-                  border: solid 2px ${props => props.theme.colors.success};
+                  border-bottom-color: ${({ theme }) => theme.colors.success};
               `
             : null}
     ${props =>
         props["data-validationError"] == true
             ? css`
-                  border: solid 2px ${props => props.theme.colors.danger};
+                  border-bottom-color: ${({ theme }) => theme.colors.danger};
+              `
+            : null}
+    ${props =>
+        props["data-focused"] == true
+            ? css`
+                  border-bottom-color: ${({ theme }) => theme.colors.secondary};
               `
             : null}
 `;
 
 export const InputComponent = styled(TextInput)`
-    border-radius: 4px;
-    padding: 12px 12px;
+    font-family: ${props => props.theme.nativeTypography.fontFaces.secondaryMedium};
+    font-size: 16px;
+    padding: 8px 12px;
     width: 100%;
-    border: none;
-    border-color: none;
 `;
 
 export const InputValidationContainer = styled(View)`

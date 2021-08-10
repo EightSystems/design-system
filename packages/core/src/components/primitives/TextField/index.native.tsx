@@ -1,10 +1,7 @@
 import React from "react";
-import { TextInput, TextInputProps, StyleProp, ViewProps, Text } from "react-native";
+import { TextInputProps, StyleProp, ViewProps, Text } from "react-native";
 import { uniqueId } from "lodash";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import * as S from "./styled.native";
-
-import { nativeTheme } from "../../../theme";
 
 export type TextFieldProps = TextInputProps & {
     /** Unique name used to generate de native input ID. */
@@ -88,12 +85,15 @@ const TextField = ({
 
     return (
         <S.MainWrapper accessible accessibilityLabel={label} accessibilityState={accessibilityState}>
-            <Text>{label}</Text>
-            <S.InputWrapper data-validationSuccess={validationSuccess} data-validationError={validationError}>
-                <S.InputLabel
+            <S.InputLabel>{label}</S.InputLabel>
+            <S.InputWrapper
+                data-validationSuccess={validationSuccess}
+                data-validationError={validationError}
+                data-focused={focused}
+            >
+                <S.InputComponent
                     {...props}
                     data-disabled={disabled}
-                    data-focused={focused}
                     nativeID={elementUniqueId}
                     placeholder={placeholder}
                     value={value}
@@ -106,7 +106,6 @@ const TextField = ({
             {validationMessage ? (
                 <S.InputValidationContainer>
                     <React.Fragment>
-                        <Icon name="info" color={nativeTheme.colors.danger} />
                         <S.InputValidationMessage>{validationMessage}</S.InputValidationMessage>
                     </React.Fragment>
                 </S.InputValidationContainer>
