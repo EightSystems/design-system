@@ -142,12 +142,12 @@ export const nativeTypography = {
     fontFaces: {
         primaryRegular: "Poppins-Regular",
         primaryMedium: "Poppins-Medium",
-        primarySemibold: "Poppins-Semibold",
+        primarySemiBold: "Poppins-SemiBold",
         primaryBold: "Poppins-Bold",
 
         secondaryRegular: "Inter-Regular",
         secondaryMedium: "Inter-Medium",
-        secondarySemibold: "Inter-Semibold",
+        secondarySemiBold: "Inter-SemiBold",
         secondaryBold: "Inter-Bold",
     },
 };

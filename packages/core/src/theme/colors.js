@@ -39,8 +39,8 @@ const colors = {
     mediumTint: "#9D9FA6",
     mediumContrast: "#F6F6F6",
 
-    light: "#F4F5F8",
-    lightShade: "#D7D8DA",
+    light: "#EFEFF2",
+    lightShade: "#E5E5E5",
     lightTint: "#F5F6F9",
     lightContrast: "#090909",
 };
