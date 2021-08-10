@@ -18,15 +18,16 @@ export type ModalProps = RNModalProps & {
     overlayStyle?: StyleProp<ViewStyle>;
     onBackdropPress?(): void;
     fullScreen?: boolean;
+    halfScreen?: boolean;
     isOpen: boolean;
 };
-
 const Modal = ({
     children,
     backdropStyle,
     overlayStyle,
     onBackdropPress = () => null,
     fullScreen = false,
+    halfScreen = false,
     isOpen,
 }: ModalProps) => {
     return (
@@ -36,7 +37,14 @@ const Modal = ({
             </TouchableWithoutFeedback>
 
             <View style={styles.container} pointerEvents="box-none">
-                <View style={StyleSheet.flatten([styles.overlay, fullScreen && styles.fullscreen, overlayStyle])}>
+                <View
+                    style={StyleSheet.flatten([
+                        styles.overlay,
+                        fullScreen && styles.fullscreen,
+                        halfScreen && styles.halfScreen,
+                        overlayStyle,
+                    ])}
+                >
                     {children}
                 </View>
             </View>
@@ -57,12 +65,17 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
+        flexDirection: "column",
     },
     fullscreen: {
         width: "100%",
         height: "100%",
+    },
+    halfScreen: {
+        width: "100%",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
     },
     overlay: {
         backgroundColor: "white",
