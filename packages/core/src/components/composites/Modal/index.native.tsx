@@ -2,7 +2,6 @@ import React from "react";
 import {
     View,
     StyleSheet,
-    Platform,
     TouchableWithoutFeedback,
     Modal as RNModal,
     ModalProps as RNModalProps,
@@ -81,20 +80,13 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         borderRadius: 10,
         padding: 10,
-
-        ...Platform.select({
-            android: {
-                elevation: nativeTheme.nativeShadows.xxlg.elevation,
-            },
-            default: {
-                shadowColor: nativeTheme.nativeShadows.xxlg.shadowColor,
-                shadowOffset: {
-                    width: nativeTheme.nativeShadows.xxlg.shadowOffset.width,
-                    height: nativeTheme.nativeShadows.xxlg.shadowOffset.height,
-                },
-                shadowRadius: nativeTheme.nativeShadows.xxlg.shadowRadius,
-            },
-        }),
+        shadowColor: nativeTheme.nativeShadows.xxlg.shadowColor,
+        shadowOffset: {
+            width: nativeTheme.nativeShadows.xxlg.shadowOffset.width,
+            height: nativeTheme.nativeShadows.xxlg.shadowOffset.height,
+        },
+        shadowRadius: nativeTheme.nativeShadows.xxlg.shadowRadius,
+        elevation: nativeTheme.nativeShadows.xxlg.elevation,
     },
 });
 
