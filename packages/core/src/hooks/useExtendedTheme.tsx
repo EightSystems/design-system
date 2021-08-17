@@ -1,9 +1,14 @@
 import { theme, nativeTheme } from "../theme";
 import { merge } from "lodash";
 
-export const useExtendedTheme = (environment: string, overrides: object) => {
-    const defaultTheme = environment === "web" || undefined ? theme : nativeTheme;
-    const themeMerge = merge(defaultTheme, overrides || {});
+export type environmentTypes = "web" | "native";
+
+export const useExtendedTheme = (environment: environmentTypes, overrides: object) => {
+    if (environment === "web") {
+        return merge(theme, overrides || {});
+    } else if (environment === "native") {
+        return merge(nativeTheme, overrides || {});
+    }
 
     if (typeof overrides !== "object") {
         return new Error(
@@ -11,5 +16,4 @@ export const useExtendedTheme = (environment: string, overrides: object) => {
                 "See: https://someplace.com"
         );
     }
-    return themeMerge;
 };
