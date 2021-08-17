@@ -8,8 +8,8 @@ import svgr from "@svgr/rollup";
 import json from "@rollup/plugin-json";
 import multiInput from "rollup-plugin-multi-input";
 
-const webInput = "./src/index.js";
-const nativeInput = "./src/native.js";
+const webInput = "./src/index.ts";
+const nativeInput = "./src/native.ts";
 
 const outputOptions = {
     format: "cjs",
