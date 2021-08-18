@@ -10,6 +10,20 @@ export type LetterSpacingTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg" |
 
 export type LineHeightsTypes = "none" | "shorther" | "short" | "short" | "base" | "tall" | "taller";
 
+export type FontSizeTypes = "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl" | "display";
+
+export type FontFaceTypes = "primary" | "secondary";
+
+export type NativeFontFaceTypes =
+    | "primaryRegular"
+    | "primaryMedium"
+    | "primarySemibold"
+    | "primaryBold"
+    | "secondaryRegular"
+    | "secondaryMedium"
+    | "secondarySemibold"
+    | "secondaryBold";
+
 export type ColorTypes =
     | "primary"
     | "primaryShade"
