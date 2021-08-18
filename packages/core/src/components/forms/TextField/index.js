@@ -8,7 +8,7 @@ import { isValidReactElement } from "../../../utils/validation/isValidReactEleme
 import { MdInfo, MdCheck, MdError } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 
-import Tooltip from "../../composites/Tooltip";
+import Tooltip from "../../feedback/Tooltip";
 
 import * as S from "./styled";
 
