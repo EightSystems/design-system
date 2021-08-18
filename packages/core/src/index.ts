@@ -6,6 +6,9 @@ import { theme as Theme } from "./theme";
 import Box from "./components/layout/Box";
 import Spacer from "./components/layout/Spacer";
 
+// Typography Components
+import { Heading, WebHeadingProps } from "./components/typography/Heading";
+
 // Composite components
 import Accordion from "./components/composites/Accordion";
 import AccordionItem from "./components/composites/AccordionItem";
@@ -39,6 +42,7 @@ import { useExtendedTheme } from "./hooks/useExtendedTheme";
 export {
     Box,
     Spacer,
+    Heading,
     Theme,
     Accordion,
     AccordionItem,
@@ -62,3 +66,5 @@ export {
     useContainerDimensions,
     useDetectOutsideClick,
 };
+
+export type { WebHeadingProps };
