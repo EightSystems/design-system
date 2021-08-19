@@ -6,7 +6,7 @@ import Box from "./components/layout/Box/index.native";
 import Spacer from "./components/layout/Spacer/index.native";
 
 // Form components
-import Button from "./components/forms/Button/index.native";
+import { Button, NativeButtonProps } from "./components/forms/Button/index.native";
 import TextField from "./components/forms/TextField/index.native";
 
 // Composite components
@@ -29,3 +29,5 @@ export {
     useExtendedTheme,
     useKeyboardDismissable,
 };
+
+export type { NativeButtonProps };

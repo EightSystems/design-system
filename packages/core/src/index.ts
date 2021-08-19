@@ -24,7 +24,8 @@ import Tooltip from "./components/feedback/Tooltip";
 import Toast from "./components/feedback/Toast";
 
 // Form components
-import Button from "./components/forms/Button";
+import { Button, WebButtonProps } from "./components/forms/Button";
+
 import Select from "./components/forms/Select";
 import TextField from "./components/forms/TextField";
 
@@ -67,4 +68,4 @@ export {
     useDetectOutsideClick,
 };
 
-export type { WebHeadingProps };
+export type { WebHeadingProps, WebButtonProps };
