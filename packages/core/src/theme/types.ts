@@ -14,6 +14,17 @@ export type FontSizeTypes = "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | 
 
 export type FontFaceTypes = "primary" | "secondary";
 
+export type FontWeightTypes =
+    | "hairline"
+    | "thin"
+    | "light"
+    | "normal"
+    | "medium"
+    | "semibold"
+    | "bold"
+    | "extrabold"
+    | "black";
+
 export type NativeFontFaceTypes =
     | "primaryRegular"
     | "primaryMedium"
