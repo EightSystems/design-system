@@ -1,12 +1,21 @@
 import styled, { css } from "styled-components";
-import { fontSizes, letterSpacings, lineHeights } from "../../../theme/mixins";
+import { fontSizes, fontWeights, letterSpacings, lineHeights, fontFaces, textColors } from "../../../theme/mixins/web";
 
 const DefaultStyles = css`
     font-family: ${({ theme }) => theme.typography.fontFaces.primary};
     color: ${({ theme }) => theme.colors.dark};
+    &[data-italic="true"] {
+        font-style: italic;
+    }
+    &[data-underline="true"] {
+        text-decoration: underline;
+    }
+    ${fontFaces};
+    ${fontWeights};
     ${fontSizes};
     ${letterSpacings};
     ${lineHeights};
+    ${textColors};
 `;
 
 export const Heading1 = styled.h1`
