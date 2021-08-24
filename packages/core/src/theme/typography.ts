@@ -73,15 +73,6 @@ export const CurrencyLabel = css`
 `;
 
 export const typography = {
-    letterSpacings: {
-        xxs: -1.5,
-        xs: -0.5,
-        sm: -0.3,
-        default: 0,
-        md: 0.15,
-        lg: 0.25,
-        xl: 0.5,
-    },
     lineHeights: {
         none: 1,
         shorter: 1.3,
