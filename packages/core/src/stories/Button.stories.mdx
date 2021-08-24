@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
-import Button from "../components/Button";
+import { Button } from "../components/forms/Button";
 
 <Meta title="Atoms/Button" component={Button} />
 
@@ -26,7 +26,7 @@ import { Button } from "@8sistemas/design-system";
 Use the `hasOutline` prop to determinate if the button will be of the outlined variant.
 
 <Canvas>
-    <Story name="Primary Button (Outline)" args={{ color: "primary", hasOutline: true, children: ["Outlined Button"] }}>
+    <Story name="Primary Button (Outline)" args={{ color: "primary", variant: "outline", children: ["Outlined Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>

@@ -2,16 +2,16 @@ import React from "react";
 
 import { SafeAreaView, StatusBar } from "react-native";
 
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components/native";
 
-import Theme from "../core/src/styles/theme";
+import { nativeTheme } from "../core/src/theme";
 import NativeUIExplorer from "./src/views/NativeUIExplorer";
 
 const App = () => {
     return (
         <SafeAreaView style={{ backgroundColor: "white", width: "100%", height: "100%" }}>
             <StatusBar />
-            <ThemeProvider theme={Theme}>
+            <ThemeProvider theme={nativeTheme}>
                 <NativeUIExplorer />
             </ThemeProvider>
         </SafeAreaView>

@@ -112,7 +112,11 @@ const components = {
 };
 
 const mdx = (element, props, ...children) => {
-    return reactMDX(components[element] ? components[element] : element, props, ...children);
+    if (element) {
+        return reactMDX(components[element] ? components[element] : element, props, ...children);
+    } else {
+        return <Text>{"ELEMENT IS UNDEFINED"}</Text>;
+    }
 };
 
 export default mdx;
