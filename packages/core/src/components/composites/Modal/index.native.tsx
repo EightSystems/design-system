@@ -80,13 +80,13 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         borderRadius: 10,
         padding: 10,
-        shadowColor: nativeTheme.nativeShadows.xxlg.shadowColor,
+        shadowColor: nativeTheme.nativeShadows.lg.shadowColor,
         shadowOffset: {
-            width: nativeTheme.nativeShadows.xxlg.shadowOffset.width,
-            height: nativeTheme.nativeShadows.xxlg.shadowOffset.height,
+            width: nativeTheme.nativeShadows.lg.shadowOffset.width,
+            height: nativeTheme.nativeShadows.lg.shadowOffset.height,
         },
-        shadowRadius: nativeTheme.nativeShadows.xxlg.shadowRadius,
-        elevation: nativeTheme.nativeShadows.xxlg.elevation,
+        shadowRadius: nativeTheme.nativeShadows.lg.shadowRadius,
+        elevation: nativeTheme.nativeShadows.lg.elevation,
     },
 });
 
