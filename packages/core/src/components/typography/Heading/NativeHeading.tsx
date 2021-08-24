@@ -1,5 +1,4 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
 import { NativeHeadingProps } from "./types";
 import * as S from "./styled.native";
 
@@ -10,7 +9,6 @@ const Heading = React.forwardRef<any, NativeHeadingProps>(
             textColor = "dark",
             fontSize = "lg",
             fontFace = "primaryRegular",
-            letterSpacing = "default",
             italic = false,
             underline = false,
             ...props
@@ -26,12 +24,7 @@ const Heading = React.forwardRef<any, NativeHeadingProps>(
         };
 
         return (
-            <S.Heading
-                {...props}
-                {...styleProps}
-                ref={componentRef}
-                style={StyleSheet.flatten([S.getLetterSpacingStyle(letterSpacing)])}
-            >
+            <S.Heading {...props} {...styleProps} ref={componentRef}>
                 {children}
             </S.Heading>
         );

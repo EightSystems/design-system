@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { fontSizes, fontWeights, letterSpacings, lineHeights, fontFaces, textColors } from "../../../theme/mixins/web";
+import { fontSizes, fontWeights, fontFaces, textColors } from "../../../theme/mixins/web";
 
 const DefaultStyles = css`
     &[data-italic="true"] {
@@ -11,8 +11,6 @@ const DefaultStyles = css`
     ${fontFaces};
     ${fontWeights};
     ${fontSizes};
-    ${letterSpacings};
-    ${lineHeights};
     ${textColors};
 `;
 

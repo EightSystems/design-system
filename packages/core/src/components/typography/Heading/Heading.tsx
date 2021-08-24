@@ -10,8 +10,6 @@ const Heading = React.forwardRef<HTMLHeadingElement, WebHeadingProps>(
             fontSize = "lg",
             fontFace = "primary",
             fontWeight = "normal",
-            letterSpacing = "default",
-            lineHeight = "tall",
             italic = false,
             underline = false,
             htmlElement = "h1",
@@ -21,9 +19,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, WebHeadingProps>(
     ) => {
         const styleProps = {
             "data-fontsize": fontSize,
-            "data-letterspacing": letterSpacing,
             "data-textcolor": textColor,
-            "data-lineheight": lineHeight,
             "data-fontface": fontFace,
             "data-fontweight": fontWeight,
             "data-italic": italic,
