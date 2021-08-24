@@ -8,6 +8,7 @@ import Spacer from "./components/layout/Spacer";
 
 // Typography Components
 import { Heading, WebHeadingProps } from "./components/typography/Heading";
+import { Text, WebTextProps } from "./components/typography/Text";
 
 // Composite components
 import Accordion from "./components/composites/Accordion";
@@ -44,6 +45,7 @@ export {
     Box,
     Spacer,
     Heading,
+    Text,
     Theme,
     Accordion,
     AccordionItem,
@@ -68,4 +70,4 @@ export {
     useDetectOutsideClick,
 };
 
-export type { WebHeadingProps, WebButtonProps };
+export type { WebHeadingProps, WebButtonProps, WebTextProps };

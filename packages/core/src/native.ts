@@ -12,6 +12,10 @@ import TextField from "./components/forms/TextField/index.native";
 // Composite components
 import Modal from "./components/composites/Modal/index.native";
 
+// Typography Components
+import { Heading, NativeHeadingProps } from "./components/typography/Heading/index.native";
+import { Text, NativeTextProps } from "./components/typography/Text/index.native";
+
 // Utility hooks
 import { useClipboard } from "./hooks/useClipboard";
 import { useExtendedTheme } from "./hooks/useExtendedTheme";
@@ -25,9 +29,11 @@ export {
     Button,
     Modal,
     TextField,
+    Heading,
+    Text,
     useClipboard,
     useExtendedTheme,
     useKeyboardDismissable,
 };
 
-export type { NativeButtonProps };
+export type { NativeButtonProps, NativeHeadingProps, NativeTextProps };
