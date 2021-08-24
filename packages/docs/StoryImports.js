@@ -5,6 +5,7 @@ import ThemingStory from "../core/src/stories/2_Theming.stories";
 //import AvatarStory from "../core/src/stories/Avatar.stories";
 import ButtonStory from "../core/src/stories/Button.stories";
 import ProgressRingStory from "../core/src/stories/ProgressRing.stories";
+import StepperStory from "../core/src/stories/Stepper.stories";
 
 const storyList = {
     Introduction: IntroductionStory,
@@ -14,6 +15,7 @@ const storyList = {
     //Avatar: AvatarStory,
     Button: ButtonStory,
     ProgressRing: ProgressRingStory,
+    Stepper: StepperStory,
 };
 
 export default storyList;
