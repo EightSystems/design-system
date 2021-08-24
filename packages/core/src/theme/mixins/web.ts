@@ -112,112 +112,112 @@ export const textColors = css`
 `;
 
 export const backgroundColors = css`
-    &[data-textcolor="primary"] {
+    &[data-backgroundcolor="primary"] {
         background-color: ${({ theme }) => theme.colors.primary};
     }
-    &[data-textcolor="primaryShade"] {
+    &[data-backgroundcolor="primaryShade"] {
         background-color: ${({ theme }) => theme.colors.primaryShade};
     }
-    &[data-textcolor="primaryTint"] {
+    &[data-backgroundcolor="primaryTint"] {
         background-color: ${({ theme }) => theme.colors.primaryTint};
     }
-    &[data-textcolor="primaryContrast"] {
+    &[data-backgroundcolor="primaryContrast"] {
         background-color: ${({ theme }) => theme.colors.primaryContrast};
     }
-    &[data-textcolor="secondary"] {
+    &[data-backgroundcolor="secondary"] {
         background-color: ${({ theme }) => theme.colors.secondary};
     }
-    &[data-textcolor="secondaryShade"] {
+    &[data-backgroundcolor="secondaryShade"] {
         background-color: ${({ theme }) => theme.colors.secondaryShade};
     }
-    &[data-textcolor="secondaryTint"] {
+    &[data-backgroundcolor="secondaryTint"] {
         background-color: ${({ theme }) => theme.colors.secondaryTint};
     }
-    &[data-textcolor="secondaryContrast"] {
+    &[data-backgroundcolor="secondaryContrast"] {
         background-color: ${({ theme }) => theme.colors.secondaryContrast};
     }
-    &[data-textcolor="tertiary"] {
+    &[data-backgroundcolor="tertiary"] {
         background-color: ${({ theme }) => theme.colors.tertiary};
     }
-    &[data-textcolor="tertiaryShade"] {
+    &[data-backgroundcolor="tertiaryShade"] {
         background-color: ${({ theme }) => theme.colors.tertiaryShade};
     }
-    &[data-textcolor="tertiaryTint"] {
+    &[data-backgroundcolor="tertiaryTint"] {
         background-color: ${({ theme }) => theme.colors.tertiaryTint};
     }
-    &[data-textcolor="tertiaryContrast"] {
+    &[data-backgroundcolor="tertiaryContrast"] {
         background-color: ${({ theme }) => theme.colors.tertiaryContrast};
     }
-    &[data-textcolor="success"] {
+    &[data-backgroundcolor="success"] {
         background-color: ${({ theme }) => theme.colors.success};
     }
-    &[data-textcolor="successShade"] {
+    &[data-backgroundcolor="successShade"] {
         background-color: ${({ theme }) => theme.colors.successShade};
     }
-    &[data-textcolor="successTint"] {
+    &[data-backgroundcolor="successTint"] {
         background-color: ${({ theme }) => theme.colors.successTint};
     }
-    &[data-textcolor="successContrast"] {
+    &[data-backgroundcolor="successContrast"] {
         background-color: ${({ theme }) => theme.colors.successContrast};
     }
-    &[data-textcolor="warning"] {
+    &[data-backgroundcolor="warning"] {
         background-color: ${({ theme }) => theme.colors.warning};
     }
-    &[data-textcolor="warningShade"] {
+    &[data-backgroundcolor="warningShade"] {
         background-color: ${({ theme }) => theme.colors.warningShade};
     }
-    &[data-textcolor="warningTint"] {
+    &[data-backgroundcolor="warningTint"] {
         background-color: ${({ theme }) => theme.colors.warningTint};
     }
-    &[data-textcolor="warningContrast"] {
+    &[data-backgroundcolor="warningContrast"] {
         background-color: ${({ theme }) => theme.colors.warningContrast};
     }
-    &[data-textcolor="danger"] {
+    &[data-backgroundcolor="danger"] {
         background-color: ${({ theme }) => theme.colors.danger};
     }
-    &[data-textcolor="dangerShade"] {
+    &[data-backgroundcolor="dangerShade"] {
         background-color: ${({ theme }) => theme.colors.dangerShade};
     }
-    &[data-textcolor="dangerTint"] {
+    &[data-backgroundcolor="dangerTint"] {
         background-color: ${({ theme }) => theme.colors.dangerTint};
     }
-    &[data-textcolor="dangerContrast"] {
+    &[data-backgroundcolor="dangerContrast"] {
         background-color: ${({ theme }) => theme.colors.dangerContrast};
     }
-    &[data-textcolor="dark"] {
+    &[data-backgroundcolor="dark"] {
         background-color: ${({ theme }) => theme.colors.dark};
     }
-    &[data-textcolor="darkShade"] {
+    &[data-backgroundcolor="darkShade"] {
         background-color: ${({ theme }) => theme.colors.darkShade};
     }
-    &[data-textcolor="darkTint"] {
+    &[data-backgroundcolor="darkTint"] {
         background-color: ${({ theme }) => theme.colors.darkTint};
     }
-    &[data-textcolor="darkContrast"] {
+    &[data-backgroundcolor="darkContrast"] {
         background-color: ${({ theme }) => theme.colors.darkContrast};
     }
-    &[data-textcolor="medium"] {
+    &[data-backgroundcolor="medium"] {
         background-color: ${({ theme }) => theme.colors.medium};
     }
-    &[data-textcolor="mediumShade"] {
+    &[data-backgroundcolor="mediumShade"] {
         background-color: ${({ theme }) => theme.colors.mediumShade};
     }
-    &[data-textcolor="mediumTint"] {
+    &[data-backgroundcolor="mediumTint"] {
         background-color: ${({ theme }) => theme.colors.mediumTint};
     }
-    &[data-textcolor="mediumContrast"] {
+    &[data-backgroundcolor="mediumContrast"] {
         background-color: ${({ theme }) => theme.colors.mediumContrast};
     }
-    &[data-textcolor="light"] {
+    &[data-backgroundcolor="light"] {
         background-color: ${({ theme }) => theme.colors.light};
     }
-    &[data-textcolor="lightShade"] {
+    &[data-backgroundcolor="lightShade"] {
         background-color: ${({ theme }) => theme.colors.lightShade};
     }
-    &[data-textcolor="lightTint"] {
+    &[data-backgroundcolor="lightTint"] {
         background-color: ${({ theme }) => theme.colors.lightTint};
     }
-    &[data-textcolor="lightContrast"] {
+    &[data-backgroundcolor="lightContrast"] {
         background-color: ${({ theme }) => theme.colors.lightContrast};
     }
 `;
@@ -247,22 +247,22 @@ export const letterSpacings = css`
 `;
 
 export const lineHeights = css`
-    &[data-letterspacing="none"] {
+    &[data-lineheight="none"] {
         line-height: ${({ theme }) => theme.typography.lineHeights.none};
     }
-    &[data-letterspacing="shorter"] {
+    &[data-lineheight="shorter"] {
         line-height: ${({ theme }) => theme.typography.lineHeights.shorter};
     }
-    &[data-letterspacing="short"] {
+    &[data-lineheight="short"] {
         line-height: ${({ theme }) => theme.typography.lineHeights.short};
     }
-    &[data-letterspacing="base"] {
+    &[data-lineheight="base"] {
         line-height: ${({ theme }) => theme.typography.lineHeights.base};
     }
-    &[data-letterspacing="tall"] {
+    &[data-lineheight="tall"] {
         line-height: ${({ theme }) => theme.typography.lineHeights.tall};
     }
-    &[data-letterspacing="taller"] {
+    &[data-lineheight="taller"] {
         line-height: ${({ theme }) => theme.typography.lineHeights.taller};
     }
 `;
@@ -336,20 +336,5 @@ export const fontFaces = css`
     }
     &[data-fontface="secondary"] {
         font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
-    }
-`;
-
-export const nativeFontFaces = css`
-    &[data-fontface="primaryRegular"] {
-        font-family: ${({ theme }) => theme.nativeTypography.fontFaces.primaryRegular};
-    }
-    &[data-fontface="primaryMedium"] {
-        font-family: ${({ theme }) => theme.nativeTypography.fontFaces.primaryMedium};
-    }
-    &[data-fontface="primarySemibold"] {
-        font-family: ${({ theme }) => theme.nativeTypography.fontFaces.primarySemibold};
-    }
-    &[data-fontface="primaryBold"] {
-        font-family: ${({ theme }) => theme.nativeTypography.fontFaces.primaryBold};
     }
 `;
