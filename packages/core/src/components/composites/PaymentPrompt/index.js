@@ -2,8 +2,8 @@ import React from "react";
 import Proptypes from "prop-types";
 import * as S from "./styled";
 
-import Avatar from "../Avatar";
-import CurrencyLabel from "../CurrencyLabel";
+import Avatar from "../../primitives/Avatar";
+import CurrencyLabel from "../../primitives/CurrencyLabel";
 
 /**
  * @type {React.FC<Props>}
