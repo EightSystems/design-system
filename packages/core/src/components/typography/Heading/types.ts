@@ -5,6 +5,7 @@ import {
     LetterSpacingTypes,
     LineHeightsTypes,
     FontFaceTypes,
+    NativeFontFaceTypes,
     FontWeightTypes,
     ColorTypes,
 } from "../../../theme/types";
@@ -41,5 +42,10 @@ type CommonProps = {
     htmlElement?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
-export type NativeHeadingProps = TextProps & CommonProps;
+/* Since font weight is tied to the fontFace on react-native, we drop support for fontWeight prop and override fontFace with the native types. */
+type NativeProps = Omit<CommonProps, "fontFace" | "fontWeight"> & {
+    fontFace?: NativeFontFaceTypes;
+};
+
+export type NativeHeadingProps = TextProps & NativeProps;
 export type WebHeadingProps = React.ComponentProps<"h1"> & CommonProps;
