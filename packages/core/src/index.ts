@@ -31,7 +31,7 @@ import Select from "./components/forms/Select";
 import TextField from "./components/forms/TextField";
 
 // Primitve components
-import Avatar from "./components/primitives/Avatar";
+import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
 import CurrencyLabel from "./components/primitives/CurrencyLabel";
 import ProgressRing from "./components/feedback/ProgressRing";
 import Skeleton from "./components/primitives/Skeleton";
@@ -70,4 +70,4 @@ export {
     useDetectOutsideClick,
 };
 
-export type { WebHeadingProps, WebButtonProps, WebTextProps };
+export type { WebHeadingProps, WebButtonProps, WebTextProps, WebAvatarProps };
