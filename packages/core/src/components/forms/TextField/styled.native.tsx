@@ -19,12 +19,6 @@ export const InputWrapper = styled(View)`
     border-bottom-width: 2px;
     border-radius: 4px;
     ${props =>
-        props["data-validationSuccess"] == true
-            ? css`
-                  border-bottom-color: ${({ theme }) => theme.colors.success};
-              `
-            : null}
-    ${props =>
         props["data-validationError"] == true
             ? css`
                   border-bottom-color: ${({ theme }) => theme.colors.danger};
@@ -33,7 +27,7 @@ export const InputWrapper = styled(View)`
     ${props =>
         props["data-focused"] == true
             ? css`
-                  border-bottom-color: ${({ theme }) => theme.colors.secondary};
+                  border-bottom-color: ${({ theme }) => theme.colors.primary};
               `
             : null}
 `;
@@ -47,6 +41,7 @@ export const InputComponent = styled(TextInput)`
 
 export const InputValidationContainer = styled(View)`
     margin-top: ${props => props.theme.spacing.xxs};
+    height: ${props => props.theme.spacing.md};
     flex: 1;
     flex-direction: row;
 `;
