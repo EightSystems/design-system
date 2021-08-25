@@ -222,6 +222,117 @@ export const backgroundColors = css`
     }
 `;
 
+export const borderColors = css`
+    &[data-bordercolor="primary"] {
+        border-color: ${({ theme }) => theme.colors.primary};
+    }
+    &[data-bordercolor="primaryShade"] {
+        border-color: ${({ theme }) => theme.colors.primaryShade};
+    }
+    &[data-bordercolor="primaryTint"] {
+        border-color: ${({ theme }) => theme.colors.primaryTint};
+    }
+    &[data-bordercolor="primaryContrast"] {
+        border-color: ${({ theme }) => theme.colors.primaryContrast};
+    }
+    &[data-bordercolor="secondary"] {
+        border-color: ${({ theme }) => theme.colors.secondary};
+    }
+    &[data-bordercolor="secondaryShade"] {
+        border-color: ${({ theme }) => theme.colors.secondaryShade};
+    }
+    &[data-bordercolor="secondaryTint"] {
+        border-color: ${({ theme }) => theme.colors.secondaryTint};
+    }
+    &[data-bordercolor="secondaryContrast"] {
+        border-color: ${({ theme }) => theme.colors.secondaryContrast};
+    }
+    &[data-bordercolor="tertiary"] {
+        border-color: ${({ theme }) => theme.colors.tertiary};
+    }
+    &[data-bordercolor="tertiaryShade"] {
+        border-color: ${({ theme }) => theme.colors.tertiaryShade};
+    }
+    &[data-bordercolor="tertiaryTint"] {
+        border-color: ${({ theme }) => theme.colors.tertiaryTint};
+    }
+    &[data-bordercolor="tertiaryContrast"] {
+        border-color: ${({ theme }) => theme.colors.tertiaryContrast};
+    }
+    &[data-bordercolor="success"] {
+        border-color: ${({ theme }) => theme.colors.success};
+    }
+    &[data-bordercolor="successShade"] {
+        border-color: ${({ theme }) => theme.colors.successShade};
+    }
+    &[data-bordercolor="successTint"] {
+        border-color: ${({ theme }) => theme.colors.successTint};
+    }
+    &[data-bordercolor="successContrast"] {
+        border-color: ${({ theme }) => theme.colors.successContrast};
+    }
+    &[data-bordercolor="warning"] {
+        border-color: ${({ theme }) => theme.colors.warning};
+    }
+    &[data-bordercolor="warningShade"] {
+        border-color: ${({ theme }) => theme.colors.warningShade};
+    }
+    &[data-bordercolor="warningTint"] {
+        border-color: ${({ theme }) => theme.colors.warningTint};
+    }
+    &[data-bordercolor="warningContrast"] {
+        border-color: ${({ theme }) => theme.colors.warningContrast};
+    }
+    &[data-bordercolor="danger"] {
+        border-color: ${({ theme }) => theme.colors.danger};
+    }
+    &[data-bordercolor="dangerShade"] {
+        border-color: ${({ theme }) => theme.colors.dangerShade};
+    }
+    &[data-bordercolor="dangerTint"] {
+        border-color: ${({ theme }) => theme.colors.dangerTint};
+    }
+    &[data-bordercolor="dangerContrast"] {
+        border-color: ${({ theme }) => theme.colors.dangerContrast};
+    }
+    &[data-bordercolor="dark"] {
+        border-color: ${({ theme }) => theme.colors.dark};
+    }
+    &[data-bordercolor="darkShade"] {
+        border-color: ${({ theme }) => theme.colors.darkShade};
+    }
+    &[data-bordercolor="darkTint"] {
+        border-color: ${({ theme }) => theme.colors.darkTint};
+    }
+    &[data-bordercolor="darkContrast"] {
+        border-color: ${({ theme }) => theme.colors.darkContrast};
+    }
+    &[data-bordercolor="medium"] {
+        border-color: ${({ theme }) => theme.colors.medium};
+    }
+    &[data-bordercolor="mediumShade"] {
+        border-color: ${({ theme }) => theme.colors.mediumShade};
+    }
+    &[data-bordercolor="mediumTint"] {
+        border-color: ${({ theme }) => theme.colors.mediumTint};
+    }
+    &[data-bordercolor="mediumContrast"] {
+        border-color: ${({ theme }) => theme.colors.mediumContrast};
+    }
+    &[data-bordercolor="light"] {
+        border-color: ${({ theme }) => theme.colors.light};
+    }
+    &[data-bordercolor="lightShade"] {
+        border-color: ${({ theme }) => theme.colors.lightShade};
+    }
+    &[data-bordercolor="lightTint"] {
+        border-color: ${({ theme }) => theme.colors.lightTint};
+    }
+    &[data-bordercolor="lightContrast"] {
+        border-color: ${({ theme }) => theme.colors.lightContrast};
+    }
+`;
+
 export const letterSpacings = css`
     &[data-letterspacing="xxs"] {
         letter-spacing: ${({ theme }) => theme.typography.letterSpacings.xxs};
@@ -322,7 +433,7 @@ export const fontSizes = css`
     &[data-fontsize="xxl"] {
         font-size: ${({ theme }) => theme.typography.fontSizes.xxl};
     }
-    &[data-fontsize="xxlg"] {
+    &[data-fontsize="xxxl"] {
         font-size: ${({ theme }) => theme.typography.fontSizes.xxxl};
     }
     &[data-fontsize="display"] {

@@ -223,217 +223,436 @@ export const backgroundColors = css`
     ${props =>
         props["data-backgroundcolor"] == "primary"
             ? css`
-                  color: ${({ theme }) => theme.colors.primary};
+                  background-color: ${({ theme }) => theme.colors.primary};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "primaryShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.primaryShade};
+                  background-color: ${({ theme }) => theme.colors.primaryShade};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "primaryTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.primaryTint};
+                  background-color: ${({ theme }) => theme.colors.primaryTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "primaryContrast"
             ? css`
-                  color: ${({ theme }) => theme.colors.primaryContrast};
+                  background-color: ${({ theme }) => theme.colors.primaryContrast};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "secondary"
             ? css`
-                  color: ${({ theme }) => theme.colors.secondary};
+                  background-color: ${({ theme }) => theme.colors.secondary};
               `
             : null} 
     ${props =>
         props["data-backgroundcolor"] == "secondaryShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.secondaryShade};
+                  background-color: ${({ theme }) => theme.colors.secondaryShade};
               `
             : null}       
     ${props =>
         props["data-backgroundcolor"] == "secondaryTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.secondaryTint};
+                  background-color: ${({ theme }) => theme.colors.secondaryTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "secondaryContrast"
             ? css`
-                  color: ${({ theme }) => theme.colors.secondaryContrast};
+                  background-color: ${({ theme }) => theme.colors.secondaryContrast};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "tertiary"
             ? css`
-                  color: ${({ theme }) => theme.colors.tertiary};
+                  background-color: ${({ theme }) => theme.colors.tertiary};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "tertiaryShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.tertiaryShade};
+                  background-color: ${({ theme }) => theme.colors.tertiaryShade};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "tertiaryTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.tertiaryTint};
+                  background-color: ${({ theme }) => theme.colors.tertiaryTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "tertiaryContrast"
             ? css`
-                  color: ${({ theme }) => theme.colors.tertiaryContrast};
+                  background-color: ${({ theme }) => theme.colors.tertiaryContrast};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "success"
             ? css`
-                  color: ${({ theme }) => theme.colors.successContrast};
+                  background-color: ${({ theme }) => theme.colors.successContrast};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "successShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.successShade};
+                  background-color: ${({ theme }) => theme.colors.successShade};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "successTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.successTint};
+                  background-color: ${({ theme }) => theme.colors.successTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "successContrast"
             ? css`
-                  color: ${({ theme }) => theme.colors.successContrast};
+                  background-color: ${({ theme }) => theme.colors.successContrast};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "warning"
             ? css`
-                  color: ${({ theme }) => theme.colors.warning};
+                  background-color: ${({ theme }) => theme.colors.warning};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "warningShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.warningShade};
+                  background-color: ${({ theme }) => theme.colors.warningShade};
               `
             : null}        
     ${props =>
         props["data-backgroundcolor"] == "warningTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.warningTint};
+                  background-color: ${({ theme }) => theme.colors.warningTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "warningContrast"
             ? css`
-                  color: ${({ theme }) => theme.colors.warningContrast};
+                  background-color: ${({ theme }) => theme.colors.warningContrast};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "danger"
             ? css`
-                  color: ${({ theme }) => theme.colors.danger};
+                  background-color: ${({ theme }) => theme.colors.danger};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "dangerShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.dangerShade};
+                  background-color: ${({ theme }) => theme.colors.dangerShade};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "dangerTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.dangerTint};
+                  background-color: ${({ theme }) => theme.colors.dangerTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "dangerContrast"
             ? css`
-                  color: ${({ theme }) => theme.colors.dangerContrast};
+                  background-color: ${({ theme }) => theme.colors.dangerContrast};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "dark"
             ? css`
-                  color: ${({ theme }) => theme.colors.dark};
+                  background-color: ${({ theme }) => theme.colors.dark};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "darkShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.darkShade};
+                  background-color: ${({ theme }) => theme.colors.darkShade};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "darkTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.darkTint};
+                  background-color: ${({ theme }) => theme.colors.darkTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "darkContrast"
             ? css`
-                  color: ${({ theme }) => theme.colors.darkContrast};
+                  background-color: ${({ theme }) => theme.colors.darkContrast};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "medium"
             ? css`
-                  color: ${({ theme }) => theme.colors.medium};
+                  background-color: ${({ theme }) => theme.colors.medium};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "mediumShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.mediumShade};
+                  background-color: ${({ theme }) => theme.colors.mediumShade};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "mediumTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.mediumTint};
+                  background-color: ${({ theme }) => theme.colors.mediumTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "mediumTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.mediumTint};
+                  background-color: ${({ theme }) => theme.colors.mediumTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "light"
             ? css`
-                  color: ${({ theme }) => theme.colors.light};
+                  background-color: ${({ theme }) => theme.colors.light};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "lightShade"
             ? css`
-                  color: ${({ theme }) => theme.colors.lightShade};
+                  background-color: ${({ theme }) => theme.colors.lightShade};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "lightTint"
             ? css`
-                  color: ${({ theme }) => theme.colors.lightTint};
+                  background-color: ${({ theme }) => theme.colors.lightTint};
               `
             : null}
     ${props =>
         props["data-backgroundcolor"] == "lightContrast"
             ? css`
-                  color: ${({ theme }) => theme.colors.lightContrast};
+                  background-color: ${({ theme }) => theme.colors.lightContrast};
+              `
+            : null}
+`;
+
+export const borderColors = css`
+    ${props =>
+        props["data-bordercolor"] == "primary"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.primary}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "primaryShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.primaryShade}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "primaryTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.primaryTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "primaryContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.primaryContast}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "secondary"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.secondary}`};
+              `
+            : null} 
+    ${props =>
+        props["data-bordercolor"] == "secondaryShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.secondaryShade}`};
+              `
+            : null}       
+    ${props =>
+        props["data-bordercolor"] == "secondaryTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.secondaryTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "secondaryContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.secondaryContrast}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "tertiary"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.tertiary}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "tertiaryShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.tertiaryShade}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "tertiaryTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.tertiaryTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "tertiaryContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.tertiaryContrast}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "success"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.success}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "successShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.successShade}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "successTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.successTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "successContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.successContrast}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "warning"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.warning}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "warningShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.warningShade}`};
+              `
+            : null}        
+    ${props =>
+        props["data-bordercolor"] == "warningTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.warningTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "warningContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.warningContrast}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "danger"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.danger}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "dangerShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.dangerShade}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "dangerTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.dangerTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "dangerContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.dangerContrast}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "dark"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.dark}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "darkShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.darkShade}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "darkTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.darkTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "darkContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.darkContrast}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "medium"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.medium}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "mediumShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.mediumShade}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "mediumTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.mediumTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "mediumContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.mediumContrast}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "light"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.light}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "lightShade"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.lightShade}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "lightTint"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.lightTint}`};
+              `
+            : null}
+    ${props =>
+        props["data-bordercolor"] == "lightContrast"
+            ? css`
+                  border: ${({ theme }) => `solid 2px ${theme.colors.lightContrast}`};
               `
             : null}
 `;
@@ -601,7 +820,7 @@ export const fontFaces = css`
     ${props =>
         props["data-fontface"] == "primarySemibold"
             ? css`
-                  font-family: ${({ theme }) => theme.nativeTypography.fontFaces.primarySemibold};
+                  font-family: ${({ theme }) => theme.nativeTypography.fontFaces.primarySemiBold};
               `
             : null}
     ${props =>
@@ -625,7 +844,7 @@ export const fontFaces = css`
     ${props =>
         props["data-fontface"] == "secondarySemibold"
             ? css`
-                  font-family: ${({ theme }) => theme.nativeTypography.fontFaces.secondarySemibold};
+                  font-family: ${({ theme }) => theme.nativeTypography.fontFaces.secondarySemiBold};
               `
             : null}
     ${props =>
