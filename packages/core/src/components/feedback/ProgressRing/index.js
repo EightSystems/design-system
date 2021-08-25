@@ -23,7 +23,7 @@ const ProgressRing = props => {
     const strokeDashOffset = circumference - (props.progress / 100) * circumference;
 
     return (
-        <svg height={props.radius * 2} width={props.radius * 2}>
+        <S.StyledSvg height={props.radius * 2} width={props.radius * 2}>
             <S.StyledCircle
                 stroke={props.strokeColor}
                 fill="transparent"
@@ -46,7 +46,7 @@ const ProgressRing = props => {
                     {props.text}
                 </S.StyledText>
             ) : null}
-        </svg>
+        </S.StyledSvg>
     );
 };
 

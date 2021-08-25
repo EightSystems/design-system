@@ -7,7 +7,7 @@ const DetailsScreen = ({ route }) => {
     const MdxComponent = StoryList[indexName];
     return (
         <ScrollView>
-            <View style={{ margin: 16 }}>
+            <View style={{ padding: 16, width: "100%", flex: 1 }}>
                 <MdxComponent />
             </View>
         </ScrollView>
