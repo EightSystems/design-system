@@ -6,6 +6,10 @@ export const Meta = props => {
 };
 
 export const Story = ({ name, args, children }) => {
+    if (React.isValidElement(children)) {
+        return children;
+    }
+
     return children(args);
 };
 

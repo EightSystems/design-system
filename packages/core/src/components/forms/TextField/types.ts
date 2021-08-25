@@ -39,6 +39,8 @@ type CommonProps = {
 
     /** Optional for use-cases like custom input components provided by validation packages. */
     children?: React.ReactNode;
+
+    maxLength?: Number;
 };
 
 export type NativeTextFieldProps = TextInputProps & CommonProps;

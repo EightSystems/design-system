@@ -4,24 +4,29 @@ import * as T from "../../../theme/typography";
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
+
+    border-bottom-width: 2px;
+    border-radius: 4px;
+
     .input--focused {
-        border: ${props => props.theme.border.hover};
-        box-shadow: ${props => props.theme.boxShadow.default};
+        border-bottom-color: ${({ theme }) => theme.colors.primary};
+        box-shadow: ${props => props.theme.shadows.default};
     }
     .input--error {
-        border: ${props => props.theme.border.danger};
+        border-bottom-color: ${({ theme }) => theme.colors.danger};
     }
     .input--success {
-        border: ${props => props.theme.border.success};
+        border-bottom-color: ${({ theme }) => theme.colors.success};
     }
 `;
 export const InputLabel = styled.label`
     ${T.FormLabel};
-    padding-bottom: ${props => props.theme.space.xxs};
+    padding-bottom: ${props => props.theme.spacing.xxs};
 `;
 export const InputWrapper = styled.div`
     display: flex;
-    border: ${props => props.theme.border.default};
+    border-bottom-color: ${({ theme }) => theme.colors.light};
+    border-bottom-width: 2px;
     border-radius: 4px;
     background: #fcfcfc;
     transition: 150ms ease-in-out;
@@ -60,12 +65,12 @@ export const InputValidationMessage = styled.span`
 export const InputValidationContainer = styled.div`
     svg {
         color: ${props => props.theme.colors.danger};
-        height: ${props => props.theme.space.sm};
-        width: ${props => props.theme.space.sm};
+        height: ${props => props.theme.spacing.sm};
+        width: ${props => props.theme.spacing.sm};
     }
     padding-top: 6px;
     display: flex;
-    height: ${props => props.theme.space.md};
+    height: ${props => props.theme.spacing.md};
 `;
 export const SpinnerOverride = css`
     margin-top: 8px;

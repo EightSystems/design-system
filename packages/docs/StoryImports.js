@@ -6,6 +6,7 @@ import AvatarStory from "../core/src/stories/Avatar.stories";
 import ButtonStory from "../core/src/stories/Button.stories";
 import ProgressRingStory from "../core/src/stories/ProgressRing.stories";
 import StepperStory from "../core/src/stories/Stepper.stories";
+import TextFieldStory from "../core/src/stories/TextField.stories";
 
 const storyList = {
     Introduction: IntroductionStory,
@@ -16,6 +17,7 @@ const storyList = {
     Button: ButtonStory,
     ProgressRing: ProgressRingStory,
     Stepper: StepperStory,
+    TextField: TextFieldStory,
 };
 
 export default storyList;

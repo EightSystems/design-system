@@ -34,6 +34,7 @@ const TextField = ({
             >
                 <S.InputComponent
                     {...props}
+                    maxLength={props.maxLength ? +props.maxLength : null}
                     data-disabled={disabled}
                     nativeID={elementUniqueId}
                     placeholder={placeholder}
