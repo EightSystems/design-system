@@ -1,8 +1,9 @@
 import * as React from "react";
+import { Text } from "react-native";
 import { NativeHeadingProps } from "./types";
 import * as S from "./styled.native";
 
-const Heading = React.forwardRef<any, NativeHeadingProps>(
+const Heading = React.forwardRef<Text, NativeHeadingProps>(
     (
         {
             children,
