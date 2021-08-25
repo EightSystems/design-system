@@ -1,75 +1,56 @@
 import styled from "styled-components";
+import {
+    borderColors,
+    textColors,
+    backgroundColors,
+    fontSizes,
+    fontFaces,
+    fontWeights,
+} from "../../../theme/mixins/web";
 
 export const ButtonWrapper = styled.button`
-    font-family: ${props => props.theme.typography.fontFaces.primary};
-    font-size: 16px;
-    appearance: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 18px 24px;
-    text-decoration: none;
-    text-align: center;
+    ${textColors};
+    ${backgroundColors};
+    ${fontSizes};
+    ${borderColors};
+    ${fontFaces};
+    ${fontWeights};
+
+    &[data-size="small"] {
+        padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
+        font-size: ${({ theme }) => theme.typography.fontSizes.xxs};
+    }
+
+    &[data-size="medium"] {
+        padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
+        font-size: ${({ theme }) => theme.typography.fontSizes.xs};
+    }
+
+    &[data-size="large"] {
+        padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
+        font-size: ${({ theme }) => theme.typography.fontSizes.xs};
+    }
+
+    &[data-disabled="true"] {
+        opacity: 0.75;
+        cursor: initial;
+    }
+
+    &[data-bordercolor] {
+        border-style: solid;
+        border-width: 2px;
+    }
+
     transition: 150ms ease-in-out;
     user-select: none;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 5px;
 
-    &[data-color="primary"] {
-        background: ${props => props.theme.colors.primary};
-        border: solid 2px ${props => props.theme.colors.primary};
-        color: ${props => props.theme.colors.primaryContrast};
-
-        &[data-outline="true"] {
-            background: none;
-            border: solid 2px ${props => props.theme.colors.primary};
-            color: ${props => props.theme.colors.primary};
-        }
-        &:hover,
-        :focus {
-            background: ${props => props.theme.colors.primaryTint};
-            border: solid 2px ${props => props.theme.colors.primaryTint};
-            color: ${props => props.theme.colors.primaryContrast};
-            box-shadow: ${props => props.theme.shadows.xs};
-            outline: none;
-        }
-    }
-
-    &[data-color="danger"] {
-        background: ${props => props.theme.colors.danger};
-        border: solid 2px ${props => props.theme.colors.danger};
-        color: ${props => props.theme.colors.primaryContrast};
-
-        &[data-outline="true"] {
-            background: none;
-            border: solid 2px ${props => props.theme.colors.danger};
-            color: ${props => props.theme.colors.danger};
-        }
-        &:hover,
-        :focus {
-            background: ${props => props.theme.colors.dangerTint};
-            border: solid 2px ${props => props.theme.colors.dangerTint};
-            color: ${props => props.theme.colors.primaryContrast};
-            box-shadow: ${props => props.theme.shadows.xs};
-            outline: none;
-        }
-    }
-
-    &[data-color="secondary"] {
-        background: ${props => props.theme.colors.textBody};
-        border: solid 2px ${props => props.theme.colors.textBody};
-        color: ${props => props.theme.colors.primaryContrast};
-
-        &[data-outline="true"] {
-            background: none;
-            border: solid 2px ${props => props.theme.colors.textBody};
-            color: ${props => props.theme.colors.textBody};
-        }
-        &:hover,
-        :focus {
-            background: ${props => props.theme.colors.grayShade};
-            border: solid 2px ${props => props.theme.colors.grayShade};
-            color: ${props => props.theme.colors.primaryContrast};
-            box-shadow: ${props => props.theme.shadows.xs};
-            outline: none;
-        }
+    &:hover,
+    :focus {
+        box-shadow: ${({ theme }) => theme.shadows.xs};
+        opacity: 0.9;
+        outline: none;
     }
 `;

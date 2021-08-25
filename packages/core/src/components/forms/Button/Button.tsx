@@ -9,10 +9,14 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
     (
         {
             disabled = false,
-            color = "primary",
+            textColor = "primaryContrast",
+            fontFace = "primary",
+            fontWeight = "bold",
+            backgroundColor = "primary",
+            borderColor,
+            focusColor,
             loading = false,
-            variant = "solid",
-            size = "medium",
+            size = "large",
             startIcon,
             endIcon,
             iconPadding,
@@ -25,9 +29,12 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
         return (
             <S.ButtonWrapper
                 {...props}
-                data-backgroundcolor={color}
-                data-variant={variant}
-                data-size={variant}
+                data-backgroundcolor={backgroundColor}
+                data-fontface={fontFace}
+                data-textcolor={textColor}
+                data-fontweight={fontWeight}
+                data-bordercolor={borderColor}
+                data-size={size}
                 data-disabled={disabled || loading}
                 ref={componentRef}
             >

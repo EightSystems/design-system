@@ -1,12 +1,25 @@
 import * as React from "react";
 import { PressableProps } from "react-native";
+import { ColorTypes, FontFaceTypes, NativeFontFaceTypes, FontWeightTypes } from "../../../theme/types";
 
 type CommonProps = {
-    /** The color of the button background, or the button outline when the `variant` is "outline". */
-    color?: string;
+    /** The color of the text inside the button. */
+    textColor?: ColorTypes;
 
-    /** Determinates the button variant the be used. */
-    variant?: "solid" | "outline" | "ghost";
+    /** The font family for the text inside the button. */
+    fontFace?: FontFaceTypes;
+
+    /** The fontWeight for the text inside the button. */
+    fontWeight?: FontWeightTypes;
+
+    /** Color of the button background. */
+    backgroundColor?: ColorTypes;
+
+    /** Color of the button border. */
+    borderColor?: ColorTypes;
+
+    /** Color when the button is focused. */
+    focusColor?: ColorTypes;
 
     /** When `true`, the button will be shown as disabled and with a spinner. */
     loading?: boolean;
@@ -30,5 +43,9 @@ type CommonProps = {
     disabled?: boolean;
 };
 
-export type NativeButtonProps = PressableProps & CommonProps;
+type NativeProps = Omit<CommonProps, "fontWeight" | "fontFace"> & {
+    fontFace?: NativeFontFaceTypes;
+};
+
+export type NativeButtonProps = PressableProps & NativeProps;
 export type WebButtonProps = React.ComponentPropsWithRef<"button"> & CommonProps;
