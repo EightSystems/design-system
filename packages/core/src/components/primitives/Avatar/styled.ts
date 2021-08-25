@@ -20,17 +20,17 @@ export const AvatarWrapper = styled.div`
     &[data-size="large"] {
         width: ${({ theme }) => theme.spacing.xxlg};
         height: ${({ theme }) => theme.spacing.xxlg};
-        font-family: ${({ theme }) => theme.typography.fontSizes.xxl};
+        font-size: ${({ theme }) => theme.typography.fontSizes.xxl};
     }
     &[data-size="medium"] {
         width: ${({ theme }) => theme.spacing.xlg};
         height: ${({ theme }) => theme.spacing.xlg};
-        font-family: ${({ theme }) => theme.typography.fontSizes.xxl};
+        font-size: ${({ theme }) => theme.typography.fontSizes.lg};
     }
     &[data-size="small"] {
         width: ${({ theme }) => theme.spacing.lg};
         height: ${({ theme }) => theme.spacing.lg};
-        font-family: ${({ theme }) => theme.typography.fontSizes.md};
+        font-size: ${({ theme }) => theme.typography.fontSizes.md};
     }
 `;
 

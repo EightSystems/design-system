@@ -44,19 +44,19 @@ export const FallbackText = styled.Text`
     ${props =>
         props["data-size"] == "large"
             ? css`
-                  font-family: ${({ theme }) => theme.nativeTypography.fontSizes.xxl};
+                  font-size: ${({ theme }) => theme.nativeTypography.fontSizes.xxl};
               `
             : null}
     ${props =>
         props["data-size"] == "medium"
             ? css`
-                  font-family: ${({ theme }) => theme.nativeTypography.fontSizes.xxl};
+                  font-size: ${({ theme }) => theme.nativeTypography.fontSizes.lg};
               `
             : null}
     ${props =>
         props["data-size"] == "small"
             ? css`
-                  font-family: ${({ theme }) => theme.nativeTypography.fontSizes.md};
+                  font-size: ${({ theme }) => theme.nativeTypography.fontSizes.md};
               `
             : null}
 `;
