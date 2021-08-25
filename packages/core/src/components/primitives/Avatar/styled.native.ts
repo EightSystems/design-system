@@ -3,11 +3,11 @@ import styled, { css } from "styled-components/native";
 export const AvatarWrapper = styled.View`
     background: ${({ theme }) => theme.colors.mediumShade};
     color: ${({ theme }) => theme.colors.lightTint};
-    border-radius: 50%;
 
     flex: 1;
     align-items: center;
     justify-content: center;
+    border-radius: 1000px;
 
     ${props =>
         props["data-size"] == "large"
@@ -24,7 +24,7 @@ export const AvatarWrapper = styled.View`
               `
             : null}
     ${props =>
-        props["data-size"] == "medium"
+        props["data-size"] == "small"
             ? css`
                   width: ${({ theme }) => theme.spacing.lg};
                   height: ${({ theme }) => theme.spacing.lg};
@@ -34,7 +34,8 @@ export const AvatarWrapper = styled.View`
 export const Image = styled.Image`
     width: 100%;
     height: 100%;
-    resize: cover;
+    border-radius: 1000px;
+    resize-mode: cover;
 `;
 
 export const FallbackText = styled.Text`
@@ -43,19 +44,19 @@ export const FallbackText = styled.Text`
     ${props =>
         props["data-size"] == "large"
             ? css`
-                  font-family: ${({ theme }) => theme.nativeTypography.fontSizes.xxl};
+                  font-size: ${({ theme }) => theme.nativeTypography.fontSizes.xxl};
               `
             : null}
     ${props =>
         props["data-size"] == "medium"
             ? css`
-                  font-family: ${({ theme }) => theme.nativeTypography.fontSizes.xxl};
+                  font-size: ${({ theme }) => theme.nativeTypography.fontSizes.lg};
               `
             : null}
     ${props =>
         props["data-size"] == "small"
             ? css`
-                  font-family: ${({ theme }) => theme.nativeTypography.fontSizes.md};
+                  font-size: ${({ theme }) => theme.nativeTypography.fontSizes.md};
               `
             : null}
 `;

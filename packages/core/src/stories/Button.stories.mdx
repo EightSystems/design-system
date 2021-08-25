@@ -23,18 +23,18 @@ import { Button } from "@8sistemas/design-system";
 
 ## Button Variants
 
-Use the `hasOutline` prop to determinate if the button will be of the outlined variant.
+You can use the various `borderColor`, `backgroundColor`, and `textColor` for creating variants on your self. For example, see an outline button sample
 
 <Canvas>
-    <Story name="Primary Button (Outline)" args={{ color: "primary", variant: "outline", children: ["Outlined Button"] }}>
+    <Story name="Primary Button (Outline)" args={{ backgroundColor: "lightTint", textColor: "primary", borderColor: "primary", children: ["Outlined Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>
 
-Use the `color` prop to determinate the color of the button using the `Theme` available primary colors.
+Use the `backgroundColor` prop to determinate the color of the button using the `Theme` available primary colors.
 
 <Canvas>
-    <Story name="Danger Button" args={{ color: "danger", children: ["Danger Button"] }}>
+    <Story name="Danger Button" args={{ backgroundColor: "danger", children: ["Danger Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>
@@ -42,7 +42,7 @@ Use the `color` prop to determinate the color of the button using the `Theme` av
 Secondary Button Sample
 
 <Canvas>
-    <Story name="Secondary Button" args={{ color: "secondary", children: ["Secondary Button"] }}>
+    <Story name="Secondary Button" args={{ backgroundColor: "secondary", children: ["Secondary Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>

@@ -4,8 +4,8 @@ export type WebBoxProps = React.ComponentPropsWithRef<"div"> & {
     children: React.ReactNode;
 };
 
-const Box = ({ children }: WebBoxProps) => {
-    return <Box>{children}</Box>;
+const Box = ({ children, ...otherProps }: WebBoxProps) => {
+    return <div {...otherProps}>{children}</div>;
 };
 
 export default Box;
