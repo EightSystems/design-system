@@ -1,17 +1,7 @@
 import * as React from "react";
 import styled from "styled-components/native";
 
-function getHeight({ axis, size }) {
-    return axis === "horizontal" ? 1 : size;
-}
-
-function getWidth({ axis, size }) {
-    return axis === "vertical" ? 1 : size;
-}
-
-function getUnit({ unit }) {
-    return unit === undefined ? "px" : unit;
-}
+import { getWidth, getHeight, getUnit, SpacerProps } from "./helpers";
 
 const StyledSpacer = styled.View`
     width: ${getWidth}${getUnit};
@@ -20,9 +10,7 @@ const StyledSpacer = styled.View`
     min-height: ${getHeight}${getUnit};
 `;
 
-export type SpacerProps = {
-    size?: number;
-};
+export type { SpacerProps };
 
 const Spacer = ({ size }: SpacerProps) => {
     return <StyledSpacer size={size} />;
