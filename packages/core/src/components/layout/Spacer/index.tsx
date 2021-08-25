@@ -1,3 +1,4 @@
+import * as React from "react";
 import styled from "styled-components";
 
 function getHeight({ axis, size }) {
@@ -12,11 +13,18 @@ function getUnit({ unit }) {
     return unit === undefined ? "px" : unit;
 }
 
-const Spacer = styled.div`
+const StyledSpacer = styled.div`
     width: ${getWidth}${getUnit};
     min-width: ${getWidth}${getUnit};
     height: ${getHeight}${getUnit};
     min-height: ${getHeight}${getUnit};
 `;
 
+export type SpacerProps = {
+    size?: number;
+};
+
+const Spacer = ({ size }: SpacerProps) => {
+    return <StyledSpacer size={size} />;
+};
 export default Spacer;
