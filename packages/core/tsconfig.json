@@ -52,7 +52,11 @@
         /* Do not emit compiler output files like JavaScript source code, source-maps or declarations.
         This makes room for other tools like Babel to handle converting TypeScript to a file which can run
         inside a JavaScript environment. */
-        "noEmit": true
+        "noEmit": true,
+
+        "downlevelIteration": true,
+
+        "importHelpers": false,
     },
 
     /* Specifies an array of filenames or patterns to include in the program */
