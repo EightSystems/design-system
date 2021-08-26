@@ -22,8 +22,9 @@
         "react-dom": ">=17.0.1",
         "react-icons": ">=4.2.0",
         "react-native": ">=0.64.2",
-        "react-native-svg-transformer": ">=0.14.3",
         "react-native-svg": ">=12.1.1",
+        "react-native-localize": ">=2.1.1",
+        "react-native-svg-transformer": ">=0.14.3",
         "styled-components": ">=5.3.0"
     },
     "devDependencies": {
@@ -70,7 +71,6 @@
         "@popperjs/core": "^2.9.2",
         "classnames": "^2.2.6",
         "dinero.js": "^1.8.1",
-        "intl": "^1.2.5",
         "lodash": "^4.17.21",
         "react": "^17.0.1",
         "react-collapse": "^5.1.0",
@@ -78,6 +78,7 @@
         "react-icons": "^4.2.0",
         "react-imask": "^6.0.7",
         "react-native": "0.64.2",
+        "react-native-localize": "^2.1.1",
         "react-popper": "^2.2.5",
         "react-spinners": "^0.10.6",
         "styled-components": "^5.3.0"
