@@ -116,11 +116,13 @@ export const typography = {
 export const nativeTypography = {
     ...typography,
     fontFaces: {
+        primary: "Poppins-Regular",
         primaryRegular: "Poppins-Regular",
         primaryMedium: "Poppins-Medium",
         primarySemiBold: "Poppins-SemiBold",
         primaryBold: "Poppins-Bold",
 
+        secondary: "Inter-Regular",
         secondaryRegular: "Inter-Regular",
         secondaryMedium: "Inter-Medium",
         secondarySemiBold: "Inter-SemiBold",

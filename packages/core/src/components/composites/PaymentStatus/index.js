@@ -4,7 +4,7 @@ import * as S from "./styled";
 
 import { MdError, MdCheckCircle } from "react-icons/md";
 import { AiFillClockCircle } from "react-icons/ai";
-import CurrencyLabel from "../../primitives/CurrencyLabel";
+import { CurrencyLabel } from "../../primitives/CurrencyLabel";
 
 /**
  * @type {React.FC<Props>}

@@ -32,7 +32,7 @@ import TextField from "./components/forms/TextField";
 
 // Primitve components
 import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
-import CurrencyLabel from "./components/primitives/CurrencyLabel";
+import { CurrencyLabel } from "./components/primitives/CurrencyLabel";
 import ProgressRing from "./components/feedback/ProgressRing";
 import Skeleton from "./components/primitives/Skeleton";
 
