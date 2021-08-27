@@ -1,18 +1,20 @@
 import React from "react";
 import themeColors from "../../../core/src/theme/colors";
+import { nativeTypography } from "../../../core/src/theme/typography";
 import styled from "styled-components";
 import { FlatList } from "react-native";
 import StoryList from "../../StoryImports";
 
 const ItemLabel = styled.Text`
-    color: ${props => (props.isOdd ? themeColors.dangerContrast : themeColors.successContrast)};
+    color: ${themeColors.lightContrast};
+    font-family: ${nativeTypography.fontFaces.primaryBold};
     font-size: 16px;
 `;
 const ItemView = styled.Pressable`
     padding: 20px 10px;
-    border-color: ${themeColors.light};
+    border-color: ${themeColors.dark};
     border-bottom-width: 3px;
-    background: ${props => (props.isOdd ? themeColors.danger : themeColors.tertiary)};
+    background: ${themeColors.light};
 `;
 
 const Item = ({ title, navigation, isOdd }) => (
