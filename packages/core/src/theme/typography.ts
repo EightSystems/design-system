@@ -36,35 +36,6 @@ export const Body = css`
     }
 `;
 
-export const FormLabel = css`
-    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
-    color: ${({ theme }) => theme.colors.textBody};
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-`;
-
-export const FormInput = css`
-    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
-    color: ${({ theme }) => theme.colors.textPrimary};
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-`;
-export const PlaceholderFormInput = css`
-    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
-    color: ${({ theme }) => theme.colors.textBody};
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-`;
-
-export const FormValidationMessage = css`
-    font-family: ${({ theme }) => theme.typography.fontFaces.primary};
-    color: ${({ theme }) => theme.colors.danger};
-    font-size: 13px;
-`;
-
 export const CurrencyLabel = css`
     font-family: ${({ theme }) => theme.typography.fontFaces.primary};
     color: ${({ theme }) => theme.colors.textPrimary};

@@ -29,7 +29,7 @@ import { Spinner, SpinnerWebProps } from "./components/feedback/Spinner";
 import { Button, WebButtonProps } from "./components/forms/Button";
 
 import Select from "./components/forms/Select";
-import TextField from "./components/forms/TextField";
+import { TextField, WebTextFieldProps } from "./components/forms/TextField";
 
 // Primitve components
 import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
@@ -72,4 +72,4 @@ export {
     useDetectOutsideClick,
 };
 
-export type { WebHeadingProps, WebButtonProps, WebTextProps, WebAvatarProps, SpinnerWebProps };
+export type { WebHeadingProps, WebButtonProps, WebTextProps, WebAvatarProps, SpinnerWebProps, WebTextFieldProps };

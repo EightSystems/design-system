@@ -14,20 +14,19 @@ export const InputLabel = styled(Text)`
 `;
 
 export const InputWrapper = styled(View)`
-    background: ${({ theme }) => theme.colors.light};
-    border-bottom-color: ${({ theme }) => theme.colors.light};
-    border-bottom-width: 2px;
-    border-radius: 4px;
+    border-color: ${({ theme }) => theme.colors.medium};
+    border-width: 1px;
+    border-radius: 5px;
     ${props =>
         props["data-validationError"] == true
             ? css`
-                  border-bottom-color: ${({ theme }) => theme.colors.danger};
+                  border-color: ${({ theme }) => theme.colors.danger};
               `
             : null}
     ${props =>
         props["data-focused"] == true
             ? css`
-                  border-bottom-color: ${({ theme }) => theme.colors.primary};
+                  border-color: ${({ theme }) => theme.colors.primary};
               `
             : null}
 `;

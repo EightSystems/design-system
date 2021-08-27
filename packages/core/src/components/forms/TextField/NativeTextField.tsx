@@ -7,7 +7,7 @@ const TextField = ({
     name,
     label,
     placeholder,
-    autoComplete,
+    autoCompleteType,
     disabled,
     validationSuccess,
     validationError,

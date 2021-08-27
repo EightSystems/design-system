@@ -7,7 +7,7 @@ import Spacer from "./components/layout/Spacer/index.native";
 
 // Form components
 import { Button, NativeButtonProps } from "./components/forms/Button/index.native";
-import TextField from "./components/forms/TextField/index.native";
+import { TextField, NativeTextFieldProps } from "./components/forms/TextField/index.native";
 
 // Primitive components
 import { CurrencyLabel, CurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
@@ -44,4 +44,11 @@ export {
     useKeyboardDismissable,
 };
 
-export type { NativeButtonProps, NativeHeadingProps, NativeTextProps, CurrencyLabelProps, SpinnerNativeProps };
+export type {
+    NativeButtonProps,
+    NativeHeadingProps,
+    NativeTextProps,
+    CurrencyLabelProps,
+    SpinnerNativeProps,
+    NativeTextFieldProps,
+};

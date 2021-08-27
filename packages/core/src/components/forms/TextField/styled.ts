@@ -1,38 +1,44 @@
 import styled, { css } from "styled-components";
-import * as T from "../../../theme/typography";
 
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    border-bottom-width: 2px;
-    border-radius: 4px;
-
     .input--focused {
-        border-bottom-color: ${({ theme }) => theme.colors.primary};
-        box-shadow: ${props => props.theme.shadows.default};
+        border-color: ${({ theme }) => theme.colors.primary};
+        box-shadow: ${props => props.theme.shadows.xs};
     }
     .input--error {
-        border-bottom-color: ${({ theme }) => theme.colors.danger};
+        border-color: ${({ theme }) => theme.colors.danger};
     }
     .input--success {
-        border-bottom-color: ${({ theme }) => theme.colors.success};
+        border-color: ${({ theme }) => theme.colors.success};
     }
 `;
 export const InputLabel = styled.label`
-    ${T.FormLabel};
     padding-bottom: ${props => props.theme.spacing.xxs};
+    color: ${({ theme }) => theme.colors.darkTint};
+    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
 `;
 export const InputWrapper = styled.div`
     display: flex;
-    border-bottom-color: ${({ theme }) => theme.colors.light};
-    border-bottom-width: 2px;
-    border-radius: 4px;
-    background: #fcfcfc;
     transition: 150ms ease-in-out;
+
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: ${({ theme }) => theme.colors.medium};
 `;
 export const InputComponent = styled.input`
-    ${T.FormInput};
+    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
+    color: ${({ theme }) => theme.colors.darkTint};
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
     border-radius: 4px;
     padding: 12px 12px;
     width: 100%;
@@ -42,7 +48,7 @@ export const InputComponent = styled.input`
         outline: none;
     }
     ::placeholder {
-        ${T.PlaceholderFormInput};
+        color: ${({ theme }) => theme.colors.mediumShade};
     }
 `;
 export const IconWrapper = styled.div`
@@ -51,7 +57,7 @@ export const IconWrapper = styled.div`
     align-items: center;
     padding-right: 12px;
     height: 100%;
-    color: ${props => props.theme.colors.textBody};
+    color: ${props => props.theme.colors.medium};
     svg {
         cursor: pointer;
         width: 28px;
@@ -60,7 +66,9 @@ export const IconWrapper = styled.div`
 `;
 export const InputValidationMessage = styled.span`
     padding-left: 2px;
-    ${T.FormValidationMessage};
+    font-family: ${({ theme }) => theme.typography.fontFaces.primary};
+    color: ${({ theme }) => theme.colors.danger};
+    font-size: 13px;
 `;
 export const InputValidationContainer = styled.div`
     svg {
