@@ -12,6 +12,9 @@ import TextField from "./components/forms/TextField/index.native";
 // Primitive components
 import { CurrencyLabel, CurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
 
+// Feedback components
+import { Spinner, SpinnerNativeProps } from "./components/feedback/Spinner/index.native";
+
 // Composite components
 import Modal from "./components/composites/Modal/index.native";
 
@@ -35,9 +38,10 @@ export {
     Heading,
     Text,
     CurrencyLabel,
+    Spinner,
     useClipboard,
     useExtendedTheme,
     useKeyboardDismissable,
 };
 
-export type { NativeButtonProps, NativeHeadingProps, NativeTextProps, CurrencyLabelProps };
+export type { NativeButtonProps, NativeHeadingProps, NativeTextProps, CurrencyLabelProps, SpinnerNativeProps };

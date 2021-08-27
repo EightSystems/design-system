@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Spinner } from "../components/feedback/Spinner";
+
+<Meta title="Feedback/Spinner" component={Spinner} />
+
+# Spinner
+
+Used to indicate indefinite progress.
+
+## Import
+
+```jsx
+import { Spinner } from "@8sistemas/design-system";
+```
+
+## Usage
+
+<Canvas>
+    <Story name="Spinner" args={{ color: "#3456ff", size: 24 }}>
+        {args => <Spinner {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Spinner} />

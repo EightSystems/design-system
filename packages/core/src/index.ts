@@ -23,6 +23,7 @@ import Modal from "./components/composites/Modal";
 import Stepper from "./components/feedback/Stepper";
 import Tooltip from "./components/feedback/Tooltip";
 import Toast from "./components/feedback/Toast";
+import { Spinner, SpinnerWebProps } from "./components/feedback/Spinner";
 
 // Form components
 import { Button, WebButtonProps } from "./components/forms/Button";
@@ -63,6 +64,7 @@ export {
     Tooltip,
     Skeleton,
     Toast,
+    Spinner,
     Modal,
     ThemeProviderInjector,
     useExtendedTheme,
@@ -70,4 +72,4 @@ export {
     useDetectOutsideClick,
 };
 
-export type { WebHeadingProps, WebButtonProps, WebTextProps, WebAvatarProps };
+export type { WebHeadingProps, WebButtonProps, WebTextProps, WebAvatarProps, SpinnerWebProps };
