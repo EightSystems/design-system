@@ -6,9 +6,5 @@ type CommonProps = {
     size: number;
 };
 
-type NativeProps = Omit<CommonProps, "size"> & {
-    size: "large" | "small";
-};
-
 export type SpinnerWebProps = CommonProps & React.ComponentProps<"div">;
-export type SpinnerNativeProps = NativeProps & ActivityIndicatorProps;
+export type SpinnerNativeProps = CommonProps & ActivityIndicatorProps;
