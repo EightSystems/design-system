@@ -11,6 +11,7 @@ import { TextField, NativeTextFieldProps } from "./components/forms/TextField/in
 
 // Primitive components
 import { CurrencyLabel, CurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
+import { Skeleton, NativeSkeletonProps } from "./components/primitives/Skeleton/index.native";
 
 // Feedback components
 import { Spinner, SpinnerNativeProps } from "./components/feedback/Spinner/index.native";
@@ -39,6 +40,7 @@ export {
     Text,
     CurrencyLabel,
     Spinner,
+    Skeleton,
     useClipboard,
     useExtendedTheme,
     useKeyboardDismissable,
@@ -51,4 +53,5 @@ export type {
     CurrencyLabelProps,
     SpinnerNativeProps,
     NativeTextFieldProps,
+    NativeSkeletonProps,
 };

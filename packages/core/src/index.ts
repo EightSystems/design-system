@@ -35,7 +35,7 @@ import { TextField, WebTextFieldProps } from "./components/forms/TextField";
 import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
 import { CurrencyLabel } from "./components/primitives/CurrencyLabel";
 import ProgressRing from "./components/feedback/ProgressRing";
-import Skeleton from "./components/primitives/Skeleton";
+import { Skeleton, WebSkeletonProps } from "./components/primitives/Skeleton";
 
 // Hooks
 import { useDetectOutsideClick } from "./hooks/useDetectOutsideClick";
@@ -72,4 +72,4 @@ export {
     useDetectOutsideClick,
 };
 
-export type { WebHeadingProps, WebButtonProps, WebTextProps, WebAvatarProps, SpinnerWebProps, WebTextFieldProps };
+export type { WebHeadingProps, WebButtonProps, WebTextProps, WebAvatarProps, SpinnerWebProps, WebSkeletonProps };
