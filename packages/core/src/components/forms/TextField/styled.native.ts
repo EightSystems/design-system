@@ -7,6 +7,7 @@ export const MainWrapper = styled(View)`
 `;
 
 export const InputLabel = styled(Text)`
+    color: ${props => props.theme.colors.dark};
     font-family: ${props => props.theme.nativeTypography.fontFaces.primarySemiBold};
     color: ${props => props.theme.colors.darkTint};
     font-size: 16px;
