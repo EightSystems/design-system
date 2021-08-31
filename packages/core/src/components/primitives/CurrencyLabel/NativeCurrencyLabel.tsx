@@ -1,14 +1,14 @@
 import * as React from "react";
 import Dinero from "dinero.js";
-import { CurrencyLabelProps } from "./types";
+import { NativeCurrencyLabelProps } from "./types";
 import * as S from "./styled.native";
 import CurrencyList from "./currencyList.json";
 import { getLocales } from "react-native-localize";
 
 const deviceLocale = getLocales();
 
-const CurrencyLabel = React.forwardRef<any, CurrencyLabelProps>(
-    ({ currency, value, textColor = "dark", fontSize = "lg", fontFace = "primary", ...props }, componentRef) => {
+const CurrencyLabel = React.forwardRef<any, NativeCurrencyLabelProps>(
+    ({ currency, value, textColor = "dark", fontSize = "lg", fontFace = "primaryRegular", ...props }, componentRef) => {
         const locale = deviceLocale[0];
 
         const precision = "0".repeat(CurrencyList[currency]);

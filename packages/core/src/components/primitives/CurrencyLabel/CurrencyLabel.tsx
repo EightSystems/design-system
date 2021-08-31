@@ -1,11 +1,11 @@
 import React from "react";
-import { CurrencyLabelProps } from "./types";
+import { WebCurrencyLabelProps } from "./types";
 import Dinero from "dinero.js";
 import * as S from "./styled";
 import getUserLanguage from "../../../utils/getUserLanguage";
 import CurrencyList from "./currencyList.json";
 
-const CurrencyLabel = React.forwardRef<any, CurrencyLabelProps>(
+const CurrencyLabel = React.forwardRef<HTMLHeadingElement, WebCurrencyLabelProps>(
     (
         { currency, value, textColor = "dark", fontSize = "lg", fontFace = "primary", fontWeight = "normal", ...props },
         componentRef

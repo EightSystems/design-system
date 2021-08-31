@@ -1,4 +1,4 @@
 import { default as CurrencyLabel } from "./NativeCurrencyLabel";
 
-export type { CurrencyLabelProps } from "./types";
+export type { NativeCurrencyLabelProps } from "./types";
 export { CurrencyLabel };

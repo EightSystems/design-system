@@ -36,13 +36,6 @@ export const Body = css`
     }
 `;
 
-export const CurrencyLabel = css`
-    font-family: ${({ theme }) => theme.typography.fontFaces.primary};
-    color: ${({ theme }) => theme.colors.textPrimary};
-    font-size: 36px;
-    font-weight: 700;
-`;
-
 export const typography = {
     lineHeights: {
         none: 1,

@@ -1,6 +1,9 @@
-import { WebHeadingProps } from "../../typography/Heading";
+import { WebHeadingProps, NativeHeadingProps } from "../../typography/Heading/types";
 
-export type CurrencyLabelProps = WebHeadingProps & {
+type CommonProps = {
     currency: string;
     value: number;
 };
+
+export type WebCurrencyLabelProps = CommonProps & Omit<WebHeadingProps, "children">;
+export type NativeCurrencyLabelProps = CommonProps & Omit<NativeHeadingProps, "children">;
