@@ -9,7 +9,6 @@ import json from "@rollup/plugin-json";
 import multiInput from "rollup-plugin-multi-input";
 
 const webInput = "./src/index.ts";
-const nativeInput = "./src/native.ts";
 
 const outputOptions = {
     format: "cjs",
@@ -58,39 +57,13 @@ const webConfig = {
                 "rollup.config.js",
                 "native.js",
                 "*.native.js(|x)",
+                "*.native.ts(|x)",
                 "**/*.native.js(|x)",
+                "**/*.native.ts(|x)",
             ],
         }),
         ...defaultPlugins,
     ],
 };
 
-const nativeConfig = {
-    input: nativeInput,
-    output: [
-        {
-            dir: "mobile",
-            ...outputOptions,
-        },
-    ],
-    plugins: [
-        typescript({
-            tsconfig: "./tsconfig.json",
-            abortOnError: false,
-            clean: true,
-            include: [
-                "*.ts+(|x)",
-                "**/*.ts+(|x)",
-                "*.js+(|x)",
-                "**/*.js+(|x)",
-                "native.js",
-                "*.native.js(|x)",
-                "**/*.native.js(|x)",
-            ],
-            exclude: ["node_modules/**", "dist", "rollup.config.js"],
-        }),
-        ...defaultPlugins,
-    ],
-};
-
-export default [webConfig, nativeConfig];
+export default [webConfig];

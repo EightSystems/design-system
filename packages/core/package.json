@@ -22,8 +22,8 @@
         "react-dom": ">=17.0.1",
         "react-icons": ">=4.2.0",
         "react-native": ">=0.64.2",
-        "react-native-svg": ">=12.1.1",
         "react-native-localize": ">=2.1.1",
+        "react-native-svg": ">=12.1.1",
         "react-native-svg-transformer": ">=0.14.3",
         "styled-components": ">=5.3.0"
     },
@@ -89,7 +89,7 @@
         "prebuild": "rm -rf dist/ && rm -rf mobile/",
         "cleanup:web": "cd dist/components && find . -name '*.native.d.ts' | xargs rm",
         "cleanup:mobile": "cd mobile/components && find . -type f ! -name '*.native.d.ts' | xargs rm",
-        "build": "yarn prebuild && rollup -c",
+        "build": "yarn prebuild && rollup -c && tsc --project tsconfig.native.json",
         "publish:local": "yarn build && yalc publish --files --no-scripts",
         "publish:npm": "yarn semantic-release"
     }
