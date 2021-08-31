@@ -15,7 +15,7 @@ import Accordion from "./components/composites/Accordion";
 import AccordionItem from "./components/composites/AccordionItem";
 import PaymentMethodItem from "./components/composites/PaymentMethodItem";
 import PaymentPrompt from "./components/composites/PaymentMethodItem";
-import PaymentStatus from "./components/composites/PaymentStatus";
+import { PaymentStatus, WebPaymentStatusProps } from "./components/composites/PaymentStatus";
 import SavedCardBadge from "./components/composites/SavedCardBadge";
 import Modal from "./components/composites/Modal";
 
@@ -72,4 +72,13 @@ export {
     useDetectOutsideClick,
 };
 
-export type { WebHeadingProps, WebButtonProps, WebTextProps, WebAvatarProps, SpinnerWebProps, WebSkeletonProps };
+export type {
+    WebHeadingProps,
+    WebButtonProps,
+    WebTextProps,
+    WebAvatarProps,
+    SpinnerWebProps,
+    WebTextFieldProps,
+    WebSkeletonProps,
+    WebPaymentStatusProps,
+};

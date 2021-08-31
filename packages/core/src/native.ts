@@ -10,7 +10,7 @@ import { Button, NativeButtonProps } from "./components/forms/Button/index.nativ
 import { TextField, NativeTextFieldProps } from "./components/forms/TextField/index.native";
 
 // Primitive components
-import { CurrencyLabel, CurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
+import { CurrencyLabel, NativeCurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
 import { Skeleton, NativeSkeletonProps } from "./components/primitives/Skeleton/index.native";
 
 // Feedback components
@@ -18,6 +18,7 @@ import { Spinner, SpinnerNativeProps } from "./components/feedback/Spinner/index
 
 // Composite components
 import Modal from "./components/composites/Modal/index.native";
+import { PaymentStatus, NativePaymentStatusProps } from "./components/composites/PaymentStatus/index.native";
 
 // Typography Components
 import { Heading, NativeHeadingProps } from "./components/typography/Heading/index.native";
@@ -41,6 +42,7 @@ export {
     CurrencyLabel,
     Spinner,
     Skeleton,
+    PaymentStatus,
     useClipboard,
     useExtendedTheme,
     useKeyboardDismissable,
@@ -50,8 +52,9 @@ export type {
     NativeButtonProps,
     NativeHeadingProps,
     NativeTextProps,
-    CurrencyLabelProps,
+    NativeCurrencyLabelProps,
     SpinnerNativeProps,
     NativeTextFieldProps,
     NativeSkeletonProps,
+    NativePaymentStatusProps,
 };
