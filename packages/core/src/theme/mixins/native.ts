@@ -804,6 +804,36 @@ export const fontSizes = css`
             : null}
 `;
 
+export const textAlign = css`
+    ${props =>
+        props["data-textalign"] == "center"
+            ? css`
+                  text-align: center;
+              `
+            : null}
+
+    ${props =>
+        props["data-textalign"] == "left"
+            ? css`
+                  text-align: left;
+              `
+            : null}
+
+    ${props =>
+        props["data-textalign"] == "right"
+            ? css`
+                  text-align: right;
+              `
+            : null}
+
+    ${props =>
+        props["data-textalign"] == "justify"
+            ? css`
+                  text-align: justify;
+              `
+            : null}
+`;
+
 export const fontFaces = css`
     ${props =>
         props["data-fontface"] == "primaryRegular"

@@ -9,6 +9,7 @@ const Text = React.forwardRef<any, NativeTextProps>(
             textColor = "dark",
             fontSize = "md",
             fontFace = "primaryRegular",
+            textAlign = "left",
             italic = false,
             underline = false,
             ...props
@@ -21,6 +22,7 @@ const Text = React.forwardRef<any, NativeTextProps>(
             "data-fontface": fontFace,
             "data-italic": italic,
             "data-underline": underline,
+            "data-textalign": textAlign,
         };
 
         return (

@@ -10,6 +10,7 @@ const Heading = React.forwardRef<Text, NativeHeadingProps>(
             textColor = "dark",
             fontSize = "lg",
             fontFace = "primaryRegular",
+            textAlign = "left",
             italic = false,
             underline = false,
             ...props
@@ -22,6 +23,7 @@ const Heading = React.forwardRef<Text, NativeHeadingProps>(
             "data-fontface": fontFace,
             "data-italic": italic,
             "data-underline": underline,
+            "data-textalign": textAlign,
         };
 
         return (

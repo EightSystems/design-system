@@ -1,6 +1,13 @@
 import * as React from "react";
 import { TextProps } from "react-native";
-import { FontSizeTypes, FontFaceTypes, NativeFontFaceTypes, FontWeightTypes, ColorTypes } from "../../../theme/types";
+import {
+    FontSizeTypes,
+    FontFaceTypes,
+    NativeFontFaceTypes,
+    FontWeightTypes,
+    ColorTypes,
+    NativeTextAlignTypes,
+} from "../../../theme/types";
 
 type CommonProps = {
     /** Renders components as text childrens. */
@@ -31,6 +38,7 @@ type CommonProps = {
 /* Since font weight is tied to the fontFace on react-native, we drop support for fontWeight prop and override fontFace with the native types. */
 type NativeProps = Omit<CommonProps, "fontFace" | "htmlElement"> & {
     fontFace?: NativeFontFaceTypes;
+    textAlign?: NativeTextAlignTypes;
 };
 
 export type NativeHeadingProps = TextProps & NativeProps;

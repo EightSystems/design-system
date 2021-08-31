@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 
 export const PaymentStatusWrapper = styled.View`
-    padding: ${({ theme }) => theme.spacing.sm};
+    padding: ${({ theme }) => theme.spacing.default};
     text-align: center;
     border-radius: 5px;
     flex: 1;

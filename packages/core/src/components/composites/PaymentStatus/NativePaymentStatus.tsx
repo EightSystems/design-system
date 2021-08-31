@@ -18,18 +18,18 @@ const PaymentStatus = React.forwardRef<any, NativePaymentStatusProps>(
 
         return (
             <S.PaymentStatusWrapper ref={componentRef} data-background={status}>
-                <Heading fontFace="primaryBold" textColor="primaryContrast" fontSize="lg">
-                    {title}
-                </Heading>
-                <Spacer size={16} />
                 <S.IconWrapper>
                     {status === "approved" ? <Icon name="check-circle" {...iconProps} /> : null}
                     {status === "refused" ? <Icon name="error" {...iconProps} /> : null}
                     {status === "pending" ? <Icon name="watch-later" {...iconProps} /> : null}
                 </S.IconWrapper>
                 <Spacer size={16} />
+                <Heading textAlign="center" fontFace="primaryBold" textColor="primaryContrast" fontSize="lg">
+                    {title}
+                </Heading>
+                <Spacer size={16} />
                 <CurrencyLabel currency={currency} value={value} textColor="primaryContrast" fontFace="primaryBold" />
-                <Text fontFace="primaryRegular" textColor="primaryContrast" fontSize="sm">
+                <Text textAlign="center" fontFace="primaryRegular" textColor="primaryContrast" fontSize="sm">
                     {description}
                 </Text>
             </S.PaymentStatusWrapper>

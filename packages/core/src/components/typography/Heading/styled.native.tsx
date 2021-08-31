@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components/native";
 import { Text } from "react-native";
-import { textColors, fontSizes, fontFaces } from "../../../theme/mixins/native";
+import { textColors, fontSizes, fontFaces, textAlign } from "../../../theme/mixins/native";
 
 export const Heading = styled(Text)`
     ${props =>
@@ -15,7 +15,8 @@ export const Heading = styled(Text)`
                   text-decoration: underline;
               `
             : null}    
-    
+
+    ${textAlign};
     ${fontFaces};
     ${fontSizes};
     ${textColors};

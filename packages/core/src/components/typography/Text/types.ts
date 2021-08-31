@@ -1,6 +1,13 @@
 import * as React from "react";
 import { TextProps } from "react-native";
-import { FontFaceTypes, NativeFontFaceTypes, FontSizeTypes, FontWeightTypes, ColorTypes } from "../../../theme/types";
+import {
+    FontFaceTypes,
+    NativeFontFaceTypes,
+    FontSizeTypes,
+    FontWeightTypes,
+    ColorTypes,
+    NativeTextAlignTypes,
+} from "../../../theme/types";
 
 type CommonProps = {
     /** Renders components as text childrens. */
@@ -27,6 +34,7 @@ type CommonProps = {
 
 type NativeProps = Omit<CommonProps, "fontFace"> & {
     fontFace?: NativeFontFaceTypes;
+    textAlign?: NativeTextAlignTypes;
 };
 
 export type NativeTextProps = TextProps & NativeProps;
