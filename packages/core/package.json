@@ -89,7 +89,9 @@
         "prebuild": "rm -rf dist/ && rm -rf mobile/",
         "cleanup:web": "cd dist/components && find . -name '*.native.d.ts' | xargs rm",
         "cleanup:mobile": "cd mobile/components && find . -type f ! -name '*.native.d.ts' | xargs rm",
-        "build": "yarn prebuild && rollup -c && tsc --project tsconfig.native.json",
+        "build:web": "rollup -c",
+        "build:mobile": "tsc --project tsconfig.native.json",
+        "build": "yarn prebuild && yarn build:web && yarn build:mobile",
         "publish:local": "yarn build && yalc publish --files --no-scripts",
         "publish:npm": "yarn semantic-release"
     }
