@@ -50,7 +50,7 @@ export const ButtonWrapper = styled.button`
     &:hover,
     :focus {
         box-shadow: ${({ theme }) => theme.shadows.xs};
-        opacity: 0.9;
+        opacity: 0.8;
         outline: none;
     }
 `;

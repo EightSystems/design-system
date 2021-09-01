@@ -1,119 +1,113 @@
-import React from "react";
-import { uniqueId } from "lodash";
-import classnames from "classnames";
-import { IMaskMixin } from "react-imask";
-
+import * as React from "react";
+import * as S from "./styled";
 import { WebTextFieldProps } from "./types";
 
 import { MdInfo, MdCheck, MdError } from "react-icons/md";
-import ClipLoader from "react-spinners/ClipLoader";
-
+import { IMaskMixin } from "react-imask";
+import { Spinner } from "../../feedback/Spinner";
 import Tooltip from "../../feedback/Tooltip";
-
-import * as S from "./styled";
+import { theme } from "../../../theme";
 
 const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <S.InputComponent {...props} ref={inputRef} />);
 
-type TextFieldState = { isFocused: boolean };
+const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
+    (
+        {
+            name,
+            label,
+            placeholder,
+            disabled,
+            required,
+            type,
+            onBlur,
+            onFocus,
+            onChange,
+            validationSuccess,
+            validationError,
+            validationMessage,
+            tooltipContent,
+            tooltipPlacement,
+            tooltipOffset,
+            tooltipClass,
+            icon,
+            children,
+            value,
+            ...props
+        },
+        componentRef
+    ) => {
+        const [focused, setFocused] = React.useState<boolean>(false);
 
-class TextField extends React.Component<WebTextFieldProps, TextFieldState> {
-    static defaultProps = {
-        value: "",
-    };
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            isFocused: false,
-        };
-    }
-
-    render() {
-        const inputClasses = classnames({
-            "input--focused": this.state.isFocused === true,
-            "input--error": this.props.validationError,
-            "input--success": this.props.validationSuccess,
-        });
-
-        const elementUniqueId = uniqueId(this.props.name);
         return (
-            <S.MainWrapper className={this.props.controlClass}>
-                <S.InputLabel htmlFor={elementUniqueId}>{this.props.label}</S.InputLabel>
-                <S.InputWrapper className={inputClasses}>
-                    {this.props.children ? (
-                        this.props.children
+            <S.MainWrapper>
+                <S.InputLabel data-disabled={disabled} data-focused={focused} htmlFor={name}>
+                    {label}
+                </S.InputLabel>
+                <S.InputWrapper
+                    data-disabled={disabled}
+                    data-focused={focused}
+                    data-validation-success={validationSuccess}
+                    data-validation-error={validationError}
+                >
+                    {children ? (
+                        children
                     ) : (
                         <MaskedStyledInput
-                            {...this.props}
-                            id={elementUniqueId}
-                            aria-label={this.props.label}
-                            aria-required={this.props.required}
-                            name={this.props.name}
-                            placeholder={this.props.placeholder}
-                            type={this.props.type}
-                            autoComplete={this.props.autoComplete}
-                            autoFocus={this.props.autoFocus}
-                            disabled={this.props.disabled}
+                            {...props}
+                            name={name}
+                            aria-label={label}
+                            aria-required={required}
+                            placeholder={placeholder}
                             onFocus={e => {
-                                this.setState(
-                                    {
-                                        isFocused: true,
-                                    },
-                                    () => {
-                                        if (this.props.onFocus) {
-                                            this.props.onFocus(e);
-                                        }
-                                    }
-                                );
+                                if (onFocus) {
+                                    onFocus(e);
+                                }
+                                setFocused(true);
                             }}
                             onBlur={e => {
-                                this.setState(
-                                    {
-                                        isFocused: false,
-                                    },
-                                    () => {
-                                        if (this.props.onBlur) {
-                                            this.props.onBlur(e);
-                                        }
-                                    }
-                                );
+                                if (onBlur) {
+                                    onBlur(e);
+                                }
+                                setFocused(false);
                             }}
-                            onChange={this.props.onChange}
+                            onChange={onChange}
+                            ref={componentRef}
+                            value={value}
                         />
                     )}
-                    {this.props.icon && this.props.tooltipContent ? (
+                    {icon && tooltipContent ? (
                         <Tooltip
-                            tooltipContent={this.props.tooltipContent}
-                            placement={this.props.tooltipPlacement}
-                            offset={this.props.tooltipOffset}
-                            className={this.props.tooltipClass}
+                            tooltipContent={tooltipContent}
+                            placement={tooltipPlacement}
+                            offset={tooltipOffset}
+                            className={tooltipClass}
                         >
                             <S.IconWrapper>
                                 <React.Fragment>
-                                    {this.props.icon === "info" ? <MdInfo /> : null}
-                                    {this.props.icon === "error" ? <MdError /> : null}
-                                    {this.props.icon === "success" ? <MdCheck /> : null}
+                                    {icon === "info" ? <MdInfo /> : null}
+                                    {icon === "error" ? <MdError /> : null}
+                                    {icon === "success" ? <MdCheck /> : null}
                                 </React.Fragment>
                             </S.IconWrapper>
                         </Tooltip>
                     ) : null}
-                    {this.props.icon === "loadingSpinner" ? (
+                    {icon === "loadingSpinner" ? (
                         <S.IconWrapper>
-                            <ClipLoader css={S.SpinnerOverride} size={24} color="gray" />
+                            <Spinner size={18} color={theme.colors.darkTint} />
                         </S.IconWrapper>
                     ) : null}
                 </S.InputWrapper>
                 <S.InputValidationContainer>
-                    {this.props.validationMessage ? (
+                    {validationMessage ? (
                         <React.Fragment>
                             <MdInfo />
-                            <S.InputValidationMessage>{this.props.validationMessage}</S.InputValidationMessage>
+                            <S.InputValidationMessage>{validationMessage}</S.InputValidationMessage>
                         </React.Fragment>
                     ) : null}
                 </S.InputValidationContainer>
             </S.MainWrapper>
         );
     }
-}
+);
 
 export default React.memo(TextField);

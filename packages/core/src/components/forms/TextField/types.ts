@@ -1,5 +1,6 @@
-import React, { ComponentProps } from "react";
-import { TextInputProps, StyleProp, ViewProps } from "react-native";
+import * as React from "react";
+import { TextInputProps, StyleProp, ViewProps, ImagePickerIOS } from "react-native";
+import { TextInputMaskProps } from "react-native-masked-text";
 
 type CommonProps = {
     /** Unique name used to generate de native input ID. */
@@ -69,6 +70,12 @@ type WebProps = CommonProps & {
 
     /** Injects custom classes in the container that wraps the entire controller (label + input). */
     controlClass?: string;
+
+    mask?: Array<any> | Function | String | RegExp | Date | Number;
+
+    min?: number | Date;
+
+    max?: number | Date;
 };
 
 type NativeProps = CommonProps & {
@@ -80,7 +87,10 @@ type NativeProps = CommonProps & {
 
     /** Used to pass custom styles to the native `TextInput` component. */
     inputStyle?: StyleProp<TextInputProps>;
+
+    /** Determinates if it is a masked input. */
+    masked?: boolean;
 };
 
-export type NativeTextFieldProps = TextInputProps & NativeProps;
+export type NativeTextFieldProps = TextInputProps & TextInputMaskProps & NativeProps;
 export type WebTextFieldProps = React.ComponentProps<"input"> & WebProps;

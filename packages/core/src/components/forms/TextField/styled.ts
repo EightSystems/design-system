@@ -3,43 +3,61 @@ import styled, { css } from "styled-components";
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
-
-    .input--focused {
-        border-color: ${({ theme }) => theme.colors.primary};
-        box-shadow: ${props => props.theme.shadows.xs};
-    }
-    .input--error {
-        border-color: ${({ theme }) => theme.colors.danger};
-    }
-    .input--success {
-        border-color: ${({ theme }) => theme.colors.success};
-    }
 `;
 export const InputLabel = styled.label`
+    transition: 150ms ease-in-out;
     padding-bottom: ${props => props.theme.spacing.xxs};
     color: ${({ theme }) => theme.colors.darkTint};
-    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
+    font-family: ${({ theme }) => theme.typography.fontFaces.primary};
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 20px;
+
+    &[data-focused="true"] {
+        color: ${({ theme }) => theme.colors.primary};
+    }
+
+    &[data-disabled="true"] {
+        opacity: 0.8;
+    }
 `;
 export const InputWrapper = styled.div`
     display: flex;
+    align-items: center;
     transition: 150ms ease-in-out;
-
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
-    border-radius: 5px;
-    border-color: ${({ theme }) => theme.colors.medium};
+    border-radius: 6px;
+    border-color: ${({ theme }) => theme.colors.darkTint};
+
+    &:hover {
+        border-color: ${({ theme }) => theme.colors.primary};
+    }
+
+    &[data-focused="true"] {
+        border-color: ${({ theme }) => theme.colors.primary};
+        box-shadow: ${props => props.theme.shadows.default};
+    }
+
+    &[data-validation-success="true"] {
+        border-color: ${({ theme }) => theme.colors.success};
+    }
+    &[data-validation-error="true"] {
+        border-color: ${({ theme }) => theme.colors.danger};
+    }
+
+    &[data-disabled="true"] {
+        opacity: 0.8;
+    }
 `;
 export const InputComponent = styled.input`
     font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
     color: ${({ theme }) => theme.colors.darkTint};
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 20px;
 
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 12px 12px;
     width: 100%;
     border: none;
@@ -57,12 +75,8 @@ export const IconWrapper = styled.div`
     align-items: center;
     padding-right: 12px;
     height: 100%;
-    color: ${props => props.theme.colors.medium};
-    svg {
-        cursor: pointer;
-        width: 28px;
-        height: 28px;
-    }
+    position: relative;
+    bottom: 2px;
 `;
 export const InputValidationMessage = styled.span`
     padding-left: 2px;
