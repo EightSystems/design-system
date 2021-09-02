@@ -41,9 +41,10 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
 
         const inputProps = {
             maxLength: props.maxLength ? props.maxLength : null,
-            "data-disable": disabled,
+            "data-disabled": disabled,
             nativeID: elementUniqueId,
             editable: !disabled,
+            placeholder,
         };
         return (
             <S.MainWrapper accessible accessibilityLabel={label} accessibilityState={accessibilityState}>

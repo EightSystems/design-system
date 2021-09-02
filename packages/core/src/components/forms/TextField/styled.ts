@@ -72,6 +72,8 @@ const InputComponentCommonStyles = css`
 `;
 
 export const MaskedInputComponent = styled.div`
+    width: 100%;
+
     & > input {
         ${InputComponentCommonStyles};
     }

@@ -4,20 +4,24 @@ import { TextField } from "../components/forms/TextField";
 <Meta title="Forms/TextField" component={TextField} />
 
 # TextField
-The `TextField` component is a complete form control that allow for text capture. It's the junction of web native elements `<label>` and `<input>`.
 
-On the web, it supports native props like `required`, `disabled` and `type` (excepts for types that change the text field behavior to a non-text input, more details on Props list).
+The `TextField` component is a complete form control that allow for text capture. It's the junction of web native
+elements `<label>` and `<input>`.
+
+On the web, it supports native props like `required`, `disabled` and `type` (excepts for types that change the text
+field behavior to a non-text input, more details on Props list).
 
 This components is commonly used on forms and dialog boxes.
 
-## Import 
+## Import
 
 ```jsx
-import { TextField} from "@8sistemas/design-system";
-``` 
+import { TextField } from "@8sistemas/design-system";
+```
+
 ## Variantes
 
-The `TextField` requires duas obligatory props, `name` and `label`:
+The `TextField` requires two obligatory props, `name` and `label`:
 
 <Canvas>
     <Story name="Regular TextField" args={{ name: "inputName", label: "Input Label" }}>
@@ -25,9 +29,19 @@ The `TextField` requires duas obligatory props, `name` and `label`:
     </Story>
 </Canvas>
 
-Validation states can be achieved by using the props `validationError` to indicate validation error, `validationSuccess` to indicate validation success, and `validationMessage` to insert a helper message during the validation.
+### Disabled
 
-### Valiation error 
+<Canvas>
+    <Story name="Disabled TextField" args={{ name: "inputName", label: "Input Label Disabled", disabled: true, placeholder: "Disabled value" }}>
+        {args => <TextField {...args} />}
+    </Story>
+</Canvas>
+
+## Validation States
+Validation states can be achieved by using the props `validationError` to indicate validation error, `validationSuccess`
+to indicate validation success, and `validationMessage` to insert a helper message during the validation.
+
+### Validation error
 
 <Canvas>
     <Story
@@ -55,7 +69,9 @@ Validation states can be achieved by using the props `validationError` to indica
     </Story>
 </Canvas>
 
-It's also possible to create a `TextField` with a help icon that will show a tooltip and provide context to the type of infomation that will be required by the input, using the props `icon` to show the icon, and `tooltipContent`, `tooltipPlacement` and `tooltipOffset` to configure the content and positioning of the tooltip: 
+It's also possible to create a `TextField` with a help icon that will show a tooltip and provide context to the type of
+infomation that will be required by the input, using the props `icon` to show the icon, and `tooltipContent`,
+`tooltipPlacement` and `tooltipOffset` to configure the content and positioning of the tooltip:
 
 <Canvas>
     <Story
@@ -74,7 +90,9 @@ It's also possible to create a `TextField` with a help icon that will show a too
 </Canvas>
 
 ## Masks
-Under the hood, `TextField` uses react-imask to configure masks on inputs. To see more information about the props available for mask controls on with IMask, use IMask's [official documentation](https://imask.js.org/) as reference.
+
+Under the hood, `TextField` uses react-imask to configure masks on inputs. To see more information about the props
+available for mask controls on with IMask, use IMask's [official documentation](https://imask.js.org/) as reference.
 
 ### Example:
 
@@ -84,13 +102,13 @@ Under the hood, `TextField` uses react-imask to configure masks on inputs. To se
     <Story name="Date Masked TextField">
         <TextField
             name="date"
-            label="Data de nascimento"
-            mask={Date}
-            pattern="d/`m/`YY"
-            maxLength="10"
             placeholder="dd/mm/aaaa"
-            min={new Date(1900, 0, 1)}
-            max={new Date(2010, 0, 1)}
+            label="Date"
+            masked="true"
+            type={"datetime"}
+            options={{
+                format: "DD/MM/YYYY",
+            }}
         />
     </Story>
 </Canvas>

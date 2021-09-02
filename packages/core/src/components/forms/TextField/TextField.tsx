@@ -56,6 +56,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                         <S.MaskedInputComponent>
                             <TextInputMask
                                 {...props}
+                                disabled={disabled || null}
                                 kind={type}
                                 options={options}
                                 name={name}
@@ -91,6 +92,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                             aria-label={label}
                             aria-required={required}
                             placeholder={placeholder}
+                            disabled={disabled}
                             onFocus={e => {
                                 if (onFocus) {
                                     onFocus(e);

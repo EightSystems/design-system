@@ -32,6 +32,14 @@ export const InputWrapper = styled.View`
                   border-color: ${({ theme }) => theme.colors.danger};
               `
             : null}
+
+    ${props =>
+        props["data-validationSuccess"] == true
+            ? css`
+                  border-color: ${({ theme }) => theme.colors.success};
+              `
+            : null}
+
     ${props =>
         props["data-focused"] == true
             ? css`
@@ -45,6 +53,13 @@ const InputComponentCommonStyles = css`
     font-size: 16px;
     padding: 8px 12px;
     width: 100%;
+
+    ${props =>
+        props["data-disabled"] == true
+            ? css`
+                  opacity: 0.8;
+              `
+            : null}
 `;
 
 export const InputComponent = styled.TextInput`
@@ -57,7 +72,6 @@ export const MaskedInputComponent = styled(TextInputMask)`
 
 export const InputValidationContainer = styled.View`
     margin-top: ${props => props.theme.spacing.xxs};
-    height: ${props => props.theme.spacing.md};
     flex: 1;
     flex-direction: row;
     align-items: center;
@@ -67,4 +81,5 @@ export const InputValidationMessage = styled.Text`
     font-family: ${props => props.theme.nativeTypography.fontFaces.primaryRegular};
     color: ${props => props.theme.colors.danger};
     padding-left: 4px;
+    padding-right: 4px;
 `;
