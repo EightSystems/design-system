@@ -50,7 +50,8 @@ export const InputWrapper = styled.div`
         opacity: 0.8;
     }
 `;
-export const InputComponent = styled.input`
+
+const InputComponentCommonStyles = css`
     font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
     color: ${({ theme }) => theme.colors.darkTint};
     font-size: 14px;
@@ -69,6 +70,17 @@ export const InputComponent = styled.input`
         color: ${({ theme }) => theme.colors.mediumShade};
     }
 `;
+
+export const MaskedInputComponent = styled.div`
+    & > input {
+        ${InputComponentCommonStyles};
+    }
+`;
+
+export const InputComponent = styled.input`
+    ${InputComponentCommonStyles};
+`;
+
 export const IconWrapper = styled.div`
     display: flex;
     justify-content: center;

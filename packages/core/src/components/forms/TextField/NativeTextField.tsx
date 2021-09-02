@@ -1,10 +1,11 @@
-import React from "react";
-import { uniqueId } from "lodash";
+import * as React from "react";
 import * as S from "./styled.native";
-import { NativeTextFieldProps } from "./types";
 import { TextInputProps } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import { NativeTextFieldProps } from "./types";
 import { nativeTheme } from "../../../theme";
+
+import { uniqueId } from "lodash";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
     (
@@ -13,7 +14,10 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
             label,
             placeholder,
             autoCompleteType,
-            disabled,
+            masked = false,
+            disabled = false,
+            type,
+            options,
             validationSuccess,
             validationError,
             validationMessage,
@@ -21,9 +25,10 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
             controlStyle,
             inputStyle,
             validationStyle,
-            masked,
-            type,
-            options,
+            value,
+            onBlur,
+            onFocus,
+            onChange,
             ...props
         },
         componentRef
@@ -31,15 +36,13 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
         const accessibilityState = { disabled: disabled };
         const elementUniqueId = uniqueId(name);
 
-        const [value, setValue] = React.useState<any>("");
+        const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
         const [focused, setFocused] = React.useState<boolean>(false);
 
         const inputProps = {
             maxLength: props.maxLength ? props.maxLength : null,
             "data-disable": disabled,
             nativeID: elementUniqueId,
-            placeholder: placeholder,
-            value: value,
             editable: !disabled,
         };
         return (
@@ -52,21 +55,45 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
                 >
                     {masked ? (
                         <S.MaskedInputComponent
-                            {...props}
-                            {...inputProps}
                             type={type}
                             options={options}
-                            onChangeText={text => setValue(text)}
-                            onFocus={() => setFocused(true)}
-                            onBlur={() => setFocused(false)}
+                            {...props}
+                            {...inputProps}
+                            onFocus={e => {
+                                if (onFocus) {
+                                    onFocus(e);
+                                }
+                                setFocused(true);
+                            }}
+                            onBlur={e => {
+                                if (onBlur) {
+                                    onFocus(e);
+                                }
+                                setFocused(false);
+                            }}
+                            onChangeText={text => setUncontrolledValue(text)}
+                            ref={componentRef}
+                            value={value ? value : uncontrolledValue}
                         />
                     ) : (
                         <S.InputComponent
                             {...props}
                             {...inputProps}
-                            onChangeText={text => setValue(text)}
-                            onFocus={() => setFocused(true)}
-                            onBlur={() => setFocused(false)}
+                            onFocus={e => {
+                                if (onFocus) {
+                                    onFocus(e);
+                                }
+                                setFocused(true);
+                            }}
+                            onBlur={e => {
+                                if (onBlur) {
+                                    onFocus(e);
+                                }
+                                setFocused(false);
+                            }}
+                            onChangeText={text => setUncontrolledValue(text)}
+                            ref={componentRef}
+                            value={value ? value : uncontrolledValue}
                         />
                     )}
                 </S.InputWrapper>

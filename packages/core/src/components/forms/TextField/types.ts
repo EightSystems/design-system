@@ -1,6 +1,5 @@
 import * as React from "react";
-import { TextInputProps, StyleProp, ViewProps, ImagePickerIOS } from "react-native";
-import { TextInputMaskProps } from "react-native-masked-text";
+import { TextInputProps, StyleProp, ViewProps } from "react-native";
 
 type CommonProps = {
     /** Unique name used to generate de native input ID. */
@@ -32,14 +31,31 @@ type CommonProps = {
 
     /** Limits the maximum number of characters that can be entered. */
     maxLength?: number;
+
+    /** If specified, will define what of icon will be shown inside the component. */
+    icon?: "info" | "error" | "success" | "loadingSpinner";
+
+    /** If specified, defines that this TextField should be masked */
+    masked?: boolean;
+
+    type?:
+        | "credit-card"
+        | "cpf"
+        | "cnpj"
+        | "zip-code"
+        | "only-numbers"
+        | "money"
+        | "cel-phone"
+        | "datetime"
+        | "custom"
+        | string;
+
+    options?: any;
 };
 
 type WebProps = CommonProps & {
     /** Type of the `input` element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
     type: "password" | "email" | "text" | "tel" | "number" | "search" | "url";
-
-    /** If specified, will define what of icon will be shown inside the component. */
-    icon?: "info" | "error" | "success" | "loadingSpinner";
 
     /** If specified, determinates the content inside the Tooltip. Must be a valid React element. */
     tooltipContent?: React.ReactNode | string;
@@ -70,12 +86,6 @@ type WebProps = CommonProps & {
 
     /** Injects custom classes in the container that wraps the entire controller (label + input). */
     controlClass?: string;
-
-    mask?: Array<any> | Function | String | RegExp | Date | Number;
-
-    min?: number | Date;
-
-    max?: number | Date;
 };
 
 type NativeProps = CommonProps & {
@@ -92,5 +102,5 @@ type NativeProps = CommonProps & {
     masked?: boolean;
 };
 
-export type NativeTextFieldProps = TextInputProps & TextInputMaskProps & NativeProps;
+export type NativeTextFieldProps = TextInputProps & NativeProps;
 export type WebTextFieldProps = React.ComponentProps<"input"> & WebProps;

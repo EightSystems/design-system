@@ -1,14 +1,12 @@
 import * as React from "react";
 import * as S from "./styled";
 import { WebTextFieldProps } from "./types";
+import TextInputMask from "react-masked-text";
 
 import { MdInfo, MdCheck, MdError } from "react-icons/md";
-import { IMaskMixin } from "react-imask";
 import { Spinner } from "../../feedback/Spinner";
 import Tooltip from "../../feedback/Tooltip";
 import { theme } from "../../../theme";
-
-const MaskedStyledInput = IMaskMixin(({ inputRef, ...props }) => <S.InputComponent {...props} ref={inputRef} />);
 
 const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
     (
@@ -16,12 +14,11 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
             name,
             label,
             placeholder,
-            disabled,
-            required,
+            disabled = false,
+            required = false,
+            masked,
             type,
-            onBlur,
-            onFocus,
-            onChange,
+            options,
             validationSuccess,
             validationError,
             validationMessage,
@@ -32,10 +29,14 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
             icon,
             children,
             value,
+            onBlur,
+            onFocus,
+            onChange,
             ...props
         },
         componentRef
     ) => {
+        const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
         const [focused, setFocused] = React.useState<boolean>(false);
 
         return (
@@ -51,8 +52,40 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                 >
                     {children ? (
                         children
+                    ) : masked ? (
+                        <S.MaskedInputComponent>
+                            <TextInputMask
+                                {...props}
+                                kind={type}
+                                options={options}
+                                name={name}
+                                aria-label={label}
+                                aria-required={required}
+                                placeholder={placeholder}
+                                onFocus={e => {
+                                    if (onFocus) {
+                                        onFocus(e);
+                                    }
+                                    setFocused(true);
+                                }}
+                                onBlur={e => {
+                                    if (onBlur) {
+                                        onBlur(e);
+                                    }
+                                    setFocused(false);
+                                }}
+                                onChangeText={e => {
+                                    if (onChange) {
+                                        onChange(e);
+                                    }
+                                    setUncontrolledValue(e);
+                                }}
+                                ref={componentRef}
+                                value={value ? value : uncontrolledValue}
+                            />
+                        </S.MaskedInputComponent>
                     ) : (
-                        <MaskedStyledInput
+                        <S.InputComponent
                             {...props}
                             name={name}
                             aria-label={label}
@@ -70,9 +103,14 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                                 }
                                 setFocused(false);
                             }}
-                            onChange={onChange}
+                            onChange={e => {
+                                if (onChange) {
+                                    onChange(e);
+                                }
+                                setUncontrolledValue(e);
+                            }}
                             ref={componentRef}
-                            value={value}
+                            value={value ? value : uncontrolledValue}
                         />
                     )}
                     {icon && tooltipContent ? (
