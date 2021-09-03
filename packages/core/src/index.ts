@@ -3,7 +3,7 @@ import ThemeProviderInjector from "./components/core/ThemeProviderInjector";
 import { theme as Theme } from "./theme";
 
 // Icons
-import { AntDesign, Feather, FontAwesome, Ionic, Material } from "./components/primitives/Icon";
+import { Icon } from "./components/primitives/Icon";
 
 // Layout Components
 import Box from "./components/layout/Box";
@@ -73,11 +73,7 @@ export {
     useExtendedTheme,
     useContainerDimensions,
     useDetectOutsideClick,
-    AntDesign,
-    Feather,
-    FontAwesome,
-    Ionic,
-    Material,
+    Icon,
 };
 
 export type {
