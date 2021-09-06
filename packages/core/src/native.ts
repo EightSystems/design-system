@@ -1,5 +1,9 @@
+// Core components
 import { nativeTheme as Theme } from "./theme";
 import ThemeProviderInjector from "./components/core/ThemeProviderInjector/index.native";
+
+// Icons
+import { Icon } from "./components/primitives/Icon/index.native";
 
 // Layout components
 import Box from "./components/layout/Box/index.native";
@@ -46,6 +50,7 @@ export {
     useClipboard,
     useExtendedTheme,
     useKeyboardDismissable,
+    Icon,
 };
 
 export type {

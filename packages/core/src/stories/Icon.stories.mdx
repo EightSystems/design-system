@@ -1,0 +1,51 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Button } from "../components/forms/Button";
+import { Icon } from "../components/primitives/Icon";
+
+<Meta title="Primitives/Icon" component={Icon} />
+
+# Icon
+
+The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+
+## Import
+
+```jsx
+import { Icon } from "@8sistemas/design-system";
+```
+
+## Usage
+
+<Canvas>
+    <Story name="Ant Design" args={{familyName: 'AntDesign', icon: 'ai-fill-bug', style: {fontSize: 40}}}>
+        {args => <Icon {...args} />}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Font Awesome" args={{familyName: 'FontAwesome', icon: 'fa-amazon-pay', style: {fontSize: 40}}}>
+        {args => <Icon {...args} />}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Feather" args={{familyName: 'Feather', icon: 'fi-bell', style: {fontSize: 40}}}>
+        {args => <Icon {...args} />}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Ionic" args={{familyName: 'Ionic', icon: 'io-airplane-outline', style: {fontSize: 40}}}>
+        {args => <Icon {...args} />}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Material" args={{familyName: 'Material', icon: 'md-backup', style: {fontSize: 40}}}>
+        {args => <Icon {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Icon} />

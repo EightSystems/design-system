@@ -20,11 +20,11 @@
     "peerDependencies": {
         "react": ">=17.0.1",
         "react-dom": ">=17.0.1",
-        "react-icons": ">=4.2.0",
         "react-native": ">=0.64.2",
         "react-native-localize": ">=2.1.1",
         "react-native-svg": ">=12.1.1",
         "react-native-svg-transformer": ">=0.14.3",
+        "react-native-vector-icons": ">=8.1.0",
         "styled-components": ">=5.3.0"
     },
     "devDependencies": {
@@ -48,8 +48,10 @@
         "@svgr/rollup": "^5.4.0",
         "@types/react": "^17.0.16",
         "@types/react-native": "^0.64.12",
+        "@types/react-native-vector-icons": "^6.4.8",
         "path": "^0.12.7",
         "prop-types": "^15.7.2",
+        "react-icons": "^4.2.0",
         "react-native-svg": "^12.1.1",
         "react-native-svg-transformer": "^0.14.3",
         "react-native-vector-icons": "^8.1.0",
@@ -74,7 +76,6 @@
         "react": "^17.0.1",
         "react-collapse": "^5.1.0",
         "react-dom": "^17.0.1",
-        "react-icons": "^4.2.0",
         "react-masked-text": "git://github.com/gkothe/react-masked-text.git#master",
         "react-native": "0.64.2",
         "react-native-localize": "^2.1.1",
