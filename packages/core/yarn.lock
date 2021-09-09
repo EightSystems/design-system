@@ -14769,12 +14769,6 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-"react-masked-text@git://github.com/gkothe/react-masked-text.git#master":
-  version "0.4.2"
-  resolved "git://github.com/gkothe/react-masked-text.git#06fa31e0ddcbf91cd034acaebf3c5240eae06722"
-  dependencies:
-    tinymask "1.0.2"
-
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.6.tgz#b3173faa879cf71bfade8d030f9c4698388f6909"
@@ -14990,6 +14984,13 @@ react-textarea-autosize@^8.3.0:
     "@babel/runtime" "^7.10.2"
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
+
+react-web-mask@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-web-mask/-/react-web-mask-1.0.0.tgz#ee2a1448b8c1d44b79698c2b4115a528bd347099"
+  integrity sha512-1RleOnHMqjqKyO0TyGVngeuSVgNkoza0z2m59q9kXFwKhrKGdLSBrMq4d08JYuDY63XVNj/yHBEgbhQPyOZEHA==
+  dependencies:
+    tinymask "1.0.2"
 
 react@^17.0.1:
   version "17.0.2"

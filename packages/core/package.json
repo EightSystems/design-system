@@ -76,12 +76,12 @@
         "react": "^17.0.1",
         "react-collapse": "^5.1.0",
         "react-dom": "^17.0.1",
-        "react-masked-text": "git://github.com/gkothe/react-masked-text.git#master",
         "react-native": "0.64.2",
         "react-native-localize": "^2.1.1",
         "react-native-masked-text": "^1.13.0",
         "react-popper": "^2.2.5",
         "react-spinners": "^0.10.6",
+        "react-web-mask": "^1.0.0",
         "styled-components": "^5.3.0"
     },
     "scripts": {
