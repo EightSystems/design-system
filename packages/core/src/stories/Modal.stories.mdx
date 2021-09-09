@@ -1,0 +1,26 @@
+import { Fragment, useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Modal } from "../components/composites/Modal";
+import { Button } from "../components/forms/Button";
+
+<Meta title="Composites/Modal" component={Modal} />
+
+# Modal
+
+A Simple Modal Component
+
+<Canvas>
+    <Story name="Modal" args={{ open: false }}>
+        {args => {
+            return (
+                <Modal {...args}>
+                    <Button>Modal Content Here</Button>
+                </Modal>
+            );
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Modal} />

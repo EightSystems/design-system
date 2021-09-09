@@ -1,12 +1,15 @@
 import React from "react";
 import { Transition } from "@headlessui/react";
-import Proptypes from "prop-types";
 import * as S from "./styled";
 
-const Modal = props => {
+import { WebModalProps } from "./types";
+
+const Modal = (props: WebModalProps) => {
+    const onClose = props.onClose || (() => null);
+
     return (
         <Transition appear={true} show={props.open}>
-            <S.StyledDialog className={props.className} onClose={() => console.log("Fuck off Storybook")}>
+            <S.StyledDialog className={props.className} onClose={onClose}>
                 <Transition.Child
                     enter="ease-out duration-300"
                     enterFrom="opacity-0"
@@ -33,12 +36,5 @@ const Modal = props => {
     );
 };
 
-Modal.propTypes = {
-    classNames: Proptypes.string,
-    overlayClass: Proptypes.string,
-    open: Proptypes.bool,
-    onClose: Proptypes.func,
-    initialFocus: Proptypes.any,
-};
-
-export default Modal;
+export { Modal };
+export type { WebModalProps };

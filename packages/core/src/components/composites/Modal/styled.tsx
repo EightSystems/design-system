@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Dialog } from "@headlessui/react";
 
 export const StyledDialog = styled(Dialog)`
-    padding: ${props => props.theme.space.default};
+    padding: ${props => props.theme.spacing.default};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,6 +46,6 @@ export const ModalWrapper = styled.div`
     background-color: ${props => props.theme.colors.background};
     border: solid 1px ${props => props.theme.colors.gray};
     border-radius: 4px;
-    box-shadow: ${props => props.theme.boxShadow.default};
-    padding: ${props => props.theme.space.default};
+    box-shadow: ${props => props.theme.shadows.default};
+    padding: ${props => props.theme.spacing.default};
 `;
