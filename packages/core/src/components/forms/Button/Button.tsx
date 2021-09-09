@@ -1,8 +1,9 @@
 import * as React from "react";
 import { WebButtonProps } from "./types";
 import * as S from "./styled";
+import { nativeTheme } from "../../../theme";
 
-import { ClipLoader } from "react-spinners";
+import { Spinner } from "../../feedback/Spinner";
 import Spacer from "../../layout/Spacer";
 
 const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
@@ -20,7 +21,8 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
             startIcon,
             endIcon,
             iconPadding,
-            spinnerColor,
+            spinnerColor = nativeTheme.colors.primaryContrast,
+            spinnerSize = 12,
             children,
             ...props
         },
@@ -38,13 +40,6 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
                 data-disabled={disabled || loading}
                 ref={componentRef}
             >
-                {loading ? (
-                    <React.Fragment>
-                        <ClipLoader color={spinnerColor} />
-                        <Spacer size={12} />
-                    </React.Fragment>
-                ) : null}
-
                 {startIcon && React.isValidElement(startIcon)
                     ? React.Children.map(startIcon, child => {
                           return React.cloneElement(child);
@@ -56,6 +51,12 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
                 {children}
 
                 {endIcon && React.isValidElement(endIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
+
+                {loading ? (
+                    <S.SpinnerContainer>
+                        <Spinner color={spinnerColor} size={spinnerSize} />
+                    </S.SpinnerContainer>
+                ) : null}
 
                 {endIcon && React.isValidElement(endIcon)
                     ? React.Children.map(endIcon, child => {

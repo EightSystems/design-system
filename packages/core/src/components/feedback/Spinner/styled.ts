@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const SpinnerContainer = styled.div`
-    width: ${props => `${props.size}px`};
-    height: ${props => `${props.size}px`};
+    width: ${props => `${props.size + 4}px`};
+    height: ${props => `${props.size + 4}px`};
 `;
 
 export const SpinnerBody = styled.span`
@@ -11,6 +11,10 @@ export const SpinnerBody = styled.span`
             transform: rotate(360deg);
         }
     }
+
+    display: block;
+    width: ${props => `${props.size + 4}px`};
+    height: ${props => `${props.size + 4}px`};
 
     :before {
         width: ${props => `${props.size}px`};

@@ -41,6 +41,9 @@ export const ButtonWrapper = styled.button`
         border-width: 2px;
     }
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: 150ms ease-in-out;
     user-select: none;
     cursor: pointer;
@@ -53,4 +56,9 @@ export const ButtonWrapper = styled.button`
         opacity: 0.8;
         outline: none;
     }
+`;
+
+export const SpinnerContainer = styled.div`
+    position: relative;
+    bottom: 1px;
 `;

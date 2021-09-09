@@ -39,6 +39,9 @@ type CommonProps = {
     /** The color of the spinner. */
     spinnerColor?: any;
 
+    /** Size of the spinner. */
+    spinnerSize?: number;
+
     /** When `true` the button is shown as disabled. */
     disabled?: boolean;
 };
