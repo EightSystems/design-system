@@ -9,6 +9,7 @@ export const StyledCircle = ({ children, ...otherProps }) => {
         </Circle>
     );
 };
+
 export const StyledText = styled(Text)`
     font-family: ${props => props.theme.nativeTypography.fontFaces.secondarySemiBold};
     font-weight: 700;
