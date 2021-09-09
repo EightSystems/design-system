@@ -24,7 +24,7 @@ import Modal from "./components/composites/Modal";
 
 // Feedback components
 import Stepper from "./components/feedback/Stepper";
-import Tooltip from "./components/feedback/Tooltip";
+import { Tooltip, WebTooltipProps } from "./components/feedback/Tooltip";
 import Toast from "./components/feedback/Toast";
 import { Spinner, SpinnerWebProps } from "./components/feedback/Spinner";
 
@@ -85,4 +85,5 @@ export type {
     WebTextFieldProps,
     WebSkeletonProps,
     WebPaymentStatusProps,
+    WebTooltipProps,
 };
