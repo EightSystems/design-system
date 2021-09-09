@@ -11,7 +11,20 @@ const sizes = {
     tiny: 330,
 };
 
-export const media = Object.keys(sizes).reduce((accumulator, label) => {
+type MediaMethod = (...args: any) => any;
+
+export type MediaSizes = {
+    giant: MediaMethod;
+    bigDesktop: MediaMethod;
+    desktop: MediaMethod;
+    tablet: MediaMethod;
+    thone: MediaMethod;
+    phablet: MediaMethod;
+    phone: MediaMethod;
+    tiny: MediaMethod;
+};
+
+export const media: MediaSizes = Object.keys(sizes).reduce((accumulator, label) => {
     const emSize = sizes[label] / 16;
     accumulator[label] = (...args) => css`
         @media (max-width: ${emSize}em) {
@@ -19,6 +32,6 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
         }
     `;
     return accumulator;
-}, {});
+}, {} as Record<keyof MediaSizes, MediaMethod>);
 
 export default media;
