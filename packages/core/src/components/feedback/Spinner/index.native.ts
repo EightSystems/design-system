@@ -1,4 +1,4 @@
 import { default as Spinner } from "./SpinnerNative";
 
-export type { SpinnerNativeProps } from "./types";
+export type { NativeSpinnerProps } from "./types";
 export { Spinner };

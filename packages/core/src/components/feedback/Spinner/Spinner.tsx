@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as S from "./styled";
-import { SpinnerWebProps } from "./types";
+import { WebSpinnerProps } from "./types";
 
-const Spinner = React.forwardRef<any, SpinnerWebProps>(({ color, size }, componentRef) => {
+const Spinner = React.forwardRef<any, WebSpinnerProps>(({ color, size }, componentRef) => {
     return (
         <S.SpinnerContainer size={size} ref={componentRef}>
             <S.SpinnerBody size={size} color={color} />

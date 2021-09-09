@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ActivityIndicator, Platform } from "react-native";
-import { SpinnerNativeProps } from "./types";
+import { NativeSpinnerProps } from "./types";
 
-const Spinner = React.forwardRef<any, SpinnerNativeProps>(({ color, size = 36, ...props }, componentRef) => {
+const Spinner = React.forwardRef<any, NativeSpinnerProps>(({ color, size = 36, ...props }, componentRef) => {
     if (Platform.OS === "ios") {
         /*
          * Transform uses a multiplier, so we divide the size by 36 which is the width for the large size

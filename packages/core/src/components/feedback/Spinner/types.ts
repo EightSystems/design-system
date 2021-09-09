@@ -6,5 +6,5 @@ type CommonProps = {
     size: number;
 };
 
-export type SpinnerWebProps = CommonProps & React.ComponentProps<"div">;
-export type SpinnerNativeProps = CommonProps & ActivityIndicatorProps;
+export type WebSpinnerProps = CommonProps & React.ComponentProps<"div">;
+export type NativeSpinnerProps = CommonProps & ActivityIndicatorProps;
