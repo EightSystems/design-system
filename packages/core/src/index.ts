@@ -2,9 +2,6 @@
 import ThemeProviderInjector from "./components/core/ThemeProviderInjector";
 import { theme as Theme } from "./theme";
 
-// Icons
-import { Icon } from "./components/primitives/Icon";
-
 // Layout Components
 import Box from "./components/layout/Box";
 import Spacer from "./components/layout/Spacer";
@@ -39,6 +36,7 @@ import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
 import { CurrencyLabel } from "./components/primitives/CurrencyLabel";
 import ProgressRing from "./components/feedback/ProgressRing";
 import { Skeleton, WebSkeletonProps } from "./components/primitives/Skeleton";
+import { Icon, WebIconProps } from "./components/primitives/Icon";
 
 // Hooks
 import { useDetectOutsideClick } from "./hooks/useDetectOutsideClick";
@@ -56,6 +54,7 @@ export {
     Avatar,
     Button,
     CurrencyLabel,
+    Icon,
     PaymentMethodItem,
     PaymentPrompt,
     PaymentStatus,
@@ -73,7 +72,6 @@ export {
     useExtendedTheme,
     useContainerDimensions,
     useDetectOutsideClick,
-    Icon,
 };
 
 export type {
@@ -86,4 +84,5 @@ export type {
     WebSkeletonProps,
     WebPaymentStatusProps,
     WebTooltipProps,
+    WebIconProps,
 };

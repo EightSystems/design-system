@@ -72,6 +72,6 @@ const Icon = ({ familyName, icon, ...otherProps }: NativeIconProps) => {
     return null;
 };
 
-export type { IconProps } from "./types";
+export type { NativeIconProps } from "./types";
 
 export { Icon };

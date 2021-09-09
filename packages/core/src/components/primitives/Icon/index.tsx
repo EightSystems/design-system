@@ -5,7 +5,7 @@ import * as Feather from "react-icons/fi";
 import * as FontAwesome from "react-icons/fa";
 import * as Ionic from "react-icons/io5";
 import * as Material from "react-icons/md";
-import { IconProps } from "./types";
+import { WebIconProps } from "./types";
 
 const toCamelCase = phrase => {
     return phrase
@@ -15,7 +15,7 @@ const toCamelCase = phrase => {
         .join("");
 };
 
-const Icon = ({ familyName, icon, ...otherProps }: IconProps) => {
+const Icon = ({ familyName, icon, ...otherProps }: WebIconProps) => {
     let libraryModule = null;
     const iconComponentName = toCamelCase(icon.replace(/-/g, " ").replace(/_/g, " "));
     let IconComponent = null;
@@ -56,6 +56,6 @@ const Icon = ({ familyName, icon, ...otherProps }: IconProps) => {
     return null;
 };
 
-export type { IconProps } from "./types";
+export type { WebIconProps } from "./types";
 
 export { Icon };

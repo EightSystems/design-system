@@ -2,9 +2,6 @@
 import { nativeTheme as Theme } from "./theme";
 import ThemeProviderInjector from "./components/core/ThemeProviderInjector/index.native";
 
-// Icons
-import { Icon } from "./components/primitives/Icon/index.native";
-
 // Layout components
 import Box from "./components/layout/Box/index.native";
 import Spacer from "./components/layout/Spacer/index.native";
@@ -16,6 +13,7 @@ import { TextField, NativeTextFieldProps } from "./components/forms/TextField/in
 // Primitive components
 import { CurrencyLabel, NativeCurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
 import { Skeleton, NativeSkeletonProps } from "./components/primitives/Skeleton/index.native";
+import { Icon, NativeIconProps } from "./components/primitives/Icon/index.native";
 
 // Feedback components
 import { Spinner, SpinnerNativeProps } from "./components/feedback/Spinner/index.native";
@@ -62,4 +60,5 @@ export type {
     NativeTextFieldProps,
     NativeSkeletonProps,
     NativePaymentStatusProps,
+    NativeIconProps,
 };
