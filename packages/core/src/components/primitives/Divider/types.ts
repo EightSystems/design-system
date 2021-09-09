@@ -1,8 +1,8 @@
-export type DividerProps = {
+export type WebDividerProps = {
     height?: Number;
 
     className?: string;
     style?: any;
 };
 
-export type NativeDividerProps = Omit<DividerProps, "className">;
+export type NativeDividerProps = Omit<WebDividerProps, "className">;
