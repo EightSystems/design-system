@@ -10,9 +10,11 @@ export const StepperContainer = styled.div`
         justify-content: flex-start;
     `};
 `;
+
 export const TextContainer = styled.div`
     padding-left: ${props => props.theme.spacing.xs};
 `;
+
 export const ActiveStepLabel = styled.h1`
     color: ${props => props.theme.colors.lightContrast};
     font-family: ${props => props.theme.typography.fontFaces.primary};
@@ -23,6 +25,7 @@ export const ActiveStepLabel = styled.h1`
         font-size: 16px;
     `};
 `;
+
 export const NextStepLabel = styled.h2`
     color: ${props => props.theme.colors.lightContrast};
     font-family: ${props => props.theme.typography.fontFaces.primary};
