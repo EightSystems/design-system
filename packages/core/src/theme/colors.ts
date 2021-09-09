@@ -43,6 +43,8 @@ const colors = {
     lightShade: "#E5E5E5",
     lightTint: "#F5F6F9",
     lightContrast: "#090909",
+
+    divider: "#E7E9F2",
 };
 
 export default colors;

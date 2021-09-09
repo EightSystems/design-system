@@ -1,0 +1,21 @@
+import { Fragment } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Divider } from "../components/primitives/Divider";
+
+<Meta title="Primitives/Divider" component={Divider} />
+
+# Divider
+
+A Divider is simply a HR on the Web, and an emulated View on Native
+
+<Canvas>
+    <Story name="Divider" args={{ height: 2 }}>
+        {args => (
+            <Divider {...args} />
+        )}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Divider} />
