@@ -79,6 +79,7 @@
         "react-native": "0.64.2",
         "react-native-localize": "^2.1.1",
         "react-native-masked-text": "^1.13.0",
+        "react-native-popper": "^0.3.0",
         "react-popper": "^2.2.5",
         "react-spinners": "^0.10.6",
         "react-web-mask": "^1.0.0",
