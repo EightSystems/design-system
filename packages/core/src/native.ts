@@ -11,12 +11,16 @@ import { Button, NativeButtonProps } from "./components/forms/Button/index.nativ
 import { TextField, NativeTextFieldProps } from "./components/forms/TextField/index.native";
 
 // Primitive components
+import { Avatar, NativeAvatarProps } from "./components/primitives/Avatar/index.native";
 import { CurrencyLabel, NativeCurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
-import { Skeleton, NativeSkeletonProps } from "./components/primitives/Skeleton/index.native";
+import { Divider, NativeDividerProps } from "./components/primitives/Divider/index.native";
 import { Icon, NativeIconProps } from "./components/primitives/Icon/index.native";
+import { ProgressRing, ProgressRingProps } from "./components/feedback/ProgressRing";
+import { Skeleton, NativeSkeletonProps } from "./components/primitives/Skeleton/index.native";
 
 // Feedback components
-import { Spinner, SpinnerNativeProps } from "./components/feedback/Spinner/index.native";
+import { Spinner, NativeSpinnerProps } from "./components/feedback/Spinner/index.native";
+import { Stepper, StepperProps } from "./components/feedback/Stepper";
 
 // Composite components
 import Modal from "./components/composites/Modal/index.native";
@@ -32,33 +36,41 @@ import { useExtendedTheme } from "./hooks/useExtendedTheme";
 import { useKeyboardDismissable } from "./hooks/useKeyboardDismissable";
 
 export {
-    ThemeProviderInjector,
-    Theme,
+    Avatar,
     Box,
-    Spacer,
     Button,
-    Modal,
-    TextField,
-    Heading,
-    Text,
     CurrencyLabel,
-    Spinner,
-    Skeleton,
+    Divider,
+    Heading,
+    Icon,
+    Modal,
     PaymentStatus,
+    ProgressRing,
+    Skeleton,
+    Spacer,
+    Spinner,
+    Stepper,
+    Text,
+    TextField,
+    Theme,
+    ThemeProviderInjector,
     useClipboard,
     useExtendedTheme,
     useKeyboardDismissable,
-    Icon,
 };
 
 export type {
+    NativeAvatarProps,
     NativeButtonProps,
-    NativeHeadingProps,
-    NativeTextProps,
     NativeCurrencyLabelProps,
-    SpinnerNativeProps,
-    NativeTextFieldProps,
-    NativeSkeletonProps,
-    NativePaymentStatusProps,
+    NativeDividerProps,
+    NativeHeadingProps,
     NativeIconProps,
+    NativePaymentStatusProps,
+    NativeSkeletonProps,
+    NativeSpinnerProps,
+    NativeTextFieldProps,
+    NativeTextProps,
+    ProgressRingProps,
+    StepperProps,
 };
