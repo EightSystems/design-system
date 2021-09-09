@@ -1,11 +1,11 @@
 import * as React from "react";
 import * as S from "./styled";
 import { WebTextFieldProps } from "./types";
-import TextInputMask from "react-masked-text";
+import { TextInputMask } from "react-web-mask";
 
 import { MdInfo, MdCheck, MdError } from "react-icons/md";
 import { Spinner } from "../../feedback/Spinner";
-import Tooltip from "../../feedback/Tooltip";
+import { Tooltip } from "../../feedback/Tooltip";
 import { theme } from "../../../theme";
 
 const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(

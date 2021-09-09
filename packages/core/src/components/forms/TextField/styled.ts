@@ -90,7 +90,6 @@ export const IconWrapper = styled.div`
     padding-right: 12px;
     height: 100%;
     position: relative;
-    bottom: 2px;
 `;
 export const InputValidationMessage = styled.span`
     padding-left: 2px;
