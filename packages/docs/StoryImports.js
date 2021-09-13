@@ -13,12 +13,14 @@ import SkeletonStory from "../core/src/stories/Skeleton.stories";
 import SpinnerStory from "../core/src/stories/Spinner.stories";
 import StepperStory from "../core/src/stories/Stepper.stories";
 import TextFieldStory from "../core/src/stories/TextField.stories";
+import TooltipStory from "../core/src/stories/Tooltip.stories";
 
 const storyList = {
     Introduction: IntroductionStory,
     Usage: UsageStory,
     Theming: ThemingStory,
     //Accordion: AccordionStory,
+    Tooltip: TooltipStory,
     Avatar: AvatarStory,
     Button: ButtonStory,
     CurrencyLabel: CurrencyLabelStory,

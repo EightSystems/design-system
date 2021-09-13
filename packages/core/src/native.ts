@@ -15,12 +15,13 @@ import { Avatar, NativeAvatarProps } from "./components/primitives/Avatar/index.
 import { CurrencyLabel, NativeCurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
 import { Divider, NativeDividerProps } from "./components/primitives/Divider/index.native";
 import { Icon, NativeIconProps } from "./components/primitives/Icon/index.native";
-import { ProgressRing, ProgressRingProps } from "./components/feedback/ProgressRing";
+import { ProgressRing, NativeProgressRingProps } from "./components/feedback/ProgressRing/index.native";
 import { Skeleton, NativeSkeletonProps } from "./components/primitives/Skeleton/index.native";
 
 // Feedback components
 import { Spinner, NativeSpinnerProps } from "./components/feedback/Spinner/index.native";
 import { Stepper, StepperProps } from "./components/feedback/Stepper";
+import { Tooltip, NativeTooltipProps } from "./components/feedback/Tooltip/index.native";
 
 // Composite components
 import Modal from "./components/composites/Modal/index.native";
@@ -49,6 +50,7 @@ export {
     Skeleton,
     Spacer,
     Spinner,
+    Tooltip,
     Stepper,
     Text,
     TextField,
@@ -71,6 +73,7 @@ export type {
     NativeSpinnerProps,
     NativeTextFieldProps,
     NativeTextProps,
-    ProgressRingProps,
+    NativeProgressRingProps,
     StepperProps,
+    NativeTooltipProps,
 };

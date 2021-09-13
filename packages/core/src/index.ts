@@ -14,7 +14,7 @@ import { Text, WebTextProps } from "./components/typography/Text";
 import { PaymentStatus, WebPaymentStatusProps } from "./components/composites/PaymentStatus";
 import Accordion from "./components/composites/Accordion";
 import AccordionItem from "./components/composites/AccordionItem";
-import Modal from "./components/composites/Modal";
+import { Modal, WebModalProps } from "./components/composites/Modal";
 import PaymentMethodItem from "./components/composites/PaymentMethodItem";
 import PaymentPrompt from "./components/composites/PaymentMethodItem";
 import SavedCardBadge from "./components/composites/SavedCardBadge";
@@ -35,7 +35,7 @@ import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
 import { CurrencyLabel } from "./components/primitives/CurrencyLabel";
 import { Divider, WebDividerProps } from "./components/primitives/Divider";
 import { Icon, WebIconProps } from "./components/primitives/Icon";
-import { ProgressRing, ProgressRingProps } from "./components/feedback/ProgressRing";
+import { ProgressRing, WebProgressRingProps } from "./components/feedback/ProgressRing";
 import { Skeleton, WebSkeletonProps } from "./components/primitives/Skeleton";
 
 // Hooks
@@ -87,6 +87,7 @@ export type {
     WebTextFieldProps,
     WebTextProps,
     WebTooltipProps,
-    ProgressRingProps,
+    WebProgressRingProps,
     StepperProps,
+    WebModalProps,
 };

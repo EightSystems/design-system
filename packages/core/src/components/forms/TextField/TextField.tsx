@@ -25,6 +25,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
             tooltipContent,
             tooltipPlacement,
             tooltipOffset,
+            tooltipCrossOffset,
             tooltipClass,
             icon,
             children,
@@ -120,6 +121,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                             tooltipContent={tooltipContent}
                             placement={tooltipPlacement}
                             offset={tooltipOffset}
+                            crossOffset={tooltipCrossOffset}
                             className={tooltipClass}
                         >
                             <S.IconWrapper>

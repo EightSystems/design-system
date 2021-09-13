@@ -82,7 +82,10 @@ type WebProps = CommonProps & {
     tooltipClass?: string;
 
     /** Defines the distance between the Tooltip and the component to which it is attached. */
-    tooltipOffset?: [number, number];
+    tooltipOffset?: number;
+
+    /** Distance between popover and trigger's cross axis. */
+    tooltipCrossOffset?: number;
 
     /** Injects custom classes in the container that wraps the entire controller (label + input). */
     controlClass?: string;

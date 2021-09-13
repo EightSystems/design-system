@@ -1,5 +1,6 @@
 import * as React from "react";
 import { IPopoverProps } from "react-native-popper/src/types";
+import { ColorTypes, FontFaceTypes, NativeFontFaceTypes, FontWeightTypes, FontSizeTypes } from "../../../theme/types";
 
 type CommonProps = {
     children: React.ReactNode;
@@ -26,10 +27,28 @@ type CommonProps = {
     tooltipContent?: React.ReactNode | string;
 
     /** Defines the distance between the tooltip and the component it's attached to. */
-    offset?: [number, number];
+    offset?: number;
+
+    /** Distance between popover and trigger's cross axis. */
+    crossOffset?: number;
+
+    /** The size of the Tooltip. */
+    size?: "small" | "medium" | "large";
+
+    /** The color of the text inside the tooltip. */
+    textColor?: ColorTypes;
+
+    /** The font family for the text inside the tooltip. */
+    fontFace?: FontFaceTypes;
+
+    /** The fontWeight for the text inside the tooltip. */
+    fontWeight?: FontWeightTypes;
+
+    /** The fontSize for the text inside the tooltip. */
+    fontSize?: FontSizeTypes;
 };
 
-type NativeProps = CommonProps & {
+type NativeProps = Omit<CommonProps, "fontFace" | "placement"> & {
     children: React.ReactElement | React.RefObject<any>;
 
     /** Determinates the tooltip positioning in relation to the component it's attached to. */
@@ -46,6 +65,8 @@ type NativeProps = CommonProps & {
         | "left"
         | "left-start"
         | "left-end";
+
+    fontFace?: NativeFontFaceTypes;
 };
 
 export type WebTooltipProps = React.ComponentPropsWithRef<"div"> & CommonProps;

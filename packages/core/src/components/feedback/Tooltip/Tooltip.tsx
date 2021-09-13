@@ -6,7 +6,7 @@ import { Popover } from "@headlessui/react";
 import { usePopper } from "react-popper";
 
 const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
-    ({ placement, offset, tooltipContent, children, ...props }, componentRef) => {
+    ({ placement, offset, crossOffset, tooltipContent, children, ...props }) => {
         const [referenceElement, setReferenceElement] = React.useState<any>();
         const [popperElement, setPopperElement] = React.useState<any>();
 
@@ -16,7 +16,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
                 {
                     name: "offset",
                     options: {
-                        offset: offset,
+                        offset: [crossOffset, offset],
                     },
                 },
             ],
