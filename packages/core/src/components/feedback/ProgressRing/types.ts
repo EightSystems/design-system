@@ -1,21 +1,29 @@
-export type ProgressRingProps = {
-    /** Define o tamanho do raio do anel. */
+import * as React from "react";
+import { ViewProps } from "react-native";
+import { FontFaceTypes } from "../../../theme/types";
+
+export type CommonProps = {
+    children?: React.ReactNode | string;
+
+    /** Defines the size of the ring's radius. */
     radius: number;
 
-    /** Define a largura do traçado do anel. */
+    /** Defines the width of the ring's stroke. */
     stroke: number;
 
-    /** Define a cor do traçado do anel. */
+    /** Defines the color of the ring's stroke. */
     strokeColor: string;
 
-    /** Caso especificada, define a string de texto que deve estar dentro do anél de progresso. */
+    /** If specified, defines the string of text inside the ring. */
     text?: string;
 
-    /** Caso especificada, define a cor do texto dentro do anél de progresso. */
-    textColor?: string;
+    /** If specified, defines the color of the text inside the progress ring. */
+    textFillColor?: string;
 
     /** Caso seja especificado, define o tamanho da fonte do texto dentro do anel de progresso (em px). */
     textFontSize?: number;
+
+    textFontFace?: FontFaceTypes;
 
     textXAxis?: number;
 
@@ -24,3 +32,6 @@ export type ProgressRingProps = {
     /** Define o número do progresso em uma escala de 0 a 100. */
     progress: number;
 };
+
+export type WebProgressRingProps = React.ComponentPropsWithRef<"div"> & CommonProps;
+export type NativeProgressRingProps = ViewProps & CommonProps;

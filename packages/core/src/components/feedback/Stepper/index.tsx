@@ -18,7 +18,7 @@ const Stepper = React.forwardRef((props: StepperProps, componentRef) => {
                 stroke={3}
                 strokeColor={themeContext.colors.secondary}
                 text={`${props.currentStep} de ${props.maxSteps}`}
-                textColor={themeContext.colors.secondary}
+                textFillColor={themeContext.colors.secondary}
                 textFontSize={12}
                 textXAxis={12}
                 textYAxis={34}
