@@ -19,14 +19,14 @@ export const ButtonPressable = styled(Pressable)`
                   padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
               `
             : null}
-    ${props =>
+        ${props =>
         props["data-size"] == "large"
             ? css`
                   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
               `
             : null}
 
-    ${props =>
+        ${props =>
         props["data-disabled"]
             ? css`
                   opacity: 0.75;
