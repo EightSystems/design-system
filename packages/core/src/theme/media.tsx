@@ -1,3 +1,4 @@
+import React from "react";
 import { css } from "styled-components";
 
 const sizes = {
@@ -33,5 +34,21 @@ export const media: MediaSizes = Object.keys(sizes).reduce((accumulator, label) 
     `;
     return accumulator;
 }, {} as Record<keyof MediaSizes, MediaMethod>);
+
+export const mediaMinWidth: MediaSizes = Object.keys(sizes).reduce((accumulator, label) => {
+    const emSize = sizes[label] / 16;
+    accumulator[label] = (...args) => css`
+        @media (min-width: ${emSize}em) {
+            ${css(...args)};
+        }
+    `;
+    return accumulator;
+}, {} as Record<keyof MediaSizes, MediaMethod>);
+
+export const withMediaWatcher = (Component: any) => {
+    return React.forwardRef((props, componentRef) => {
+        return <Component {...props} ref={componentRef} />;
+    });
+};
 
 export default media;
