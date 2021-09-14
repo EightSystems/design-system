@@ -45,10 +45,10 @@ export const mediaMinWidth: MediaSizes = Object.keys(sizes).reduce((accumulator,
     return accumulator;
 }, {} as Record<keyof MediaSizes, MediaMethod>);
 
-export const withMediaWatcher = (Component: any) => {
-    return React.forwardRef((props, componentRef) => {
+export function withMediaWatcher<T, P = {}>(Component: any) {
+    return React.forwardRef<T, P>((props, componentRef) => {
         return <Component {...props} ref={componentRef} />;
     });
-};
+}
 
 export default media;
