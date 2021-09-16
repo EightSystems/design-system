@@ -45,6 +45,7 @@ const colors = {
     lightContrast: "#090909",
 
     divider: "#E7E9F2",
+    background: "#F7F9FC",
 };
 
 export default colors;
