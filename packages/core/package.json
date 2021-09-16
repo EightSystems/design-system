@@ -65,7 +65,9 @@
         "rollup-plugin-typescript2": "^0.28.0",
         "semantic-release": "^17.4.4",
         "typescript": "~4.0.3",
-        "url-loader": "^4.1.1"
+        "url-loader": "^4.1.1",
+        "react-dom": "^17.0.1",
+        "react-native": "^0.64.2"
     },
     "dependencies": {
         "@headlessui/react": "^1.2.0",
@@ -75,8 +77,6 @@
         "lodash": "^4.17.21",
         "react": "^17.0.1",
         "react-collapse": "^5.1.0",
-        "react-dom": "^17.0.1",
-        "react-native": "0.64.2",
         "react-native-localize": "^2.1.1",
         "react-native-masked-text": "^1.13.0",
         "react-native-popper": "^0.3.0",

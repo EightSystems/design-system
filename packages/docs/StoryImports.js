@@ -6,6 +6,7 @@ import AvatarStory from "../core/src/stories/Avatar.stories";
 import ButtonStory from "../core/src/stories/Button.stories";
 import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
 import DividerStory from "../core/src/stories/Divider.stories";
+import GridStory from "../core/src/stories/Grid.stories";
 import IconStory from "../core/src/stories/Icon.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
 import ProgressRingStory from "../core/src/stories/ProgressRing.stories";
@@ -25,6 +26,7 @@ const storyList = {
     Button: ButtonStory,
     CurrencyLabel: CurrencyLabelStory,
     Divider: DividerStory,
+    Grid: GridStory,
     Icon: IconStory,
     PaymentStatus: PaymentStatusStory,
     ProgressRing: ProgressRingStory,
