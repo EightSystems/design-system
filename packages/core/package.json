@@ -1,6 +1,6 @@
 {
     "name": "@8sistemas/design-system",
-    "version": "0.6.0-alpha.2",
+    "version": "0.6.0-alpha.3",
     "engines": {
         "node": ">= 10"
     },
