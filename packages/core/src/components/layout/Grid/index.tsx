@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 import media, { withMediaWatcher } from "../../../theme/media";
 import Box from "../Box";
-import { ColProps } from "./types";
+import { ColProps, RowProps } from "./types";
 
 const colWidth = 100 / 12;
 
-export const Row = withMediaWatcher(
+export const Row = withMediaWatcher<any, RowProps>(
     styled(Box)`
         display: flex;
         flex-direction: row;
@@ -57,3 +57,5 @@ export const Col = ({ xs = 12, sm = 12, md = 12, lg = 12, children, ...restProps
         </ColBase>
     );
 };
+
+export type { ColProps, RowProps };

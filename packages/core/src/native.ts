@@ -5,6 +5,7 @@ import ThemeProviderInjector from "./components/core/ThemeProviderInjector/index
 // Layout components
 import Box from "./components/layout/Box/index.native";
 import Spacer from "./components/layout/Spacer/index.native";
+import { Col, Row, RowProps, ColProps } from "./components/layout/Grid";
 
 // Form components
 import { Button, NativeButtonProps } from "./components/forms/Button/index.native";
@@ -40,6 +41,7 @@ export {
     Avatar,
     Box,
     Button,
+    Col,
     CurrencyLabel,
     Divider,
     Heading,
@@ -47,6 +49,7 @@ export {
     Modal,
     PaymentStatus,
     ProgressRing,
+    Row,
     Skeleton,
     Spacer,
     Spinner,
@@ -76,4 +79,6 @@ export type {
     NativeProgressRingProps,
     StepperProps,
     NativeTooltipProps,
+    ColProps,
+    RowProps,
 };

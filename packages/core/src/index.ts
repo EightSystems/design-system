@@ -5,6 +5,7 @@ import ThemeProviderInjector from "./components/core/ThemeProviderInjector";
 // Layout Components
 import Box from "./components/layout/Box";
 import Spacer from "./components/layout/Spacer";
+import { Col, Row, RowProps, ColProps } from "./components/layout/Grid";
 
 // Typography Components
 import { Heading, WebHeadingProps } from "./components/typography/Heading";
@@ -49,6 +50,7 @@ export {
     Avatar,
     Box,
     Button,
+    Col,
     CurrencyLabel,
     Divider,
     Heading,
@@ -58,6 +60,7 @@ export {
     PaymentPrompt,
     PaymentStatus,
     ProgressRing,
+    Row,
     SavedCardBadge,
     Select,
     Skeleton,
@@ -76,6 +79,7 @@ export {
 };
 
 export type {
+    ColProps,
     WebAvatarProps,
     WebButtonProps,
     WebDividerProps,
@@ -88,6 +92,7 @@ export type {
     WebTextProps,
     WebTooltipProps,
     WebProgressRingProps,
+    RowProps,
     StepperProps,
     WebModalProps,
 };

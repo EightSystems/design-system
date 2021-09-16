@@ -9,3 +9,9 @@ export type ColProps = {
     style?: any;
     className?: any;
 };
+
+export type RowProps = {
+    children: React.ReactChild;
+    style?: any;
+    className?: any;
+};
