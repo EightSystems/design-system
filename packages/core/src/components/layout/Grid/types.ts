@@ -5,13 +5,13 @@ export type ColProps = {
     sm: number;
     md: number;
     lg: number;
-    children: React.ReactChild;
+    children: React.ReactChildren | React.ReactChild;
     style?: any;
     className?: any;
 };
 
 export type RowProps = {
-    children: React.ReactChild;
+    children: React.ReactChildren | React.ReactChild;
     style?: any;
     className?: any;
 };
