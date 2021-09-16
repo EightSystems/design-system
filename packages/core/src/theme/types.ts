@@ -50,6 +50,10 @@ export type ColorTypes =
     | "tertiaryShade"
     | "tertiaryTint"
     | "tertiaryContrast"
+    | "success"
+    | "successShade"
+    | "successTint"
+    | "successContrast"
     | "warning"
     | "warningShade"
     | "warningTint"
@@ -69,4 +73,5 @@ export type ColorTypes =
     | "light"
     | "lightTint"
     | "lightShade"
-    | "lightContrast";
+    | "lightContrast"
+    | "divider";
