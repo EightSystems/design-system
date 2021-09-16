@@ -13,6 +13,7 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
             textColor = "primaryContrast",
             fontFace = "primary",
             fontWeight = "bold",
+            fontSize,
             backgroundColor = "primary",
             borderColor,
             focusColor,
@@ -35,6 +36,7 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
                 data-fontface={fontFace}
                 data-textcolor={textColor}
                 data-fontweight={fontWeight}
+                data-fontsize={fontSize}
                 data-bordercolor={borderColor}
                 data-size={size}
                 data-disabled={disabled || loading}

@@ -4,7 +4,6 @@ import { textColors, backgroundColors, fontFaces, borderColors, fontSizes } from
 
 export const ButtonPressable = styled(Pressable)`
     ${backgroundColors};
-    ${fontSizes};
     ${borderColors};
 
     ${props =>
@@ -63,4 +62,6 @@ export const StyledText = styled(Text)`
                   font-size: ${({ theme }) => theme.nativeTypography.fontSizes.xs};
               `
             : null}
+
+    ${fontSizes};
 `;

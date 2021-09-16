@@ -11,7 +11,6 @@ import {
 export const ButtonWrapper = styled.button`
     ${textColors};
     ${backgroundColors};
-    ${fontSizes};
     ${borderColors};
     ${fontFaces};
     ${fontWeights};
@@ -30,6 +29,8 @@ export const ButtonWrapper = styled.button`
         padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
         font-size: ${({ theme }) => theme.typography.fontSizes.xs};
     }
+
+    ${fontSizes};
 
     &[data-disabled="true"] {
         opacity: 0.75;

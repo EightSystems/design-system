@@ -1,6 +1,6 @@
 import * as React from "react";
 import { PressableProps } from "react-native";
-import { ColorTypes, FontFaceTypes, NativeFontFaceTypes, FontWeightTypes } from "../../../theme/types";
+import { ColorTypes, FontFaceTypes, NativeFontFaceTypes, FontWeightTypes, FontSizeTypes } from "../../../theme/types";
 
 type CommonProps = {
     /** The color of the text inside the button. */
@@ -11,6 +11,9 @@ type CommonProps = {
 
     /** The fontWeight for the text inside the button. */
     fontWeight?: FontWeightTypes;
+
+    /** Defines the font size fot the text. */
+    fontSize?: FontSizeTypes;
 
     /** Color of the button background. */
     backgroundColor?: ColorTypes;

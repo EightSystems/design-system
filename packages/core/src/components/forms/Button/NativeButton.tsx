@@ -10,6 +10,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
             disabled = false,
             textColor = "primaryContrast",
             fontFace = "primaryBold",
+            fontSize,
             backgroundColor = "primary",
             borderColor,
             focusColor,
@@ -47,7 +48,12 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
                     : null}
                 {startIcon && isValidElement(startIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
 
-                <S.StyledText data-size={size} data-textcolor={textColor} data-fontface={fontFace}>
+                <S.StyledText
+                    data-size={size}
+                    data-textcolor={textColor}
+                    data-fontface={fontFace}
+                    data-fontsize={fontSize}
+                >
                     {children}
                 </S.StyledText>
 
