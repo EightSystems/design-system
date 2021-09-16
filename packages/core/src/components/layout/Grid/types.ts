@@ -1,17 +1,26 @@
 import React from "react";
 
-export type ColProps = {
-    xs: number;
-    sm: number;
-    md: number;
-    lg: number;
-    children: React.ReactChildren | React.ReactChild;
-    style?: any;
-    className?: any;
+type ResponsiveSpacing<P> = P & {
+    xsSpacing?: number;
+    smSpacing?: number;
+    mdSpacing?: number;
+    spacing?: number;
 };
 
-export type RowProps = {
-    children: React.ReactChildren | React.ReactChild;
-    style?: any;
-    className?: any;
-};
+export type ColProps = React.PropsWithChildren<
+    ResponsiveSpacing<{
+        xs: number;
+        sm: number;
+        md: number;
+        lg: number;
+        style?: any;
+        className?: any;
+    }>
+>;
+
+export type RowProps = React.PropsWithChildren<
+    ResponsiveSpacing<{
+        style?: any;
+        className?: any;
+    }>
+>;
