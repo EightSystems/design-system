@@ -43,6 +43,7 @@ import { Skeleton, WebSkeletonProps } from "./components/primitives/Skeleton";
 import { useContainerDimensions } from "./hooks/useContainerDimensions";
 import { useDetectOutsideClick } from "./hooks/useDetectOutsideClick";
 import { useExtendedTheme } from "./hooks/useExtendedTheme";
+import { withMediaWatcher, media, mediaMinWidth } from "./theme/media";
 
 export {
     Accordion,
@@ -76,6 +77,9 @@ export {
     useContainerDimensions,
     useDetectOutsideClick,
     useExtendedTheme,
+    withMediaWatcher,
+    media as createMediaMaxWidthQuery,
+    mediaMinWidth as createMediaMinWidthQuery,
 };
 
 export type {

@@ -36,6 +36,7 @@ import { Text, NativeTextProps } from "./components/typography/Text/index.native
 import { useClipboard } from "./hooks/useClipboard";
 import { useExtendedTheme } from "./hooks/useExtendedTheme";
 import { useKeyboardDismissable } from "./hooks/useKeyboardDismissable";
+import { withMediaWatcher, media, mediaMinWidth } from "./theme/media.native";
 
 export {
     Avatar,
@@ -62,6 +63,9 @@ export {
     useClipboard,
     useExtendedTheme,
     useKeyboardDismissable,
+    withMediaWatcher,
+    media as createMediaMaxWidthQuery,
+    mediaMinWidth as createMediaMinWidthQuery,
 };
 
 export type {
