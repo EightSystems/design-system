@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+# [0.6.0-alpha.11](https://github.com/EightSystems/design-system/compare/v0.6.0-alpha.10...v0.6.0-alpha.11) (2021-09-18)
+
 # [0.6.0-alpha.10](https://github.com/EightSystems/design-system/compare/v0.6.0-alpha.9...v0.6.0-alpha.10) (2021-09-17)
 
 # [0.6.0-alpha.9](https://github.com/EightSystems/design-system/compare/v0.6.0-alpha.8...v0.6.0-alpha.9) (2021-09-16)
