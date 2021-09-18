@@ -10,7 +10,7 @@ import { Text } from "../../typography/Text/index.native";
 import Spacer from "../../layout/Spacer/index.native";
 
 const PaymentStatus = React.forwardRef<any, NativePaymentStatusProps>(
-    ({ status, title, description, currency, value }, componentRef) => {
+    ({ status, title, description, currency = null, value = 0 }, componentRef) => {
         const iconProps = {
             color: nativeTheme.colors.primaryContrast,
             size: 48,
@@ -28,7 +28,16 @@ const PaymentStatus = React.forwardRef<any, NativePaymentStatusProps>(
                     {title}
                 </Heading>
                 <Spacer size={16} />
-                <CurrencyLabel currency={currency} value={value} textColor="primaryContrast" fontFace="primaryBold" />
+
+                {currency ? (
+                    <CurrencyLabel
+                        currency={currency}
+                        value={value}
+                        textColor="primaryContrast"
+                        fontFace="primaryBold"
+                    />
+                ) : null}
+
                 <Text textAlign="center" fontFace="primaryRegular" textColor="primaryContrast" fontSize="sm">
                     {description}
                 </Text>

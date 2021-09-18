@@ -6,7 +6,7 @@ import { AiFillClockCircle } from "react-icons/ai";
 import { CurrencyLabel } from "../../primitives/CurrencyLabel";
 
 const PaymentStatus = React.forwardRef<any, WebPaymentStatusProps>(
-    ({ status, title, description, currency, value }, componentRef) => {
+    ({ status, title, description, currency = null, value = 0 }, componentRef) => {
         return (
             <S.PaymentStatusWrapper ref={componentRef} data-background={status}>
                 <S.IconWrapper>
@@ -15,7 +15,11 @@ const PaymentStatus = React.forwardRef<any, WebPaymentStatusProps>(
                     {status === "pending" ? <AiFillClockCircle /> : null}
                 </S.IconWrapper>
                 <S.PaymentStatusTitle>{title}</S.PaymentStatusTitle>
-                <CurrencyLabel currency={currency} value={value} textColor="primaryContrast" fontWeight="bold" />
+
+                {currency ? (
+                    <CurrencyLabel currency={currency} value={value} textColor="primaryContrast" fontWeight="bold" />
+                ) : null}
+
                 <S.PaymentStatusDescription>{description}</S.PaymentStatusDescription>
             </S.PaymentStatusWrapper>
         );

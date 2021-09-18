@@ -14,10 +14,10 @@ type CommonProps = {
     /** The monetary unit that will be used in the conversion. The possible values are ISO 4217 currency codes,
      * like "USD" for the American dollar, or "BRL" for Brazillian real. You can look at the availbale currency codes
      * [here](https://www.currency-iso.org/dam/downloads/lists/list_one.xml) */
-    currency: string;
+    currency?: string;
 
     /** The value that will be used in the conversion, in numeric format. */
-    value: number;
+    value?: number;
 };
 
 export type WebPaymentStatusProps = React.ComponentPropsWithRef<"div"> & CommonProps;
