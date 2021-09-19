@@ -71,11 +71,16 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
                             }}
                             onBlur={e => {
                                 if (onBlur) {
-                                    onFocus(e);
+                                    onBlur(e);
                                 }
                                 setFocused(false);
                             }}
-                            onChangeText={text => setUncontrolledValue(text)}
+                            onChangeText={e => {
+                                if (onChange) {
+                                    onChange(e);
+                                }
+                                setUncontrolledValue(e);
+                            }}
                             ref={componentRef}
                             value={value ? value : uncontrolledValue}
                         />
@@ -91,11 +96,16 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
                             }}
                             onBlur={e => {
                                 if (onBlur) {
-                                    onFocus(e);
+                                    onBlur(e);
                                 }
                                 setFocused(false);
                             }}
-                            onChangeText={text => setUncontrolledValue(text)}
+                            onChangeText={e => {
+                                if (onChange) {
+                                    onChange(e);
+                                }
+                                setUncontrolledValue(e);
+                            }}
                             ref={componentRef}
                             value={value ? value : uncontrolledValue}
                         />
