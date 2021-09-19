@@ -4,6 +4,8 @@ import { TextInputMask } from "react-native-masked-text";
 export const MainWrapper = styled.View`
     flex: 1;
     flex-direction: column;
+    width: 100%;
+    min-height: 80px;
 `;
 
 export const InputLabel = styled.Text`
@@ -22,6 +24,16 @@ export const InputLabel = styled.Text`
 `;
 
 export const InputWrapper = styled.View`
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    ${props =>
+        props["data-icon"]
+            ? css`
+                  padding-right: 28px;
+              `
+            : null}
+
     border-color: ${({ theme }) => theme.colors.darkTint};
     background-color: white;
     border-width: 2px;
@@ -82,4 +94,14 @@ export const InputValidationMessage = styled.Text`
     color: ${props => props.theme.colors.danger};
     padding-left: 4px;
     padding-right: 4px;
+`;
+
+export const IconWrapper = styled.View`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 12px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
 `;

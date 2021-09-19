@@ -37,6 +37,8 @@ export const ButtonPressable = styled(Pressable)`
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    width: 100%;
+    min-height: 50px;
 `;
 
 export const StyledText = styled(Text)`

@@ -2,6 +2,7 @@ import * as React from "react";
 import * as S from "./styled.native";
 import { TextInputProps } from "react-native";
 import { NativeTextFieldProps } from "./types";
+import { Spinner } from "../../feedback/Spinner/index.native";
 import { nativeTheme } from "../../../theme";
 
 import { uniqueId } from "lodash";
@@ -26,6 +27,7 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
             inputStyle,
             validationStyle,
             value,
+            icon,
             onBlur,
             onFocus,
             onChange,
@@ -53,6 +55,7 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
                     data-validationSuccess={validationSuccess}
                     data-validationError={validationError}
                     data-focused={focused}
+                    data-icon={icon}
                 >
                     {masked ? (
                         <S.MaskedInputComponent
@@ -97,6 +100,12 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
                             value={value ? value : uncontrolledValue}
                         />
                     )}
+
+                    {icon === "loadingSpinner" ? (
+                        <S.IconWrapper>
+                            <Spinner size={18} color={nativeTheme.colors.darkTint} />
+                        </S.IconWrapper>
+                    ) : null}
                 </S.InputWrapper>
                 <S.InputValidationContainer>
                     {validationMessage ? (

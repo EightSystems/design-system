@@ -3,6 +3,9 @@ import styled, { css } from "styled-components";
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
+
+    width: 100%;
+    min-height: 80px;
 `;
 export const InputLabel = styled.label`
     transition: 150ms ease-in-out;

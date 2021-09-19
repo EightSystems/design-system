@@ -51,6 +51,9 @@ export const ButtonWrapper = styled.button`
     appearance: none;
     border-radius: 5px;
 
+    width: 100%;
+    min-height: 50px;
+
     &:hover,
     :focus {
         box-shadow: ${({ theme }) => theme.shadows.xs};
