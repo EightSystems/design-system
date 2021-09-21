@@ -1,8 +1,7 @@
-import styled, { css } from "styled-components/native";
 import { TextInputMask } from "react-native-masked-text";
+import styled, { css } from "styled-components/native";
 
 export const MainWrapper = styled.View`
-    flex: 1;
     flex-direction: column;
     width: 100%;
     min-height: 80px;
@@ -84,7 +83,6 @@ export const MaskedInputComponent = styled(TextInputMask)`
 
 export const InputValidationContainer = styled.View`
     margin-top: ${props => props.theme.spacing.xxs};
-    flex: 1;
     flex-direction: row;
     align-items: center;
 `;
