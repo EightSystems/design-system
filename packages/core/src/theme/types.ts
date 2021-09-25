@@ -17,11 +17,11 @@ export type FontFaceTypes = "primary" | "secondary";
 export type NativeFontFaceTypes =
     | "primaryRegular"
     | "primaryMedium"
-    | "primarySemibold"
+    | "primarySemiBold"
     | "primaryBold"
     | "secondaryRegular"
     | "secondaryMedium"
-    | "secondarySemibold"
+    | "secondarySemiBold"
     | "secondaryBold";
 
 export type NativeTextAlignTypes = "left" | "right" | "center" | "justify";
@@ -74,4 +74,6 @@ export type ColorTypes =
     | "lightTint"
     | "lightShade"
     | "lightContrast"
-    | "divider";
+    | "divider"
+    | "background"
+    | "white";

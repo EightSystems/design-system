@@ -1,25 +1,25 @@
 const colors = {
-    primary: "#3456ff",
-    primaryShade: "#2e4ce0",
-    primaryTint: "#4867ff",
+    primary: "#070928",
+    primaryShade: "#060823",
+    primaryTint: "#20223E",
     primaryContrast: "#F6F6F6",
 
-    secondary: "#6e52ff",
-    secondaryShade: "#6148e0",
-    secondaryTint: "#7d63ff",
+    secondary: "#0320B0",
+    secondaryShade: "#031C9B",
+    secondaryTint: "#1C36B8",
     secondaryContrast: "#F6F6F6",
 
-    tertiary: "#070928",
-    tertiaryShade: "#060823",
-    tertiaryTint: "#20223e",
+    tertiary: "#0A33FF",
+    tertiaryShade: "#5260FF",
+    tertiaryTint: "#5260FF",
     tertiaryContrast: "#F6F6F6",
 
-    success: "#2dd36f",
-    successShade: "#28ba62",
-    successTint: "#42d77d",
+    success: "#2DD36F",
+    successShade: "#247F47",
+    successTint: "#42D77D",
     successContrast: "#F6F6F6",
 
-    warning: "#db7804",
+    warning: "#DB7804",
     warningShade: "#c16a04",
     warningTint: "#df861d",
     warningContrast: "#F6F6F6",
@@ -46,6 +46,8 @@ const colors = {
 
     divider: "#E7E9F2",
     background: "#F7F9FC",
+
+    white: "#FFFFFF",
 };
 
 export default colors;
