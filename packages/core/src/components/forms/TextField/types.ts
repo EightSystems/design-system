@@ -53,7 +53,7 @@ type CommonProps = {
     options?: any;
 
     /** Type of the `input` element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
-    type: "password" | "email" | "text" | "tel" | "number" | "search" | "url";
+    type?: "password" | "email" | "text" | "tel" | "number" | "search" | "url";
 };
 
 type WebProps = CommonProps & {
