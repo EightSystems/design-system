@@ -1,12 +1,11 @@
-import * as React from "react";
-import * as S from "./styled.native";
-import { TextInputProps } from "react-native";
-import { NativeTextFieldProps } from "./types";
-import { Spinner } from "../../feedback/Spinner/index.native";
-import { nativeTheme } from "../../../theme";
-
 import { uniqueId } from "lodash";
+import * as React from "react";
+import { TextInputProps } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { nativeTheme } from "../../../theme";
+import { Spinner } from "../../feedback/Spinner/index.native";
+import * as S from "./styled.native";
+import { NativeTextFieldProps } from "./types";
 
 const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
     (
@@ -17,7 +16,7 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
             autoCompleteType,
             masked = false,
             disabled = false,
-            type,
+            type = "text",
             options,
             validationSuccess,
             validationError,
@@ -28,6 +27,8 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
             validationStyle,
             value,
             icon,
+            keyboardType,
+            maskType = null,
             onBlur,
             onFocus,
             onChange,
@@ -41,13 +42,38 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
         const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
         const [focused, setFocused] = React.useState<boolean>(false);
 
+        let secureTextEntry = false;
+        if (!keyboardType) {
+            switch (type) {
+                case "email":
+                    keyboardType = "email-address";
+                    break;
+                case "password":
+                    keyboardType = "default";
+                    secureTextEntry = true;
+                    break;
+                case "number":
+                    keyboardType = "number-pad";
+                    break;
+                case "tel":
+                    keyboardType = "phone-pad";
+                    break;
+                default:
+                    keyboardType = "default";
+                    break;
+            }
+        }
+
         const inputProps = {
             maxLength: props.maxLength ? props.maxLength : null,
             "data-disabled": disabled,
             nativeID: elementUniqueId,
             editable: !disabled,
             placeholder,
+            keyboardType,
+            secureTextEntry,
         };
+
         return (
             <S.MainWrapper accessible accessibilityLabel={label} accessibilityState={accessibilityState}>
                 <S.InputLabel data-focused={focused}>{label}</S.InputLabel>
@@ -59,10 +85,10 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
                 >
                     {masked ? (
                         <S.MaskedInputComponent
-                            type={type}
                             options={options}
                             {...props}
                             {...inputProps}
+                            type={maskType}
                             onFocus={e => {
                                 if (onFocus) {
                                     onFocus(e);

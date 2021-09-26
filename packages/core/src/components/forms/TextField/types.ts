@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TextInputProps, StyleProp, ViewProps } from "react-native";
+import { StyleProp, TextInputProps, ViewProps } from "react-native";
 
 type CommonProps = {
     /** Unique name used to generate de native input ID. */
@@ -38,7 +38,7 @@ type CommonProps = {
     /** If specified, defines that this TextField should be masked */
     masked?: boolean;
 
-    type?:
+    maskType?:
         | "credit-card"
         | "cpf"
         | "cnpj"
@@ -51,12 +51,12 @@ type CommonProps = {
         | string;
 
     options?: any;
+
+    /** Type of the `input` element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
+    type: "password" | "email" | "text" | "tel" | "number" | "search" | "url";
 };
 
 type WebProps = CommonProps & {
-    /** Type of the `input` element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
-    type: "password" | "email" | "text" | "tel" | "number" | "search" | "url";
-
     /** If specified, determinates the content inside the Tooltip. Must be a valid React element. */
     tooltipContent?: React.ReactNode | string;
 
@@ -103,6 +103,8 @@ type NativeProps = CommonProps & {
 
     /** Determinates if it is a masked input. */
     masked?: boolean;
+
+    keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
 };
 
 export type NativeTextFieldProps = TextInputProps & NativeProps;
