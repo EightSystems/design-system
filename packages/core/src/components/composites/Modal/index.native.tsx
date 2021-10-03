@@ -1,14 +1,13 @@
 import React from "react";
 import {
-    View,
-    StyleSheet,
-    TouchableWithoutFeedback,
     Modal as RNModal,
     ModalProps as RNModalProps,
-    ViewStyle,
     StyleProp,
+    StyleSheet,
+    TouchableWithoutFeedback,
+    View,
+    ViewStyle,
 } from "react-native";
-
 import { nativeTheme } from "../../../theme";
 
 export type ModalProps = RNModalProps & {
@@ -64,17 +63,18 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
+        justifyContent: "center",
         flexDirection: "column",
+        paddingLeft: 14,
+        paddingRight: 14,
     },
     fullscreen: {
         width: "100%",
-        height: "100%",
+        height: "90%",
     },
     halfScreen: {
         width: "100%",
-        position: "absolute",
-        bottom: 0,
-        left: 0,
+        minHeight: "50%",
     },
     overlay: {
         backgroundColor: "white",
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Modal;
+export { Modal };

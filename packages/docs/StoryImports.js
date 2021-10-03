@@ -8,6 +8,7 @@ import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
 import DividerStory from "../core/src/stories/Divider.stories";
 import GridStory from "../core/src/stories/Grid.stories";
 import IconStory from "../core/src/stories/Icon.stories";
+import ModalStory from "../core/src/stories/Modal.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
 import ProgressRingStory from "../core/src/stories/ProgressRing.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
@@ -28,6 +29,7 @@ const storyList = {
     Divider: DividerStory,
     Grid: GridStory,
     Icon: IconStory,
+    Modal: ModalStory,
     PaymentStatus: PaymentStatusStory,
     ProgressRing: ProgressRingStory,
     Skeleton: SkeletonStory,
