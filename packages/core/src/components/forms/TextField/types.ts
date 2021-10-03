@@ -89,6 +89,9 @@ type WebProps = CommonProps & {
 
     /** Injects custom classes in the container that wraps the entire controller (label + input). */
     controlClass?: string;
+
+    /** Receives the text value */
+    onChange?: (textValue: string) => void;
 };
 
 type NativeProps = CommonProps & {
@@ -103,6 +106,9 @@ type NativeProps = CommonProps & {
 
     /** Determinates if it is a masked input. */
     masked?: boolean;
+
+    /** Receives the text value */
+    onChange?: (textValue: string) => void;
 
     keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
 };
