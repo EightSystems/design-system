@@ -113,5 +113,5 @@ type NativeProps = CommonProps & {
     keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
 };
 
-export type NativeTextFieldProps = TextInputProps & NativeProps;
-export type WebTextFieldProps = React.ComponentProps<"input"> & WebProps;
+export type NativeTextFieldProps = Omit<TextInputProps, "onChange"> & NativeProps;
+export type WebTextFieldProps = Omit<React.ComponentProps<"input">, "onChange"> & WebProps;
