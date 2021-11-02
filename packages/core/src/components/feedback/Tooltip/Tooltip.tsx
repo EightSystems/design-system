@@ -1,12 +1,11 @@
+import { Popover } from "@headlessui/react";
 import * as React from "react";
+import { usePopper } from "react-popper";
 import * as S from "./styled";
 import { WebTooltipProps } from "./types";
 
-import { Popover } from "@headlessui/react";
-import { usePopper } from "react-popper";
-
 const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
-    ({ placement, offset, crossOffset, tooltipContent, children, ...props }) => {
+    ({ placement, offset, crossOffset, tooltipContent, children, ...props }, componentRef) => {
         const [referenceElement, setReferenceElement] = React.useState<any>();
         const [popperElement, setPopperElement] = React.useState<any>();
 
