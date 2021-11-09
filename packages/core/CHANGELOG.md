@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+# [0.6.0-alpha.21](https://github.com/EightSystems/design-system/compare/v0.6.0-alpha.20...v0.6.0-alpha.21) (2021-11-02)
+
+
+### Bug Fixes
+
+* tooltip missing componentRef, and type check for navigator ([340adfe](https://github.com/EightSystems/design-system/commit/340adfe7e05b2b0809be187e56254e471ed92f49))
+
 # [0.6.0-alpha.20](https://github.com/EightSystems/design-system/compare/v0.6.0-alpha.19...v0.6.0-alpha.20) (2021-10-03)
 
 # [0.6.0-alpha.19](https://github.com/EightSystems/design-system/compare/v0.6.0-alpha.18...v0.6.0-alpha.19) (2021-10-03)
