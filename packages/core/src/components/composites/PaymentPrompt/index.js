@@ -1,9 +1,8 @@
-import React from "react";
 import Proptypes from "prop-types";
+import React from "react";
+import { Avatar } from "../../primitives/Avatar";
+import { CurrencyLabel } from "../../primitives/CurrencyLabel";
 import * as S from "./styled";
-
-import Avatar from "../../primitives/Avatar";
-import CurrencyLabel from "../../primitives/CurrencyLabel";
 
 /**
  * @type {React.FC<Props>}

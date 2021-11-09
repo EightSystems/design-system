@@ -8,18 +8,20 @@ import external from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import typescript from "rollup-plugin-typescript2";
 
-const webInput = "./src/index.ts";
+const webInput = ["src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/**/*.jsx"];
 
 const outputOptions = {
-    format: "cjs",
+    format: "esm",
     exports: "named",
     sourcemap: true,
-    preserveModules: true,
-    preserveModulesRoot: "src",
+    //preserveModules: true,
+    //preserveModulesRoot: "src",
 };
 
 const defaultPlugins = [
-    multiInput(),
+    multiInput({
+        relative: "src/",
+    }),
     external(),
     postcss({
         modules: true,
@@ -55,11 +57,11 @@ const webConfig = {
                 "node_modules/**",
                 "dist",
                 "rollup.config.js",
-                "native.js",
-                "*.native.js(|x)",
-                "*.native.ts(|x)",
-                "**/*.native.js(|x)",
-                "**/*.native.ts(|x)",
+                //"native.js",
+                //"*.native.js(|x)",
+                //"*.native.ts(|x)",
+                //"**/*.native.js(|x)",
+                //"**/*.native.ts(|x)",
             ],
         }),
         ...defaultPlugins,
