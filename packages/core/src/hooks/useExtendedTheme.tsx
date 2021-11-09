@@ -1,5 +1,5 @@
-import { theme, nativeTheme } from "../theme";
-import { merge } from "lodash";
+import merge from "lodash/merge";
+import { nativeTheme, theme } from "../theme";
 
 export type environmentTypes = "web" | "native";
 

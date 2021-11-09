@@ -11,7 +11,7 @@ import typescript from "rollup-plugin-typescript2";
 const webInput = ["src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/**/*.jsx"];
 
 const outputOptions = {
-    format: "esm",
+    format: "cjs",
     exports: "named",
     sourcemap: true,
     //preserveModules: true,
