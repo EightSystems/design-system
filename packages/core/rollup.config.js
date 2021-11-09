@@ -1,12 +1,12 @@
-import typescript from "rollup-plugin-typescript2";
 import commonjs from "@rollup/plugin-commonjs";
-import external from "rollup-plugin-peer-deps-external";
-import postcss from "rollup-plugin-postcss";
+import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
 import url from "@rollup/plugin-url";
 import svgr from "@svgr/rollup";
-import json from "@rollup/plugin-json";
 import multiInput from "rollup-plugin-multi-input";
+import external from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
+import typescript from "rollup-plugin-typescript2";
 
 const webInput = "./src/index.ts";
 
@@ -14,7 +14,7 @@ const outputOptions = {
     format: "cjs",
     exports: "named",
     sourcemap: true,
-    preserveModules: false,
+    preserveModules: true,
     preserveModulesRoot: "src",
 };
 
