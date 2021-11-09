@@ -26,6 +26,7 @@ import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
 import { CurrencyLabel } from "./components/primitives/CurrencyLabel";
 import { Divider, WebDividerProps } from "./components/primitives/Divider";
 import { Icon, WebIconProps } from "./components/primitives/Icon";
+import { FontIcon, NativeIconProps as FontIconProps } from "./components/primitives/Icon/FontIcon";
 import { Skeleton, WebSkeletonProps } from "./components/primitives/Skeleton";
 // Typography Components
 import { Heading, WebHeadingProps } from "./components/typography/Heading";
@@ -48,6 +49,7 @@ export {
     Divider,
     Heading,
     Icon,
+    FontIcon,
     Modal,
     PaymentMethodItem,
     PaymentPrompt,
@@ -80,6 +82,7 @@ export type {
     WebDividerProps,
     WebHeadingProps,
     WebIconProps,
+    FontIconProps,
     WebPaymentStatusProps,
     WebSkeletonProps,
     WebSpinnerProps,
