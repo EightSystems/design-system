@@ -1,6 +1,6 @@
 {
     "name": "@8sistemas/design-system",
-    "version": "0.5.0",
+    "version": "0.6.0-alpha.26",
     "engines": {
         "node": ">= 10"
     },
@@ -11,7 +11,8 @@
     },
     "main": "dist/index.js",
     "files": [
-        "dist"
+        "dist",
+        "mobile"
     ],
     "author": "@EightSystems",
     "license": "MIT",
@@ -19,12 +20,14 @@
     "peerDependencies": {
         "react": ">=17.0.1",
         "react-dom": ">=17.0.1",
-        "react-icons": ">=4.2.0",
-        "styled-components": ">=5.3.0",
-        "react-native": ">=0.64.2"
+        "react-native": ">=0.64.2",
+        "react-native-localize": ">=2.1.1",
+        "react-native-svg": ">=12.1.1",
+        "react-native-svg-transformer": ">=0.14.3",
+        "react-native-vector-icons": ">=8.1.0",
+        "styled-components": ">=5.3.0"
     },
     "devDependencies": {
-        "@rollup/plugin-babel": "^5.3.0",
         "@rollup/plugin-commonjs": "^15.1.0",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^9.0.0",
@@ -43,41 +46,55 @@
         "@storybook/preset-create-react-app": "^3.1.7",
         "@storybook/react": "^6.2.3",
         "@svgr/rollup": "^5.4.0",
+        "@types/react": "^17.0.16",
+        "@types/react-native": "^0.64.12",
+        "@types/react-native-vector-icons": "^6.4.8",
         "path": "^0.12.7",
         "prop-types": "^15.7.2",
+        "react-dom": "^17.0.1",
+        "react-icons": "^4.2.0",
+        "react-native": "^0.64.2",
+        "react-native-svg": "^12.1.1",
+        "react-native-svg-transformer": "^0.14.3",
+        "react-native-vector-icons": "^8.1.0",
         "react-scripts": "^3.4.1",
         "rollup": "^2.32.1",
         "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-multi-input": "^1.3.1",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-postcss": "^3.1.8",
+        "rollup-plugin-terser": "^7.0.2",
         "rollup-plugin-typescript2": "^0.28.0",
         "semantic-release": "^17.4.4",
         "typescript": "~4.0.3",
-        "url-loader": "^4.1.1",
-        "react-native": "0.64.2"
+        "url-loader": "^4.1.1"
     },
     "dependencies": {
-        "styled-components": "^5.3.0",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
         "@headlessui/react": "^1.2.0",
         "@popperjs/core": "^2.9.2",
         "classnames": "^2.2.6",
         "dinero.js": "^1.8.1",
-        "intl": "^1.2.5",
         "lodash": "^4.17.21",
+        "react": "^17.0.1",
         "react-collapse": "^5.1.0",
-        "react-icons": "^4.2.0",
-        "react-imask": "^6.0.7",
+        "react-native-localize": "^2.1.1",
+        "react-native-masked-text": "^1.13.0",
+        "react-native-popper": "^0.3.0",
         "react-popper": "^2.2.5",
-        "react-spinners": "^0.10.6"
+        "react-spinners": "^0.10.6",
+        "react-web-mask": "^1.0.0",
+        "styled-components": "^5.3.0"
     },
     "scripts": {
         "storybook": "start-storybook -p 6006",
         "build:storybook": "build-storybook",
-        "build": "rollup -c && cp -p package.json dist/package.json",
-        "publish:local": "rm -rf dist/ && yarn build && yalc publish --files --no-scripts",
+        "prebuild": "rm -rf dist/ && rm -rf mobile/",
+        "cleanup:web": "cd dist/components && find . -name '*.native.d.ts' | xargs rm",
+        "cleanup:mobile": "cd mobile/components && find . -type f ! -name '*.native.d.ts' | xargs rm",
+        "build:web": "rollup -c",
+        "build:mobile": "tsc --project tsconfig.native.json",
+        "build": "yarn prebuild && yarn build:web && yarn build:mobile",
+        "publish:local": "yarn build && yalc publish --files --no-scripts",
         "publish:npm": "yarn semantic-release"
     }
 }

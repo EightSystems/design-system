@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
-import PaymentStatus from "../components/PaymentStatus";
+import { PaymentStatus } from "../components/composites/PaymentStatus";
 
 <Meta title="Molecules/PaymentStatus" component={PaymentStatus} />
 
@@ -11,11 +11,11 @@ Used to represent the current status of an transaction.
     <Story
         name="PaymentStatus"
         args={{
-            status: "approved",
-            title: "Pagamento Aprovado",
-            description: "Seu pagamento à Alena Aragão realizado com sucesso.",
+            status: "refused",
+            title: "Pagamento Negado",
+            description: "Seu pagamento à Alena Aragão foi recusado, tente novamente.",
             currency: "BRL",
-            value: 150,
+            value: 321234,
         }}
     >
         {args => <PaymentStatus {...args} />}

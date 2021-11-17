@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
-import Toast from "../components/Toast";
+import Toast from "../components/feedback/Toast";
 
 <Canvas>
     <Story
@@ -21,7 +21,7 @@ import Toast from "../components/Toast";
 > **Importante**: Uma limitação do preview MDX do Storybook faz com que componentes dessa natureza sejam exibidos fora
 > do container de preview. Para ver e interagir com os controladores do componente, use a aba de **Canvas**.
 
-<Meta title="Overlays/Toast" component={Toast} />
+<Meta title="Feedback/Toast" component={Toast} />
 
 O Toast é usado para mostrar alertas na parte superior de uma sobreposição. A notificação será fechada automaticamente
 quando o botão Fechar for clicado. O componente Toast é usado para fornecer feedback aos usuários após a realização de

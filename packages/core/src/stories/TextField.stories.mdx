@@ -1,20 +1,27 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
-import TextField from "../components/TextField";
+import { TextField } from "../components/forms/TextField";
 
 <Meta title="Forms/TextField" component={TextField} />
 
 # TextField
 
-Um componente wrapper e um controle de formulário completo que permite a inserção de texto. Ele é a junção dos elementos
-nativos `<label>` e `<input>`, com suporte ao uso de ícones de ajuda, integração com o componente `Tooltip` para mostrar
-mensagens de ajuda, e suporte aos atributos nativos de input como `required`, `disabled`, e `type` (com exceção dos
-tipos que mudam o comportamento do componente para não-texto, mais detalhes em Props).
+The `TextField` component is a complete form control that allow for text capture. It's the junction of web native
+elements `<label>` and `<input>`.
 
-Esse componente é comumente usado em formulários e caixas de diálogo.
+On the web, it supports native props like `required`, `disabled` and `type` (excepts for types that change the text
+field behavior to a non-text input, more details on Props list).
+
+This components is commonly used on forms and dialog boxes.
+
+## Import
+
+```jsx
+import { TextField } from "@8sistemas/design-system";
+```
 
 ## Variantes
 
-O `TextField` requer duas propriedades obrigatórias, `name` e `label`:
+The `TextField` requires two obligatory props, `name` and `label`:
 
 <Canvas>
     <Story name="Regular TextField" args={{ name: "inputName", label: "Input Label" }}>
@@ -22,11 +29,19 @@ O `TextField` requer duas propriedades obrigatórias, `name` e `label`:
     </Story>
 </Canvas>
 
-Variações de validação do componente podem ser alcançadas usando propriedades como `validationError` para indicar um
-erro de validação, e `validationSuccess` para indicar uma validação de sucesso, e `validationMessage` para inserir uma
-mensagem de ajuda durante a validação:
+### Disabled
 
-### Validação com erro
+<Canvas>
+    <Story name="Disabled TextField" args={{ name: "inputName", label: "Input Label Disabled", disabled: true, placeholder: "Disabled value" }}>
+        {args => <TextField {...args} />}
+    </Story>
+</Canvas>
+
+## Validation States
+Validation states can be achieved by using the props `validationError` to indicate validation error, `validationSuccess`
+to indicate validation success, and `validationMessage` to insert a helper message during the validation.
+
+### Validation error
 
 <Canvas>
     <Story
@@ -54,9 +69,9 @@ mensagem de ajuda durante a validação:
     </Story>
 </Canvas>
 
-Também é possível criar um `TextField` com um ícone de ajuda que exibirá um Tooltip e fornecerá contexto sobre o tipo de
-informação que será requerida naquele input, usando as propriedades `icon` para mostrar o ícone e `tooltipContent`,
-`tooltipPlacement` e `tooltipOffset` para configurar o conteúdo e posicionamento do tooltip:
+It's also possible to create a `TextField` with a help icon that will show a tooltip and provide context to the type of
+infomation that will be required by the input, using the props `icon` to show the icon, and `tooltipContent`,
+`tooltipPlacement` and `tooltipOffset` to configure the content and positioning of the tooltip:
 
 <Canvas>
     <Story
@@ -64,7 +79,7 @@ informação que será requerida naquele input, usando as propriedades `icon` pa
         args={{
             name: "inputName",
             label: "Input Label",
-            icon: "info",
+            icon: "loadingSpinner",
             tooltipContent: "A vida é bela",
             tooltipPlacement: "top-start",
             tooltipOffset: [0, 6],
@@ -74,27 +89,26 @@ informação que será requerida naquele input, usando as propriedades `icon` pa
     </Story>
 </Canvas>
 
-## Máscaras
+## Masks
 
-Por trás dos panos, os componentes usam a library react-imask para configurar máscaras em campos de texto. Para mais
-informações sobre as propriedades disponíveis para o controle de máscaras no IMask, tome como referência a
-[documentação oficial do IMask](https://imask.js.org/).
+Under the hood, `TextField` uses react-imask to configure masks on inputs. To see more information about the props
+available for mask controls on with IMask, use IMask's [official documentation](https://imask.js.org/) as reference.
 
-### Exemplos:
+### Example:
 
-#### Máscara de data:
+#### Date mask:
 
 <Canvas>
     <Story name="Date Masked TextField">
         <TextField
             name="date"
-            label="Data de nascimento"
-            mask={Date}
-            pattern="d/`m/`YY"
-            maxLength="10"
             placeholder="dd/mm/aaaa"
-            min={new Date(1900, 0, 1)}
-            max={new Date(2010, 0, 1)}
+            label="Date"
+            masked="true"
+            type={"datetime"}
+            options={{
+                format: "DD/MM/YYYY",
+            }}
         />
     </Story>
 </Canvas>

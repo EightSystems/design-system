@@ -13,6 +13,7 @@
     "dependencies": {
         "@8sistemas/design-system": "file:../core",
         "@mdx-js/runtime": "^1.6.22",
+        "@react-aria/utils": "^3.8.2",
         "asyncstorage-down": "^4.2.0",
         "node-libs-react-native": "^1.2.1",
         "path-dirname": "^1.0.2",
@@ -20,7 +21,14 @@
         "react-icons": "^4.2.0",
         "react-native": "0.64.2",
         "react-native-fit-image": "^1.5.5",
+        "react-native-flex-image": "^1.3.0",
         "react-native-level-fs": "^3.0.1",
+        "react-native-localize": "^2.1.1",
+        "react-native-masked-text": "^1.13.0",
+        "react-native-popper": "^0.3.0",
+        "react-native-svg": "^12.1.1",
+        "react-native-vector-icons": "^8.1.0",
+        "react-spinners": "^0.11.0",
         "styled-components": "^5.3.0"
     },
     "devDependencies": {

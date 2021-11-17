@@ -1,0 +1,51 @@
+import { Fragment, useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Col, Row } from "../components/layout/Grid";
+import { Text } from "../components/typography/Text";
+
+<Meta title="Layout/Grid" component={Col} />
+
+# Grid System
+
+A Simple Grid System
+
+We use a simple 12 columns grid system, with the default for each of the props being 12
+
+### Breakpoints
+
+Our breakpoints list are:
+* xs: <= 376px
+* sm: <= 768px
+* md: <= 1000px
+* lg: >= 1000px
+
+***Small note: these pixel values are converted to EM at Web***
+
+## Example
+
+<Canvas>
+    <Story name="Grid">
+        {args => {
+            return (
+                <Row>
+                    <Col xs={3} sm={4} md={6} lg={12} style={{backgroundColor: 'yellow'}}>
+                        <Text>XS - 3, SM - 4, MD - 6, LG - 12</Text>
+                    </Col>
+                    <Col xs={3} sm={4} md={6} lg={12} style={{backgroundColor: 'green'}}>
+                        <Text>XS - 3, SM - 4, MD - 6, LG - 12</Text>
+                    </Col>
+                    <Col xs={3} sm={4} md={6} lg={12} style={{backgroundColor: 'blue'}}>
+                        <Text>XS - 3, SM - 4, MD - 6, LG - 12</Text>
+                    </Col>
+                    <Col xs={3} sm={4} md={6} lg={12} style={{backgroundColor: 'gray'}}>
+                        <Text>XS - 3, SM - 4, MD - 6, LG - 12</Text>
+                    </Col>
+                </Row>
+            );
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Col} />
