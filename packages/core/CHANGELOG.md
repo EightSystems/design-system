@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.6.5](https://github.com/EightSystems/design-system/compare/v0.6.4...v0.6.5) (2021-11-21)
+
+
+### Bug Fixes
+
+* docs fonts image [skip-package] ([1b2e51c](https://github.com/EightSystems/design-system/commit/1b2e51c52ea55376bf01e9a46f6af88346a449b5))
+
 ## [0.6.4](https://github.com/EightSystems/design-system/compare/v0.6.3...v0.6.4) (2021-11-21)
 
 
