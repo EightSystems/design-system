@@ -78,7 +78,7 @@ export const ToastWrapper = styled.div`
     position: fixed;
     display: flex;
     align-items: flex-start;
-    box-shadow: ${props => props.theme.boxShadow.default};
+    box-shadow: ${props => props.theme.shadows.default};
     border-radius: 3px;
     padding: 1.6rem;
     &[data-status="info"] {
@@ -100,8 +100,8 @@ export const ToastWrapper = styled.div`
     }
 `;
 export const TextWrapper = styled.div`
-    font-family: ${props => props.theme.fontFaces.secondary};
-    margin-right: ${props => props.theme.space.md};
+    font-family: ${props => props.theme.typography.fontFaces.secondary};
+    margin-right: ${props => props.theme.spacing.md};
 `;
 export const ToastTitle = styled.h2`
     color: ${props => props.theme.colors.secondaryContrast};
@@ -117,7 +117,7 @@ export const ToastDescription = styled.p`
 export const ContextIconWrapper = styled.div`
     svg {
         color: ${props => props.theme.colors.secondaryContrast};
-        margin-right: ${props => props.theme.space.sm};
+        margin-right: ${props => props.theme.spacing.sm};
         width: 36px;
         height: 36px;
     }

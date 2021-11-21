@@ -5,9 +5,30 @@ import * as S from "./styled";
 import { WebTooltipProps } from "./types";
 
 const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
-    ({ placement, offset, crossOffset, tooltipContent, children, ...props }, componentRef) => {
+    (
+        {
+            placement,
+            offset,
+            crossOffset,
+            tooltipContent,
+            children,
+            textColor = "white",
+            fontFace = "primary",
+            fontSize = "xs",
+            fontWeight = "bold",
+            ...props
+        },
+        componentRef
+    ) => {
         const [referenceElement, setReferenceElement] = React.useState<any>();
         const [popperElement, setPopperElement] = React.useState<any>();
+
+        const styleProps = {
+            "data-fontsize": fontSize,
+            "data-textcolor": textColor,
+            "data-fontface": fontFace,
+            "data-fontweight": fontWeight,
+        };
 
         const { styles, attributes } = usePopper(referenceElement, popperElement, {
             placement: placement,
@@ -22,7 +43,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
         });
 
         return (
-            <Popover>
+            <Popover ref={componentRef}>
                 {({ open }) => (
                     <React.Fragment>
                         <Popover.Button
@@ -37,6 +58,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
                             <S.PopoverWrapper
                                 {...props}
                                 {...attributes.popper}
+                                {...styleProps}
                                 ref={setPopperElement}
                                 style={styles.popper}
                                 static

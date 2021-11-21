@@ -1,14 +1,13 @@
-import React from "react";
 import { Transition } from "@headlessui/react";
+import React from "react";
 import * as S from "./styled";
-
 import { WebModalProps } from "./types";
 
 const Modal = (props: WebModalProps) => {
     const onClose = props.onClose || (() => null);
 
     return (
-        <Transition appear={true} show={props.open}>
+        <Transition appear={true} show={props.open || false}>
             <S.StyledDialog className={props.className} onClose={onClose}>
                 <Transition.Child
                     enter="ease-out duration-300"

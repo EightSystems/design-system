@@ -17,7 +17,7 @@ export type ModalProps = RNModalProps & {
     onBackdropPress?(): void;
     fullScreen?: boolean;
     halfScreen?: boolean;
-    isOpen: boolean;
+    open: boolean;
 };
 const Modal = ({
     children,
@@ -26,10 +26,10 @@ const Modal = ({
     onBackdropPress = () => null,
     fullScreen = false,
     halfScreen = false,
-    isOpen,
+    open,
 }: ModalProps) => {
     return (
-        <RNModal visible={isOpen} onRequestClose={onBackdropPress} animationType="fade" transparent>
+        <RNModal visible={open} onRequestClose={onBackdropPress} animationType="fade" transparent>
             <TouchableWithoutFeedback onPress={onBackdropPress}>
                 <View style={StyleSheet.flatten([styles.backdrop, backdropStyle])} />
             </TouchableWithoutFeedback>

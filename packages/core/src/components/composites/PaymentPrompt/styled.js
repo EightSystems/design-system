@@ -7,9 +7,9 @@ export const PaymentPromptWrapper = styled.div`
 `;
 export const PromptLabel = styled.p`
     color: ${props => props.theme.colors.textBody};
-    font-family: ${props => props.theme.fontFaces.primary};
+    font-family: ${props => props.theme.typography.fontFaces.primary};
     font-size: 20px;
     text-align: center;
-    margin-top: ${props => props.theme.space.default};
-    margin-bottom: ${props => props.theme.space.default};
+    margin-top: ${props => props.theme.spacing.default};
+    margin-bottom: ${props => props.theme.spacing.default};
 `;
