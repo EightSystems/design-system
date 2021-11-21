@@ -1,20 +1,15 @@
 import styled from "styled-components";
+import { borderColors } from "../../../theme/mixins/web";
 import * as T from "../../../theme/typography";
 
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    .input--error {
-        border: ${props => props.theme.border.danger};
-    }
-    .input--success {
-        border: ${props => props.theme.border.success};
-    }
 
     &:after {
         content: ">";
         pointer-events: none;
-        font-family: ${props => props.theme.fontFaces.primary};
+        font-family: ${props => props.theme.typography.fontFaces.primary};
         font-size: 18px;
         font-weight: 600;
         position: relative;
@@ -30,16 +25,21 @@ export const InputLabel = styled.label`
 `;
 export const SelectComponent = styled.select`
     ${T.FormInput};
+
+    border: ${props => props.theme.borders.default};
+
+    ${borderColors};
+
     appearance: none;
     padding: 12px 12px;
     width: 100%;
-    border: ${props => props.theme.border.default};
+
     background: ${props => props.theme.colors.white};
     border-radius: 4px;
     transition: 150ms ease-in-out;
     :focus {
         outline: none;
-        border: ${props => props.theme.border.hover};
+        border: ${props => props.theme.borders.hover};
         box-shadow: 0px 0px 8px rgba(0, 7, 46, 0.2);
     }
 
@@ -54,8 +54,8 @@ export const InputValidationMessage = styled.span`
 export const InputValidationContainer = styled.div`
     svg {
         color: ${props => props.theme.colors.danger};
-        height: ${props => props.theme.space.sm};
-        width: ${props => props.theme.space.sm};
+        height: ${props => props.theme.spacing.sm};
+        width: ${props => props.theme.spacing.sm};
     }
     padding-top: 6px;
     display: flex;

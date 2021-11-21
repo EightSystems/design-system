@@ -85,7 +85,7 @@ export const Heading2 = css`
 `;
 
 export const Body = css`
-    font-family: ${({ theme }) => theme.fontFaces.secondary};
+    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
     color: ${({ theme }) => theme.colors.textBody};
     font-size: 18px;
     font-weight: 400;
@@ -97,7 +97,7 @@ export const Body = css`
 `;
 
 export const FormLabel = css`
-    font-family: ${({ theme }) => theme.fontFaces.secondary};
+    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
     color: ${({ theme }) => theme.colors.textBody};
     font-size: 14px;
     font-weight: 500;
@@ -105,14 +105,14 @@ export const FormLabel = css`
 `;
 
 export const FormInput = css`
-    font-family: ${({ theme }) => theme.fontFaces.secondary};
+    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
     color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
 `;
 export const PlaceholderFormInput = css`
-    font-family: ${({ theme }) => theme.fontFaces.secondary};
+    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
     color: ${({ theme }) => theme.colors.textBody};
     font-size: 14px;
     font-weight: 400;
@@ -120,17 +120,7 @@ export const PlaceholderFormInput = css`
 `;
 
 export const FormValidationMessage = css`
-    font-family: ${({ theme }) => theme.fontFaces.primary};
+    font-family: ${({ theme }) => theme.typography.fontFaces.primary};
     color: ${({ theme }) => theme.colors.danger};
     font-size: 13px;
-`;
-
-export const CurrencyLabel = css`
-    font-family: ${({ theme }) => theme.fontFaces.primary};
-    color: ${({ theme }) => theme.colors.textPrimary};
-    font-size: 36px;
-    font-weight: 700;
-    .styled__comma {
-        color: var(--secondary);
-    }
 `;
