@@ -1,18 +1,18 @@
 import * as React from "react";
-import { WebHeadingProps } from "./types";
 import * as S from "./styled";
+import { WebHeadingProps } from "./types";
 
 const Heading = React.forwardRef<HTMLHeadingElement, WebHeadingProps>(
     (
         {
             children,
             textColor = "dark",
-            fontSize = "lg",
+            fontSize,
             fontFace = "primary",
-            fontWeight = "normal",
+            fontWeight = "bold",
             italic = false,
             underline = false,
-            htmlElement = "h1",
+            elementLevel = "h1",
             ...props
         },
         componentRef
@@ -26,7 +26,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, WebHeadingProps>(
             "data-underline": underline,
         };
 
-        switch (htmlElement) {
+        switch (elementLevel) {
             case "h1":
                 return (
                     <S.Heading1 ref={componentRef} {...styleProps} {...props}>

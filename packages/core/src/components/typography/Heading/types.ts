@@ -1,11 +1,11 @@
 import * as React from "react";
 import { TextProps } from "react-native";
 import {
-    FontSizeTypes,
-    FontFaceTypes,
-    NativeFontFaceTypes,
-    FontWeightTypes,
     ColorTypes,
+    FontFaceTypes,
+    FontSizeTypes,
+    FontWeightTypes,
+    NativeFontFaceTypes,
     NativeTextAlignTypes,
 } from "../../../theme/types";
 
@@ -31,12 +31,12 @@ type CommonProps = {
     /** Underline the text. */
     underline?: boolean;
 
-    /** On web platforms, defines the element that should be used to render the text string. Ignored on native platforms */
-    htmlElement?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    /** Defines the element that should be used to render the text string. On native platforms it will mimic the style of web */
+    elementLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
 /* Since font weight is tied to the fontFace on react-native, we drop support for fontWeight prop and override fontFace with the native types. */
-type NativeProps = Omit<CommonProps, "fontFace" | "htmlElement"> & {
+type NativeProps = Omit<CommonProps, "fontFace"> & {
     fontFace?: NativeFontFaceTypes;
     textAlign?: NativeTextAlignTypes;
 };

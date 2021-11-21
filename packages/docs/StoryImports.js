@@ -7,6 +7,7 @@ import ButtonStory from "../core/src/stories/Button.stories";
 import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
 import DividerStory from "../core/src/stories/Divider.stories";
 import GridStory from "../core/src/stories/Grid.stories";
+import HeadingStory from "../core/src/stories/Heading.stories";
 import IconStory from "../core/src/stories/Icon.stories";
 import ModalStory from "../core/src/stories/Modal.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
@@ -21,6 +22,7 @@ const storyList = {
     Introduction: IntroductionStory,
     Usage: UsageStory,
     Theming: ThemingStory,
+    "Typography/Heading": HeadingStory,
     //Accordion: AccordionStory,
     Tooltip: TooltipStory,
     Avatar: AvatarStory,

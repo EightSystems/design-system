@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components/native";
 import { Text } from "react-native";
-import { textColors, fontSizes, fontFaces, textAlign } from "../../../theme/mixins/native";
+import styled, { css } from "styled-components/native";
+import { fontFaces, fontSizes, textAlign, textColors } from "../../../theme/mixins/native";
 
-export const Heading = styled(Text)`
+const DefaultStyles = css`
     ${props =>
         props["data-italic"]
             ? css`
@@ -20,4 +20,34 @@ export const Heading = styled(Text)`
     ${fontFaces};
     ${fontSizes};
     ${textColors};
+`;
+
+export const Heading1 = styled(Text)`
+    font-size: ${({ theme }) => theme.nativeTypography.fontSizes.lg};
+    ${DefaultStyles};
+`;
+
+export const Heading2 = styled(Text)`
+    font-size: ${({ theme }) => theme.nativeTypography.fontSizes.md};
+    ${DefaultStyles}
+`;
+
+export const Heading3 = styled(Text)`
+    font-size: ${({ theme }) => theme.nativeTypography.fontSizes.sm};
+    ${DefaultStyles}
+`;
+
+export const Heading4 = styled(Text)`
+    font-size: ${({ theme }) => theme.nativeTypography.fontSizes.xs};
+    ${DefaultStyles}
+`;
+
+export const Heading5 = styled(Text)`
+    font-size: ${({ theme }) => theme.nativeTypography.fontSizes.xxs};
+    ${DefaultStyles}
+`;
+
+export const Heading6 = styled(Text)`
+    font-size: ${({ theme }) => theme.nativeTypography.fontSizes.xxxs};
+    ${DefaultStyles}
 `;
