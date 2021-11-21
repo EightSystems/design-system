@@ -35,7 +35,6 @@ type CommonProps = {
     elementLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
-/* Since font weight is tied to the fontFace on react-native, we drop support for fontWeight prop and override fontFace with the native types. */
 type NativeProps = Omit<CommonProps, "fontFace"> & {
     fontFace?: NativeFontFaceTypes;
     textAlign?: NativeTextAlignTypes;

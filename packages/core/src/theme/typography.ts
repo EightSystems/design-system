@@ -45,16 +45,29 @@ export const nativeTypography = {
     ...typography,
     fontFaces: {
         primary: "Poppins-Regular",
-        primaryRegular: "Poppins-Regular",
+        primaryHairline: "Poppins-Regular",
+        primaryThin: "Poppins-Regular",
+        primaryLight: "Poppins-Regular",
+        primaryNormal: "Poppins-Regular",
         primaryMedium: "Poppins-Medium",
         primarySemiBold: "Poppins-SemiBold",
         primaryBold: "Poppins-Bold",
+        primaryExtraBold: "Poppins-Bold",
+        primaryBlack: "Poppins-Bold",
 
         secondary: "Inter-Regular",
-        secondaryRegular: "Inter-Regular",
+        secondaryHairline: "Inter-Regular",
+        secondaryThin: "Inter-Regular",
+        secondaryLight: "Inter-Regular",
+        secondaryNormal: "Inter-Regular",
         secondaryMedium: "Inter-Medium",
         secondarySemiBold: "Inter-SemiBold",
         secondaryBold: "Inter-Bold",
+        secondaryExtraBold: "Inter-Bold",
+        secondaryBlack: "Inter-Bold",
+
+        primaryRegular: "Poppins-Regular", // For legacy support
+        secondaryRegular: "Inter-Regular", // For legacy support
     },
 };
 

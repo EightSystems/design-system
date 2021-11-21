@@ -1,4 +1,13 @@
 import React from "react";
-import { Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
-export const CodeSyntaxHighlighter = ({ codeString }) => <Text>{codeString}</Text>;
+const style = StyleSheet.create({
+    codeInline: {
+        borderWidth: 1,
+        borderColor: "#CCCCCC",
+        backgroundColor: "#f5f5f5",
+        padding: 10,
+        borderRadius: 4,
+    },
+});
+export const CodeSyntaxHighlighter = ({ codeString }) => <Text style={style.codeInline}>{codeString}</Text>;

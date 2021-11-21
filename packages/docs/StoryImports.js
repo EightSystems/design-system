@@ -1,6 +1,7 @@
 import IntroductionStory from "../core/src/stories/0_Introduction.stories";
 import UsageStory from "../core/src/stories/1_Usage.stories";
 import ThemingStory from "../core/src/stories/2_Theming.stories";
+import NativeSupportStory from "../core/src/stories/4_NativeSupport.stories";
 //import AccordionStory from "../core/src/stories/Accordion.stories";
 import AvatarStory from "../core/src/stories/Avatar.stories";
 import ButtonStory from "../core/src/stories/Button.stories";
@@ -15,6 +16,7 @@ import ProgressRingStory from "../core/src/stories/ProgressRing.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
 import SpinnerStory from "../core/src/stories/Spinner.stories";
 import StepperStory from "../core/src/stories/Stepper.stories";
+import TextStory from "../core/src/stories/Text.stories";
 import TextFieldStory from "../core/src/stories/TextField.stories";
 import TooltipStory from "../core/src/stories/Tooltip.stories";
 
@@ -22,7 +24,9 @@ const storyList = {
     Introduction: IntroductionStory,
     Usage: UsageStory,
     Theming: ThemingStory,
+    "Native Support": NativeSupportStory,
     "Typography/Heading": HeadingStory,
+    "Typography/Text": TextStory,
     //Accordion: AccordionStory,
     Tooltip: TooltipStory,
     Avatar: AvatarStory,

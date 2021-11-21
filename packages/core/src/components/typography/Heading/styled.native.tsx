@@ -1,6 +1,6 @@
 import { Text } from "react-native";
 import styled, { css } from "styled-components/native";
-import { fontFaces, fontSizes, textAlign, textColors } from "../../../theme/mixins/native";
+import { fontFaces, fontSizes, fontWeights, textAlign, textColors } from "../../../theme/mixins/native";
 
 const DefaultStyles = css`
     ${props =>
@@ -18,6 +18,7 @@ const DefaultStyles = css`
 
     ${textAlign};
     ${fontFaces};
+    ${fontWeights};
     ${fontSizes};
     ${textColors};
 `;

@@ -8,7 +8,7 @@ import { theme, nativeTheme } from '../theme';
 # Theming
 
 By default, the library ships with a default `Theme` object that can be provided to the `theme` prop of the
-`<ThemeProviderInjector>` component that is placed on the root of your project.
+`<ThemeProviderInjector>` component that is placed on the top level component of your project.
 
 The object has two "distinct" structures, one for web, and one for native, the major difference being the typography font faces, and shadow settings.
 
@@ -22,17 +22,22 @@ The object has two "distinct" structures, one for web, and one for native, the m
 
 ## Theme Customization
 
-You can customize this theme by creating your own theme file with this structure and providing the correspondent values
-to each property.
+You can customize this theme by creating your own theme object with this structure and providing the correspondent values
+to each property, with the support of deep-merge, we dont't need the whole theme object, and you can just update the properties you need.
 
-You can then use this file on the `theme` prop for the `ThemeProviderInjector`:
+You can then use this object at the `theme` prop for the `ThemeProviderInjector`:
 
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { ThemeProvider } from "@8sistemas/design-system";
-import { MyCustomTheme } from "./MyCustomTheme";
+import { ThemeProviderInjector } from "@8sistemas/design-system";
+
+const MyCustomTheme = {
+    colors: {
+        primary: 'red'
+    }
+}
 
 ReactDOM.render(
     <React.StrictMode>
@@ -43,7 +48,3 @@ ReactDOM.render(
     document.getElementById("root")
 );
 ```
-
-> **Important**: As of now, there is no support for modular theme extensions, and changing the default property names
-> directly on the provided theme will break existing styles on the library's components. A rebuilt ThemeProvider with
-> support for theme extensions is planned for the v1.0 release.

@@ -1,0 +1,40 @@
+import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Text } from "../components/typography/Text";
+
+<Meta title="Typography/Text" component={Text} />
+
+# Text
+
+The `Text` component is part of the typography module, you can use it as a substitute to `p` HTML tags. It will also replace React Native `Text` component.
+
+You should use this component everytime you need a `Text` element, as it will make your component platform type agnostic.
+
+## Import
+
+```jsx
+import { Text } from "@8sistemas/design-system";
+```
+
+## Usage
+
+<Canvas>
+    <Story name="Regular Text" args={{fontWeight: 'normal', children: ['Regular Text']}}>
+        {args => <Text {...args} />}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Bold Text with Secondary Color" args={{fontWeight: 'bold', textColor: 'secondary', children: ['Bold Text with Secondary Color']}}>
+        {args => <Text {...args} />}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Bold Text with Large font size" args={{fontWeight: 'bold', fontSize: 'lg', children: ['Bold Text with Large font size']}}>
+        {args => <Text {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Text} />

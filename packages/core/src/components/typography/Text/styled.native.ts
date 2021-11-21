@@ -1,6 +1,6 @@
 import { Text as RNText } from "react-native";
 import styled, { css } from "styled-components/native";
-import { fontSizes, fontFaces, textColors, textAlign } from "../../../theme/mixins/native";
+import { fontFaces, fontSizes, fontWeights, textAlign, textColors } from "../../../theme/mixins/native";
 
 export const Text = styled(RNText)`
     ${props =>
@@ -19,6 +19,7 @@ export const Text = styled(RNText)`
 
     ${textAlign};
     ${fontFaces};
+    ${fontWeights};
     ${fontSizes};
     ${textColors};
 `;

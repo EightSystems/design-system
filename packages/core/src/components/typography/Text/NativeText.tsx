@@ -1,6 +1,6 @@
 import * as React from "react";
-import { NativeTextProps } from "./types";
 import * as S from "./styled.native";
+import { NativeTextProps } from "./types";
 
 const Text = React.forwardRef<any, NativeTextProps>(
     (
@@ -8,8 +8,9 @@ const Text = React.forwardRef<any, NativeTextProps>(
             children,
             textColor = "dark",
             fontSize = "md",
-            fontFace = "primaryRegular",
+            fontFace = "primary",
             textAlign = "left",
+            fontWeight = "normal",
             italic = false,
             underline = false,
             ...props
@@ -20,6 +21,7 @@ const Text = React.forwardRef<any, NativeTextProps>(
             "data-fontsize": fontSize,
             "data-textcolor": textColor,
             "data-fontface": fontFace,
+            "data-fontweight": fontWeight,
             "data-italic": italic,
             "data-underline": underline,
             "data-textalign": textAlign,
