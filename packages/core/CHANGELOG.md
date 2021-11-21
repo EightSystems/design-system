@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.6.1](https://github.com/EightSystems/design-system/compare/v0.6.0...v0.6.1) (2021-11-21)
+
+
+### Bug Fixes
+
+* theme provider with deep merge, and docs running on native ([b876916](https://github.com/EightSystems/design-system/commit/b87691691cab1edd69aa5e66fbc12c3f761a9bc2))
+
 # [0.6.0](https://github.com/EightSystems/design-system/compare/v0.5.0...v0.6.0) (2021-11-17)
 
 
