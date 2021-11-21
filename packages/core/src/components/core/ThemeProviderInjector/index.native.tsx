@@ -1,9 +1,13 @@
+import merge from "lodash/merge";
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { ThemeProviderProps } from "./types";
+import { nativeTheme as originalTheme } from "../../../theme";
+import { NativeThemeProviderProps } from "./types";
 
-const ThemeProviderInjector = ({ theme, children }: ThemeProviderProps) => {
-    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const ThemeProviderInjector = ({ theme, children }: NativeThemeProviderProps) => {
+    const themeMerged = merge(originalTheme, theme || {});
+
+    return <ThemeProvider theme={themeMerged}>{children}</ThemeProvider>;
 };
 
 export default ThemeProviderInjector;

@@ -1,4 +1,7 @@
 import { Meta } from "@storybook/addon-docs/blocks";
+import { CodeSyntaxHighlighter } from './helpers/SyntaxHighlighter';
+
+import { theme, nativeTheme } from '../theme';
 
 <Meta title="Theming" />
 
@@ -7,69 +10,17 @@ import { Meta } from "@storybook/addon-docs/blocks";
 By default, the library ships with a default `Theme` object that can be provided to the `theme` prop of the
 `<ThemeProviderInjector>` component that is placed on the root of your project.
 
-The object follows this structure:
+The object has two "distinct" structures, one for web, and one for native, the major difference being the typography font faces, and shadow settings.
 
-```javascript
-const Theme = {
-    space: {
-        xxs,
-        xs,
-        sm,
-        default,
-        md,
-        lg,
-        xlg,
-        xxlg,
-    },
-    colors: {
-        background,
-        textPrimary,
-        textBody,
+#### Web defaults and theme format:
 
-        primary,
-        primaryShade,
-        primaryTint,
-        primaryContrast,
+<CodeSyntaxHighlighter language="javascript" codeString={`const Theme = ${JSON.stringify(theme, null, 2)}`}/>
 
-        secondary,
-        secondaryShade,
-        secondaryTint,
-        secondaryContrast,
+#### Native defaults and theme format:
 
-        tertiary,
-        tertiaryShade,
-        tertiaryTint,
-        tertiaryContrast,
+<CodeSyntaxHighlighter language="javascript" codeString={`const Theme = ${JSON.stringify(nativeTheme, null, 2)}`}/>
 
-        danger,
-        dangerTint,
-        success,
-        successShade,
-        pending,
-
-        gray,
-        grayShade,
-        grayTint,
-        lightGray,
-
-        white,
-    },
-    boxShadow: {
-        default,
-    },
-    border: {
-        default,
-        hover,
-        danger,
-        success,
-        light,
-    },
-    fontFaces: {
-        primary,
-        secondary
-    },
-}
-```
+## Theme Customization
 
 You can customize this theme by creating your own theme file with this structure and providing the correspondent values
 to each property.
