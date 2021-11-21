@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.6.2](https://github.com/EightSystems/design-system/compare/v0.6.1...v0.6.2) (2021-11-21)
+
+
+### Bug Fixes
+
+* fix select on web, and improve the mixin ([af3498f](https://github.com/EightSystems/design-system/commit/af3498fd042fa2dff8fb20b090ab1905568ca70c))
+
 ## [0.6.1](https://github.com/EightSystems/design-system/compare/v0.6.0...v0.6.1) (2021-11-21)
 
 
