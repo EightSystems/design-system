@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.6.4](https://github.com/EightSystems/design-system/compare/v0.6.3...v0.6.4) (2021-11-21)
+
+
+### Bug Fixes
+
+* make storybook fully load ([b6f4300](https://github.com/EightSystems/design-system/commit/b6f4300c5736e5f67f00189ed6ff153b40267bc9))
+* theme font weight, more docs on native support, and typography ([3c199d4](https://github.com/EightSystems/design-system/commit/3c199d470e7a78fc487a6a7e19b995c71a18a685))
+
 ## [0.6.3](https://github.com/EightSystems/design-system/compare/v0.6.2...v0.6.3) (2021-11-21)
 
 
