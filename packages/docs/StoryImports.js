@@ -13,6 +13,7 @@ import IconStory from "../core/src/stories/Icon.stories";
 import ModalStory from "../core/src/stories/Modal.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
 import ProgressRingStory from "../core/src/stories/ProgressRing.stories";
+import SelectStory from "../core/src/stories/Select.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
 import SpinnerStory from "../core/src/stories/Spinner.stories";
 import StepperStory from "../core/src/stories/Stepper.stories";
@@ -38,6 +39,7 @@ const storyList = {
     Modal: ModalStory,
     PaymentStatus: PaymentStatusStory,
     ProgressRing: ProgressRingStory,
+    Select: SelectStory,
     Skeleton: SkeletonStory,
     Spinner: SpinnerStory,
     Stepper: StepperStory,

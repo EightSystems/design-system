@@ -1,8 +1,8 @@
 import React, { isValidElement } from "react";
 import { ActivityIndicator, PressableProps } from "react-native";
-import { NativeButtonProps } from "./types";
 import Spacer from "../../layout/Spacer/index.native";
 import * as S from "./styled.native";
+import { NativeButtonProps } from "./types";
 
 const Button = React.forwardRef<PressableProps, NativeButtonProps>(
     (
@@ -21,6 +21,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
             iconPadding,
             spinnerColor,
             children,
+            textAlign = "center",
             ...props
         },
         componentRef
@@ -50,6 +51,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
 
                 <S.StyledText
                     data-size={size}
+                    data-textalign={textAlign}
                     data-textcolor={textColor}
                     data-fontface={fontFace}
                     data-fontsize={fontSize}

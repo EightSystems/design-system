@@ -1,11 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
+import uniqueId from "lodash/uniqueId";
 import Proptypes from "prop-types";
-import { uniqueId } from "lodash";
+import React, { useEffect, useRef, useState } from "react";
+import { MdCheckCircle, MdClose, MdError } from "react-icons/md";
 import { useContainerDimensions } from "../../../hooks/useContainerDimensions";
-
-import { MdError, MdCheckCircle, MdClose } from "react-icons/md";
-
 import * as S from "./styled";
 
 const Toast = React.forwardRef((props, componentRef) => {

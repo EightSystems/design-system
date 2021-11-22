@@ -15,7 +15,7 @@ import Toast from "./components/feedback/Toast";
 import { Tooltip, WebTooltipProps } from "./components/feedback/Tooltip";
 // Form components
 import { Button, WebButtonProps } from "./components/forms/Button";
-import Select from "./components/forms/Select";
+import Select, { Option } from "./components/forms/Select";
 import { TextField, WebTextFieldProps } from "./components/forms/TextField";
 // Layout Components
 import Box from "./components/layout/Box";
@@ -58,6 +58,7 @@ export {
     Row,
     SavedCardBadge,
     Select,
+    Option,
     Skeleton,
     Spacer,
     Spinner,

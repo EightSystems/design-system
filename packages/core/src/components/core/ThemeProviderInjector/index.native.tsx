@@ -1,3 +1,4 @@
+import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 import merge from "lodash/merge";
 import React from "react";
 import { ThemeProvider } from "styled-components";
@@ -22,7 +23,11 @@ const ThemeProviderInjector = ({ theme, children }: NativeThemeProviderProps) =>
     let themeMerged = merge(originalTheme, theme || {});
     themeMerged = cacheFontWeight(themeMerged);
 
-    return <ThemeProvider theme={themeMerged}>{children}</ThemeProvider>;
+    return (
+        <ActionSheetProvider>
+            <ThemeProvider theme={themeMerged}>{children}</ThemeProvider>
+        </ActionSheetProvider>
+    );
 };
 
 export default ThemeProviderInjector;

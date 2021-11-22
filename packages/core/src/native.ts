@@ -10,6 +10,7 @@ import { Stepper, StepperProps } from "./components/feedback/Stepper";
 import { NativeTooltipProps, Tooltip } from "./components/feedback/Tooltip/index.native";
 // Form components
 import { Button, NativeButtonProps } from "./components/forms/Button/index.native";
+import Select, { Option } from "./components/forms/Select/index.native";
 import { NativeTextFieldProps, TextField } from "./components/forms/TextField/index.native";
 // Layout components
 import Box from "./components/layout/Box/index.native";
@@ -49,6 +50,8 @@ export {
     Spinner,
     Tooltip,
     Stepper,
+    Select,
+    Option,
     Text,
     TextField,
     Theme,

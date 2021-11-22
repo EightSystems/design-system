@@ -18,6 +18,7 @@
     "license": "MIT",
     "private": false,
     "peerDependencies": {
+        "@expo/react-native-action-sheet": ">=3.12.0",
         "react": ">=17.0.1",
         "react-dom": ">=17.0.1",
         "react-native": ">=0.64.2",
@@ -70,12 +71,14 @@
         "url-loader": "^4.1.1"
     },
     "dependencies": {
+        "@expo/react-native-action-sheet": "^3.12.0",
         "@headlessui/react": "^1.2.0",
         "@popperjs/core": "^2.9.2",
         "classnames": "^2.2.6",
         "dinero.js": "^1.8.1",
         "lodash": "^4.17.21",
         "react": "^17.0.1",
+        "react-children-utilities": "^2.6.3",
         "react-collapse": "^5.1.0",
         "react-native-localize": "^2.1.1",
         "react-native-masked-text": "^1.13.0",

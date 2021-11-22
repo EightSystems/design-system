@@ -1,10 +1,8 @@
-import React from "react";
+import isFunction from "lodash/isFunction";
 import Proptypes from "prop-types";
-
-import { isFunction } from "lodash";
+import React from "react";
 import { UnmountClosed } from "react-collapse";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
-
 import * as S from "./styled";
 
 /**

@@ -1,8 +1,10 @@
-import { uniqueId } from "lodash";
+import uniqueId from "lodash/uniqueId";
 import React from "react";
 import { MdInfo } from "react-icons/md";
 import * as S from "./styled";
 import { SelectProps } from "./types";
+
+export { Option } from "./Option";
 
 export const Select = (props: SelectProps) => {
     const borderColor = props.validationError ? "danger" : props.validationSuccess ? "success" : null;

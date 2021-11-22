@@ -1,4 +1,4 @@
-import { uniqueId } from "lodash";
+import uniqueId from "lodash/uniqueId";
 import * as React from "react";
 import { TextInputProps } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";

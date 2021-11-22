@@ -1,6 +1,13 @@
-import styled, { css } from "styled-components/native";
 import { Pressable, Text } from "react-native";
-import { textColors, backgroundColors, fontFaces, borderColors, fontSizes } from "../../../theme/mixins/native";
+import styled, { css } from "styled-components/native";
+import {
+    backgroundColors,
+    borderColors,
+    fontFaces,
+    fontSizes,
+    textAlign,
+    textColors,
+} from "../../../theme/mixins/native";
 
 export const ButtonPressable = styled(Pressable)`
     ${backgroundColors};
@@ -42,9 +49,10 @@ export const ButtonPressable = styled(Pressable)`
 `;
 
 export const StyledText = styled(Text)`
-    text-align: center;
+    ${textAlign};
     ${textColors};
     ${fontFaces};
+    width: 100%;
 
     ${props =>
         props["data-size"] == "small"
