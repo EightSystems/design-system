@@ -1,10 +1,7 @@
 import * as React from "react";
+import { WebBoxProps } from "./types";
 
-export type WebBoxProps = React.ComponentPropsWithRef<"div"> & {
-    children: React.ReactNode;
-};
-
-const Box = ({ children, ...otherProps }: WebBoxProps) => {
+export const Box: React.FC<WebBoxProps> = ({ children, ...otherProps }: WebBoxProps) => {
     return <div {...otherProps}>{children}</div>;
 };
 

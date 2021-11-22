@@ -1,11 +1,8 @@
 import * as React from "react";
-import { View, ViewProps } from "react-native";
+import { View } from "react-native";
+import { NativeBoxProps } from "./types";
 
-export type NativeBoxProps = ViewProps & {
-    children: React.ReactNode;
-};
-
-const Box = ({ children, ...otherProps }: NativeBoxProps) => {
+export const Box: React.FC<NativeBoxProps> = ({ children, ...otherProps }: NativeBoxProps) => {
     return <View {...otherProps}>{children}</View>;
 };
 

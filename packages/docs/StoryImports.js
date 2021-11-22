@@ -4,6 +4,7 @@ import ThemingStory from "../core/src/stories/2_Theming.stories";
 import NativeSupportStory from "../core/src/stories/4_NativeSupport.stories";
 //import AccordionStory from "../core/src/stories/Accordion.stories";
 import AvatarStory from "../core/src/stories/Avatar.stories";
+import BoxStory from "../core/src/stories/Box.stories";
 import ButtonStory from "../core/src/stories/Button.stories";
 import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
 import DividerStory from "../core/src/stories/Divider.stories";
@@ -34,6 +35,7 @@ const storyList = {
     Button: ButtonStory,
     CurrencyLabel: CurrencyLabelStory,
     Divider: DividerStory,
+    Box: BoxStory,
     Grid: GridStory,
     Icon: IconStory,
     Modal: ModalStory,

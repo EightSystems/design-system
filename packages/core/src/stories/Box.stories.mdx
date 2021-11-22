@@ -1,0 +1,44 @@
+import { Fragment, useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Box } from "../components/layout/Box";
+import { Text } from "../components/typography/Text";
+
+<Meta title="Layout/Box" component={Box} />
+
+# Box
+
+A replacement to `div` on Web and `View` on Native.
+You should be using this component instead of divs and Views, as it will allow your code to be platform agnostic.
+That way you can simply do:
+
+```jsx
+const MyContainerComponent = styled(Box)`
+    padding-left: 100px;
+`
+```
+
+And it will work on **both** the platforms
+
+## Import
+
+```jsx
+import { Box } from "@8sistemas/design-system";
+```
+
+## Example
+
+<Canvas>
+    <Story name="Box">
+        {args => {
+            return (
+                <Box>
+                    <Text>My text inside the box</Text>
+                </Box>
+            );
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Box} />
