@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.6.6](https://github.com/EightSystems/design-system/compare/v0.6.5...v0.6.6) (2021-11-22)
+
+
+### Bug Fixes
+
+* make select work in native ([5706f2b](https://github.com/EightSystems/design-system/commit/5706f2b801520da609221928a97485fe340b4e64))
+
 ## [0.6.5](https://github.com/EightSystems/design-system/compare/v0.6.4...v0.6.5) (2021-11-21)
 
 
