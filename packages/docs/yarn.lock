@@ -3,7 +3,7 @@
 
 
 "@8sistemas/design-system@file:../core":
-  version "0.6.4"
+  version "0.6.6"
   dependencies:
     "@expo/react-native-action-sheet" "^3.12.0"
     "@headlessui/react" "^1.2.0"
@@ -14,6 +14,7 @@
     react "^17.0.1"
     react-children-utilities "^2.6.3"
     react-collapse "^5.1.0"
+    react-native-linear-gradient "^2.5.6"
     react-native-localize "^2.1.1"
     react-native-masked-text "^1.13.0"
     react-native-popper "^0.3.0"
@@ -1449,6 +1450,13 @@
   version "15.7.4"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
+
+"@types/react-native@^0.66.6":
+  version "0.66.6"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.66.6.tgz#08f5b93cca9a50b7d19f353ff2a1ebe1a7c24a79"
+  integrity sha512-VqC2wN5wNCXqL9/Fve/bI1C+Q8BJlkiF/JOs7Qfw5eeD//nk5Imw4KrB8UiZZ/TPMSXPWYiKvWHiiqgA99L69g==
+  dependencies:
+    "@types/react" "*"
 
 "@types/react@*":
   version "17.0.36"
@@ -5698,13 +5706,6 @@ react-native-fit-image@^1.5.5:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-flex-image@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-flex-image/-/react-native-flex-image-1.3.0.tgz#d5dd0e242f85dde44748a3e8ac45d007f8b249be"
-  integrity sha512-v9aiYbHoHQ12XJkcYUNwSNX7LnM235+c6Va/7xrF8DNCVWPSrR427uj1B32ADDnVPRyeH3SVLSQWkJGDPLCMEQ==
-  dependencies:
-    tslib "1.9.3"
-
 react-native-gesture-handler@^1.10.3:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"
@@ -5728,6 +5729,11 @@ react-native-level-fs@^3.0.1:
   dependencies:
     level-filesystem "^1.0.1"
     levelup "^0.18.2"
+
+react-native-linear-gradient@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+  integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
 
 react-native-localize@^2.1.1:
   version "2.1.4"
@@ -6847,11 +6853,6 @@ trough@^1.0.0:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.5.tgz#b8b639cefad7d0bb2abd37d433ff8293efa5f406"
   integrity sha512-rvuRbTarPXmMb79SmzEp8aqXNKcK+y0XaB298IXueQ8I2PsrATcPBCSPyK/dDNa2iWOhKlfNnOjdAOTBU/nkFA==
-
-tslib@1.9.3:
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
-  integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
 
 tslib@^2.0.1, tslib@^2.1.0:
   version "2.3.1"

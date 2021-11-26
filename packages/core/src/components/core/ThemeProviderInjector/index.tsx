@@ -7,7 +7,6 @@ import { ThemeProviderProps } from "./types";
 
 const ThemeProviderInjector = ({ theme, children }: ThemeProviderProps) => {
     const themeMerged = merge(originalTheme, theme || {});
-    console.log(themeMerged);
 
     return (
         <ThemeProvider theme={themeMerged}>

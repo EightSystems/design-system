@@ -77,4 +77,4 @@ const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
     }
 );
 
-export default React.memo(Tooltip);
+export default Tooltip;

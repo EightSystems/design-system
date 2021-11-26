@@ -70,4 +70,4 @@ const Heading = React.forwardRef<Text, NativeHeadingProps>(
     }
 );
 
-export default React.memo(Heading);
+export default Heading;

@@ -1,52 +1,56 @@
 import { Pressable, Text } from "react-native";
 import styled, { css } from "styled-components/native";
+import { withGradientBackground } from "../../../theme/gradient.native";
 import {
     backgroundColors,
     borderColors,
+    borderRadius,
     fontFaces,
     fontSizes,
     textAlign,
     textColors,
 } from "../../../theme/mixins/native";
 
-export const ButtonPressable = styled(Pressable)`
-    ${backgroundColors};
-    ${borderColors};
-
-    ${props =>
-        props["data-size"] == "small"
-            ? css`
-                  padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
-              `
-            : null}
-    ${props =>
-        props["data-size"] == "medium"
-            ? css`
-                  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
-              `
-            : null}
-        ${props =>
-        props["data-size"] == "large"
-            ? css`
-                  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
-              `
-            : null}
+export const ButtonPressable = withGradientBackground<any, any>(
+    styled(Pressable)`
+        ${backgroundColors};
+        ${borderColors};
+        ${borderRadius};
 
         ${props =>
-        props["data-disabled"]
-            ? css`
-                  opacity: 0.75;
-              `
-            : null}
+            props["data-size"] == "small"
+                ? css`
+                      padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
+                  `
+                : null}
+        ${props =>
+            props["data-size"] == "medium"
+                ? css`
+                      padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
+                  `
+                : null}
+            ${props =>
+            props["data-size"] == "large"
+                ? css`
+                      padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
+                  `
+                : null}
 
-    border-radius: 5px;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    min-height: 50px;
-`;
+            ${props =>
+            props["data-disabled"]
+                ? css`
+                      opacity: 0.75;
+                  `
+                : null}
+
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        min-height: 50px;
+    `
+);
 
 export const StyledText = styled(Text)`
     ${textAlign};

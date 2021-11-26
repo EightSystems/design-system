@@ -1,15 +1,15 @@
 import * as React from "react";
-import * as S from "./styled.native";
-import { NativePaymentStatusProps } from "./types";
+import { View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-
 import { nativeTheme } from "../../../theme";
+import Spacer from "../../layout/Spacer/index.native";
 import { CurrencyLabel } from "../../primitives/CurrencyLabel/index.native";
 import { Heading } from "../../typography/Heading/index.native";
 import { Text } from "../../typography/Text/index.native";
-import Spacer from "../../layout/Spacer/index.native";
+import * as S from "./styled.native";
+import { NativePaymentStatusProps } from "./types";
 
-const PaymentStatus = React.forwardRef<any, NativePaymentStatusProps>(
+export const PaymentStatus = React.forwardRef<View, NativePaymentStatusProps>(
     ({ status, title, description, currency = null, value = 0 }, componentRef) => {
         const iconProps = {
             color: nativeTheme.colors.primaryContrast,
@@ -46,4 +46,4 @@ const PaymentStatus = React.forwardRef<any, NativePaymentStatusProps>(
     }
 );
 
-export default React.memo(PaymentStatus);
+export default PaymentStatus;

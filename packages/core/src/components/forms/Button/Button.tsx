@@ -1,12 +1,11 @@
 import * as React from "react";
-import { WebButtonProps } from "./types";
-import * as S from "./styled";
 import { nativeTheme } from "../../../theme";
-
 import { Spinner } from "../../feedback/Spinner";
 import Spacer from "../../layout/Spacer";
+import * as S from "./styled";
+import { WebButtonProps } from "./types";
 
-const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
     (
         {
             disabled = false,
@@ -16,6 +15,7 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
             fontSize,
             backgroundColor = "primary",
             borderColor,
+            borderRadius = "md",
             focusColor,
             loading = false,
             size = "large",
@@ -38,6 +38,7 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
                 data-fontweight={fontWeight}
                 data-fontsize={fontSize}
                 data-bordercolor={borderColor}
+                data-borderradius={borderRadius}
                 data-size={size}
                 data-disabled={disabled || loading}
                 ref={componentRef}
@@ -70,4 +71,4 @@ const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
     }
 );
 
-export default React.memo(Button);
+export default Button;

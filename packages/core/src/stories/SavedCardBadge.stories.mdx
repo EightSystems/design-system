@@ -5,16 +5,8 @@ import SavedCardBadge from "../components/composites/SavedCardBadge";
 
 # SavedCardBadge
 
-Component used to show a payment method previously registered by the user, and can be selected to allow the user to change the payment method that is going to be used.
-
-<style>{`
-  .flex-container {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    max-width: 600px;
-  }
-`}</style>
+Component used to show a payment method previously registered by the user, and can be selected to allow the user to
+change the payment method that is going to be used.
 
 <Canvas>
     <Story
@@ -22,11 +14,7 @@ Component used to show a payment method previously registered by the user, and c
         args={{ cardBrand: "maestro", cardLastDigits: "0132", cardIdentifier: "Cartão da Firma" }}
         argTypes={{ onClick: { action: "onClick" } }}
     >
-        {args => (
-            <div className="flex-container">
-                <SavedCardBadge {...args} />
-            </div>
-        )}
+        {args => <SavedCardBadge {...args} />}
     </Story>
 </Canvas>
 

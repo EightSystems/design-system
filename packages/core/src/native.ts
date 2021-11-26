@@ -14,6 +14,7 @@ import Select, { Option } from "./components/forms/Select/index.native";
 import { NativeTextFieldProps, TextField } from "./components/forms/TextField/index.native";
 // Layout components
 import Box from "./components/layout/Box/index.native";
+import { CenteredFlexBox, FlexBox } from "./components/layout/FlexBox";
 import { Col, ColProps, Row, RowProps } from "./components/layout/Grid";
 import Spacer from "./components/layout/Spacer/index.native";
 // Primitive components
@@ -21,6 +22,7 @@ import { Avatar, NativeAvatarProps } from "./components/primitives/Avatar/index.
 import { CurrencyLabel, NativeCurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
 import { Divider, NativeDividerProps } from "./components/primitives/Divider/index.native";
 import { Icon, NativeIconProps } from "./components/primitives/Icon/index.native";
+import { Image } from "./components/primitives/Image/index.native";
 import { NativeSkeletonProps, Skeleton } from "./components/primitives/Skeleton/index.native";
 // Typography Components
 import { Heading, NativeHeadingProps } from "./components/typography/Heading/index.native";
@@ -34,7 +36,10 @@ import { media, mediaMinWidth, withMediaWatcher } from "./theme/media.native";
 
 export {
     Avatar,
+    Image,
     Box,
+    CenteredFlexBox,
+    FlexBox,
     Button,
     Col,
     CurrencyLabel,

@@ -1,9 +1,9 @@
-import React from "react";
-import { WebCurrencyLabelProps } from "./types";
 import Dinero from "dinero.js";
-import * as S from "./styled";
+import React from "react";
 import getUserLanguage from "../../../utils/getUserLanguage";
 import CurrencyList from "./currencyList.json";
+import * as S from "./styled";
+import { WebCurrencyLabelProps } from "./types";
 
 const CurrencyLabel = React.forwardRef<HTMLHeadingElement, WebCurrencyLabelProps>(
     (
@@ -30,4 +30,4 @@ const CurrencyLabel = React.forwardRef<HTMLHeadingElement, WebCurrencyLabelProps
     }
 );
 
-export default React.memo(CurrencyLabel);
+export default CurrencyLabel;

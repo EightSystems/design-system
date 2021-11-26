@@ -1,15 +1,15 @@
 import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs/blocks";
 import { ProgressRing } from "../components/feedback/ProgressRing";
 
-<Meta title="Feedback/ProgressRing" component={ProgressRing} />
+<Meta title="Feedback/Progress Ring" component={ProgressRing} />
 
-# ProgressRing
+# Progress Ring
 
 Component used to indicate progress. It's part of the component group that composes the [Stepper](), and can be
-individually used as an ProgressIndicator, or a spinner.
+individually used as an Progress Indicator, or a spinner.
 
 <Canvas>
-    <Story name="ProgressRing" args={{ radius: 30, stroke: 4, strokeColor: "gray", progress: 50 }}>
+    <Story name="Progress Ring" args={{ radius: 30, stroke: 4, strokeColor: "gray", progress: 50 }}>
         {args => <ProgressRing {...args} />}
     </Story>
 </Canvas>
@@ -19,7 +19,7 @@ define and position a string of text inside the circle.
 
 <Canvas>
     <Story
-        name="ProgressRing with text"
+        name="Progress Ring with text"
         args={{
             radius: 34,
             stroke: 4,

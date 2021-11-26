@@ -44,4 +44,4 @@ const Skeleton = React.forwardRef<any, NativeSkeletonProps>(
     }
 );
 
-export default React.memo(Skeleton);
+export default Skeleton;

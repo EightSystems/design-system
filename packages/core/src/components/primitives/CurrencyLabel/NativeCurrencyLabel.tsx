@@ -1,9 +1,9 @@
-import * as React from "react";
 import Dinero from "dinero.js";
-import { NativeCurrencyLabelProps } from "./types";
-import * as S from "./styled.native";
-import CurrencyList from "./currencyList.json";
+import * as React from "react";
 import { getLocales } from "react-native-localize";
+import CurrencyList from "./currencyList.json";
+import * as S from "./styled.native";
+import { NativeCurrencyLabelProps } from "./types";
 
 const deviceLocale = getLocales();
 
@@ -31,4 +31,4 @@ const CurrencyLabel = React.forwardRef<any, NativeCurrencyLabelProps>(
     }
 );
 
-export default React.memo(CurrencyLabel);
+export default CurrencyLabel;

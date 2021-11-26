@@ -23,4 +23,4 @@ const Spinner = React.forwardRef<any, NativeSpinnerProps>(({ color, size = 36, .
     return <ActivityIndicator ref={componentRef} color={color} size={size} {...props} />;
 });
 
-export default React.memo(Spinner);
+export default Spinner;

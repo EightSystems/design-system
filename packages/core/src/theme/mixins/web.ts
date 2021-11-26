@@ -1,41 +1,22 @@
+import isArray from "lodash/isArray";
 import { css } from "styled-components";
 
-export const textColors = css`
-    ${props => {
-        const textColor = props["data-textcolor"];
-
-        if (typeof props.theme.colors[textColor] != "undefined") {
-            return css`
-                color: ${props.theme.colors[textColor]};
-            `;
-        }
-
-        return null;
-    }}
-`;
+export { borderColors, borderRadius, marginSpacing, paddingSpacing, textAlign, textColors } from "./common";
 
 export const backgroundColors = css`
     ${props => {
         const backgroundColor = props["data-backgroundcolor"];
 
         if (typeof props.theme.colors[backgroundColor] != "undefined") {
-            return css`
-                background-color: ${props.theme.colors[backgroundColor]};
-            `;
-        }
-
-        return null;
-    }}
-`;
-
-export const borderColors = css`
-    ${props => {
-        const borderColor = props["data-bordercolor"];
-
-        if (typeof props.theme.colors[borderColor] != "undefined") {
-            return css`
-                border-color: ${props.theme.colors[borderColor]};
-            `;
+            if (!isArray(props.theme.colors[backgroundColor])) {
+                return css`
+                    background-color: ${props.theme.colors[backgroundColor]};
+                `;
+            } else {
+                return css`
+                    background-image: linear-gradient(${props.theme.colors[backgroundColor].join(", ")});
+                `;
+            }
         }
 
         return null;

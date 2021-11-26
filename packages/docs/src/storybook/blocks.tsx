@@ -1,15 +1,16 @@
 import React from "react";
-import { View, StyleSheet, Platform } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
 
 const styles = StyleSheet.create({
     story: {
+        flex: 1,
         marginTop: 5,
         marginBottom: 5,
         backgroundColor: "white",
-        paddingTop: 30,
-        paddingBottom: 30,
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingTop: 15,
+        paddingBottom: 15,
+        paddingLeft: 10,
+        paddingRight: 10,
         borderColor: "rgba(0,0,0,0.1)",
         borderWidth: 1,
         borderRadius: 4,

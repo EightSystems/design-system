@@ -1,6 +1,6 @@
 import * as React from "react";
-import { WebTextProps } from "./types";
 import * as S from "./styled";
+import { WebTextProps } from "./types";
 
 const Text = React.forwardRef<HTMLParagraphElement, WebTextProps>(
     (
@@ -33,4 +33,4 @@ const Text = React.forwardRef<HTMLParagraphElement, WebTextProps>(
     }
 );
 
-export default React.memo(Text);
+export default Text;

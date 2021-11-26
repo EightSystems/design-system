@@ -10,4 +10,4 @@ const Spinner = React.forwardRef<any, WebSpinnerProps>(({ color, size }, compone
     );
 });
 
-export default React.memo(Spinner);
+export default Spinner;

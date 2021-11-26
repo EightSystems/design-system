@@ -1,12 +1,13 @@
-import borders from "./borders";
+import borders, { borderRadius } from "./borders";
 import colors from "./colors";
 import radius from "./radius";
-import { shadows, nativeShadows } from "./shadows";
+import { nativeShadows, shadows } from "./shadows";
 import spacing from "./spacing";
-import { typography, nativeTypography } from "./typography";
+import { nativeTypography, typography } from "./typography";
 
 export const theme = {
     borders,
+    borderRadius,
     colors,
     radius,
     shadows,
@@ -16,6 +17,7 @@ export const theme = {
 
 export const nativeTheme = {
     borders,
+    borderRadius,
     colors,
     radius,
     nativeShadows,

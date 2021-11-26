@@ -1,12 +1,11 @@
 import * as React from "react";
-import * as S from "./styled";
-import { WebTextFieldProps } from "./types";
+import { MdCheck, MdError, MdInfo } from "react-icons/md";
 import { TextInputMask } from "react-web-mask";
-
-import { MdInfo, MdCheck, MdError } from "react-icons/md";
+import { theme } from "../../../theme";
 import { Spinner } from "../../feedback/Spinner";
 import { Tooltip } from "../../feedback/Tooltip";
-import { theme } from "../../../theme";
+import * as S from "./styled";
+import { WebTextFieldProps } from "./types";
 
 const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
     (
@@ -152,4 +151,4 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
     }
 );
 
-export default React.memo(TextField);
+export default TextField;

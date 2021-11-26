@@ -67,4 +67,4 @@ const Heading = React.forwardRef<HTMLHeadingElement, WebHeadingProps>(
     }
 );
 
-export default React.memo(Heading);
+export default Heading;

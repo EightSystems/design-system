@@ -19,6 +19,7 @@ import Select, { Option } from "./components/forms/Select";
 import { TextField, WebTextFieldProps } from "./components/forms/TextField";
 // Layout Components
 import Box from "./components/layout/Box";
+import { CenteredFlexBox, FlexBox } from "./components/layout/FlexBox";
 import { Col, ColProps, Row, RowProps } from "./components/layout/Grid";
 import Spacer from "./components/layout/Spacer";
 // Primitve components
@@ -27,6 +28,7 @@ import { CurrencyLabel } from "./components/primitives/CurrencyLabel";
 import { Divider, WebDividerProps } from "./components/primitives/Divider";
 import { Icon, WebIconProps } from "./components/primitives/Icon";
 import { FontIcon, NativeIconProps as FontIconProps } from "./components/primitives/Icon/FontIcon";
+import { Image } from "./components/primitives/Image";
 import { Skeleton, WebSkeletonProps } from "./components/primitives/Skeleton";
 // Typography Components
 import { Heading, WebHeadingProps } from "./components/typography/Heading";
@@ -42,7 +44,10 @@ export {
     Accordion,
     AccordionItem,
     Avatar,
+    Image,
     Box,
+    CenteredFlexBox,
+    FlexBox,
     Button,
     Col,
     CurrencyLabel,

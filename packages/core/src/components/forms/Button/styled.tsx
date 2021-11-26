@@ -1,16 +1,18 @@
 import styled from "styled-components";
 import {
-    borderColors,
-    textColors,
     backgroundColors,
-    fontSizes,
+    borderColors,
+    borderRadius,
     fontFaces,
+    fontSizes,
     fontWeights,
+    textColors,
 } from "../../../theme/mixins/web";
 
 export const ButtonWrapper = styled.button`
     ${textColors};
     ${backgroundColors};
+    ${borderRadius};
     ${borderColors};
     ${fontFaces};
     ${fontWeights};
@@ -49,7 +51,6 @@ export const ButtonWrapper = styled.button`
     user-select: none;
     cursor: pointer;
     appearance: none;
-    border-radius: 5px;
 
     width: 100%;
     min-height: 50px;

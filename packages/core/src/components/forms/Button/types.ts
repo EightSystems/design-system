@@ -7,6 +7,7 @@ import {
     FontWeightTypes,
     NativeFontFaceTypes,
     NativeTextAlignTypes,
+    RadiusTypes,
 } from "../../../theme/types";
 
 type CommonProps = {
@@ -27,6 +28,9 @@ type CommonProps = {
 
     /** Color of the button border. */
     borderColor?: ColorTypes;
+
+    /** Radius of the button border. */
+    borderRadius?: RadiusTypes;
 
     /** Color when the button is focused. */
     focusColor?: ColorTypes;

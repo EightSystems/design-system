@@ -13,6 +13,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
             fontSize,
             backgroundColor = "primary",
             borderColor,
+            borderRadius = "md",
             focusColor,
             loading = false,
             size = "large",
@@ -31,6 +32,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
                 {...props}
                 data-backgroundcolor={backgroundColor}
                 data-bordercolor={borderColor}
+                data-borderradius={borderRadius}
                 data-size={size}
                 data-disabled={disabled || loading}
                 ref={componentRef}
@@ -70,4 +72,4 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
     }
 );
 
-export default React.memo(Button);
+export default Button;

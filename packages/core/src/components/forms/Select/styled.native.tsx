@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { borderColors } from "../../../theme/mixins/native";
 import Box from "../../layout/Box";
 import { Icon } from "../../primitives/Icon";
 import { Text } from "../../typography/Text";
@@ -17,11 +16,8 @@ export const InputLabel = styled(Text)`
 export const SelectComponent = styled(Button)`
     border: ${props => props.theme.borders.default};
 
-    ${borderColors};
-
     padding: 12px 12px;
     width: 100%;
-    border-radius: 4px;
 `;
 
 export const InputValidationMessage = styled(Text)`

@@ -1,9 +1,8 @@
 import * as React from "react";
-import { NativeTooltipProps } from "./types";
-import { IPopoverProps } from "react-native-popper/src/types";
-
 import { Popover } from "react-native-popper";
+import { IPopoverProps } from "react-native-popper/src/types";
 import { Text } from "../../typography/Text/index.native";
+import { NativeTooltipProps } from "./types";
 
 const Tooltip = ({
     placement,
@@ -55,4 +54,4 @@ const Tooltip = ({
     );
 };
 
-export default React.memo(Tooltip);
+export default Tooltip;

@@ -156,4 +156,4 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
     }
 );
 
-export default React.memo(TextField);
+export default TextField;

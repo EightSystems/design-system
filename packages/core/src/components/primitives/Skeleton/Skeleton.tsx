@@ -17,4 +17,4 @@ const Skeleton = React.forwardRef<HTMLDivElement, WebSkeletonProps>(
     }
 );
 
-export default React.memo(Skeleton);
+export default Skeleton;

@@ -1,11 +1,11 @@
 import * as React from "react";
+import { AiFillClockCircle } from "react-icons/ai";
+import { MdCheckCircle, MdError } from "react-icons/md";
+import { CurrencyLabel } from "../../primitives/CurrencyLabel";
 import * as S from "./styled";
 import { WebPaymentStatusProps } from "./types";
-import { MdError, MdCheckCircle } from "react-icons/md";
-import { AiFillClockCircle } from "react-icons/ai";
-import { CurrencyLabel } from "../../primitives/CurrencyLabel";
 
-const PaymentStatus = React.forwardRef<any, WebPaymentStatusProps>(
+export const PaymentStatus = React.forwardRef<HTMLDivElement, WebPaymentStatusProps>(
     ({ status, title, description, currency = null, value = 0 }, componentRef) => {
         return (
             <S.PaymentStatusWrapper ref={componentRef} data-background={status}>
@@ -26,4 +26,4 @@ const PaymentStatus = React.forwardRef<any, WebPaymentStatusProps>(
     }
 );
 
-export default React.memo(PaymentStatus);
+export default PaymentStatus;

@@ -5,7 +5,8 @@ import { Button } from "../components/forms/Button";
 
 # Button
 
-The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an
+action, or performing a delete operation.
 
 ## Import
 
@@ -16,17 +17,26 @@ import { Button } from "@8sistemas/design-system";
 ## Usage
 
 <Canvas>
-    <Story name="Primary Button" args={{ color: "primary", children: ["Primary Button"] }}>
+    <Story name="Primary Button" args={{ backgroundColor: "primary", children: ["Primary Button"] }}>
         {args => <Button {...args} />}
     </Story>
 </Canvas>
 
 ## Button Variants
 
-You can use the various `borderColor`, `backgroundColor`, and `textColor` for creating variants on your self. For example, see an outline button sample
+You can use the various `borderColor`, `backgroundColor`, and `textColor` for creating variants on your self. For
+example, see an outline button sample
 
 <Canvas>
-    <Story name="Primary Button (Outline)" args={{ backgroundColor: "lightTint", textColor: "primary", borderColor: "primary", children: ["Outlined Button"] }}>
+    <Story
+        name="Primary Button (Outline)"
+        args={{
+            backgroundColor: "lightTint",
+            textColor: "primary",
+            borderColor: "primary",
+            children: ["Outlined Button"],
+        }}
+    >
         {args => <Button {...args} />}
     </Story>
 </Canvas>
@@ -39,7 +49,34 @@ Use the `backgroundColor` prop to determinate the color of the button using the 
     </Story>
 </Canvas>
 
-Success button sample
+## Gradient Support
+
+We support basic gradient background, you can use the `backgroundColor` prop with one of the `*Gradient` values. For
+example, `primaryGradient`. Be aware that it's a simple linear-gradient.
+
+### Danger button with Gradient
+
+<Canvas>
+    <Story
+        name="Primary Button with Gradient"
+        args={{ backgroundColor: "primaryGradient", children: ["Primary Button with Gradient"] }}
+    >
+        {args => <Button {...args} />}
+    </Story>
+</Canvas>
+
+### Danger button with Gradient
+
+<Canvas>
+    <Story
+        name="Danger Button with Gradient"
+        args={{ backgroundColor: "dangerGradient", children: ["Danger Button with Gradient"] }}
+    >
+        {args => <Button {...args} />}
+    </Story>
+</Canvas>
+
+### Success button sample
 
 <Canvas>
     <Story name="Success Button" args={{ backgroundColor: "success", children: ["Success Button"] }}>
@@ -48,8 +85,12 @@ Success button sample
 </Canvas>
 
 ### Font Size large
+
 <Canvas>
-    <Story name="Success Button with a large font" args={{ backgroundColor: "success", children: ["Success Button"], fontSize: "lg" }}>
+    <Story
+        name="Success Button with a large font"
+        args={{ backgroundColor: "success", children: ["Large Font"], fontSize: "lg" }}
+    >
         {args => <Button {...args} />}
     </Story>
 </Canvas>

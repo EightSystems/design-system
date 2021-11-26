@@ -2,7 +2,7 @@ import * as React from "react";
 import * as S from "./styled";
 import { WebAvatarProps } from "./types";
 
-const Avatar = React.forwardRef<HTMLHeadingElement, WebAvatarProps>(
+export const Avatar = React.forwardRef<HTMLHeadingElement, WebAvatarProps>(
     ({ children, alt, src, size, ...props }, componentRef) => {
         return (
             <S.AvatarWrapper {...props} ref={componentRef} data-size={size}>
@@ -12,4 +12,4 @@ const Avatar = React.forwardRef<HTMLHeadingElement, WebAvatarProps>(
     }
 );
 
-export default React.memo(Avatar);
+export default Avatar;

@@ -52,7 +52,7 @@ export const Select = (props: SelectProps) => {
                 {props.label}
             </S.InputLabel>
             <S.SelectComponent
-                data-bordercolor={borderColor}
+                borderColor={"danger"}
                 onPress={openSelectOptions}
                 backgroundColor={"white"}
                 fontFace={"secondary"}

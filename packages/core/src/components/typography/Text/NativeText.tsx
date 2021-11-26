@@ -35,4 +35,4 @@ const Text = React.forwardRef<any, NativeTextProps>(
     }
 );
 
-export default React.memo(Text);
+export default Text;

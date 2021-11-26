@@ -1,7 +1,7 @@
 import { mdx as reactMDX } from "@mdx-js/react";
 import React from "react";
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
-import FlexImage from "react-native-flex-image";
+import FlexImage from "../../../core/src/components/primitives/Image/FlexImage.native";
 import openUrl from "./openUrl";
 import { styles } from "./styles";
 

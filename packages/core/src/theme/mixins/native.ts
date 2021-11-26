@@ -1,41 +1,22 @@
-import { css } from "styled-components/native";
+import isArray from "lodash/isArray";
+import { css } from "styled-components";
 
-export const textColors = css`
-    ${props => {
-        const textColor = props["data-textcolor"];
-
-        if (typeof props.theme.colors[textColor] != "undefined") {
-            return css`
-                color: ${props.theme.colors[textColor]};
-            `;
-        }
-
-        return null;
-    }}
-`;
+export { borderColors, borderRadius, marginSpacing, paddingSpacing, textAlign, textColors } from "./common";
 
 export const backgroundColors = css`
     ${props => {
         const backgroundColor = props["data-backgroundcolor"];
 
         if (typeof props.theme.colors[backgroundColor] != "undefined") {
-            return css`
-                background-color: ${props.theme.colors[backgroundColor]};
-            `;
-        }
-
-        return null;
-    }}
-`;
-
-export const borderColors = css`
-    ${props => {
-        const borderColor = props["data-bordercolor"];
-
-        if (typeof props.theme.colors[borderColor] != "undefined") {
-            return css`
-                border: solid 2px ${props.theme.colors[borderColor]};
-            `;
+            if (!isArray(props.theme.colors[backgroundColor])) {
+                return css`
+                    background-color: ${props.theme.colors[backgroundColor]};
+                `;
+            } else {
+                console.error(
+                    `${backgroundColor} is a gradient, we don't support it directly in native, wrap your component with "withGradientBackground" from the "theme/gradient" module`
+                );
+            }
         }
 
         return null;
@@ -93,21 +74,6 @@ export const fontWeights = css`
         if (typeof props.theme.nativeTypography.fontFaces[finalFontName] != "undefined") {
             return css`
                 font-family: ${props.theme.nativeTypography.fontFaces[finalFontName]};
-            `;
-        }
-
-        return null;
-    }}
-`;
-
-export const textAlign = css`
-    ${props => {
-        const textAlign = props["data-textalign"];
-        const allowedTextAligns = ["center", "left", "right", "justify"];
-
-        if (allowedTextAligns.indexOf(textAlign) > -1) {
-            return css`
-                text-align: ${textAlign};
             `;
         }
 
