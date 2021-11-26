@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.6.9](https://github.com/EightSystems/design-system/compare/v0.6.8...v0.6.9) (2021-11-26)
+
+
+### Bug Fixes
+
+* major updates to the docs, better organizing, and improving install docs [skip-package] ([d674703](https://github.com/EightSystems/design-system/commit/d674703657fb731013c5f157fb5ce186d54a0d02))
+* select border color for states ([7a4a396](https://github.com/EightSystems/design-system/commit/7a4a3968379add16d44dce38145e01c753c2266b))
+
 ## [0.6.8](https://github.com/EightSystems/design-system/compare/v0.6.7...v0.6.8) (2021-11-26)
 
 
