@@ -21,7 +21,7 @@ export const Select = (props: SelectProps) => {
                 aria-required={props.required}
                 name={props.name}
                 placeholder={props.placeholder}
-                borderColor={borderColor}
+                data-bordercolor={borderColor}
             >
                 {props.children}
             </S.SelectComponent>

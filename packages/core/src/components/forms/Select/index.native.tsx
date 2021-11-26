@@ -20,7 +20,7 @@ export const Select = (props: SelectProps) => {
     const [selectedOptionName, setSelectedOptionName] = useState(
         props.placeholder || (optionList.length > 0 ? optionList[0] : "-- Empty Options --")
     );
-    const [selectedOptionValue, setSelectedOptionValue] = useState(
+    const [, setSelectedOptionValue] = useState(
         props.placeholder ? "" : optionValueList.length > 0 ? optionValueList[0] : ""
     );
 
@@ -52,7 +52,7 @@ export const Select = (props: SelectProps) => {
                 {props.label}
             </S.InputLabel>
             <S.SelectComponent
-                borderColor={"danger"}
+                borderColor={borderColor}
                 onPress={openSelectOptions}
                 backgroundColor={"white"}
                 fontFace={"secondary"}
