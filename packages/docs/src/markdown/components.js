@@ -1,6 +1,6 @@
 import { mdx as reactMDX } from "@mdx-js/react";
 import React from "react";
-import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Pressable, Text, View } from "react-native";
 import FlexImage from "../../../core/src/components/primitives/Image/FlexImage.native";
 import openUrl from "./openUrl";
 import { styles } from "./styles";
@@ -35,9 +35,9 @@ const components = {
     },
     a: ({ href, children }) => {
         return (
-            <TouchableOpacity onPress={() => openUrl(href)}>
-                <Text style={styles.link}>{children}</Text>
-            </TouchableOpacity>
+            <Pressable onPress={() => openUrl(href)}>
+                {ensureChildrenOrText(children, [styles.paragraph, styles.link])}
+            </Pressable>
         );
     },
     em: ({ children }) => {

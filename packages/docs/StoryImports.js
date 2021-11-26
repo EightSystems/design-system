@@ -1,10 +1,12 @@
 import IntroductionStory from "../core/src/stories/0_Introduction.stories";
-import UsageStory from "../core/src/stories/1_Usage.stories";
+import UsageStory from "../core/src/stories/1_Installing.stories";
 import ThemingStory from "../core/src/stories/2_Theming.stories";
 import NativeSupportStory from "../core/src/stories/4_NativeSupport.stories";
 //import AccordionStory from "../core/src/stories/Accordion.stories";
-import AvatarStory from "../core/src/stories/Avatar.stories";
-import BoxStory from "../core/src/stories/Box.stories";
+import AvatarStory from "../core/src/stories/5_Avatar.stories";
+import ProgressRingStory from "../core/src/stories/7_ProgressRing.stories";
+import SelectStory from "../core/src/stories/8_Select.stories";
+import BoxStory from "../core/src/stories/9_Box.stories";
 import ButtonStory from "../core/src/stories/Button.stories";
 import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
 import DividerStory from "../core/src/stories/Divider.stories";
@@ -15,8 +17,6 @@ import IconStory from "../core/src/stories/Icon.stories";
 import Image from "../core/src/stories/Image.stories";
 import ModalStory from "../core/src/stories/Modal.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
-import ProgressRingStory from "../core/src/stories/ProgressRing.stories";
-import SelectStory from "../core/src/stories/Select.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
 import SpinnerStory from "../core/src/stories/Spinner.stories";
 import StepperStory from "../core/src/stories/Stepper.stories";
@@ -26,30 +26,37 @@ import TooltipStory from "../core/src/stories/Tooltip.stories";
 
 const storyList = {
     Introduction: IntroductionStory,
-    Usage: UsageStory,
+    Installing: UsageStory,
     Theming: ThemingStory,
     "Native Support": NativeSupportStory,
+    "Atoms/Avatar": AvatarStory,
+    "Atoms/Button": ButtonStory,
+    "Atoms/CurrencyLabel": CurrencyLabelStory,
+    "Atoms/Skeleton": SkeletonStory,
+
+    "Composites/Modal": ModalStory,
+
+    "Feedback/ProgressRing": ProgressRingStory,
+    "Feedback/Spinner": SpinnerStory,
+    "Feedback/Stepper": StepperStory,
+    "Feedback/Tooltip": TooltipStory,
+
+    "Forms/Select": SelectStory,
+    "Forms/TextField": TextFieldStory,
+
+    "Layout/Box": BoxStory,
+    "Layout/FlexBox": FlexBox,
+    "Layout/Grid": GridStory,
+
+    "Molecules/PaymentStatus": PaymentStatusStory,
+
+    "Primitives/Divider": DividerStory,
+    "Primitives/Icon": IconStory,
+    "Primitives/Image": Image,
+
     "Typography/Heading": HeadingStory,
     "Typography/Text": TextStory,
     //Accordion: AccordionStory,
-    Tooltip: TooltipStory,
-    Avatar: AvatarStory,
-    Button: ButtonStory,
-    CurrencyLabel: CurrencyLabelStory,
-    Divider: DividerStory,
-    Box: BoxStory,
-    FlexBox,
-    Grid: GridStory,
-    Icon: IconStory,
-    Image,
-    Modal: ModalStory,
-    PaymentStatus: PaymentStatusStory,
-    ProgressRing: ProgressRingStory,
-    Select: SelectStory,
-    Skeleton: SkeletonStory,
-    Spinner: SpinnerStory,
-    Stepper: StepperStory,
-    TextField: TextFieldStory,
 };
 
 export default storyList;

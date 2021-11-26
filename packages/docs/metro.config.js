@@ -22,10 +22,23 @@ module.exports = async () => {
     const extraSourceExts = [...sourceExts, "mdx"];
     return {
         resolver: {
+            blockList: [/core\/node_modules/i],
             nodeModulesPaths: [path.resolve(__dirname, "node_modules")],
             extraNodeModules: libs,
             sourceExts: extraSourceExts,
             resolveRequest: (context, realModuleName, platform, moduleName) => {
+                if (moduleName.startsWith("../") && moduleName.endsWith("json")) {
+                    const callingModuleDirectory = path.dirname(context.originModulePath);
+                    const callingModuleResolvedPath = path.resolve(callingModuleDirectory, moduleName);
+
+                    if (fs.existsSync(callingModuleResolvedPath)) {
+                        return {
+                            filePath: callingModuleResolvedPath,
+                            type: "sourceFile",
+                        };
+                    }
+                }
+
                 if (moduleName.startsWith("../core")) {
                     for (var extIndex in extraSourceExts) {
                         let testPath = path.resolve(__dirname, `${moduleName}.${extraSourceExts[extIndex]}`);
@@ -65,6 +78,6 @@ module.exports = async () => {
                 },
             }),
         },
-        watchFolders: [path.resolve(__dirname), path.resolve(__dirname, "../core/src")],
+        watchFolders: [path.resolve(__dirname), path.resolve(__dirname, "../core")],
     };
 };

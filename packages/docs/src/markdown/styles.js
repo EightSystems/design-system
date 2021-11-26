@@ -169,7 +169,10 @@ export const styles = StyleSheet.create({
     pre: {
         fontFamily: "Ubuntu Mono",
     },
-    link: {},
+    link: {
+        marginTop: 0,
+        marginBottom: 0,
+    },
     image: {
         flex: 1,
     },

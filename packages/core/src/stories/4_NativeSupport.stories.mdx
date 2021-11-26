@@ -4,31 +4,66 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Native Support
 
-The whole point of building this design-system was to be able to use the same components over the `Web` and `Native` sides, trying to make them work with the same props, and styles in both platforms.
+The whole point of building this design-system was to be able to use the same components over the `Web` and `Native`
+sides, trying to make them work with the same props, and styles in both platforms.
 
-But, as we all know, react-native has some particularities, for example, the `font-weight` and `font-face` properties doesn't support fonts with multiple `weight` symbols.
-So, in react-native you need to add multiple fonts for multiple weights.
+But, as we all know, react-native has some particularities, for example, the `font-weight` and `font-face` properties
+doesn't support fonts with multiple `weight` symbols. So, in react-native you need to add multiple fonts for multiple
+weights.
 
-For example, we use `Poppins` as `primary`, and `Inter` as our `secondary` font styles, and as you can see in the `docs` app, we have to use multiple font-files to make them work in the native side:
+For example, we use `Poppins` as `primary`, and `Inter` as our `secondary` font styles, and as you can see in the `docs`
+app, we have to use multiple font-files to make them work in the native side:
 
 ![Docs Fonts Folder](https://raw.githubusercontent.com/EightSystems/design-system/master/.github/assets/docs-fonts-folder.png)
 
-We tried our best to make it as transparent as possible, with some code in the styles mixins to make it work using the same props you would use in the `web` side.
+We tried our best to make it as transparent as possible, with some code in the styles mixins to make it work using the
+same props you would use in the `web` side.
 
 For example, there are two ways you can make a `Text` bold in the native side:
 
 ```jsx
-<Text fontFace={'primaryBold'}>
-    Bold Text Here
-</Text>
+<Text fontFace={"primaryBold"}>Bold Text Here</Text>
 ```
 
 OR
 
 ```jsx
-<Text fontWeight={'bold'}>
-    Bold Text Here
-</Text>
+<Text fontWeight={"bold"}>Bold Text Here</Text>
 ```
 
 Both of them will render the same font, `primaryBold`, with the later using auto-discovery from the `fontWeight` mixin.
+
+# Required Modules for Native to work
+
+You will need the following modules enabled for native to work:
+
+## @expo/react-native-action-sheet
+
+Required for the `Select` component, and needs to be available as it will be injected into the `ThemeProvider`.
+
+[You can follow the package install instructions here](https://www.npmjs.com/package/@expo/react-native-action-sheet)
+
+## react-native-localize
+
+Required by the `CurrencyLabel` component.
+
+[You can follow the package install instructions here](https://www.npmjs.com/package/react-native-localize)
+
+## react-native-svg and react-native-svg-transformer
+
+Required by the `ProgressRing`, `PaymentMethodItem` and `SavedCardBadge` components.
+
+* [You can follow the package install instructions here](https://www.npmjs.com/package/react-native-svg)
+* [And here](https://www.npmjs.com/package/react-native-svg-transformer)
+
+## react-native-vector-icons
+
+Required by the `Icon` component.
+
+[You can follow the package install instructions here](https://www.npmjs.com/package/react-native-vector-icons)
+
+## react-native-linear-gradient
+
+Required by the `withGradientBackground` HOC, this package is strictly required if you want to use gradients in Native.
+
+[You can follow the package install instructions here](https://www.npmjs.com/package/react-native-linear-gradient)
