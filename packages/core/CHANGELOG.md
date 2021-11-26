@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.6.8](https://github.com/EightSystems/design-system/compare/v0.6.7...v0.6.8) (2021-11-26)
+
+
+### Bug Fixes
+
+* major improvements to docs, add flexbox, image component, remove react.memo everywhere ([92888ec](https://github.com/EightSystems/design-system/commit/92888ecd0c143c9b05cf92385bf145dc02c9b6a9))
+
 ## [0.6.7](https://github.com/EightSystems/design-system/compare/v0.6.6...v0.6.7) (2021-11-22)
 
 ## [0.6.6](https://github.com/EightSystems/design-system/compare/v0.6.5...v0.6.6) (2021-11-22)
