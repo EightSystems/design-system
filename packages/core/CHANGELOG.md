@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.6.10](https://github.com/EightSystems/design-system/compare/v0.6.9...v0.6.10) (2021-11-27)
+
+
+### Bug Fixes
+
+* modal, button, and theme components ([565da0b](https://github.com/EightSystems/design-system/commit/565da0ba477b3fbff2388fd606eeacab84c5b57a))
+
 ## [0.6.9](https://github.com/EightSystems/design-system/compare/v0.6.8...v0.6.9) (2021-11-26)
 
 
