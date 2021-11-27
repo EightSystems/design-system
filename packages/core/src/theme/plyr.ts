@@ -36,7 +36,7 @@ export const PlyrGlobalStyle = createGlobalStyle`
         display: flex;
         flex-direction: column;
         font-family: inherit;
-        font-family: var(--plyr-font-family, inherit);
+        font-family: ${({ theme }) => theme.typography.fontFaces.primary};
         font-variant-numeric: tabular-nums;
         font-weight: 400;
         font-weight: var(--plyr-font-weight-regular, 400);

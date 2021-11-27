@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Dialog } from "@headlessui/react";
+import styled from "styled-components";
 
 export const StyledDialog = styled(Dialog)`
     padding: ${props => props.theme.spacing.default};
@@ -41,6 +41,7 @@ export const StyledDialogOverlay = styled(Dialog.Overlay)`
     background-color: black;
     opacity: 0.4;
     transition: 300ms ease-in-out;
+    overflow: scroll;
 `;
 export const ModalWrapper = styled.div`
     background-color: ${props => props.theme.colors.background};
@@ -48,4 +49,5 @@ export const ModalWrapper = styled.div`
     border-radius: 4px;
     box-shadow: ${props => props.theme.shadows.default};
     padding: ${props => props.theme.spacing.default};
+    width: 100%;
 `;

@@ -9,6 +9,14 @@ export const typography = {
         tall: 2,
         taller: 2.5,
     },
+    letterSpacings: {
+        none: 0,
+        shorter: 1,
+        short: 1.5,
+        base: 1.7,
+        tall: 2,
+        taller: 2.5,
+    },
     fontWeights: {
         hairline: 100,
         thin: 200,

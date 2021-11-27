@@ -27,7 +27,7 @@ export const letterSpacings = css`
     ${props => {
         const letterSpacing = props["data-letterspacing"];
 
-        if (typeof props.theme.typography.letterSpacings[letterSpacing] != "undefined") {
+        if (typeof props.theme.nativeTypography.letterSpacings[letterSpacing] != "undefined") {
             return css`
                 letter-spacing: ${props.theme.nativeTypography.letterSpacings[letterSpacing]};
             `;

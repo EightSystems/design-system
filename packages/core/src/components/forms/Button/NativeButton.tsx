@@ -23,6 +23,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
             spinnerColor,
             children,
             textAlign = "center",
+            onClick,
             ...props
         },
         componentRef
@@ -30,6 +31,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
         return (
             <S.ButtonPressable
                 {...props}
+                onPress={onClick}
                 data-backgroundcolor={backgroundColor}
                 data-bordercolor={borderColor}
                 data-borderradius={borderRadius}

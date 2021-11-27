@@ -63,6 +63,9 @@ type CommonProps = {
 type NativeProps = Omit<CommonProps, "fontWeight" | "fontFace"> & {
     fontFace?: NativeFontFaceTypes;
     textAlign?: NativeTextAlignTypes;
+
+    /** Replaces the `onPress` for Pressables */
+    onClick?: null | ((event: any) => void) | undefined;
 };
 
 export type NativeButtonProps = PressableProps & NativeProps;
