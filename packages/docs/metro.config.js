@@ -11,7 +11,7 @@ const { getDefaultConfig } = require("metro-config");
 const metroResolver = require("metro-resolver");
 const libs = require("node-libs-react-native");
 libs["fs"] = require.resolve("react-native-level-fs");
-libs["@storybook/addon-docs/blocks"] = path.resolve(__dirname, "src/storybook/blocks.tsx");
+libs["@storybook/addon-docs"] = path.resolve(__dirname, "src/storybook/blocks.tsx");
 
 module.exports = async () => {
     const {

@@ -3,7 +3,7 @@
 
 
 "@8sistemas/design-system@file:../core":
-  version "0.6.6"
+  version "0.6.8"
   dependencies:
     "@expo/react-native-action-sheet" "^3.12.0"
     "@headlessui/react" "^1.2.0"
@@ -11,6 +11,7 @@
     classnames "^2.2.6"
     dinero.js "^1.8.1"
     lodash "^4.17.21"
+    plyr-react "^3.2.1"
     react "^17.0.1"
     react-children-utilities "^2.6.3"
     react-collapse "^5.1.0"
@@ -18,6 +19,7 @@
     react-native-localize "^2.1.1"
     react-native-masked-text "^1.13.0"
     react-native-popper "^0.3.0"
+    react-native-webview "^11.14.4"
     react-popper "^2.2.5"
     react-spinners "^0.10.6"
     react-web-mask "^1.0.0"
@@ -2549,6 +2551,11 @@ core-js-compat@^3.14.0:
     browserslist "^4.17.0"
     semver "7.0.0"
 
+core-js@^3.10.1:
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.19.1.tgz#f6f173cae23e73a7d88fa23b6e9da329276c6641"
+  integrity sha512-Tnc7E9iKd/b/ff7GFbhwPVzJzPztGrChB8X8GLqoYGdEOG8IpLnK1xPyo3ZoO3HsK6TodJS58VGPOxA+hLHQMg==
+
 core-js@^3.6.5:
   version "3.17.3"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.17.3.tgz#8e8bd20e91df9951e903cabe91f9af4a0895bc1e"
@@ -2696,6 +2703,11 @@ csstype@^3.0.2:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
+
+custom-event-polyfill@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/custom-event-polyfill/-/custom-event-polyfill-1.0.7.tgz#9bc993ddda937c1a30ccd335614c6c58c4f87aee"
+  integrity sha512-TDDkd5DkaZxZFM8p+1I3yAlvM3rSr1wbrOliG4yJiwinMZN8z/iGL7BTlDkrJcYTmgUSb4ywVCc3ZaUtOtC76w==
 
 d64@^1.0.0:
   version "1.0.0"
@@ -3015,6 +3027,11 @@ escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+
+escape-string-regexp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -3726,7 +3743,7 @@ intl-messageformat@^9.6.12:
     "@formatjs/icu-messageformat-parser" "2.0.11"
     tslib "^2.1.0"
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -4315,6 +4332,11 @@ lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
+
+loadjs@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/loadjs/-/loadjs-4.2.0.tgz#2a0336376397a6a43edf98c9ec3229ddd5abb6f6"
+  integrity sha512-AgQGZisAlTPbTEzrHPb6q+NYBMD+DP9uvGSIjSUM5uG+0jG15cb8axWpxuOIqrmQjn6scaaH8JwloiP27b2KXA==
 
 locate-path@^3.0.0:
   version "3.0.0"
@@ -5433,6 +5455,24 @@ plist@^3.0.1:
     base64-js "^1.5.1"
     xmlbuilder "^9.0.7"
 
+plyr-react@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/plyr-react/-/plyr-react-3.2.1.tgz#ad295be10a60527844b03432dffe40a23f8e0c39"
+  integrity sha512-ZXMA+d837mZCkb68oTXso6rH8O+B2+A7t8ux1fdU+kFSUh1NZa1/iuItItFgScmVC6FoO3DNj+FkZP2aikxoKg==
+  dependencies:
+    plyr "^3.6.8"
+
+plyr@^3.6.8:
+  version "3.6.9"
+  resolved "https://registry.yarnpkg.com/plyr/-/plyr-3.6.9.tgz#ef36de730dd9882bb26754a71a529180d979c03c"
+  integrity sha512-KYi6o0799iw6yWZSmpZyx0tcrdNB+uGrUb/pskBjBzUax8fevzkqUx9A5vayYRBjlSme2UA8fHjTw3SMeHEvRA==
+  dependencies:
+    core-js "^3.10.1"
+    custom-event-polyfill "^1.0.7"
+    loadjs "^4.2.0"
+    rangetouch "^2.0.1"
+    url-polyfill "^1.1.12"
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -5605,6 +5645,11 @@ range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
+
+rangetouch@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/rangetouch/-/rangetouch-2.0.1.tgz#c01105110fd3afca2adcb1a580692837d883cb70"
+  integrity sha512-sln+pNSc8NGaHoLzwNBssFSf/rSYkqeBXzX1AtJlkJiUaVSJSbRAWJk+4omsXkN+EJalzkZhWQ3th1m0FpR5xA==
 
 rc@^1.0.1, rc@^1.1.6:
   version "1.2.8"
@@ -5807,6 +5852,14 @@ react-native-vector-icons@^8.1.0:
     lodash.template "^4.5.0"
     prop-types "^15.7.2"
     yargs "^16.1.1"
+
+react-native-webview@^11.14.4:
+  version "11.14.4"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.14.4.tgz#e654714f1792901e5208fb03f2dc0a0fb4afc344"
+  integrity sha512-667NNC1VEjl8PNBwGiEllWe7QhcqauCFeisL4Pk9cgQbtCiacemYF+8d+VJg27eMGJ0G05RFgpB5aDZbBcNhmw==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
 
 react-native@0.64.2:
   version "0.64.2"
@@ -7077,6 +7130,11 @@ url-parse-lax@^3.0.0:
   integrity sha1-FrXK/Afb42dsGxmZF3gj1lA6yww=
   dependencies:
     prepend-http "^2.0.0"
+
+url-polyfill@^1.1.12:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/url-polyfill/-/url-polyfill-1.1.12.tgz#6cdaa17f6b022841b3aec0bf8dbd87ac0cd33331"
+  integrity sha512-mYFmBHCapZjtcNHW0MDq9967t+z4Dmg5CJ0KqysK3+ZbyoNOWQHksGCTWwDhxGXllkWlOc10Xfko6v4a3ucM6A==
 
 url@^0.11.0:
   version "0.11.0"

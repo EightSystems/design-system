@@ -8,16 +8,19 @@
             body {
                 margin: 0;
                 padding: 0;
-                overflow: hidden;
-            }
-
-            video {
+                overflow: auto;
                 width: 100vw;
                 height: 100vh;
+                background-color: black;
+            }
+
+            .plyr--video {
+                height: 100%;
             }
 
             .plyr .plyr__video-wrapper {
-                height: 100vh;
+                max-height: 100vh;
+                width: 100%;
             }
         </style>
         <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
@@ -25,7 +28,9 @@
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     </head>
     <body>
-        <video class="plyr-react plyr" id="plyr-instance"></video>
+        <div class="video-container">
+            <video class="plyr-react plyr" id="plyr-instance"></video>
+        </div>
 
         <script type="text/javascript">
             function getQueryVariable(variable) {
@@ -42,7 +47,15 @@
             const optionsFromQueryString = getQueryVariable("options");
             const sourceFromQueryString = getQueryVariable("source");
             const defaultOptions = {
-                debug: true,
+                debug: false,
+                youtube: {
+                    noCookie: false,
+                    rel: 0,
+                    showinfo: 0,
+                    iv_load_policy: 3,
+                    modestbranding: 1,
+                    origin: location.protocol + "//" + location.hostname,
+                },
                 controls: [
                     "rewind",
                     "play",

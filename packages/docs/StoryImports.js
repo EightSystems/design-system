@@ -23,6 +23,7 @@ import StepperStory from "../core/src/stories/Stepper.stories";
 import TextStory from "../core/src/stories/Text.stories";
 import TextFieldStory from "../core/src/stories/TextField.stories";
 import TooltipStory from "../core/src/stories/Tooltip.stories";
+import WebVideoStory from "../core/src/stories/Video.stories";
 
 const storyList = {
     Introduction: IntroductionStory,
@@ -53,6 +54,7 @@ const storyList = {
     "Primitives/Divider": DividerStory,
     "Primitives/Icon": IconStory,
     "Primitives/Image": Image,
+    "Primitives/Streaming Video Player": WebVideoStory,
 
     "Typography/Heading": HeadingStory,
     "Typography/Text": TextStory,
