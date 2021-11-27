@@ -1,7 +1,88 @@
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import Fragment, { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { WebVideo } from "../components/primitives/WebVideo";
+import { WebVideoModalSample } from "../components/primitives/WebVideo/StorybookSample";
+import { Button } from "../components/forms/Button";
+import { Modal } from "../components/composites/Modal";
+import { Box } from "../components/layout/Box";
 
-<Meta title="Primitives/Video" />
+<Meta title="Primitives/Streaming Video Player" component={WebVideo} />
 
-# Video Player
+# Streaming Video Player
 
-Use Plyr for Web, and do a mix of Plyr with WebView on Native
+The Streaming Video Player (called `WebVideo`) uses [Plyr](https://plyr.io/) under the hood, with the popular
+[plyr-react](https://github.com/chintan9/plyr-react) package to render the video component.
+
+That way you have all the power of Plyr, including YouTube, Vimeo, and HTML5 video support using one single API.
+
+It also configures Plyr CSS to use your configured theme, so the fonts will match with your typography, same applies for
+colors.
+
+## Native Support
+
+In order to make it work the same way in the native side, we wrap the player in a `WebView`, so that way we have the
+same player on every platform. Even though there are other player components on the market, most of the them rely on
+some sort of WebView approach, for example, the Youtube player on iOS relies on WebView, and on Android relies on the
+YouTube application being installed in the user device, this might not be acceptable, as a user might have a device
+without any `GApps` installed.
+
+## Import
+
+```jsx
+import { WebVideo } from "@8sistemas/design-system";
+```
+
+## Example
+
+Sadly this component can't render directly in Storybook as it needs to manipulate some of the DOM, and Storybook doesn't
+like it, but you can use the following code as a sample for the component usage:
+
+```jsx
+<WebVideo
+    options={{
+        controls: [
+            "rewind",
+            "play",
+            "play-large",
+            "fast-forward",
+            "progress",
+            "current-time",
+            "duration",
+            "mute",
+            "volume",
+            "settings",
+            "fullscreen",
+        ],
+    }}
+    source={{
+        poster: "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg",
+        sources: [
+            {
+                provider: "html5",
+                size: 576,
+                src: "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
+                type: "video/mp4",
+            },
+            {
+                provider: "html5",
+                size: 720,
+                src: "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4",
+                type: "video/mp4",
+            },
+        ],
+        type: "video",
+    }}
+/>
+```
+
+<Canvas>
+    <Story name="Sample Video inside a Modal">
+        {args => {
+            return <WebVideoModalSample />;
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={WebVideo} />
