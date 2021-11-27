@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>WebVideo Embed Player for Native</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+        <style type="text/css">
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            video {
+                width: 100vw;
+                height: 100vh;
+            }
+
+            .plyr .plyr__video-wrapper {
+                height: 100vh;
+            }
+        </style>
+        <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    </head>
+    <body>
+        <video class="plyr-react plyr" id="plyr-instance"></video>
+
+        <script type="text/javascript">
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (decodeURIComponent(pair[0]) == variable) {
+                        return decodeURIComponent(pair[1]);
+                    }
+                }
+            }
+
+            const optionsFromQueryString = getQueryVariable("options");
+            const sourceFromQueryString = getQueryVariable("source");
+            const defaultOptions = {
+                debug: true,
+                controls: [
+                    "rewind",
+                    "play",
+                    "fast-forward",
+                    "progress",
+                    "current-time",
+                    "duration",
+                    "mute",
+                    "volume",
+                    "settings",
+                    "fullscreen",
+                ],
+                i18n: {
+                    restart: "Restart",
+                    rewind: "Rewind {seektime}s",
+                    play: "Play",
+                    pause: "Pause",
+                    fastForward: "Forward {seektime}s",
+                    seek: "Seek",
+                    seekLabel: "{currentTime} of {duration}",
+                    played: "Played",
+                    buffered: "Buffered",
+                    currentTime: "Current time",
+                    duration: "Duration",
+                    volume: "Volume",
+                    mute: "Mute",
+                    unmute: "Unmute",
+                    enableCaptions: "Enable captions",
+                    disableCaptions: "Disable captions",
+                    download: "Download",
+                    enterFullscreen: "Enter fullscreen",
+                    exitFullscreen: "Exit fullscreen",
+                    frameTitle: "Player for {title}",
+                    captions: "Captions",
+                    settings: "Settings",
+                    menuBack: "Go back to previous menu",
+                    speed: "Speed",
+                    normal: "Normal",
+                    quality: "Quality",
+                    loop: "Loop",
+                },
+            };
+
+            const defaultSource = {
+                poster: "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg",
+                sources: [
+                    {
+                        provider: "html5",
+                        size: 576,
+                        src: "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
+                        type: "video/mp4",
+                    },
+                    {
+                        provider: "html5",
+                        size: 720,
+                        src: "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4",
+                        type: "video/mp4",
+                    },
+                ],
+                type: "video",
+            };
+
+            const options = optionsFromQueryString ? JSON.parse(optionsFromQueryString) : defaultOptions;
+            const source = sourceFromQueryString ? JSON.parse(sourceFromQueryString) : defaultSource;
+
+            const player = new Plyr("#plyr-instance", _.merge(defaultOptions, options));
+            player.source = source || defaultSource;
+        </script>
+    </body>
+</html>
