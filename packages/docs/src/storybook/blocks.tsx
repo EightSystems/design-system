@@ -1,4 +1,5 @@
-import React from "react";
+import { useNavigation } from "@react-navigation/core";
+import React, { useEffect } from "react";
 import { Platform, StyleSheet, View } from "react-native";
 
 const styles = StyleSheet.create({
@@ -32,6 +33,15 @@ const styles = StyleSheet.create({
 });
 
 export const Meta = props => {
+    const navigation = useNavigation();
+    useEffect(() => {
+        if (props.title) {
+            navigation.setOptions({
+                title: props.title,
+            });
+        }
+    }, [props.title]);
+
     return null;
 };
 
@@ -48,5 +58,5 @@ export const Description = props => {
 };
 
 export const ArgsTable = props => {
-    return null;
+    return <View style={{ marginTop: 20, marginBottom: 20 }}></View>;
 };

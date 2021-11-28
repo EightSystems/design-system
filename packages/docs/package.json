@@ -24,6 +24,7 @@
         "react-icons": "^4.2.0",
         "react-native": "0.64.2",
         "react-native-fit-image": "^1.5.5",
+        "react-native-keyboard-aware-scrollview": "^2.1.0",
         "react-native-level-fs": "^3.0.1",
         "react-native-linear-gradient": "^2.5.6",
         "react-native-localize": "^2.1.1",

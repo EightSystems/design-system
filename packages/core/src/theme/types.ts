@@ -85,5 +85,7 @@ export type ColorTypes =
     | "lightContrast"
     | "divider"
     | "background"
+    | "gray"
     | "transparent"
+    | "black"
     | "white";

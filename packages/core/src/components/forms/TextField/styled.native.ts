@@ -61,6 +61,7 @@ export const InputWrapper = styled.View`
 
 const InputComponentCommonStyles = css`
     font-family: ${props => props.theme.nativeTypography.fontFaces.secondaryMedium};
+    color: ${({ theme }) => theme.colors.dark};
     font-size: 16px;
     padding: 8px 12px;
     width: 100%;

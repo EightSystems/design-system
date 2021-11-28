@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas, Description, ArgsTable } from "@storybook/addon-docs";
+import { action } from "@storybook/addon-actions";
 import { Button } from "../components/forms/Button";
 
 <Meta title="Atoms/Button" component={Button} />
@@ -17,7 +18,10 @@ import { Button } from "@8sistemas/design-system";
 ## Usage
 
 <Canvas>
-    <Story name="Primary Button" args={{ backgroundColor: "primary", children: ["Primary Button"] }}>
+    <Story
+        name="Primary Button"
+        args={{ backgroundColor: "primary", children: ["Primary Button"], onClick: action("onClick") }}
+    >
         {args => <Button {...args} />}
     </Story>
 </Canvas>
@@ -35,6 +39,7 @@ example, see an outline button sample
             textColor: "primary",
             borderColor: "primary",
             children: ["Outlined Button"],
+            onClick: action("onClick"),
         }}
     >
         {args => <Button {...args} />}
@@ -44,7 +49,10 @@ example, see an outline button sample
 Use the `backgroundColor` prop to determinate the color of the button using the `Theme` available primary colors.
 
 <Canvas>
-    <Story name="Danger Button" args={{ backgroundColor: "danger", children: ["Danger Button"] }}>
+    <Story
+        name="Danger Button"
+        args={{ backgroundColor: "danger", children: ["Danger Button"], onClick: action("onClick") }}
+    >
         {args => <Button {...args} />}
     </Story>
 </Canvas>
@@ -59,7 +67,11 @@ example, `primaryGradient`. Be aware that it's a simple linear-gradient.
 <Canvas>
     <Story
         name="Primary Button with Gradient"
-        args={{ backgroundColor: "primaryGradient", children: ["Primary Button with Gradient"] }}
+        args={{
+            backgroundColor: "primaryGradient",
+            children: ["Primary Button with Gradient"],
+            onClick: action("onClick"),
+        }}
     >
         {args => <Button {...args} />}
     </Story>
@@ -70,7 +82,11 @@ example, `primaryGradient`. Be aware that it's a simple linear-gradient.
 <Canvas>
     <Story
         name="Danger Button with Gradient"
-        args={{ backgroundColor: "dangerGradient", children: ["Danger Button with Gradient"] }}
+        args={{
+            backgroundColor: "dangerGradient",
+            children: ["Danger Button with Gradient"],
+            onClick: action("onClick"),
+        }}
     >
         {args => <Button {...args} />}
     </Story>
@@ -79,7 +95,10 @@ example, `primaryGradient`. Be aware that it's a simple linear-gradient.
 ### Success button sample
 
 <Canvas>
-    <Story name="Success Button" args={{ backgroundColor: "success", children: ["Success Button"] }}>
+    <Story
+        name="Success Button"
+        args={{ backgroundColor: "success", children: ["Success Button"], onClick: action("onClick") }}
+    >
         {args => <Button {...args} />}
     </Story>
 </Canvas>
@@ -89,7 +108,7 @@ example, `primaryGradient`. Be aware that it's a simple linear-gradient.
 <Canvas>
     <Story
         name="Success Button with a large font"
-        args={{ backgroundColor: "success", children: ["Large Font"], fontSize: "lg" }}
+        args={{ backgroundColor: "success", children: ["Large Font"], fontSize: "lg", onClick: action("onClick") }}
     >
         {args => <Button {...args} />}
     </Story>
@@ -98,7 +117,10 @@ example, `primaryGradient`. Be aware that it's a simple linear-gradient.
 Secondary Button Sample
 
 <Canvas>
-    <Story name="Secondary Button" args={{ backgroundColor: "secondary", children: ["Secondary Button"] }}>
+    <Story
+        name="Secondary Button"
+        args={{ backgroundColor: "secondary", children: ["Secondary Button"], onClick: action("onClick") }}
+    >
         {args => <Button {...args} />}
     </Story>
 </Canvas>

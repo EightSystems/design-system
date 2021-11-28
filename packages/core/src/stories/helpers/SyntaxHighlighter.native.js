@@ -5,8 +5,13 @@ const style = StyleSheet.create({
     codeInline: {
         borderWidth: 1,
         borderColor: "#CCCCCC",
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "white",
         padding: 10,
+        fontFamily: "Ubuntu Mono",
+        fontSize: 16,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingTop: 10,
         borderRadius: 4,
     },
 });

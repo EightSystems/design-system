@@ -8,11 +8,12 @@ export const styles = StyleSheet.create({
     root: {},
     view: {},
     codeBlock: {
-        fontFamily: "UbuntuMono-Regular",
-        fontSize: 15,
         borderWidth: 1,
         borderColor: "#CCCCCC",
-        backgroundColor: "#CCCCCC",
+        backgroundColor: "white",
+        padding: 10,
+        fontFamily: "Ubuntu Mono",
+        fontSize: 16,
         paddingLeft: 10,
         paddingRight: 10,
         paddingTop: 10,
@@ -20,21 +21,29 @@ export const styles = StyleSheet.create({
     },
     codeInline: {
         borderWidth: 1,
-        borderColor: "#CCCCCC",
-        backgroundColor: "#f5f5f5",
-        padding: 10,
+        borderColor: "rgb(238, 238, 238)",
+        backgroundColor: "white",
         borderRadius: 4,
+        fontFamily: "Ubuntu Mono",
+        fontStyle: "italic",
+        fontSize: 16,
+        color: "rgba(51, 51, 51, 0.9)",
     },
     del: {
+        fontFamily: "Inter Regular",
         backgroundColor: "#000000",
     },
     em: {
+        fontFamily: "Inter Bold",
         fontStyle: "italic",
     },
     headingContainer: {
+        fontFamily: "Inter Regular",
         flexDirection: "row",
     },
-    heading: {},
+    heading: {
+        fontFamily: "Inter SemiBold",
+    },
     heading1: {
         fontSize: 32,
         fontWeight: "700",
@@ -76,12 +85,14 @@ export const styles = StyleSheet.create({
         height: 1,
     },
     blockquote: {
+        fontFamily: "Inter Regular",
         paddingHorizontal: 20,
         paddingVertical: 10,
         margin: 20,
         backgroundColor: "#CCCCCC",
     },
     inlineCode: {
+        fontFamily: "Inter Regular",
         borderRadius: 3,
         borderWidth: 1,
         fontFamily: "Courier",
@@ -89,9 +100,11 @@ export const styles = StyleSheet.create({
     },
     list: {},
     listItem: {
+        fontFamily: "Inter Regular",
         flex: 1,
+        marginBottom: 10,
+        marginTop: 10,
         flexWrap: "wrap",
-        // backgroundColor: 'green',
     },
     listUnordered: {},
 
@@ -104,6 +117,10 @@ export const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         lineHeight: 30,
+        marginBottom: 10,
+        marginTop: 10,
+        fontFamily: "Inter Bold",
+        fontSize: 40,
     },
     listUnorderedItemText: {
         fontSize: 20,
@@ -121,6 +138,7 @@ export const styles = StyleSheet.create({
     },
     listOrderedItemText: {
         fontWeight: "bold",
+        fontFamily: "Inter Bold",
         lineHeight: 20,
     },
     div: {},
@@ -140,6 +158,7 @@ export const styles = StyleSheet.create({
     },
     strong: {
         fontWeight: "bold",
+        fontFamily: "Inter Bold",
     },
     table: {
         borderWidth: 1,
@@ -167,9 +186,10 @@ export const styles = StyleSheet.create({
         textDecorationLine: "line-through",
     },
     pre: {
-        fontFamily: "Ubuntu Mono",
+        fontFamily: "Inter Regular",
     },
     link: {
+        fontFamily: "Inter Regular",
         marginTop: 0,
         marginBottom: 0,
     },

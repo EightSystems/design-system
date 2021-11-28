@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ViewProps } from "react-native";
-import { FontFaceTypes } from "../../../theme/types";
+import { ColorTypes, FontFaceTypes, FontSizeTypes } from "../../../theme/types";
 
 export type CommonProps = {
     children?: React.ReactNode | string;
@@ -12,22 +12,17 @@ export type CommonProps = {
     stroke: number;
 
     /** Defines the color of the ring's stroke. */
-    strokeColor: string;
+    strokeColor: ColorTypes;
 
     /** If specified, defines the string of text inside the ring. */
     text?: string;
 
     /** If specified, defines the color of the text inside the progress ring. */
-    textFillColor?: string;
+    textColor?: ColorTypes;
 
-    /** Caso seja especificado, define o tamanho da fonte do texto dentro do anel de progresso (em px). */
-    textFontSize?: number;
+    textFontSize?: FontSizeTypes;
 
     textFontFace?: FontFaceTypes;
-
-    textXAxis?: number;
-
-    textYAxis?: number;
 
     /** Define o número do progresso em uma escala de 0 a 100. */
     progress: number;

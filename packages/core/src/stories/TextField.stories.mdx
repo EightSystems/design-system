@@ -19,12 +19,12 @@ This components is commonly used on forms and dialog boxes.
 import { TextField } from "@8sistemas/design-system";
 ```
 
-## Variantes
+## TextField Variants
 
 The `TextField` requires two obligatory props, `name` and `label`:
 
 <Canvas>
-    <Story name="Regular TextField" args={{ name: "inputName", label: "Input Label" }}>
+    <Story name="Regular TextField" args={{ name: "inputName", label: "Input Label", placeholder: "Regular Value" }}>
         {args => <TextField {...args} />}
     </Story>
 </Canvas>
@@ -58,7 +58,7 @@ to indicate validation success, and `validationMessage` to insert a helper messa
     </Story>
 </Canvas>
 
-### Validação de sucesso
+### Success validation
 
 <Canvas>
     <Story
@@ -79,6 +79,7 @@ infomation that will be required by the input, using the props `icon` to show th
         args={{
             name: "inputName",
             label: "Input Label",
+            placeholder: "Placeholder Information",
             icon: "loadingSpinner",
             tooltipContent: "A vida é bela",
             tooltipPlacement: "top-start",
@@ -102,12 +103,12 @@ available for mask controls on with IMask, use IMask's [official documentation](
     <Story name="Date Masked TextField">
         <TextField
             name="date"
-            placeholder="dd/mm/aaaa"
+            placeholder="aaaa-mm-dd"
             label="Date"
             masked="true"
-            type={"datetime"}
+            maskType={"datetime"}
             options={{
-                format: "DD/MM/YYYY",
+                format: "YYYY-MM-DD",
             }}
         />
     </Story>

@@ -14,8 +14,6 @@ export const InputLabel = styled(Text)`
 `;
 
 export const SelectComponent = styled(Button)`
-    border: ${props => props.theme.borders.default};
-
     padding: 12px 12px;
     width: 100%;
 `;

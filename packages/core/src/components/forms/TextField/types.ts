@@ -104,9 +104,6 @@ type NativeProps = CommonProps & {
     /** Used to pass custom styles to the native `TextInput` component. */
     inputStyle?: StyleProp<TextInputProps>;
 
-    /** Determinates if it is a masked input. */
-    masked?: boolean;
-
     /** Receives the text value */
     onChange?: (textValue: string) => void;
 

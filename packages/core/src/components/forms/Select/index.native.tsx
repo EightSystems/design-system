@@ -7,7 +7,7 @@ import { NativeOptionProps, SelectProps } from "./types";
 export { Option } from "./Option.native";
 
 export const Select = (props: SelectProps) => {
-    const borderColor = props.validationError ? "danger" : props.validationSuccess ? "success" : null;
+    const borderColor = props.validationError ? "danger" : props.validationSuccess ? "success" : "darkTint";
 
     const optionList = React.Children.map(props.children, (child: React.ReactElement<NativeOptionProps>) => {
         return onlyText(child.props.children);
@@ -53,7 +53,7 @@ export const Select = (props: SelectProps) => {
             </S.InputLabel>
             <S.SelectComponent
                 borderColor={borderColor}
-                onPress={openSelectOptions}
+                onClick={openSelectOptions}
                 backgroundColor={"white"}
                 fontFace={"secondary"}
                 fontWeight={"normal"}

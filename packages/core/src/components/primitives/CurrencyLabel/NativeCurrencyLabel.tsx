@@ -24,7 +24,6 @@ const CurrencyLabel = React.forwardRef<any, NativeCurrencyLabelProps>(
                 {...props}
                 ref={componentRef}
             >
-                {/* Locale is mocked as "pt-BR" until the function to determinate the user locale is built */}
                 {currencyUnit}
             </S.CurrencyLabelWrapper>
         );

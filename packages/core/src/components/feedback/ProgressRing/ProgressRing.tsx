@@ -1,39 +1,59 @@
 import * as React from "react";
+import styled, { ThemeContext } from "styled-components";
+import { theme } from "../../../theme";
+import { Text } from "../../typography/Text";
 import * as S from "./styled";
-
 import { WebProgressRingProps } from "./types";
 
-const ProgressRing = (props: WebProgressRingProps) => {
-    const normalizedRadius = props.radius - props.stroke * 2;
+const StyledCircle = styled.circle`
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+`;
+
+const ProgressRing = ({
+    children,
+    radius,
+    stroke,
+    strokeColor = "gray",
+    text,
+    textColor = "gray",
+    textFontSize = "xxxs",
+    textFontFace = "primary",
+    ...props
+}: WebProgressRingProps) => {
+    const themeContext = React.useContext<typeof theme>(ThemeContext);
+    const strokeRealColor =
+        typeof themeContext.colors[strokeColor] != "undefined" ? themeContext.colors[strokeColor] : "gray";
+
+    const normalizedRadius = radius - stroke * 2;
     const circumference = normalizedRadius * 2 * Math.PI;
 
     const strokeDashOffset = circumference - (props.progress / 100) * circumference;
 
     return (
-        <svg height={props.radius * 2} width={props.radius * 2}>
-            <S.StyledCircle
-                stroke={props.strokeColor}
-                fill="transparent"
-                strokeWidth={props.stroke}
-                strokeDasharray={circumference + " " + circumference}
-                strokeDashoffset={strokeDashOffset}
-                r={normalizedRadius}
-                cx={props.radius}
-                cy={props.radius}
-            />
-            {props.text ? (
-                <S.StyledText
-                    text-anchor="middle"
-                    alignment-baseline="central"
-                    fill={props.textFillColor}
-                    fontSize={props.textFontSize}
-                    x={props.textXAxis}
-                    y={props.textYAxis}
-                >
-                    {props.text}
-                </S.StyledText>
+        <S.Container radius={radius}>
+            <S.StyledTextContainer>
+                <svg height={radius * 2} width={radius * 2}>
+                    <StyledCircle
+                        stroke={strokeRealColor}
+                        fill="transparent"
+                        strokeWidth={stroke}
+                        strokeDasharray={circumference + " " + circumference}
+                        strokeDashoffset={strokeDashOffset}
+                        r={normalizedRadius}
+                        cx={radius}
+                        cy={radius}
+                    />
+                </svg>
+            </S.StyledTextContainer>
+            {text ? (
+                <S.StyledTextContainer>
+                    <Text textColor={textColor} fontSize={textFontSize} fontFace={textFontFace} fontWeight={"bold"}>
+                        {text}
+                    </Text>
+                </S.StyledTextContainer>
             ) : null}
-        </svg>
+        </S.Container>
     );
 };
 

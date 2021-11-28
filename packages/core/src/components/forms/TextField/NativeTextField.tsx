@@ -28,7 +28,7 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
             value,
             icon,
             keyboardType,
-            maskType = null,
+            maskType = "only-numbers",
             onBlur,
             onFocus,
             onChange,
@@ -70,6 +70,7 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
             nativeID: elementUniqueId,
             editable: !disabled,
             placeholder,
+            placeholderTextColor: "rgba(0, 0, 0, 0.5)",
             keyboardType,
             secureTextEntry,
         };

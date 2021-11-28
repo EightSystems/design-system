@@ -9,27 +9,25 @@ Component used to indicate progress. It's part of the component group that compo
 individually used as an Progress Indicator, or a spinner.
 
 <Canvas>
-    <Story name="Progress Ring" args={{ radius: 30, stroke: 4, strokeColor: "gray", progress: 50 }}>
+    <Story name="Progress Ring" args={{ radius: 40, stroke: 4, strokeColor: "gray", progress: 50, text: "3 of 4" }}>
         {args => <ProgressRing {...args} />}
     </Story>
 </Canvas>
 
-Adicionally it's also possible to define props like `text`, `textColor`, `textXAxis`, `textYAxis` and `textFontSize` to
-define and position a string of text inside the circle.
+Adicionally it's also possible to define props like `text`, `textColor`, and `textFontSize` to define a string of text
+inside the circle.
 
 <Canvas>
     <Story
         name="Progress Ring with text"
         args={{
-            radius: 34,
+            radius: 100,
             stroke: 4,
-            strokeColor: "gray",
+            strokeColor: "secondary",
             progress: 75,
-            text: "3 de 4",
-            textColor: "gray",
-            textXAxis: 17,
-            textYAxis: 38,
-            textFontSize: 12,
+            text: "100 of 1000",
+            textColor: "secondary",
+            textFontSize: "md",
         }}
     >
         {args => <ProgressRing {...args} />}

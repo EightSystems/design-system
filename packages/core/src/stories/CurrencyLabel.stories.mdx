@@ -23,53 +23,66 @@ export const Template = args => <CurrencyLabel {...args} />;
 
 # CurrencyLabel
 
-Um wrapper para a representação de valores monetários, converte um valor puro na unidade monetária requerida de acordo
-com a API de internacionalização.
+This is a monerary values wrapper, it would convert whole integers into the set currency using the Internationalization
+APIs. That way you can set values without the worry of the decimal places and it would format it automatically for you.
 
-## Variantes
+Financial applications usually work with whole integers instead of Decimals for representing monetary values.
 
-O `CurrencyLabel` usa a API de internacionalização `Intl.NumberFormat`, e possui duas propriedades obrigatórias:
-`currency` e `value`:
+## Native Support
 
-### Real Brasileiro
+On native you would need to use the `intl jscFlavour`, changing this line in `android/app/build.gradle` in your project
+from:
+
+```
+def jscFlavor = 'org.webkit:android-jsc:+'
+```
+
+to:
+
+```
+def jscFlavor = 'org.webkit:android-jsc-intl:+'
+```
+
+And, you also need to disable Hermes, Hermes doesn't support Intl (on Android, as for version 0.64.2)
+
+### Brazilian Real
 
 <Canvas>
-    <Story name="Real Brasileiro" args={{ currency: "BRL", value: 123456 }}>
+    <Story name="Brazilian Real" args={{ currency: "BRL", value: 123456 }}>
         {args => <CurrencyLabel {...args} />}
     </Story>
 </Canvas>
 
-### Dólar americano
+### United States Dolar
 
 <Canvas>
-    <Story name="Dólar Americano" args={{ currency: "USD", value: 456789 }}>
+    <Story name="United States Dolar" args={{ currency: "USD", value: 456789 }}>
         {args => <CurrencyLabel {...args} />}
     </Story>
 </Canvas>
 
-### Yen Japonês
+### Japanese Yen
 
 <Canvas>
-    <Story name="Yen Japonês" args={{ currency: "JPY", value: 3456789 }}>
+    <Story name="Japanese Yen" args={{ currency: "JPY", value: 3456789 }}>
         {args => <CurrencyLabel {...args} />}
     </Story>
 </Canvas>
 
-Adicionalmente, é possível especificar o tamanho a a unidade de medida para alterar o tamanho de exibição de
-`CurrencyLabel` com `size` e `sizeUnit`.
+You can also set the font size passing the usual `Text` props, like `fontSize`, `fontFace` and `fontWeight`
 
-### Euro com fonte em tamanho 72px
+### Euro with xxxl font size
 
 <Canvas>
-    <Story name="Euro (72px)" args={{ currency: "EUR", value: 123456 }}>
+    <Story name="Euro with xxxl font size" args={{ currency: "EUR", value: 123456, fontSize: "xxxl" }}>
         {args => <CurrencyLabel {...args} />}
     </Story>
 </Canvas>
 
-### Peso Argentino com fonte em tamanho 2em
+### Argentinian peso with xl font size
 
 <Canvas>
-    <Story name="Peso Argentino (2em)" args={{ currency: "ARS", value: 123456 }}>
+    <Story name="Argentinian peso with xl font size" args={{ currency: "ARS", value: 123456, fontSize: "xl" }}>
         {args => <CurrencyLabel {...args} />}
     </Story>
 </Canvas>

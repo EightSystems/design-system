@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { Modal } from "../components/composites/Modal";
+import { ModalSample } from "../components/composites/Modal/StorybookSample";
 import { Button } from "../components/forms/Button";
 
 <Meta title="Composites/Modal" component={Modal} />
@@ -9,14 +10,33 @@ import { Button } from "../components/forms/Button";
 
 A Simple Modal Component
 
+## Example
+
+Sadly this component can't render directly in Storybook as it needs to manipulate some of the DOM, and Storybook doesn't
+like it, but you can use the following code as a sample for the component usage:
+
+```jsx
+const ModalSample = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
+        <Fragment>
+            <Button onClick={() => setIsModalOpen(true)}>Open Test Modal</Button>
+            <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <Box style={{ minHeight: 80 }}>
+                    <Text>Hi from Modal</Text>
+                    <Button onClick={() => setIsModalOpen(false)}>Close Modal</Button>
+                </Box>
+            </Modal>
+        </Fragment>
+    );
+};
+```
+
 <Canvas>
-    <Story name="Modal" args={{ isOpen: false, halfScreen: true }}>
+    <Story name="Sample Text inside a Modal">
         {args => {
-            return (
-                <Modal {...args}>
-                    <Button>Modal Content Here</Button>
-                </Modal>
-            );
+            return <ModalSample />;
         }}
     </Story>
 </Canvas>

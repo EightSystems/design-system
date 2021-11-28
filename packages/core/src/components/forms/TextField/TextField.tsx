@@ -16,7 +16,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
             disabled = false,
             required = false,
             masked,
-            type,
+            maskType = "only-numbers",
             options,
             validationSuccess,
             validationError,
@@ -57,7 +57,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                             <TextInputMask
                                 {...props}
                                 disabled={disabled || null}
-                                kind={type}
+                                kind={maskType}
                                 options={options}
                                 name={name}
                                 aria-label={label}

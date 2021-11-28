@@ -57,7 +57,9 @@ const colors = {
     background: "#F7F9FC",
 
     white: "#FFFFFF",
+    black: "#000000",
     transparent: "transparent",
+    gray: "gray",
 };
 
 export default colors;

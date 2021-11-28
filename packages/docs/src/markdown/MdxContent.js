@@ -1,9 +1,9 @@
 // Use your MDX content with this component.
 
 import React from "react";
+import components from "./components";
 const MDX = require("@mdx-js/runtime");
 const { MDXProvider } = require("@mdx-js/react");
-import components from "./components";
 
 const mdxComponents = {
     ...components,
@@ -12,7 +12,7 @@ const mdxComponents = {
 // Add variables here if needed.
 const scope = {};
 
-// Children is an MDX string
+// Children is a MDX string
 const MdxContent = ({ children, style = {} }) => {
     return (
         <View style={style}>
