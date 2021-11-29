@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+# [0.7.0](https://github.com/EightSystems/design-system/compare/v0.6.10...v0.7.0) (2021-11-29)
+
+
+### Features
+
+* major revamp of components, add icons to the design system app, test with iOS ([f9e94d3](https://github.com/EightSystems/design-system/commit/f9e94d3d671d9b19037ca17df29bf3ef4a86d554))
+
 ## [0.6.10](https://github.com/EightSystems/design-system/compare/v0.6.9...v0.6.10) (2021-11-27)
 
 
