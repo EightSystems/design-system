@@ -1,31 +1,32 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import Toast from "../components/feedback/Toast";
+import { Toast } from "../components/feedback/Toast";
+import { action } from "@storybook/addon-actions";
+
+<Meta title="Feedback/Toast" component={Toast} />
+
+# Toast
+
+Toast can be used to display alerts in the upper layer. This component can be used to provide feedback to a user after
+some action is done.
+
+> **Warning**: Storybook doesn't contain the `Toast` inside the canvas, so you will always see it outside of the
+> `MDX Canvas`. That being said, please use the `Canvas` tab in order to play with the component.
 
 <Canvas>
     <Story
         name="Toast"
         args={{
-            title: "Ação neutra",
-            description: "Uma ação neutra foi realizada.",
+            title: "Neutral Action",
+            description: "A neutral action was executed",
             status: "info",
             position: "bottom-right",
             showToast: true,
+            onClose: action("onClose"),
         }}
     >
         {args => <Toast {...args} />}
     </Story>
 </Canvas>
-
-# Toast
-
-> **Importante**: Uma limitação do preview MDX do Storybook faz com que componentes dessa natureza sejam exibidos fora
-> do container de preview. Para ver e interagir com os controladores do componente, use a aba de **Canvas**.
-
-<Meta title="Feedback/Toast" component={Toast} />
-
-O Toast é usado para mostrar alertas na parte superior de uma sobreposição. A notificação será fechada automaticamente
-quando o botão Fechar for clicado. O componente Toast é usado para fornecer feedback aos usuários após a realização de
-uma ação.
 
 ## Import
 
@@ -33,9 +34,9 @@ uma ação.
 import { Toast } from "@8sistemas/design-system";
 ```
 
-## Uso
+## Usage
 
-Para usar o Toast basta declará-lo como um componente e fornecer as propriedades:
+In order to use the `Toast` component, just add it to your component, and send the props.
 
 ```jsx
 <Toast
@@ -44,55 +45,9 @@ Para usar o Toast basta declará-lo como um componente e fornecer as propriedade
     status="info"
     title="Ação neutra"
     description="Uma ação neutra foi realizada."
-    onClose={onCloseToast()}
+    onClose={onCloseToast}
     ref={toastComponentRef}
 />
-```
-
-A propriedade `showToast` deve ser controlada por um variável de estado (como por exemplo `useState` em componentes
-funcionais). Adicionalmente, o hook `useDetectOutsideClick` pode ser usado como um extensor de `useState` capaz de
-detectar interações externas ao `<Toast>`:
-
-```jsx
-import { Toast, useDetectOutsideClick } from "@8sistemas/design-system";
-
-const toastComponentRef = useRef();
-const [showToast, setShowToast] = useDetectOutsideClick(toastComponentRef, false);
-
-const ComponentWithToast = () => {
-    return (
-        {/* ... */}
-        <Toast
-            showToast={showToast}
-            position="bottom-center"
-            status="info"
-            title="Ação neutra"
-            description="Uma ação neutra foi realizada.."
-            onClose={onCloseToast()}
-            ref={toastComponentRef}
-        />
-        {/* ... */}
-    );
-};
-```
-
-Assim, se qualquer área fora do `<Toast>` for clicada enquanto o `<Toast>` estiver ativo, ele será retraído.
-
-## Timeout
-
-Por padrão, o Toast só será fechado quando houver algum tipo de interação do usuário. Para fazer com que o Toast feche
-após um tempo, use o `setTimeout()` para modificar o estado da variável fornecida à `showToast`:
-
-```jsx
-useEffect(() => {
-    let timeout;
-
-    const setToastTimeout = toastVisibility => {
-        toastVisibility ? (timeout = setTimeout(() => setShowToast(false), 3000)) : clearTimeout(timeout);
-    };
-
-    setToastTimeout(showToast);
-}, [showToast]);
 ```
 
 ## Props

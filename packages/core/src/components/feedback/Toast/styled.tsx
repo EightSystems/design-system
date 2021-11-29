@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Box } from "../../layout/Box";
 
-export const DialogWrapper = styled.div`
+export const DialogWrapper = styled(Box)`
     position: fixed;
     z-index: 10;
     visibility: ${props => (props.showToast ? "visible" : "hidden")};
@@ -74,51 +75,39 @@ export const DialogWrapper = styled.div`
         transform: translate(0px, 0px);
     }
 `;
-export const ToastWrapper = styled.div`
+
+export const ToastWrapper = styled(Box)`
     position: fixed;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+
     box-shadow: ${props => props.theme.shadows.default};
     border-radius: 3px;
-    padding: 1.6rem;
-    &[data-status="info"] {
-        background: ${props => props.theme.colors.secondary};
-    }
-    &[data-status="warning"] {
-        background: ${props => props.theme.colors.danger};
-    }
-    &[data-status="success"] {
-        background: ${props => props.theme.colors.successShade};
-    }
-    .close-icon {
-        color: ${props => props.theme.colors.secondaryContrast};
-        width: 16px;
-        height: 16px;
-    }
-    button {
-        cursor: pointer;
-    }
 `;
-export const TextWrapper = styled.div`
-    font-family: ${props => props.theme.typography.fontFaces.secondary};
+
+export const TextWrapper = styled(Box)`
     margin-right: ${props => props.theme.spacing.md};
 `;
-export const ToastTitle = styled.h2`
+
+export const ContextIconWrapper = styled(Box)`
     color: ${props => props.theme.colors.secondaryContrast};
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
-`;
-export const ToastDescription = styled.p`
-    color: ${props => props.theme.colors.secondaryContrast};
-    font-size: 14px;
-    font-weight: 400;
-`;
-export const ContextIconWrapper = styled.div`
+    margin-right: ${props => props.theme.spacing.sm};
+
     svg {
-        color: ${props => props.theme.colors.secondaryContrast};
-        margin-right: ${props => props.theme.spacing.sm};
-        width: 36px;
-        height: 36px;
+        width: ${props => props.theme.typography.fontSizes.lg};
+        height: ${props => props.theme.typography.fontSizes.lg};
     }
+`;
+
+export const CloseButtonIconWrapper = styled(Box)`
+    color: ${props => props.theme.colors.secondaryContrast};
+
+    svg {
+        width: ${props => props.theme.typography.fontSizes.sm};
+        height: ${props => props.theme.typography.fontSizes.sm};
+    }
+`;
+
+export const CloseButton = styled.button`
+    cursor: pointer;
 `;
