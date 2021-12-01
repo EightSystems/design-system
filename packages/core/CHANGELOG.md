@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.7.1](https://github.com/EightSystems/design-system/compare/v0.7.0...v0.7.1) (2021-12-01)
+
+
+### Bug Fixes
+
+* add color and size props to icons, fix and improve toast, and make it work on native ([a752786](https://github.com/EightSystems/design-system/commit/a7527867a77b6374e2678ca787fb7a1cd7e9f25a))
+* toast migration to TS, and use internal components instead of raw elements ([79bde2c](https://github.com/EightSystems/design-system/commit/79bde2c11734921a3c4f59f5596b8a5f9ae43433))
+
 # [0.7.0](https://github.com/EightSystems/design-system/compare/v0.6.10...v0.7.0) (2021-11-29)
 
 
