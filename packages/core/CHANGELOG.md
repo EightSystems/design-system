@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.7.2](https://github.com/EightSystems/design-system/compare/v0.7.1...v0.7.2) (2021-12-01)
+
+
+### Bug Fixes
+
+* fix lint-staged ([34cb453](https://github.com/EightSystems/design-system/commit/34cb453f1ce527d619d3b7303594f9cf19c8299f))
+* fix lint-staged ([4e29edf](https://github.com/EightSystems/design-system/commit/4e29edf06e8ef52389a64500b03afa44bcc9b60f))
+* toast handle close on web ([11864c0](https://github.com/EightSystems/design-system/commit/11864c079f7318f0a9bad280d49905c73691f440))
+
 ## [0.7.1](https://github.com/EightSystems/design-system/compare/v0.7.0...v0.7.1) (2021-12-01)
 
 
