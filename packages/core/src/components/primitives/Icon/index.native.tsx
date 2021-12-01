@@ -1,23 +1,29 @@
 import React from "react";
-
 import AntDesign from "react-native-vector-icons/AntDesign";
-import AntDesignGlyphMap from "react-native-vector-icons/glyphmaps/AntDesign.json";
-
 import Feather from "react-native-vector-icons/Feather";
-import FeatherGlyphMap from "react-native-vector-icons/glyphmaps/Feather.json";
-
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
+import AntDesignGlyphMap from "react-native-vector-icons/glyphmaps/AntDesign.json";
+import FeatherGlyphMap from "react-native-vector-icons/glyphmaps/Feather.json";
 import FontAwesomeGlyphMap from "react-native-vector-icons/glyphmaps/FontAwesome5Free.json";
-
-import Ionic from "react-native-vector-icons/Ionicons";
 import IonicGlyphMap from "react-native-vector-icons/glyphmaps/Ionicons.json";
-
-import Material from "react-native-vector-icons/MaterialIcons";
 import MaterialGlyphMap from "react-native-vector-icons/glyphmaps/MaterialIcons.json";
-
+import Ionic from "react-native-vector-icons/Ionicons";
+import Material from "react-native-vector-icons/MaterialIcons";
+import { ThemeContext } from "styled-components/native";
+import { nativeTheme } from "../../../theme";
 import { NativeIconProps } from "./types";
 
-const Icon = ({ familyName, icon, ...otherProps }: NativeIconProps) => {
+const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }: NativeIconProps) => {
+    const themeContext = React.useContext<typeof nativeTheme>(ThemeContext);
+
+    const fontRealSize =
+        typeof themeContext.nativeTypography?.fontSizes[size] != "undefined"
+            ? +themeContext.nativeTypography?.fontSizes[size].replace(/[^0-9]+/g, "")
+            : 12;
+
+    const fontRealColor =
+        typeof themeContext.colors[color] != "undefined" ? (themeContext.colors[color] as string) : "white";
+
     let glyphMap = null;
     let IconComponent = null;
 
@@ -63,7 +69,7 @@ const Icon = ({ familyName, icon, ...otherProps }: NativeIconProps) => {
         }
 
         if (finalIconName) {
-            return <IconComponent name={finalIconName} {...otherProps} />;
+            return <IconComponent name={finalIconName} color={fontRealColor} size={fontRealSize} {...otherProps} />;
         } else {
             console.log(`${icon} in ${familyName} is not supported (Tried these icon names: ${triedNames.join(", ")})`);
         }
@@ -73,5 +79,4 @@ const Icon = ({ familyName, icon, ...otherProps }: NativeIconProps) => {
 };
 
 export type { NativeIconProps } from "./types";
-
 export { Icon };

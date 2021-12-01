@@ -1,25 +1,22 @@
 import * as React from "react";
+import { View } from "react-native";
 import { BoxStyled } from "./styled.native";
 import { NativeBoxProps } from "./types";
 
-export const Box: React.FC<NativeBoxProps> = ({
-    children,
-    backgroundColor,
-    padding,
-    margin,
-    ...otherProps
-}: NativeBoxProps) => {
-    const styleProps = {
-        "data-backgroundcolor": backgroundColor,
-        "data-margin": margin,
-        "data-padding": padding,
-    };
+export const Box = React.forwardRef<View, NativeBoxProps>(
+    ({ children, backgroundColor, margin, padding, ...otherProps }, componentRef) => {
+        const styleProps = {
+            "data-backgroundcolor": backgroundColor,
+            "data-margin": margin,
+            "data-padding": padding,
+        };
 
-    return (
-        <BoxStyled {...otherProps} {...styleProps}>
-            {children}
-        </BoxStyled>
-    );
-};
+        return (
+            <BoxStyled {...otherProps} {...styleProps} ref={componentRef}>
+                {children}
+            </BoxStyled>
+        );
+    }
+);
 
 export default Box;

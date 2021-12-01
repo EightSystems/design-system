@@ -22,6 +22,7 @@ import SpinnerStory from "../core/src/stories/Spinner.stories";
 import StepperStory from "../core/src/stories/Stepper.stories";
 import TextStory from "../core/src/stories/Text.stories";
 import TextFieldStory from "../core/src/stories/TextField.stories";
+import ToastStory from "../core/src/stories/Toast.stories";
 import TooltipStory from "../core/src/stories/Tooltip.stories";
 import WebVideoStory from "../core/src/stories/Video.stories";
 
@@ -40,6 +41,7 @@ const storyList = {
     "Feedback/ProgressRing": ProgressRingStory,
     "Feedback/Spinner": SpinnerStory,
     "Feedback/Stepper": StepperStory,
+    "Feedback/Toast": ToastStory,
     "Feedback/Tooltip": TooltipStory,
 
     "Forms/Select": SelectStory,

@@ -6,10 +6,10 @@ export type NativeThemeSchemaType = typeof nativeTheme;
 
 export type ThemeProviderProps = {
     theme?: ThemeSchemaType;
-    children: React.ReactNode;
+    children: React.ReactChild;
 };
 
 export type NativeThemeProviderProps = {
     theme?: NativeThemeSchemaType;
-    children: React.ReactNode;
+    children: React.ReactChild;
 };

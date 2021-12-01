@@ -23,8 +23,10 @@ module.exports = async () => {
     const extraSourceExts = [...sourceExts, "mdx"];
     return {
         resolver: {
-            blockList: [/core\/node_modules/i],
-            nodeModulesPaths: [path.resolve(__dirname, "node_modules")],
+            nodeModulesPaths: [
+                path.resolve(__dirname, "node_modules"),
+                path.resolve(__dirname, "../core/node_modules"),
+            ],
             extraNodeModules: libs,
             sourceExts: extraSourceExts,
             resolveRequest: (context, realModuleName, platform, moduleName) => {

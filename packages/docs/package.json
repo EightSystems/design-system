@@ -31,6 +31,7 @@
         "react-native-masked-text": "^1.13.0",
         "react-native-popper": "^0.3.0",
         "react-native-svg": "^12.1.1",
+        "react-native-toast-message": "^2.0.2",
         "react-native-vector-icons": "^8.1.0",
         "react-native-webview": "^11.14.4",
         "react-spinners": "^0.11.0",

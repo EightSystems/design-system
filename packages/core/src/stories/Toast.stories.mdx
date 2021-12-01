@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { Toast } from "../components/feedback/Toast";
+import { Icon } from "../components/primitives/Icon";
 import { action } from "@storybook/addon-actions";
 
 <Meta title="Feedback/Toast" component={Toast} />
@@ -20,8 +21,9 @@ some action is done.
             description: "A neutral action was executed",
             status: "info",
             position: "bottom-right",
-            showToast: true,
+            show: true,
             onClose: action("onClose"),
+            duration: 0,
         }}
     >
         {args => <Toast {...args} />}
@@ -40,11 +42,11 @@ In order to use the `Toast` component, just add it to your component, and send t
 
 ```jsx
 <Toast
-    showToast={showToast}
+    show={showToast}
     position="bottom-center"
     status="info"
-    title="Ação neutra"
-    description="Uma ação neutra foi realizada."
+    title="Neutral Action"
+    description="A neutral action was executed"
     onClose={onCloseToast}
     ref={toastComponentRef}
 />

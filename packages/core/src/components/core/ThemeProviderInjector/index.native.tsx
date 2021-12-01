@@ -3,6 +3,7 @@ import merge from "lodash/merge";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { nativeTheme as originalTheme } from "../../../theme";
+import { ToastProvider } from "../../feedback/Toast/ToastProvider.native";
 import { NativeThemeProviderProps } from "./types";
 
 const cacheFontWeight = themeMerged => {
@@ -25,7 +26,9 @@ const ThemeProviderInjector = ({ theme, children }: NativeThemeProviderProps) =>
 
     return (
         <ActionSheetProvider>
-            <ThemeProvider theme={themeMerged}>{children}</ThemeProvider>
+            <ThemeProvider theme={themeMerged}>
+                <ToastProvider>{children}</ToastProvider>
+            </ThemeProvider>
         </ActionSheetProvider>
     );
 };

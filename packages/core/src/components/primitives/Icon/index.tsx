@@ -1,10 +1,12 @@
 import React from "react";
-
 import * as AntDesign from "react-icons/ai";
-import * as Feather from "react-icons/fi";
 import * as FontAwesome from "react-icons/fa";
+import * as Feather from "react-icons/fi";
 import * as Ionic from "react-icons/io5";
+import { IconType } from "react-icons/lib";
 import * as Material from "react-icons/md";
+import { ThemeContext } from "styled-components";
+import { theme } from "../../../theme";
 import { WebIconProps } from "./types";
 
 const toCamelCase = phrase => {
@@ -15,10 +17,20 @@ const toCamelCase = phrase => {
         .join("");
 };
 
-const Icon = ({ familyName, icon, ...otherProps }: WebIconProps) => {
+const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }: WebIconProps) => {
+    const themeContext = React.useContext<typeof theme>(ThemeContext);
+
+    const fontRealSize =
+        typeof themeContext.typography?.fontSizes[size] != "undefined"
+            ? +themeContext.typography?.fontSizes[size].replace(/[^0-9]+/g, "")
+            : 12;
+
+    const fontRealColor =
+        typeof themeContext.colors[color] != "undefined" ? (themeContext.colors[color] as string) : "white";
+
     let libraryModule = null;
     const iconComponentName = toCamelCase(icon.replace(/-/g, " ").replace(/_/g, " "));
-    let IconComponent = null;
+    let IconComponent: IconType = null;
 
     switch (familyName) {
         case "AntDesign":
@@ -49,7 +61,7 @@ const Icon = ({ familyName, icon, ...otherProps }: WebIconProps) => {
         }
 
         if (IconComponent) {
-            return <IconComponent {...otherProps} />;
+            return <IconComponent size={fontRealSize} color={fontRealColor} {...otherProps} />;
         }
     }
 
@@ -57,5 +69,4 @@ const Icon = ({ familyName, icon, ...otherProps }: WebIconProps) => {
 };
 
 export type { WebIconProps } from "./types";
-
 export { Icon };
