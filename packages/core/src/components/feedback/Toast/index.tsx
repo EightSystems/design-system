@@ -53,6 +53,8 @@ export const Toast = React.forwardRef<any, ToastProps>(
 
         const handleClose = () => {
             setInternalShow(false);
+            closeTimeoutRef.current && clearTimeout(closeTimeoutRef.current);
+
             if (onClose) {
                 onClose();
             }
@@ -92,7 +94,7 @@ export const Toast = React.forwardRef<any, ToastProps>(
                     title={title}
                     description={description}
                     status={status}
-                    onClose={onClose}
+                    onClose={handleClose}
                     rightElement={rightElement}
                     leftElement={leftElement}
                     backgroundColor={backgroundColor}
