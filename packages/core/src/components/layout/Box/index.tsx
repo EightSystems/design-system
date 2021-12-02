@@ -1,8 +1,8 @@
 import * as React from "react";
 import { BoxStyled } from "./styled";
-import { WebBoxProps } from "./types";
+import { BoxProps } from "./types";
 
-export const Box = React.forwardRef<HTMLDivElement, WebBoxProps>(
+export const Box = React.forwardRef<HTMLDivElement, BoxProps>(
     ({ children, backgroundColor, margin, padding, ...otherProps }, componentRef) => {
         const styleProps = {
             "data-backgroundcolor": backgroundColor,

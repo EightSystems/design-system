@@ -16,7 +16,7 @@ import { NativeTextFieldProps, TextField } from "./components/forms/TextField/in
 import Box from "./components/layout/Box/index.native";
 import { CenteredFlexBox, FlexBox } from "./components/layout/FlexBox";
 import { Col, ColProps, Row, RowProps } from "./components/layout/Grid";
-import Spacer from "./components/layout/Spacer/index.native";
+import { Spacer } from "./components/layout/Spacer";
 // Primitive components
 import { Avatar, NativeAvatarProps } from "./components/primitives/Avatar/index.native";
 import { CurrencyLabel, NativeCurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";

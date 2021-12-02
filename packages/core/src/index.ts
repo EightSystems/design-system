@@ -21,7 +21,7 @@ import { TextField, WebTextFieldProps } from "./components/forms/TextField";
 import Box from "./components/layout/Box";
 import { CenteredFlexBox, FlexBox } from "./components/layout/FlexBox";
 import { Col, ColProps, Row, RowProps } from "./components/layout/Grid";
-import Spacer from "./components/layout/Spacer";
+import { Spacer } from "./components/layout/Spacer";
 // Primitve components
 import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
 import { CurrencyLabel } from "./components/primitives/CurrencyLabel";

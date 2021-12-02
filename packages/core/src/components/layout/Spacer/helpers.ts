@@ -9,8 +9,3 @@ export function getWidth({ axis, size }) {
 export function getUnit({ unit }) {
     return unit === undefined ? "px" : unit;
 }
-
-export type SpacerProps = {
-    size?: number;
-    axis?: "horizontal" | "vertical";
-};

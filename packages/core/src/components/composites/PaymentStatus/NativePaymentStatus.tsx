@@ -2,7 +2,7 @@ import * as React from "react";
 import { View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { nativeTheme } from "../../../theme";
-import Spacer from "../../layout/Spacer/index.native";
+import { Spacer } from "../../layout/Spacer";
 import { CurrencyLabel } from "../../primitives/CurrencyLabel/index.native";
 import { Heading } from "../../typography/Heading/index.native";
 import { Text } from "../../typography/Text/index.native";

@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Spacer } from "../components/layout/Spacer";
+
+<Meta title="Layout/Spacer" component={Spacer} />
+
+# Spacer
+
+The `Spacer` is simply a helper for adding blank space to your layouts
+
+<Canvas>
+    <Story
+        name="Spacer"
+        args={{
+            size: 100,
+            axis: "vertical",
+            backgroundColor: 'primary'
+        }}
+    >
+        {args => <Spacer {...args} />}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Spacer} />

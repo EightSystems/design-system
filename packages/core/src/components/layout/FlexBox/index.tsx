@@ -1,11 +1,11 @@
 import React from "react";
-import { WebBoxProps } from "../Box/types";
+import { BoxProps } from "../Box/types";
 import { CenteredFlexBoxStyled, FlexBoxStyled } from "./styled";
 
-export const FlexBox = (props: WebBoxProps) => {
+export const FlexBox = (props: BoxProps) => {
     return <FlexBoxStyled {...props} />;
 };
 
-export const CenteredFlexBox = (props: WebBoxProps) => {
+export const CenteredFlexBox = (props: BoxProps) => {
     return <CenteredFlexBoxStyled {...props} />;
 };

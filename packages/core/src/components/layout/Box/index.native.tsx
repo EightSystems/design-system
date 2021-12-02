@@ -1,9 +1,9 @@
 import * as React from "react";
 import { View } from "react-native";
 import { BoxStyled } from "./styled.native";
-import { NativeBoxProps } from "./types";
+import { BoxProps } from "./types";
 
-export const Box = React.forwardRef<View, NativeBoxProps>(
+export const Box = React.forwardRef<View, BoxProps>(
     ({ children, backgroundColor, margin, padding, ...otherProps }, componentRef) => {
         const styleProps = {
             "data-backgroundcolor": backgroundColor,

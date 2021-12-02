@@ -18,6 +18,7 @@ import Image from "../core/src/stories/Image.stories";
 import ModalStory from "../core/src/stories/Modal.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
+import SpacerStory from "../core/src/stories/Spacer.stories";
 import SpinnerStory from "../core/src/stories/Spinner.stories";
 import StepperStory from "../core/src/stories/Stepper.stories";
 import TextStory from "../core/src/stories/Text.stories";
@@ -50,6 +51,7 @@ const storyList = {
     "Layout/Box": BoxStory,
     "Layout/FlexBox": FlexBox,
     "Layout/Grid": GridStory,
+    "Layout/Spacer": SpacerStory,
 
     "Molecules/PaymentStatus": PaymentStatusStory,
 

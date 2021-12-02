@@ -1,6 +1,6 @@
 import React, { isValidElement } from "react";
 import { ActivityIndicator, PressableProps } from "react-native";
-import Spacer from "../../layout/Spacer/index.native";
+import Spacer from "../../layout/Spacer";
 import * as S from "./styled.native";
 import { NativeButtonProps } from "./types";
 
