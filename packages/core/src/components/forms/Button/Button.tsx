@@ -1,5 +1,4 @@
 import * as React from "react";
-import { nativeTheme } from "../../../theme";
 import { Spinner } from "../../feedback/Spinner";
 import Spacer from "../../layout/Spacer";
 import * as S from "./styled";
@@ -12,7 +11,7 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
             textColor = "primaryContrast",
             fontFace = "primary",
             fontWeight = "bold",
-            fontSize,
+            fontSize = "xs",
             backgroundColor = "primary",
             borderColor,
             borderRadius = "md",
@@ -23,8 +22,8 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
             startIcon,
             endIcon,
             iconPadding,
-            spinnerColor = nativeTheme.colors.primaryContrast,
-            spinnerSize = 12,
+            spinnerColor = "primaryContrast",
+            spinnerSize = "xs",
             children,
             onPress,
             onClick,
@@ -50,11 +49,7 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
                 data-disabled={disabled || loading}
                 ref={componentRef}
             >
-                {startIcon && React.isValidElement(startIcon)
-                    ? React.Children.map(startIcon, child => {
-                          return React.cloneElement(child);
-                      })
-                    : null}
+                {startIcon && React.isValidElement(startIcon) ? startIcon : null}
 
                 {startIcon && React.isValidElement(startIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
 
@@ -68,11 +63,7 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
                     </S.SpinnerContainer>
                 ) : null}
 
-                {endIcon && React.isValidElement(endIcon)
-                    ? React.Children.map(endIcon, child => {
-                          return React.cloneElement(child);
-                      })
-                    : null}
+                {endIcon && React.isValidElement(endIcon) ? endIcon : null}
             </S.ButtonWrapper>
         );
     }

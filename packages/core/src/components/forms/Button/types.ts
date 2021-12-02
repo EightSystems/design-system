@@ -55,10 +55,10 @@ type CommonProps = {
     iconPadding?: number;
 
     /** The color of the spinner. */
-    spinnerColor?: any;
+    spinnerColor?: ColorTypes;
 
     /** Size of the spinner. */
-    spinnerSize?: number;
+    spinnerSize?: FontSizeTypes;
 
     /** When `true` the button is shown as disabled. */
     disabled?: boolean;
@@ -67,7 +67,7 @@ type CommonProps = {
     onPress?: null | ((event: any) => void) | undefined;
 };
 
-type NativeProps = Omit<CommonProps, "fontWeight" | "fontFace" | "onPress"> & {
+type NativeProps = Omit<CommonProps, "fontFace" | "onPress"> & {
     fontFace?: NativeFontFaceTypes;
     textAlign?: NativeTextAlignTypes;
 

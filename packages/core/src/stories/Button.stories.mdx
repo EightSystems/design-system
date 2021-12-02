@@ -46,17 +46,6 @@ example, see an outline button sample
     </Story>
 </Canvas>
 
-Use the `backgroundColor` prop to determinate the color of the button using the `Theme` available primary colors.
-
-<Canvas>
-    <Story
-        name="Danger Button"
-        args={{ backgroundColor: "danger", children: ["Danger Button"], onClick: action("onClick") }}
-    >
-        {args => <Button {...args} />}
-    </Story>
-</Canvas>
-
 ## Gradient Support
 
 We support basic gradient background, you can use the `backgroundColor` prop with one of the `*Gradient` values. For
@@ -77,32 +66,6 @@ example, `primaryGradient`. Be aware that it's a simple linear-gradient.
     </Story>
 </Canvas>
 
-### Danger button with Gradient
-
-<Canvas>
-    <Story
-        name="Danger Button with Gradient"
-        args={{
-            backgroundColor: "dangerGradient",
-            children: ["Danger Button with Gradient"],
-            onClick: action("onClick"),
-        }}
-    >
-        {args => <Button {...args} />}
-    </Story>
-</Canvas>
-
-### Success button sample
-
-<Canvas>
-    <Story
-        name="Success Button"
-        args={{ backgroundColor: "success", children: ["Success Button"], onClick: action("onClick") }}
-    >
-        {args => <Button {...args} />}
-    </Story>
-</Canvas>
-
 ### Font Size large
 
 <Canvas>
@@ -114,12 +77,17 @@ example, `primaryGradient`. Be aware that it's a simple linear-gradient.
     </Story>
 </Canvas>
 
-Secondary Button Sample
+### Loading State
 
 <Canvas>
     <Story
-        name="Secondary Button"
-        args={{ backgroundColor: "secondary", children: ["Secondary Button"], onClick: action("onClick") }}
+        name="Secondary Button with Loading"
+        args={{
+            backgroundColor: "secondary",
+            children: ["Secondary Button with Loading"],
+            onClick: action("onClick"),
+            loading: true,
+        }}
     >
         {args => <Button {...args} />}
     </Story>

@@ -1,5 +1,6 @@
 import React, { isValidElement } from "react";
-import { ActivityIndicator, PressableProps } from "react-native";
+import { PressableProps } from "react-native";
+import { Spinner } from "../../feedback/Spinner";
 import Spacer from "../../layout/Spacer";
 import * as S from "./styled.native";
 import { NativeButtonProps } from "./types";
@@ -9,8 +10,9 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
         {
             disabled = false,
             textColor = "primaryContrast",
-            fontFace = "primaryBold",
-            fontSize,
+            fontFace = "primary",
+            fontWeight = "bold",
+            fontSize = "xs",
             backgroundColor = "primary",
             borderColor,
             borderRadius = "md",
@@ -21,7 +23,8 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
             startIcon,
             endIcon,
             iconPadding,
-            spinnerColor,
+            spinnerColor = "primaryContrast",
+            spinnerSize = "sm",
             children,
             textAlign = "center",
             onPress,
@@ -44,40 +47,35 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
                 data-disabled={disabled || loading}
                 ref={componentRef}
             >
+                {startIcon && isValidElement(startIcon) ? startIcon : null}
+                {startIcon && isValidElement(startIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
+
+                {React.Children.map(children, childrenElement =>
+                    typeof childrenElement === "string" ? (
+                        <S.StyledText
+                            data-size={size}
+                            data-textalign={textAlign}
+                            data-textcolor={textColor}
+                            data-fontface={fontFace}
+                            data-fontweight={fontWeight}
+                            data-fontsize={fontSize}
+                        >
+                            {childrenElement}
+                        </S.StyledText>
+                    ) : (
+                        childrenElement
+                    )
+                )}
+
                 {loading ? (
                     <React.Fragment>
-                        <ActivityIndicator color={spinnerColor} size="small" />
+                        <Spinner color={spinnerColor} size={spinnerSize} />
                         <Spacer size={12} />
                     </React.Fragment>
                 ) : null}
 
-                {startIcon && isValidElement(startIcon)
-                    ? React.Children.map(startIcon, child => {
-                          return React.cloneElement(child);
-                      })
-                    : null}
-                {startIcon && isValidElement(startIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
-
-                {typeof children === "string" ? (
-                    <S.StyledText
-                        data-size={size}
-                        data-textalign={textAlign}
-                        data-textcolor={textColor}
-                        data-fontface={fontFace}
-                        data-fontsize={fontSize}
-                    >
-                        {children}
-                    </S.StyledText>
-                ) : (
-                    children
-                )}
-
                 {endIcon && isValidElement(endIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
-                {endIcon && isValidElement(endIcon)
-                    ? React.Children.map(endIcon, child => {
-                          return React.cloneElement(child);
-                      })
-                    : null}
+                {endIcon && isValidElement(endIcon) ? endIcon : null}
             </S.ButtonPressable>
         );
     }

@@ -1,8 +1,19 @@
 import * as React from "react";
 import { ActivityIndicator, Platform } from "react-native";
-import { NativeSpinnerProps } from "./types";
+import { ThemeContext } from "styled-components/native";
+import { nativeTheme } from "../../../theme";
+import { SpinnerProps } from "./types";
 
-const Spinner = React.forwardRef<any, NativeSpinnerProps>(({ color, size = 36, ...props }, componentRef) => {
+const Spinner = ({ color = "primary", size = "lg" }: SpinnerProps) => {
+    const themeContext = React.useContext<typeof nativeTheme>(ThemeContext);
+    const spinnerRealColor =
+        typeof themeContext.colors[color] != "undefined" ? (themeContext.colors[color] as string) : "gray";
+
+    const spinnerRealSize =
+        typeof themeContext.nativeTypography.fontSizes[size] != "undefined"
+            ? +themeContext.nativeTypography.fontSizes[size].replace(/[^0-9]+/g, "")
+            : 32;
+
     if (Platform.OS === "ios") {
         /*
          * Transform uses a multiplier, so we divide the size by 36 which is the width for the large size
@@ -11,16 +22,14 @@ const Spinner = React.forwardRef<any, NativeSpinnerProps>(({ color, size = 36, .
 
         return (
             <ActivityIndicator
-                ref={componentRef}
-                color={color}
+                color={spinnerRealColor}
                 size={"large"}
-                style={{ transform: [{ scale: size / 36 }], width: size, height: size }}
-                {...props}
+                style={{ transform: [{ scale: spinnerRealSize / 36 }], width: size, height: size }}
             />
         );
     }
 
-    return <ActivityIndicator ref={componentRef} color={color} size={size} {...props} />;
-});
+    return <ActivityIndicator color={spinnerRealColor} size={spinnerRealSize} />;
+};
 
 export default Spinner;

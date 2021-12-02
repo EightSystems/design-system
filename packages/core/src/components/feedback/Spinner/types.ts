@@ -1,10 +1,6 @@
-import React from "react";
-import { ActivityIndicatorProps } from "react-native";
+import { ColorTypes, FontSizeTypes } from "../../../theme/types";
 
-type CommonProps = {
-    color: any;
-    size: number;
+export type SpinnerProps = {
+    color: ColorTypes;
+    size: FontSizeTypes;
 };
-
-export type WebSpinnerProps = CommonProps & React.ComponentProps<"div">;
-export type NativeSpinnerProps = CommonProps & ActivityIndicatorProps;

@@ -7,6 +7,7 @@ import {
     borderRadius,
     fontFaces,
     fontSizes,
+    fontWeights,
     textAlign,
     textColors,
 } from "../../../theme/mixins/native";
@@ -56,6 +57,7 @@ export const StyledText = styled(Text)`
     ${textAlign};
     ${textColors};
     ${fontFaces};
+    ${fontWeights};
     width: 100%;
 
     ${props =>

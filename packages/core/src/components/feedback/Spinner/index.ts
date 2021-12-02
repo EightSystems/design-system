@@ -1,4 +1,4 @@
 import { default as Spinner } from "./Spinner";
 
-export type { WebSpinnerProps } from "./types";
+export type { SpinnerProps } from "./types";
 export { Spinner };
