@@ -4,14 +4,7 @@ import { paymentMethodIconGroup } from "./icons";
 import * as S from "./styled";
 import { PaymentMethodItemProps } from "./types";
 
-export const paymentMethodName = {
-    creditCard: "Cartão de crédito",
-    bankSlip: "Boleto bancário",
-    pix: "PIX",
-    picpay: "PicPay",
-};
-
-export const PaymentMethodItem = ({ onClick, title, description, icon, ...props }: PaymentMethodItemProps) => {
+export const PaymentMethodItem = ({ onClick, title, description, icon }: PaymentMethodItemProps) => {
     const IconComponent = paymentMethodIconGroup[icon] ? paymentMethodIconGroup[icon] : null;
 
     return (
