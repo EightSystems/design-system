@@ -1,4 +1,8 @@
 // Core components
+// Primitve components
+import { Avatar, WebAvatarProps } from "./components/atoms/Avatar";
+import { CurrencyLabel } from "./components/atoms/CurrencyLabel";
+import { Skeleton, WebSkeletonProps } from "./components/atoms/Skeleton";
 import Accordion from "./components/composites/Accordion";
 import AccordionItem from "./components/composites/AccordionItem";
 import { Modal, WebModalProps } from "./components/composites/Modal";
@@ -22,14 +26,10 @@ import Box from "./components/layout/Box";
 import { CenteredFlexBox, FlexBox } from "./components/layout/FlexBox";
 import { Col, ColProps, Row, RowProps } from "./components/layout/Grid";
 import { Spacer } from "./components/layout/Spacer";
-// Primitve components
-import { Avatar, WebAvatarProps } from "./components/primitives/Avatar";
-import { CurrencyLabel } from "./components/primitives/CurrencyLabel";
 import { Divider, WebDividerProps } from "./components/primitives/Divider";
 import { Icon, WebIconProps } from "./components/primitives/Icon";
 import { FontIcon, NativeIconProps as FontIconProps } from "./components/primitives/Icon/FontIcon";
 import { Image } from "./components/primitives/Image";
-import { Skeleton, WebSkeletonProps } from "./components/primitives/Skeleton";
 // Typography Components
 import { Heading, WebHeadingProps } from "./components/typography/Heading";
 import { Text, WebTextProps } from "./components/typography/Text";

@@ -33,7 +33,6 @@ const storyList = {
     Theming: ThemingStory,
     "Native Support": NativeSupportStory,
     "Atoms/Avatar": AvatarStory,
-    "Atoms/Button": ButtonStory,
     "Atoms/CurrencyLabel": CurrencyLabelStory,
     "Atoms/Skeleton": SkeletonStory,
 
@@ -45,6 +44,7 @@ const storyList = {
     "Feedback/Toast": ToastStory,
     "Feedback/Tooltip": TooltipStory,
 
+    "Forms/Button": ButtonStory,
     "Forms/Select": SelectStory,
     "Forms/TextField": TextFieldStory,
 

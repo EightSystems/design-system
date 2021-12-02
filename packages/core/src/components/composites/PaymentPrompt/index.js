@@ -1,7 +1,7 @@
 import Proptypes from "prop-types";
 import React from "react";
-import { Avatar } from "../../primitives/Avatar";
-import { CurrencyLabel } from "../../primitives/CurrencyLabel";
+import { Avatar } from "../../atoms/Avatar";
+import { CurrencyLabel } from "../../atoms/CurrencyLabel";
 import * as S from "./styled";
 
 /**

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { AiFillClockCircle } from "react-icons/ai";
 import { MdCheckCircle, MdError } from "react-icons/md";
-import { CurrencyLabel } from "../../primitives/CurrencyLabel";
+import { CurrencyLabel } from "../../atoms/CurrencyLabel";
 import * as S from "./styled";
 import { WebPaymentStatusProps } from "./types";
 

@@ -1,5 +1,9 @@
 // Core components
 // Composite components
+// Primitive components
+import { Avatar, NativeAvatarProps } from "./components/atoms/Avatar/index.native";
+import { CurrencyLabel, NativeCurrencyLabelProps } from "./components/atoms/CurrencyLabel/index.native";
+import { NativeSkeletonProps, Skeleton } from "./components/atoms/Skeleton/index.native";
 import { Modal } from "./components/composites/Modal/index.native";
 import { NativePaymentStatusProps, PaymentStatus } from "./components/composites/PaymentStatus/index.native";
 import ThemeProviderInjector from "./components/core/ThemeProviderInjector/index.native";
@@ -17,13 +21,9 @@ import Box from "./components/layout/Box/index.native";
 import { CenteredFlexBox, FlexBox } from "./components/layout/FlexBox";
 import { Col, ColProps, Row, RowProps } from "./components/layout/Grid";
 import { Spacer } from "./components/layout/Spacer";
-// Primitive components
-import { Avatar, NativeAvatarProps } from "./components/primitives/Avatar/index.native";
-import { CurrencyLabel, NativeCurrencyLabelProps } from "./components/primitives/CurrencyLabel/index.native";
 import { Divider, NativeDividerProps } from "./components/primitives/Divider/index.native";
 import { Icon, NativeIconProps } from "./components/primitives/Icon/index.native";
 import { Image } from "./components/primitives/Image/index.native";
-import { NativeSkeletonProps, Skeleton } from "./components/primitives/Skeleton/index.native";
 // Typography Components
 import { Heading, NativeHeadingProps } from "./components/typography/Heading/index.native";
 import { NativeTextProps, Text } from "./components/typography/Text/index.native";
