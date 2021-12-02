@@ -9,7 +9,7 @@ import { NativePaymentStatusProps, PaymentStatus } from "./components/composites
 import ThemeProviderInjector from "./components/core/ThemeProviderInjector/index.native";
 import { NativeProgressRingProps, ProgressRing } from "./components/feedback/ProgressRing/index.native";
 // Feedback components
-import { NativeSpinnerProps, Spinner } from "./components/feedback/Spinner/index.native";
+import { Spinner, SpinnerProps } from "./components/feedback/Spinner/index.native";
 import { Stepper, StepperProps } from "./components/feedback/Stepper";
 import { NativeTooltipProps, Tooltip } from "./components/feedback/Tooltip/index.native";
 // Form components
@@ -77,7 +77,7 @@ export type {
     NativeIconProps,
     NativePaymentStatusProps,
     NativeSkeletonProps,
-    NativeSpinnerProps,
+    SpinnerProps,
     NativeTextFieldProps,
     NativeTextProps,
     NativeProgressRingProps,

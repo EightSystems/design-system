@@ -13,7 +13,7 @@ import SavedCardBadge from "./components/composites/SavedCardBadge";
 import ThemeProviderInjector from "./components/core/ThemeProviderInjector";
 import { ProgressRing, WebProgressRingProps } from "./components/feedback/ProgressRing";
 // Feedback components
-import { Spinner, WebSpinnerProps } from "./components/feedback/Spinner";
+import { Spinner, SpinnerProps } from "./components/feedback/Spinner";
 import { Stepper, StepperProps } from "./components/feedback/Stepper";
 import Toast from "./components/feedback/Toast";
 import { Tooltip, WebTooltipProps } from "./components/feedback/Tooltip";
@@ -91,7 +91,7 @@ export type {
     FontIconProps,
     WebPaymentStatusProps,
     WebSkeletonProps,
-    WebSpinnerProps,
+    SpinnerProps,
     WebTextFieldProps,
     WebTextProps,
     WebTooltipProps,
