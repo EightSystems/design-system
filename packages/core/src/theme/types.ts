@@ -15,10 +15,12 @@ export type FontSizeTypes = "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | 
 export type FontFaceTypes = "primary" | "secondary";
 
 export type NativeFontFaceTypes =
+    | "primary"
     | "primaryRegular"
     | "primaryMedium"
     | "primarySemiBold"
     | "primaryBold"
+    | "secondary"
     | "secondaryRegular"
     | "secondaryMedium"
     | "secondarySemiBold"

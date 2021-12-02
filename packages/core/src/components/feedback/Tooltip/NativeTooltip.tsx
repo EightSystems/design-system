@@ -2,6 +2,7 @@ import * as React from "react";
 import { Popover } from "react-native-popper";
 import { IPopoverProps } from "react-native-popper/src/types";
 import { Text } from "../../typography/Text/index.native";
+import * as S from "./styled.native";
 import { NativeTooltipProps } from "./types";
 
 const Tooltip = ({
@@ -10,10 +11,10 @@ const Tooltip = ({
     crossOffset = 0,
     tooltipContent,
     size = "small",
-    textColor = "primaryContrast",
-    fontFace,
-    fontWeight,
-    fontSize,
+    textColor = "white",
+    fontFace = "primary",
+    fontSize = "xs",
+    fontWeight = "bold",
     children,
     ...props
 }: NativeTooltipProps) => {
@@ -36,19 +37,17 @@ const Tooltip = ({
             trigger={children}
             data-size={size}
         >
+            <Popover.Backdrop />
             <Popover.Content>
-                {typeof tooltipContent === "string" ? (
-                    <Text textColor={textColor} fontFace={fontFace} fontWeight={fontWeight} fontSize={fontSize}>
-                        {tooltipContent}
-                    </Text>
-                ) : React.isValidElement(tooltipContent) ? (
-                    React.Children.map(children, (child: JSX.Element, index: number) => {
-                        return React.cloneElement(child, {
-                            key: `tooltip-${index}`,
-                            ...child.props,
-                        });
-                    })
-                ) : null}
+                <S.PopoverWrapper>
+                    {typeof tooltipContent === "string" ? (
+                        <Text textColor={textColor} fontFace={fontFace} fontWeight={fontWeight} fontSize={fontSize}>
+                            {tooltipContent}
+                        </Text>
+                    ) : React.isValidElement(tooltipContent) ? (
+                        tooltipContent
+                    ) : null}
+                </S.PopoverWrapper>
             </Popover.Content>
         </Popover>
     );

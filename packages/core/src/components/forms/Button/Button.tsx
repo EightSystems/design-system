@@ -25,13 +25,18 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
             spinnerColor = nativeTheme.colors.primaryContrast,
             spinnerSize = 12,
             children,
+            onPress,
+            onClick,
             ...props
         },
         componentRef
     ) => {
+        const onClickBinding = onClick || onPress;
+
         return (
             <S.ButtonWrapper
                 {...props}
+                onClick={onClickBinding}
                 data-backgroundcolor={backgroundColor}
                 data-fontface={fontFace}
                 data-textcolor={textColor}

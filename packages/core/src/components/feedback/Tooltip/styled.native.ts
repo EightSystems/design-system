@@ -1,8 +1,13 @@
-import styled, { css } from "styled-components/native";
-import { Popover } from "react-native-popper";
-import { backgroundColors, borderColors } from "../../../theme/mixins/native";
+import styled from "styled-components/native";
+import { Box } from "../../layout/Box";
 
-export const TooltipBody = styled(Popover)`
+export const PopoverWrapper = styled(Box)`
+    background-color: ${({ theme }) => theme.colors.primary};
+    padding: 4px 6px;
+    border-radius: 3px;
+`;
+
+/*export const TooltipBody = styled(Popover)`
     ${backgroundColors};
     ${borderColors};
 
@@ -37,4 +42,4 @@ export const TooltipBody = styled(Popover)`
                   opacity: 0.75;
               `
             : null}
-`;
+`;*/

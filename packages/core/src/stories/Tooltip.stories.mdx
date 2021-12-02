@@ -6,11 +6,11 @@ import { Button } from "../components/forms/Button";
 
 # Tooltip
 
-O tooltip é uma mensagem breve e informativa que aparece quado um usuário interage com um elemento. Tooltips geralmente
-são iniciados ao interagir com um elemento.
+Tooltip shows as a quick and info message when the user interacts with the element. This can either be a click or a
+hover event, but be aware that on native the only event available is the click event.
 
 <Canvas>
-    <Story name="Tooltip" args={{ tooltipContent: "A vida é bela", placement: "bottom" }}>
+    <Story name="Tooltip" args={{ tooltipContent: "Tooltip Content Here", placement: "bottom" }}>
         {args => (
             <Tooltip {...args}>
                 <Button>Click me</Button>
@@ -25,11 +25,11 @@ são iniciados ao interagir com um elemento.
 import { Tooltip } from "@8sistemas/design-system";
 ```
 
-## Uso
+## Usage
 
-O Tooltip deve envolver o componente com a qual será necessário interagir, e fornecer uma string ou elemento válido
-React na propriedade `tooltipContent`. Também é requerido usar as propriedades `placement` e `offset` para determinar o
-posicionamento do Tooltip em relação ao elemento ao qual ele está ancorado.
+Tooltip must wrap the component which will trigger the event, and set a string, or a valid react element as the
+`tooltipContent` prop. You must also set the `placement` and `offset` props so it know where to anchor the tooltip based
+on the element.
 
 ```jsx
 <Tooltip placement="bottom" tooltipContent={<TooltipContent />}>

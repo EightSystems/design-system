@@ -58,9 +58,12 @@ type CommonProps = {
 
     /** When `true` the button is shown as disabled. */
     disabled?: boolean;
+
+    /** Replaces the `onClick` for HTML buttons */
+    onPress?: null | ((event: any) => void) | undefined;
 };
 
-type NativeProps = Omit<CommonProps, "fontWeight" | "fontFace"> & {
+type NativeProps = Omit<CommonProps, "fontWeight" | "fontFace" | "onPress"> & {
     fontFace?: NativeFontFaceTypes;
     textAlign?: NativeTextAlignTypes;
 
