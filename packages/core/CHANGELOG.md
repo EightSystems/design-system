@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.7.3](https://github.com/EightSystems/design-system/compare/v0.7.2...v0.7.3) (2021-12-02)
+
+
+### Bug Fixes
+
+* make paymentmethoditem work on native, and port it to typescript ([7d1a3e7](https://github.com/EightSystems/design-system/commit/7d1a3e7b26620a07d03e1c252b9e71aeeddfe6f0))
+* missing types ([8fc9610](https://github.com/EightSystems/design-system/commit/8fc961073a5d2a30239bf47e0086994e009b2a1e))
+* spacer component improments, and fixing props ([81d0771](https://github.com/EightSystems/design-system/commit/81d0771db39c7661a9bd92f6f0b72c5221ade65f))
+* tooltip working on native, background colors and make button environment-free ([fe300cd](https://github.com/EightSystems/design-system/commit/fe300cdc6ce0d8f454fcf41380135ac9f3faaf28))
+* types for components ([69dc5f9](https://github.com/EightSystems/design-system/commit/69dc5f9e14fe87964e8257d59d90c3766563d158))
+
 ## [0.7.2](https://github.com/EightSystems/design-system/compare/v0.7.1...v0.7.2) (2021-12-01)
 
 
