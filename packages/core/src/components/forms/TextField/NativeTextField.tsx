@@ -140,7 +140,7 @@ const TextField = React.forwardRef<TextInputProps, NativeTextFieldProps>(
 
                     {icon === "loadingSpinner" ? (
                         <S.IconWrapper>
-                            <Spinner size={18} color={nativeTheme.colors.darkTint} />
+                            <Spinner size={"sm"} color={"darkTint"} />
                         </S.IconWrapper>
                     ) : null}
                 </S.InputWrapper>

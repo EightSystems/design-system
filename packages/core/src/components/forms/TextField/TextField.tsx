@@ -1,7 +1,6 @@
 import * as React from "react";
 import { MdCheck, MdError, MdInfo } from "react-icons/md";
 import { TextInputMask } from "react-web-mask";
-import { theme } from "../../../theme";
 import { Spinner } from "../../feedback/Spinner";
 import { Tooltip } from "../../feedback/Tooltip";
 import * as S from "./styled";
@@ -134,7 +133,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                     ) : null}
                     {icon === "loadingSpinner" ? (
                         <S.IconWrapper>
-                            <Spinner size={18} color={theme.colors.darkTint} />
+                            <Spinner size={"sm"} color={"darkTint"} />
                         </S.IconWrapper>
                     ) : null}
                 </S.InputWrapper>
