@@ -16,6 +16,7 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
             backgroundColor = "primary",
             borderColor,
             borderRadius = "md",
+            borderType = "default",
             focusColor,
             loading = false,
             size = "large",
@@ -44,6 +45,7 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
                 data-fontsize={fontSize}
                 data-bordercolor={borderColor}
                 data-borderradius={borderRadius}
+                data-bordertype={borderType}
                 data-size={size}
                 data-disabled={disabled || loading}
                 ref={componentRef}

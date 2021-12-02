@@ -2,6 +2,7 @@ var semver = require("semver");
 const mdx = require("@mdx-js/mdx");
 const babel = require("@babel/core");
 const path = require("path");
+const svgTransformer = require("react-native-svg-transformer");
 var resolveConfigDir = require("path-dirname");
 
 var upstreamTransformer = null;
@@ -60,6 +61,8 @@ module.exports.transform = function (src, filename, options) {
             filename,
             options,
         });
+    } else if (filename.endsWith(".svg") || filename.endsWith(".svgx")) {
+        return svgTransformer.transform(src, filename, options);
     }
 
     return upstreamTransformer.transform({ src, filename, options });

@@ -16,11 +16,11 @@ libs["@storybook/addon-actions"] = path.resolve(__dirname, "src/storybook/action
 
 module.exports = async () => {
     const {
-        resolver: { sourceExts, resolveRequest },
+        resolver: { sourceExts, resolveRequest, assetExts },
         watchFolders,
     } = await getDefaultConfig();
 
-    const extraSourceExts = [...sourceExts, "mdx"];
+    const extraSourceExts = [...sourceExts, "mdx", "svg", "svgx"];
     return {
         resolver: {
             nodeModulesPaths: [
@@ -28,6 +28,7 @@ module.exports = async () => {
                 path.resolve(__dirname, "../core/node_modules"),
             ],
             extraNodeModules: libs,
+            assetExts: assetExts.filter(ext => ext !== "svg"),
             sourceExts: extraSourceExts,
             resolveRequest: (context, realModuleName, platform, moduleName) => {
                 if (moduleName.startsWith("../") && moduleName.endsWith("json")) {

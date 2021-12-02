@@ -13,9 +13,9 @@ export const ButtonWrapper = styled.button`
     ${textColors};
     ${backgroundColors};
     ${borderRadius};
-    ${borderColors};
     ${fontFaces};
     ${fontWeights};
+    ${borderColors};
 
     &[data-size="small"] {
         padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
@@ -37,11 +37,6 @@ export const ButtonWrapper = styled.button`
     &[data-disabled="true"] {
         opacity: 0.75;
         cursor: initial;
-    }
-
-    &[data-bordercolor] {
-        border-style: solid;
-        border-width: 2px;
     }
 
     display: flex;

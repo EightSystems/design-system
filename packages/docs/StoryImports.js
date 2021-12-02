@@ -16,6 +16,7 @@ import HeadingStory from "../core/src/stories/Heading.stories";
 import IconStory from "../core/src/stories/Icon.stories";
 import Image from "../core/src/stories/Image.stories";
 import ModalStory from "../core/src/stories/Modal.stories";
+import PaymentMethodItemStory from "../core/src/stories/PaymentMethodItem.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
 import SpacerStory from "../core/src/stories/Spacer.stories";
@@ -53,6 +54,7 @@ const storyList = {
     "Layout/Grid": GridStory,
     "Layout/Spacer": SpacerStory,
 
+    "Molecules/PaymentMethodItem": PaymentMethodItemStory,
     "Molecules/PaymentStatus": PaymentStatusStory,
 
     "Primitives/Divider": DividerStory,

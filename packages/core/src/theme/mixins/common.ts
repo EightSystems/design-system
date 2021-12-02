@@ -17,10 +17,12 @@ export const textColors = css`
 export const borderColors = css`
     ${props => {
         const borderColor = props["data-bordercolor"];
+        const borderType = props["data-bordertype"] || "default";
 
         if (typeof props.theme.colors[borderColor] != "undefined") {
             return css`
-                border: ${props.theme.borders.default} ${props.theme.colors[borderColor]};
+                border: ${props.theme.borders[borderType] || props.theme.borders.default}
+                    ${props.theme.colors[borderColor]};
             `;
         }
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { PressableProps } from "react-native";
 import {
+    BorderTypes,
     ColorTypes,
     FontFaceTypes,
     FontSizeTypes,
@@ -28,6 +29,9 @@ type CommonProps = {
 
     /** Color of the button border. */
     borderColor?: ColorTypes;
+
+    /** Type of the button border. */
+    borderType?: BorderTypes;
 
     /** Radius of the button border. */
     borderRadius?: RadiusTypes;

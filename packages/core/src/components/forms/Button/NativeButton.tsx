@@ -14,6 +14,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
             backgroundColor = "primary",
             borderColor,
             borderRadius = "md",
+            borderType = "default",
             focusColor,
             loading = false,
             size = "large",
@@ -38,6 +39,7 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
                 data-backgroundcolor={backgroundColor}
                 data-bordercolor={borderColor}
                 data-borderradius={borderRadius}
+                data-bordertype={borderType}
                 data-size={size}
                 data-disabled={disabled || loading}
                 ref={componentRef}
@@ -56,15 +58,19 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
                     : null}
                 {startIcon && isValidElement(startIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
 
-                <S.StyledText
-                    data-size={size}
-                    data-textalign={textAlign}
-                    data-textcolor={textColor}
-                    data-fontface={fontFace}
-                    data-fontsize={fontSize}
-                >
-                    {children}
-                </S.StyledText>
+                {typeof children === "string" ? (
+                    <S.StyledText
+                        data-size={size}
+                        data-textalign={textAlign}
+                        data-textcolor={textColor}
+                        data-fontface={fontFace}
+                        data-fontsize={fontSize}
+                    >
+                        {children}
+                    </S.StyledText>
+                ) : (
+                    children
+                )}
 
                 {endIcon && isValidElement(endIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
                 {endIcon && isValidElement(endIcon)
