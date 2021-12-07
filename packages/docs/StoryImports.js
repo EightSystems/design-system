@@ -19,6 +19,7 @@ import ModalStory from "../core/src/stories/Modal.stories";
 import PaymentMethodItemStory from "../core/src/stories/PaymentMethodItem.stories";
 import PaymentPromptStory from "../core/src/stories/PaymentPrompt.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
+import SavedCardBadge from "../core/src/stories/SavedCardBadge.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
 import SpacerStory from "../core/src/stories/Spacer.stories";
 import SpinnerStory from "../core/src/stories/Spinner.stories";
@@ -58,6 +59,7 @@ const storyList = {
     "Molecules/PaymentMethodItem": PaymentMethodItemStory,
     "Molecules/PaymentPrompt": PaymentPromptStory,
     "Molecules/PaymentStatus": PaymentStatusStory,
+    "Molecules/SavedCardBadge": SavedCardBadge,
 
     "Primitives/Divider": DividerStory,
     "Primitives/Icon": IconStory,

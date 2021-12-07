@@ -11,12 +11,17 @@ export const MainWrapper = styled(Button)`
 
 export const IconWrapper = styled(Box)``;
 
-export const styleIconHelper = (IconComponent: React.ReactNode) => {
+export const styleIconHelper = (
+    IconComponent: React.ReactNode,
+    maxWidth = "xxlg",
+    maxHeight = "lg",
+    color = "white"
+) => {
     return () => {
         const IconComponentStyled = styled(IconComponent)`
-            max-width: ${props => props.theme.spacing.xxlg};
-            max-height: ${props => props.theme.spacing.lg};
-            color: ${props => props.theme.colors.white};
+            max-width: ${props => props.theme.spacing[maxWidth]};
+            max-height: ${props => props.theme.spacing[maxHeight]};
+            color: ${props => props.theme.colors[color]};
         `;
         return <IconComponentStyled width={200} height={200} />;
     };

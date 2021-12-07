@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import SavedCardBadge from "../components/composites/SavedCardBadge";
+import { action } from "@storybook/addon-actions";
 
 <Meta title="Molecules/SavedCardBadge" component={SavedCardBadge} />
 
@@ -11,8 +12,12 @@ change the payment method that is going to be used.
 <Canvas>
     <Story
         name="Regular SavedCardBadge"
-        args={{ cardBrand: "maestro", cardLastDigits: "0132", cardIdentifier: "Cartão da Firma" }}
-        argTypes={{ onClick: { action: "onClick" } }}
+        args={{
+            cardBrand: "maestro",
+            cardLastDigits: "0132",
+            cardIdentifier: "Company Card",
+            onClick: action("onClick"),
+        }}
     >
         {args => <SavedCardBadge {...args} />}
     </Story>
