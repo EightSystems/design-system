@@ -46,6 +46,8 @@
 
             const optionsFromQueryString = getQueryVariable("options");
             const sourceFromQueryString = getQueryVariable("source");
+            const eventsFromQueryString = getQueryVariable("events");
+
             const defaultOptions = {
                 debug: false,
                 youtube: {
@@ -120,9 +122,24 @@
 
             const options = optionsFromQueryString ? JSON.parse(optionsFromQueryString) : defaultOptions;
             const source = sourceFromQueryString ? JSON.parse(sourceFromQueryString) : defaultSource;
+            const eventsListener = eventsFromQueryString ? JSON.parse(eventsFromQueryString) : [];
 
             const player = new Plyr("#plyr-instance", _.merge(defaultOptions, options));
             player.source = source || defaultSource;
+            console.log(eventsListener);
+            for (var eventName of eventsListener) {
+                const __eventNameCopy = eventName;
+                player.on(__eventNameCopy, function (eventData) {
+                    if (typeof window.ReactNativeWebView != "undefined") {
+                        window.ReactNativeWebView.postMessage(
+                            JSON.stringify({
+                                eventName: __eventNameCopy,
+                                eventData: eventData,
+                            })
+                        );
+                    }
+                });
+            }
         </script>
     </body>
 </html>

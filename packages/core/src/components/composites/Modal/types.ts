@@ -1,4 +1,4 @@
-import { ReactChild } from "react";
+import { ReactNode } from "react";
 
 export type WebModalProps = {
     className?: string;
@@ -8,7 +8,7 @@ export type WebModalProps = {
     open?: boolean;
     onClose?: CallableFunction;
     initialFocus?: any;
-    children: ReactChild;
+    children: ReactNode;
 };
 
 export type NativeModalProps = Omit<WebModalProps, "className" | "overlayClass">;

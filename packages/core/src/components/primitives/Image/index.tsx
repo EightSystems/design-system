@@ -1,7 +1,15 @@
 import * as React from "react";
 import { WebImageProps } from "./types";
 
-export const Image: React.FC<WebImageProps> = ({ src, alt = "", ...otherProps }: WebImageProps) => {
+export const Image: React.FC<WebImageProps> = ({
+    src,
+    alt = "",
+    unoptimized = false,
+    placeholder = "empty",
+    quality = 75,
+    layout = "responsive",
+    ...otherProps
+}: WebImageProps) => {
     return <img src={src} alt={alt} {...otherProps} />;
 };
 

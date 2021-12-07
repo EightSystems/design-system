@@ -26,6 +26,31 @@ some sort of WebView approach, for example, the Youtube player on iOS relies on 
 YouTube application being installed in the user device, this might not be acceptable, as a user might have a device
 without any `GApps` installed.
 
+### Landscape Orientation on fullscreen
+
+On Native you need to register the `enterfullscreen` and `exitfullscreen` events listener and handle the orientation changes yourself.
+
+Example:
+
+```jsx
+import Orientation from 'react-native-orientation-locker';
+
+<WebVideo
+    eventsListener={{
+        enterfullscreen: [
+            () => {
+                Orientation.lockToLandscapeLeft();
+            }
+        ],
+        exitfullscreen: [
+            () => {
+                Orientation.unlockAllOrientations();
+            }
+        ]
+    }}
+/>
+```
+
 ## Import
 
 ```jsx

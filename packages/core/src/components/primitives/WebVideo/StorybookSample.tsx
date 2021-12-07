@@ -11,6 +11,7 @@ export const WebVideoModalSample = () => {
             <Button onClick={() => setIsModalOpen(true)}>Open Video Modal</Button>
             <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <WebVideo
+                    rotateOnFullSreen={false}
                     options={{
                         controls: [
                             "rewind",

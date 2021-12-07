@@ -26,7 +26,7 @@ import TextStory from "../core/src/stories/Text.stories";
 import TextFieldStory from "../core/src/stories/TextField.stories";
 import ToastStory from "../core/src/stories/Toast.stories";
 import TooltipStory from "../core/src/stories/Tooltip.stories";
-import WebVideoStory from "../core/src/stories/Video.stories";
+import WebVideoStory from "../core/src/stories/WebVideo.stories";
 
 const storyList = {
     Introduction: IntroductionStory,

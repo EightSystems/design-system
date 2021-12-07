@@ -1,16 +1,20 @@
 import React from "react";
 import WebView from "react-native-webview";
 import { WebVideoContainer } from "./styled.native";
-import { WebVideoProps } from "./types";
+import { NativeEventType, WebVideoProps } from "./types";
 
 export const WebVideo = ({
     options,
     source,
+    rotateOnFullSreen = true,
+    eventsListener,
     nativeVideoPlayerUrl = "https://eightsystems.github.io/design-system/assets/webvideo/webplayer.html",
 }: WebVideoProps) => {
     const videoPlayerUrl = `${nativeVideoPlayerUrl}?options=${encodeURIComponent(
         JSON.stringify(options)
-    )}&source=${encodeURIComponent(JSON.stringify(source))}`;
+    )}&source=${encodeURIComponent(JSON.stringify(source))}&events=${encodeURIComponent(
+        JSON.stringify(Object.keys(eventsListener))
+    )}`;
 
     return (
         <WebVideoContainer>
@@ -26,6 +30,19 @@ export const WebVideo = ({
                 allowsInlineMediaPlayback={true}
                 mediaPlaybackRequiresUserAction={false}
                 source={{ uri: videoPlayerUrl }}
+                onMessage={messageData => {
+                    const { eventName, eventData } = JSON.parse(messageData.nativeEvent.data) as NativeEventType;
+
+                    if (eventsListener[eventName]) {
+                        for (var callbackEvent of eventsListener[eventName]) {
+                            try {
+                                callbackEvent(eventData);
+                            } catch (e) {
+                                console.error(`Event ${eventName} failed with error: ${e}`);
+                            }
+                        }
+                    }
+                }}
             />
         </WebVideoContainer>
     );
