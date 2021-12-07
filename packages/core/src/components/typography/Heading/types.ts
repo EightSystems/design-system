@@ -6,7 +6,7 @@ import {
     FontSizeTypes,
     FontWeightTypes,
     NativeFontFaceTypes,
-    NativeTextAlignTypes,
+    TextAlignTypes,
 } from "../../../theme/types";
 
 type CommonProps = {
@@ -37,7 +37,7 @@ type CommonProps = {
 
 type NativeProps = Omit<CommonProps, "fontFace"> & {
     fontFace?: NativeFontFaceTypes;
-    textAlign?: NativeTextAlignTypes;
+    textAlign?: TextAlignTypes;
 };
 
 export type NativeHeadingProps = TextProps & NativeProps;

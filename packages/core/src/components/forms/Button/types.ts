@@ -7,8 +7,8 @@ import {
     FontSizeTypes,
     FontWeightTypes,
     NativeFontFaceTypes,
-    NativeTextAlignTypes,
     RadiusTypes,
+    TextAlignTypes,
 } from "../../../theme/types";
 
 type CommonProps = {
@@ -69,7 +69,7 @@ type CommonProps = {
 
 type NativeProps = Omit<CommonProps, "fontFace" | "onPress"> & {
     fontFace?: NativeFontFaceTypes;
-    textAlign?: NativeTextAlignTypes;
+    textAlign?: TextAlignTypes;
 
     /** Replaces the `onPress` for Pressables */
     onClick?: null | ((event: any) => void) | undefined;

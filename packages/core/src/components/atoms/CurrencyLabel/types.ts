@@ -1,6 +1,6 @@
-import { WebHeadingProps, NativeHeadingProps } from "../../typography/Heading/types";
+import { NativeHeadingProps, WebHeadingProps } from "../../typography/Heading/types";
 
-type CommonProps = {
+export type CommonProps = {
     currency: string;
     value: number;
 };

@@ -1,5 +1,15 @@
 import styled from "styled-components";
-import { fontFaces, fontSizes, fontWeights, letterSpacings, lineHeights, textColors } from "../../../theme/mixins/web";
+import {
+    fontFaces,
+    fontSizes,
+    fontWeights,
+    letterSpacings,
+    lineHeights,
+    marginSpacing,
+    paddingSpacing,
+    textAlign,
+    textColors,
+} from "../../../theme/mixins/web";
 
 export const Text = styled.p`
     &[data-italic="true"] {
@@ -9,10 +19,13 @@ export const Text = styled.p`
         text-decoration: underline;
     }
 
+    ${textAlign};
     ${fontFaces};
     ${fontWeights};
     ${fontSizes};
     ${textColors};
     ${lineHeights};
     ${letterSpacings};
+    ${marginSpacing};
+    ${paddingSpacing};
 `;

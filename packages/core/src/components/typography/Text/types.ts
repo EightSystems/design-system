@@ -1,12 +1,13 @@
 import * as React from "react";
 import { TextProps } from "react-native";
 import {
+    ColorTypes,
     FontFaceTypes,
-    NativeFontFaceTypes,
     FontSizeTypes,
     FontWeightTypes,
-    ColorTypes,
-    NativeTextAlignTypes,
+    NativeFontFaceTypes,
+    SpacingTypes,
+    TextAlignTypes,
 } from "../../../theme/types";
 
 type CommonProps = {
@@ -30,11 +31,15 @@ type CommonProps = {
 
     /** Underline the text. */
     underline?: boolean;
+
+    padding?: SpacingTypes;
+    margin?: SpacingTypes;
+
+    textAlign?: TextAlignTypes;
 };
 
 type NativeProps = Omit<CommonProps, "fontFace"> & {
     fontFace?: NativeFontFaceTypes;
-    textAlign?: NativeTextAlignTypes;
 };
 
 export type NativeTextProps = TextProps & NativeProps;

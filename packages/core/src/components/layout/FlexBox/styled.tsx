@@ -1,9 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Box from "../Box";
 
 export const FlexBoxStyled = styled(Box)`
     flex: 1;
     display: flex;
+    ${props =>
+        css`
+            flex-direction: ${props.flexDirection || "row"};
+        `}
 `;
 
 export const CenteredFlexBoxStyled = styled(FlexBoxStyled)`

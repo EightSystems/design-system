@@ -26,7 +26,7 @@ export type NativeFontFaceTypes =
     | "secondarySemiBold"
     | "secondaryBold";
 
-export type NativeTextAlignTypes = "left" | "right" | "center" | "justify";
+export type TextAlignTypes = "left" | "right" | "center" | "justify";
 
 export type FontWeightTypes =
     | "hairline"

@@ -4,7 +4,6 @@ export const AvatarWrapper = styled.View`
     background: ${({ theme }) => theme.colors.mediumShade};
     color: ${({ theme }) => theme.colors.lightTint};
 
-    flex: 1;
     align-items: center;
     justify-content: center;
     border-radius: 1000px;
@@ -31,9 +30,30 @@ export const AvatarWrapper = styled.View`
               `
             : null}
 `;
+
 export const Image = styled.Image`
-    width: 100%;
-    height: 100%;
+    ${props =>
+        props["data-size"] == "large"
+            ? css`
+                  width: ${({ theme }) => theme.spacing.xxlg};
+                  height: ${({ theme }) => theme.spacing.xxlg};
+              `
+            : null}
+    ${props =>
+        props["data-size"] == "medium"
+            ? css`
+                  width: ${({ theme }) => theme.spacing.xlg};
+                  height: ${({ theme }) => theme.spacing.xlg};
+              `
+            : null}
+    ${props =>
+        props["data-size"] == "small"
+            ? css`
+                  width: ${({ theme }) => theme.spacing.lg};
+                  height: ${({ theme }) => theme.spacing.lg};
+              `
+            : null}
+
     border-radius: 1000px;
     resize-mode: cover;
 `;

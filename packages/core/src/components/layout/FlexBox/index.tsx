@@ -1,11 +1,11 @@
 import React from "react";
-import { BoxProps } from "../Box/types";
 import { CenteredFlexBoxStyled, FlexBoxStyled } from "./styled";
+import { FlexBoxProps } from "./types";
 
-export const FlexBox = (props: BoxProps) => {
-    return <FlexBoxStyled {...props} />;
+export const FlexBox = ({ flexDirection = "row", ...otherProps }: FlexBoxProps) => {
+    return <FlexBoxStyled flexDirection={flexDirection} {...otherProps} />;
 };
 
-export const CenteredFlexBox = (props: BoxProps) => {
-    return <CenteredFlexBoxStyled {...props} />;
+export const CenteredFlexBox = ({ flexDirection = "row", ...otherProps }: FlexBoxProps) => {
+    return <CenteredFlexBoxStyled flexDirection={flexDirection} {...otherProps} />;
 };

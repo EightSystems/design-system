@@ -6,7 +6,7 @@ const Avatar = React.forwardRef<any, NativeAvatarProps>(({ children, alt, src, s
     return (
         <S.AvatarWrapper {...props} ref={componentRef} data-size={size}>
             {src ? (
-                <S.Image accessibilityLabel={alt} source={{ uri: src }} />
+                <S.Image accessibilityLabel={alt} source={{ uri: src }} data-size={size} />
             ) : (
                 children && <S.FallbackText data-size={size}>{children}</S.FallbackText>
             )}
