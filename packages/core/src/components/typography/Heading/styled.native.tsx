@@ -1,21 +1,9 @@
 import { Text } from "react-native";
 import styled, { css } from "styled-components/native";
-import { fontFaces, fontSizes, fontWeights, textAlign, textColors } from "../../../theme/mixins/native";
+import { fontFaces, fontSizes, fontWeights, textAlign, textColors, textDecoration } from "../../../theme/mixins/native";
 
 const DefaultStyles = css`
-    ${props =>
-        props["data-italic"]
-            ? css`
-                  font-style: italic;
-              `
-            : null}
-    ${props =>
-        props["data-underline"]
-            ? css`
-                  text-decoration: underline;
-              `
-            : null}    
-
+    ${textDecoration};
     ${textAlign};
     ${fontFaces};
     ${fontWeights};

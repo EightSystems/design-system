@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Popover } from "react-native-popper";
 import { IPopoverProps } from "react-native-popper/src/types";
-import { Text } from "../../typography/Text/index.native";
+import { Text } from "../../typography/Text";
 import * as S from "./styled.native";
 import { NativeTooltipProps } from "./types";
 

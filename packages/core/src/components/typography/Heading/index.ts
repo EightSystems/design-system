@@ -1,4 +1,4 @@
 import { default as Heading } from "./Heading";
 
-export type { WebHeadingProps } from "./types";
+export type { HeadingProps } from "./types";
 export { Heading };

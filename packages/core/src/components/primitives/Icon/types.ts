@@ -1,6 +1,6 @@
 import { ColorTypes, FontSizeTypes } from "../../../theme/types";
 
-export type WebIconProps = {
+export type IconProps = {
     familyName: "AntDesign" | "FontAwesome" | "Feather" | "Ionic" | "Material";
     icon: string;
     className?: string;
@@ -8,5 +8,3 @@ export type WebIconProps = {
     size?: FontSizeTypes;
     color?: ColorTypes;
 };
-
-export type NativeIconProps = Omit<WebIconProps, "className">;

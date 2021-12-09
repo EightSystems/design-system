@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as S from "./styled.native";
-import { NativeAvatarProps } from "./types";
+import { AvatarProps } from "./types";
 
-const Avatar = React.forwardRef<any, NativeAvatarProps>(({ children, alt, src, size, ...props }, componentRef) => {
+const Avatar = React.memo<AvatarProps>(({ children, alt, src, size, ...props }: AvatarProps) => {
     return (
-        <S.AvatarWrapper {...props} ref={componentRef} data-size={size}>
+        <S.AvatarWrapper {...props} data-size={size}>
             {src ? (
                 <S.Image accessibilityLabel={alt} source={{ uri: src }} data-size={size} />
             ) : (
@@ -14,4 +14,4 @@ const Avatar = React.forwardRef<any, NativeAvatarProps>(({ children, alt, src, s
     );
 });
 
-export default React.memo(Avatar);
+export default Avatar;

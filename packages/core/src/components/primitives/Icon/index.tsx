@@ -7,7 +7,7 @@ import { IconType } from "react-icons/lib";
 import * as Material from "react-icons/md";
 import { ThemeContext } from "styled-components";
 import { theme } from "../../../theme";
-import { WebIconProps } from "./types";
+import { IconProps } from "./types";
 
 const toCamelCase = phrase => {
     return phrase
@@ -17,7 +17,7 @@ const toCamelCase = phrase => {
         .join("");
 };
 
-const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }: WebIconProps) => {
+const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }: IconProps) => {
     const themeContext = React.useContext<typeof theme>(ThemeContext);
 
     const fontRealSize =
@@ -68,5 +68,5 @@ const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }:
     return null;
 };
 
-export type { WebIconProps } from "./types";
+export type { IconProps } from "./types";
 export { Icon };

@@ -1,4 +1,4 @@
 import { default as Avatar } from "./Avatar";
 
-export type { WebAvatarProps } from "./types";
+export type { AvatarProps } from "./types";
 export { Avatar };

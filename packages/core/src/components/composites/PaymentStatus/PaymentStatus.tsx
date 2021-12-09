@@ -1,29 +1,58 @@
 import * as React from "react";
-import { AiFillClockCircle } from "react-icons/ai";
-import { MdCheckCircle, MdError } from "react-icons/md";
 import { CurrencyLabel } from "../../atoms/CurrencyLabel";
+import { Spacer } from "../../layout/Spacer";
+import { Icon } from "../../primitives/Icon";
+import { Heading } from "../../typography/Heading";
+import { Text } from "../../typography/Text";
 import * as S from "./styled";
-import { WebPaymentStatusProps } from "./types";
+import { PaymentStatusProps } from "./types";
 
-export const PaymentStatus = React.forwardRef<HTMLDivElement, WebPaymentStatusProps>(
-    ({ status, title, description, currency = null, value = 0 }, componentRef) => {
+export const PaymentStatus = React.memo<PaymentStatusProps>(
+    ({ status, title, description, currency = null, value = 0 }: PaymentStatusProps) => {
         return (
-            <S.PaymentStatusWrapper ref={componentRef} data-background={status}>
+            <S.PaymentStatusWrapper data-background={status}>
                 <S.IconWrapper>
-                    {status === "approved" ? <MdCheckCircle /> : null}
-                    {status === "refused" ? <MdError /> : null}
-                    {status === "pending" ? <AiFillClockCircle /> : null}
+                    {status === "approved" ? (
+                        <Icon familyName={"Material"} icon="md-check-circle" size="xxl" color={"primaryContrast"} />
+                    ) : null}
+                    {status === "refused" ? (
+                        <Icon familyName={"Material"} icon="md-error" size="xxl" color={"primaryContrast"} />
+                    ) : null}
+                    {status === "pending" ? (
+                        <Icon familyName={"Material"} icon="md-watch-later" size="xxl" color={"primaryContrast"} />
+                    ) : null}
                 </S.IconWrapper>
-                <S.PaymentStatusTitle>{title}</S.PaymentStatusTitle>
+                <Spacer size={16} />
+                <Heading
+                    textAlign="center"
+                    fontFace="primary"
+                    fontWeight={"bold"}
+                    textColor="primaryContrast"
+                    fontSize="lg"
+                >
+                    {title}
+                </Heading>
+                <Spacer size={16} />
 
                 {currency ? (
-                    <CurrencyLabel currency={currency} value={value} textColor="primaryContrast" fontWeight="bold" />
+                    <CurrencyLabel
+                        currency={currency}
+                        value={value}
+                        textColor="primaryContrast"
+                        fontFace="primary"
+                        fontWeight="bold"
+                        textAlign={"center"}
+                    />
                 ) : null}
 
-                <S.PaymentStatusDescription>{description}</S.PaymentStatusDescription>
+                <Text textAlign="center" fontFace="primary" textColor="primaryContrast" fontSize="sm">
+                    {description}
+                </Text>
             </S.PaymentStatusWrapper>
         );
     }
 );
+
+PaymentStatus.displayName = "PaymentStatus";
 
 export default PaymentStatus;

@@ -1,9 +1,6 @@
-import { NativeHeadingProps, WebHeadingProps } from "../../typography/Heading/types";
+import { TextProps } from "../../typography/Text";
 
-export type CommonProps = {
+export type CurrencyLabelProps = Omit<TextProps, "children"> & {
     currency: string;
     value: number;
 };
-
-export type WebCurrencyLabelProps = CommonProps & Omit<WebHeadingProps, "children">;
-export type NativeCurrencyLabelProps = CommonProps & Omit<NativeHeadingProps, "children">;

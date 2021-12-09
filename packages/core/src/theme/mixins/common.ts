@@ -44,6 +44,22 @@ export const borderRadius = css`
     }}
 `;
 
+export const textDecoration = css`
+    ${props =>
+        props["data-italic"] === "true"
+            ? css`
+                  font-style: italic;
+              `
+            : null}
+    ${props =>
+        props["data-underline"] === "true"
+            ? css`
+                  text-decoration-line: underline;
+                  text-decoration-style: solid;
+              `
+            : null}
+`;
+
 export const textAlign = css`
     ${props => {
         const textAlign = props["data-textalign"];

@@ -1,16 +1,14 @@
 import * as React from "react";
-import { TextProps } from "react-native";
 import {
     ColorTypes,
     FontFaceTypes,
     FontSizeTypes,
     FontWeightTypes,
-    NativeFontFaceTypes,
     SpacingTypes,
     TextAlignTypes,
 } from "../../../theme/types";
 
-type CommonProps = {
+export type TextProps = {
     /** Renders components as text childrens. */
     children: React.ReactNode;
 
@@ -36,11 +34,7 @@ type CommonProps = {
     margin?: SpacingTypes;
 
     textAlign?: TextAlignTypes;
-};
 
-type NativeProps = Omit<CommonProps, "fontFace"> & {
-    fontFace?: NativeFontFaceTypes;
+    /** Allows the text to be user selectable */
+    selectable?: boolean;
 };
-
-export type NativeTextProps = TextProps & NativeProps;
-export type WebTextProps = React.ComponentPropsWithRef<"p"> & CommonProps;

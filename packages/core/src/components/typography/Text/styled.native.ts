@@ -1,35 +1,27 @@
 import { Text as RNText } from "react-native";
-import styled, { css } from "styled-components/native";
+import styled from "styled-components/native";
 import {
     fontFaces,
     fontSizes,
     fontWeights,
+    letterSpacings,
+    lineHeights,
     marginSpacing,
     paddingSpacing,
     textAlign,
     textColors,
+    textDecoration,
 } from "../../../theme/mixins/native";
 
 export const Text = styled(RNText)`
-    ${props =>
-        props["data-italic"] == "true"
-            ? css`
-                  font-style: italic;
-              `
-            : null}
-    ${props =>
-        props["data-underline"] == "true"
-            ? css`
-                  text-decoration-line: underline;
-                  text-decoration-style: solid;
-              `
-            : null}
-
+    ${textDecoration};
     ${textAlign};
     ${fontFaces};
     ${fontWeights};
     ${fontSizes};
     ${textColors};
+    ${lineHeights};
+    ${letterSpacings};
     ${marginSpacing};
     ${paddingSpacing};
 `;

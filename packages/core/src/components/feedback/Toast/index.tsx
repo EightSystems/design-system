@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import uniqueId from "lodash/uniqueId";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useContainerDimensions } from "../../../hooks/useContainerDimensions";
 import * as S from "./styled";
 import { ToastBody } from "./ToastBody";
@@ -51,34 +51,34 @@ export const Toast = React.forwardRef<any, ToastProps>(
             "bottom-right__mounted": internalShow && position === "bottom-right",
         });
 
-        const handleClose = () => {
+        const handleClose = useCallback(() => {
             setInternalShow(false);
             closeTimeoutRef.current && clearTimeout(closeTimeoutRef.current);
 
             if (onClose) {
                 onClose();
             }
-        };
+        }, [onClose]);
 
         useEffect(() => {
             if (show !== internalShow) {
                 setInternalShow(show);
-            }
 
-            if (show) {
-                if (duration !== 0 && typeof duration === "number") {
-                    closeTimeoutRef.current = setTimeout(() => {
-                        handleClose();
-                    }, duration);
+                if (show) {
+                    if (duration !== 0 && typeof duration === "number") {
+                        closeTimeoutRef.current = setTimeout(() => {
+                            handleClose();
+                        }, duration);
+                    }
+                } else {
+                    closeTimeoutRef.current && clearTimeout(closeTimeoutRef.current);
                 }
-            } else {
-                closeTimeoutRef.current && clearTimeout(closeTimeoutRef.current);
             }
 
             return () => {
                 closeTimeoutRef.current && clearTimeout(closeTimeoutRef.current);
             };
-        }, [show, duration]);
+        }, [show, internalShow, duration, handleClose]);
 
         return (
             <S.DialogWrapper

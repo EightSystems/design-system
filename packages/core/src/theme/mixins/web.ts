@@ -1,7 +1,27 @@
 import isArray from "lodash/isArray";
 import { css } from "styled-components";
 
-export { borderColors, borderRadius, marginSpacing, paddingSpacing, textAlign, textColors } from "./common";
+export {
+    borderColors,
+    borderRadius,
+    marginSpacing,
+    paddingSpacing,
+    textAlign,
+    textColors,
+    textDecoration,
+} from "./common";
+
+export const textSelectable = css`
+    ${props => {
+        return props["selectable"]
+            ? css`
+                  user-select: initial;
+              `
+            : css`
+                  user-select: none;
+              `;
+    }}
+`;
 
 export const backgroundColors = css`
     ${props => {

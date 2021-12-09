@@ -1,17 +1,17 @@
 import { configure } from "@storybook/react";
 import React from "react";
 import ThemeProviderInjector from "../src/components/core/ThemeProviderInjector";
-import GlobalStyles from "../src/theme/global";
 
 configure(require.context("../src/stories", true, /\\.stories\\.mdx$/), module);
 
 export const decorators = [
-    Story => (
-        <ThemeProviderInjector>
-            <GlobalStyles />
-            <Story />
-        </ThemeProviderInjector>
-    ),
+    Story => {
+        return (
+            <ThemeProviderInjector>
+                <Story />
+            </ThemeProviderInjector>
+        );
+    },
 ];
 
 export const parameters = {

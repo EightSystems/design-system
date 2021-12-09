@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as S from "./styled";
-import { WebTextProps } from "./types";
+import { TextProps } from "./types";
 
 const Text = ({
     children,
@@ -13,8 +13,9 @@ const Text = ({
     underline = false,
     margin,
     padding,
+    selectable = false,
     ...props
-}: WebTextProps) => {
+}: TextProps) => {
     const styleProps = {
         "data-fontsize": fontSize,
         "data-textcolor": textColor,
@@ -25,6 +26,7 @@ const Text = ({
         "data-margin": margin,
         "data-padding": padding,
         "data-textalign": textAlign,
+        selectable,
     };
 
     return (

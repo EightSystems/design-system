@@ -2,12 +2,11 @@ import IntroductionStory from "../core/src/stories/0_Introduction.stories";
 import UsageStory from "../core/src/stories/1_Installing.stories";
 import ThemingStory from "../core/src/stories/2_Theming.stories";
 import NativeSupportStory from "../core/src/stories/4_NativeSupport.stories";
-//import AccordionStory from "../core/src/stories/Accordion.stories";
 import AvatarStory from "../core/src/stories/5_Avatar.stories";
 import ProgressRingStory from "../core/src/stories/7_ProgressRing.stories";
-import SelectStory from "../core/src/stories/8_Select.stories";
+import ButtonStory from "../core/src/stories/8_Button.stories";
 import BoxStory from "../core/src/stories/9_Box.stories";
-import ButtonStory from "../core/src/stories/Button.stories";
+import AccordionStory from "../core/src/stories/Accordion.stories";
 import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
 import DividerStory from "../core/src/stories/Divider.stories";
 import FlexBox from "../core/src/stories/FlexBox.stories";
@@ -20,6 +19,7 @@ import PaymentMethodItemStory from "../core/src/stories/PaymentMethodItem.storie
 import PaymentPromptStory from "../core/src/stories/PaymentPrompt.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
 import SavedCardBadge from "../core/src/stories/SavedCardBadge.stories";
+import SelectStory from "../core/src/stories/Select.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
 import SpacerStory from "../core/src/stories/Spacer.stories";
 import SpinnerStory from "../core/src/stories/Spinner.stories";
@@ -56,6 +56,7 @@ const storyList = {
     "Layout/Grid": GridStory,
     "Layout/Spacer": SpacerStory,
 
+    "Molecules/Accordion": AccordionStory,
     "Molecules/PaymentMethodItem": PaymentMethodItemStory,
     "Molecules/PaymentPrompt": PaymentPromptStory,
     "Molecules/PaymentStatus": PaymentStatusStory,

@@ -5,7 +5,7 @@ import { theme as originalTheme } from "../../../theme";
 import GlobalStyles from "../../../theme/global";
 import { ThemeProviderProps } from "./types";
 
-const ThemeProviderInjector = ({ theme, children }: ThemeProviderProps) => {
+export const ThemeProviderInjector = React.memo<ThemeProviderProps>(({ theme, children }: ThemeProviderProps) => {
     const themeMerged = merge(originalTheme, theme || {});
 
     return (
@@ -14,6 +14,8 @@ const ThemeProviderInjector = ({ theme, children }: ThemeProviderProps) => {
             {children}
         </ThemeProvider>
     );
-};
+});
+
+ThemeProviderInjector.displayName = "ThemeProviderInjector";
 
 export default ThemeProviderInjector;

@@ -9,10 +9,8 @@ import { Divider } from "../components/primitives/Divider";
 A Divider is simply a HR on the Web, and an emulated View on Native
 
 <Canvas>
-    <Story name="Divider" args={{ height: 2 }}>
-        {args => (
-            <Divider {...args} />
-        )}
+    <Story name="Divider" args={{ height: "tall" }}>
+        {args => <Divider {...args} />}
     </Story>
 </Canvas>
 

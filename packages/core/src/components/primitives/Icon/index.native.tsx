@@ -11,9 +11,9 @@ import Ionic from "react-native-vector-icons/Ionicons";
 import Material from "react-native-vector-icons/MaterialIcons";
 import { ThemeContext } from "styled-components/native";
 import { nativeTheme } from "../../../theme";
-import { NativeIconProps } from "./types";
+import { IconProps } from "./types";
 
-const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }: NativeIconProps) => {
+const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }: IconProps) => {
     const themeContext = React.useContext<typeof nativeTheme>(ThemeContext);
 
     const fontRealSize =
@@ -78,5 +78,5 @@ const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }:
     return null;
 };
 
-export type { NativeIconProps } from "./types";
+export type { IconProps } from "./types";
 export { Icon };

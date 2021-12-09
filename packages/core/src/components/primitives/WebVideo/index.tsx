@@ -18,7 +18,7 @@ export const WebVideo = ({ source, options, rotateOnFullSreen = true, eventsList
                               (window.screen as any).msOrientation) as OrientationType)
                         : "not-supported";
 
-                if (orientation != "not-supported") {
+                if (orientation !== "not-supported") {
                     if (rotateOnFullSreen) {
                         if (orientation.startsWith("portrait")) {
                             setTimeout(() => {
@@ -39,7 +39,7 @@ export const WebVideo = ({ source, options, rotateOnFullSreen = true, eventsList
                               (window.screen as any).msOrientation) as OrientationType)
                         : "not-supported";
 
-                if (orientation != "not-supported") {
+                if (orientation !== "not-supported") {
                     if (rotateOnFullSreen) {
                         window.screen.orientation.unlock();
                     }
@@ -72,7 +72,7 @@ export const WebVideo = ({ source, options, rotateOnFullSreen = true, eventsList
                 }
             }
         };
-    }, [plyrRef, eventsListener]);
+    }, [plyrRef, plyrEventsListener]);
 
     return (
         <Fragment>

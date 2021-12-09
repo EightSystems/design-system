@@ -14,18 +14,6 @@ export type FontSizeTypes = "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | 
 
 export type FontFaceTypes = "primary" | "secondary";
 
-export type NativeFontFaceTypes =
-    | "primary"
-    | "primaryRegular"
-    | "primaryMedium"
-    | "primarySemiBold"
-    | "primaryBold"
-    | "secondary"
-    | "secondaryRegular"
-    | "secondaryMedium"
-    | "secondarySemiBold"
-    | "secondaryBold";
-
 export type TextAlignTypes = "left" | "right" | "center" | "justify";
 
 export type FontWeightTypes =

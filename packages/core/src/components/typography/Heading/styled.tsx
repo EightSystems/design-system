@@ -1,17 +1,22 @@
 import styled, { css } from "styled-components";
-import { fontFaces, fontSizes, fontWeights, textColors } from "../../../theme/mixins/web";
+import {
+    fontFaces,
+    fontSizes,
+    fontWeights,
+    textAlign,
+    textColors,
+    textDecoration,
+    textSelectable,
+} from "../../../theme/mixins/web";
 
 const DefaultStyles = css`
-    &[data-italic="true"] {
-        font-style: italic;
-    }
-    &[data-underline="true"] {
-        text-decoration: underline;
-    }
+    ${textDecoration};
     ${fontFaces};
     ${fontWeights};
     ${fontSizes};
     ${textColors};
+    ${textAlign};
+    ${textSelectable};
 `;
 
 export const Heading1 = styled.h1`

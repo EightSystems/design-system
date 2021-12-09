@@ -9,16 +9,12 @@ import {
     paddingSpacing,
     textAlign,
     textColors,
+    textDecoration,
+    textSelectable,
 } from "../../../theme/mixins/web";
 
 export const Text = styled.p`
-    &[data-italic="true"] {
-        font-style: italic;
-    }
-    &[data-underline="true"] {
-        text-decoration: underline;
-    }
-
+    ${textDecoration};
     ${textAlign};
     ${fontFaces};
     ${fontWeights};
@@ -28,4 +24,5 @@ export const Text = styled.p`
     ${letterSpacings};
     ${marginSpacing};
     ${paddingSpacing};
+    ${textSelectable};
 `;

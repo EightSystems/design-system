@@ -9,9 +9,9 @@ import IonicGlyphMap from "react-native-vector-icons/glyphmaps/Ionicons.json";
 import MaterialGlyphMap from "react-native-vector-icons/glyphmaps/MaterialIcons.json";
 import Ionic from "react-native-vector-icons/Ionicons";
 import Material from "react-native-vector-icons/MaterialIcons";
-import { NativeIconProps } from "./types";
+import { IconProps } from "./types";
 
-const FontIcon = ({ familyName, icon, ...otherProps }: NativeIconProps) => {
+const FontIcon = ({ familyName, icon, ...otherProps }: IconProps) => {
     let glyphMap = null;
     let IconComponent = null;
 
@@ -66,5 +66,5 @@ const FontIcon = ({ familyName, icon, ...otherProps }: NativeIconProps) => {
     return null;
 };
 
-export type { NativeIconProps } from "./types";
+export type { IconProps } from "./types";
 export { FontIcon };

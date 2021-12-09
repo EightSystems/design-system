@@ -1,19 +1,19 @@
 import * as React from "react";
-import { PressableProps } from "react-native";
 import {
     BorderTypes,
     ColorTypes,
     FontFaceTypes,
     FontSizeTypes,
     FontWeightTypes,
-    NativeFontFaceTypes,
     RadiusTypes,
     TextAlignTypes,
 } from "../../../theme/types";
 
-type CommonProps = {
+export type WebButtonProps = {
     /** The color of the text inside the button. */
     textColor?: ColorTypes;
+
+    textAlign?: TextAlignTypes;
 
     /** The font family for the text inside the button. */
     fontFace?: FontFaceTypes;
@@ -65,15 +65,13 @@ type CommonProps = {
 
     /** Replaces the `onClick` for HTML buttons */
     onPress?: null | ((event: any) => void) | undefined;
+
+    onClick?: null | ((event: any) => void) | undefined;
+
+    children: React.ReactNode;
 };
 
-type NativeProps = Omit<CommonProps, "fontFace" | "onPress"> & {
-    fontFace?: NativeFontFaceTypes;
-    textAlign?: TextAlignTypes;
-
+export type NativeButtonProps = Omit<WebButtonProps, "onClick"> & {
     /** Replaces the `onPress` for Pressables */
     onClick?: null | ((event: any) => void) | undefined;
 };
-
-export type NativeButtonProps = PressableProps & NativeProps;
-export type WebButtonProps = React.ComponentPropsWithRef<"button"> & CommonProps;

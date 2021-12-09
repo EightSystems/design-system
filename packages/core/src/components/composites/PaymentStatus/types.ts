@@ -1,7 +1,4 @@
-import { ViewProps } from "react-native";
-import * as React from "react";
-
-type CommonProps = {
+export type PaymentStatusProps = {
     /** Defines the current payment status. */
     status: "approved" | "refused" | "pending";
 
@@ -19,6 +16,3 @@ type CommonProps = {
     /** The value that will be used in the conversion, in numeric format. */
     value?: number;
 };
-
-export type WebPaymentStatusProps = React.ComponentPropsWithRef<"div"> & CommonProps;
-export type NativePaymentStatusProps = ViewProps & CommonProps;

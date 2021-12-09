@@ -4,9 +4,9 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import { nativeTheme as originalTheme } from "../../../theme";
 import { ToastProvider } from "../../feedback/Toast/ToastProvider.native";
-import { NativeThemeProviderProps } from "./types";
+import { NativeThemeProviderProps, NativeThemeSchemaType } from "./types";
 
-const cacheFontWeight = themeMerged => {
+const cacheFontWeight = (themeMerged: NativeThemeSchemaType): NativeThemeSchemaType => {
     const fontFacesNames = Object.keys(themeMerged.nativeTypography.fontFaces);
     const fontFacesLowerCase = fontFacesNames.reduce((acc, keyName) => {
         acc[keyName.toLowerCase()] = themeMerged.nativeTypography.fontFaces[keyName];
@@ -20,17 +20,20 @@ const cacheFontWeight = themeMerged => {
     });
 };
 
-const ThemeProviderInjector = ({ theme, children }: NativeThemeProviderProps) => {
-    let themeMerged = merge(originalTheme, theme || {});
-    themeMerged = cacheFontWeight(themeMerged);
+export const ThemeProviderInjector = React.memo<NativeThemeProviderProps>(
+    ({ theme, children }: NativeThemeProviderProps) => {
+        const themeMerged = cacheFontWeight(merge(originalTheme, theme || {}));
 
-    return (
-        <ActionSheetProvider>
+        return (
             <ThemeProvider theme={themeMerged}>
-                <ToastProvider>{children}</ToastProvider>
+                <ActionSheetProvider>
+                    <ToastProvider>{children}</ToastProvider>
+                </ActionSheetProvider>
             </ThemeProvider>
-        </ActionSheetProvider>
-    );
-};
+        );
+    }
+);
+
+ThemeProviderInjector.displayName = "ThemeProviderInjector";
 
 export default ThemeProviderInjector;

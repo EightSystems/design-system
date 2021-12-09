@@ -28,6 +28,8 @@ export const Toast = ({
     }, [show]);
 
     useEffect(() => {
+        let isMounted = true;
+
         if (internalShow) {
             toast.show(description, {
                 duration,
@@ -42,7 +44,9 @@ export const Toast = ({
                 placement: position.startsWith("bottom") ? "bottom" : "top",
                 type: status,
                 onClose: () => {
-                    setInternalShow(false);
+                    if (isMounted) {
+                        setInternalShow(false);
+                    }
 
                     if (onClose) {
                         onClose();
@@ -54,6 +58,7 @@ export const Toast = ({
         }
 
         return () => {
+            isMounted = false;
             toast.hideAll();
         };
     }, [internalShow]);

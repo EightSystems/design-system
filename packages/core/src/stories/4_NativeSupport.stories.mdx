@@ -19,19 +19,15 @@ app, we have to use multiple font-files to make them work in the native side:
 We tried our best to make it as transparent as possible, with some code in the styles mixins to make it work using the
 same props you would use in the `web` side.
 
-For example, there are two ways you can make a `Text` bold in the native side:
+For example, you can make a `Text` bold in the native side:
 
 ```jsx
-<Text fontFace={"primaryBold"}>Bold Text Here</Text>
+<Text fontFace={"primary"} fontWeight={"bold"}>
+    Bold Text Here
+</Text>
 ```
 
-OR
-
-```jsx
-<Text fontWeight={"bold"}>Bold Text Here</Text>
-```
-
-Both of them will render the same font, `primaryBold`, with the later using auto-discovery from the `fontWeight` mixin.
+This will render the `primaryBold` native font, using auto-discovery from the `fontWeight` mixin.
 
 # Required Modules for Native to work
 

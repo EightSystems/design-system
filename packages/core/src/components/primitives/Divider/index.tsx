@@ -1,11 +1,9 @@
 import React from "react";
-import { WebDividerProps } from "./types";
 import * as S from "./styled";
+import { DividerProps } from "./types";
 
-const Divider = ({ height = 2, ...otherProps }: WebDividerProps) => {
-    return <S.DividerStyled height={height} {...otherProps} />;
+export const Divider = ({ height = "tall", backgroundColor = "divider" }: DividerProps) => {
+    return <S.DividerStyled height={height} backgroundColor={backgroundColor} />;
 };
 
-export type { WebDividerProps } from "./types";
-
-export { Divider };
+export type { DividerProps } from "./types";

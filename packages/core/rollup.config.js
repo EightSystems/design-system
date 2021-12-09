@@ -3,7 +3,6 @@ import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
 import url from "@rollup/plugin-url";
 import svgr from "@svgr/rollup";
-import multiInput from "rollup-plugin-multi-input";
 import external from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import typescript from "rollup-plugin-typescript2";
@@ -19,9 +18,6 @@ const outputOptions = {
 };
 
 const defaultPlugins = [
-    multiInput({
-        relative: "src/",
-    }),
     external(),
     postcss({
         modules: true,
@@ -40,7 +36,7 @@ const defaultPlugins = [
 ];
 
 const webConfig = {
-    input: webInput,
+    input: "src/index.ts",
     output: [
         {
             dir: "dist",
