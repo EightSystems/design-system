@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.7.5](https://github.com/EightSystems/design-system/compare/v0.7.4...v0.7.5) (2021-12-07)
+
+
+### Bug Fixes
+
+* savedCardBadge work on native, and migrate to primitives component ([d1ff68d](https://github.com/EightSystems/design-system/commit/d1ff68d1d611395a0f163033901e3197f46627e8))
+
 ## [0.7.4](https://github.com/EightSystems/design-system/compare/v0.7.3...v0.7.4) (2021-12-07)
 
 ## [0.7.3](https://github.com/EightSystems/design-system/compare/v0.7.2...v0.7.3) (2021-12-02)
