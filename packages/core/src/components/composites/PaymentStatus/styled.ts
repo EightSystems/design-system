@@ -10,21 +10,21 @@ export const PaymentStatusWrapper = styled(Box)`
     align-items: center;
 
     ${props =>
-        props["data-background"] == "approved"
+        props["data-background"] === "approved"
             ? css`
                   background: ${({ theme }) => theme.colors.primary};
               `
             : null}
 
     ${props =>
-        props["data-background"] == "refused"
+        props["data-background"] === "refused"
             ? css`
                   background: ${({ theme }) => theme.colors.danger};
               `
             : null}
 
     ${props =>
-        props["data-background"] == "pending"
+        props["data-background"] === "pending"
             ? css`
                   background: ${({ theme }) => theme.colors.warning};
               `

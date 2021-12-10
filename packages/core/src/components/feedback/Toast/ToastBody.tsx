@@ -26,9 +26,9 @@ export const ToastBody = React.forwardRef<any, ToastBodyProps>(
                 backgroundColor={
                     backgroundColor
                         ? backgroundColor
-                        : status == "info"
+                        : status === "info"
                         ? "secondary"
-                        : status == "warning"
+                        : status === "warning"
                         ? "danger"
                         : "successShade"
                 }
@@ -39,7 +39,7 @@ export const ToastBody = React.forwardRef<any, ToastBodyProps>(
                         leftElement
                     ) : status === "info" ? (
                         <Icon size={"lg"} color={textColor} familyName="Material" icon="md-info" />
-                    ) : status == "success" ? (
+                    ) : status === "success" ? (
                         <Icon size={"lg"} color={textColor} familyName="Material" icon="md-check-circle" />
                     ) : (
                         <Icon size={"lg"} color={textColor} familyName="Material" icon="md-error" />
