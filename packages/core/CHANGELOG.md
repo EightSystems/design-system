@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.3](https://github.com/EightSystems/design-system/compare/v0.8.2...v0.8.3) (2021-12-10)
+
+
+### Bug Fixes
+
+* lodash keys vs Object.keys ([6e7e315](https://github.com/EightSystems/design-system/commit/6e7e315ea3e4e03377f09c6a957c9ba02ff441c6))
+* missing exports ([be50a03](https://github.com/EightSystems/design-system/commit/be50a035cf6de7f0f10deebfc364075e7f806228))
+* web video player on iOS, and rotate support ([6855801](https://github.com/EightSystems/design-system/commit/6855801c64ff83275d4d4d90044767394f3a2bbe))
+
 ## [0.8.2](https://github.com/EightSystems/design-system/compare/v0.8.1...v0.8.2) (2021-12-10)
 
 
