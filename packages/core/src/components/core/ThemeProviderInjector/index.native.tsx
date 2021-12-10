@@ -1,4 +1,5 @@
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
+import keys from "lodash/keys";
 import merge from "lodash/merge";
 import React from "react";
 import { ThemeProvider } from "styled-components";
@@ -7,7 +8,7 @@ import { ToastProvider } from "../../feedback/Toast/ToastProvider.native";
 import { NativeThemeProviderProps, NativeThemeSchemaType } from "./types";
 
 const cacheFontWeight = (themeMerged: NativeThemeSchemaType): NativeThemeSchemaType => {
-    const fontFacesNames = Object.keys(themeMerged.nativeTypography.fontFaces);
+    const fontFacesNames = keys(themeMerged.nativeTypography.fontFaces);
     const fontFacesLowerCase = fontFacesNames.reduce((acc, keyName) => {
         acc[keyName.toLowerCase()] = themeMerged.nativeTypography.fontFaces[keyName];
         return acc;

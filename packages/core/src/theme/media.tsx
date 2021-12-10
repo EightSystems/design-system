@@ -1,3 +1,4 @@
+import keys from "lodash/keys";
 import React from "react";
 import { css } from "styled-components";
 
@@ -25,7 +26,7 @@ export type MediaSizes = {
     tiny: MediaMethod;
 };
 
-export const media: MediaSizes = Object.keys(sizes).reduce((accumulator, label) => {
+export const media: MediaSizes = keys(sizes).reduce((accumulator, label) => {
     const emSize = sizes[label] / 16;
     accumulator[label] = (...args) => css`
         @media (max-width: ${emSize}em) {
@@ -35,7 +36,7 @@ export const media: MediaSizes = Object.keys(sizes).reduce((accumulator, label) 
     return accumulator;
 }, {} as Record<keyof MediaSizes, MediaMethod>);
 
-export const mediaMinWidth: MediaSizes = Object.keys(sizes).reduce((accumulator, label) => {
+export const mediaMinWidth: MediaSizes = keys(sizes).reduce((accumulator, label) => {
     const emSize = sizes[label] / 16;
     accumulator[label] = (...args) => css`
         @media (min-width: ${emSize}em) {

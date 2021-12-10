@@ -1,6 +1,7 @@
+import keys from "lodash/keys";
 import React from "react";
-import { css } from "styled-components";
 import { useWindowDimensions } from "react-native";
+import { css } from "styled-components/native";
 
 const sizes = {
     giant: 1440,
@@ -26,7 +27,7 @@ export type MediaSizes = {
     tiny: MediaMethod;
 };
 
-export const media: MediaSizes = Object.keys(sizes).reduce((accumulator, label) => {
+export const media: MediaSizes = keys(sizes).reduce((accumulator, label) => {
     const pxSize = sizes[label];
     accumulator[label] = (...args) => css`
         ${props => (props["data-Window-Width"] <= pxSize ? css(...args) : null)}
@@ -35,7 +36,7 @@ export const media: MediaSizes = Object.keys(sizes).reduce((accumulator, label) 
     return accumulator;
 }, {} as Record<keyof MediaSizes, MediaMethod>);
 
-export const mediaMinWidth: MediaSizes = Object.keys(sizes).reduce((accumulator, label) => {
+export const mediaMinWidth: MediaSizes = keys(sizes).reduce((accumulator, label) => {
     const pxSize = sizes[label];
     accumulator[label] = (...args) => css`
         ${props => (props["data-Window-Width"] >= pxSize ? css(...args) : null)}
