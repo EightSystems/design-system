@@ -58,6 +58,7 @@
         "@types/react-native": "^0.64.12",
         "@types/react-native-vector-icons": "^6.4.8",
         "classnames": "^2.2.6",
+        "copyfiles": "^2.4.1",
         "css-loader": "^6.5.1",
         "path": "^0.12.7",
         "plyr-react": "^3.2.1",
@@ -72,9 +73,9 @@
         "react-native-svg-transformer": "^0.14.3",
         "react-native-vector-icons": "^8.1.0",
         "react-native-webview": "^11.14.4",
-        "react-web-mask": "^1.0.0",
         "react-popper": "^2.2.5",
         "react-scripts": "^3.4.1",
+        "react-web-mask": "^1.0.0",
         "rollup": "^2.32.1",
         "rollup-plugin-multi-input": "^1.3.1",
         "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -93,9 +94,9 @@
         "lodash": "^4.17.21",
         "react": "^17.0.1",
         "react-children-utilities": "^2.6.3",
-        "styled-components": "^5.3.0",
         "react-native-masked-text": "^1.13.0",
-        "react-native-toast-notifications": "^3.2.3"
+        "react-native-toast-notifications": "^3.2.3",
+        "styled-components": "^5.3.0"
     },
     "scripts": {
         "storybook": "start-storybook -p 6006",
@@ -103,8 +104,8 @@
         "prebuild": "rm -rf dist/ && rm -rf mobile/",
         "cleanup:web": "cd dist/components && find . -name '*.native.d.ts' | xargs rm",
         "cleanup:mobile": "cd mobile/components && find . -type f ! -name '*.native.d.ts' | xargs rm",
-        "build:web": "rollup -c",
-        "build:mobile": "tsc --project tsconfig.native.json",
+        "build:web": "rollup -c && copyfiles -u 1 src/assets/**/* dist/",
+        "build:mobile": "tsc --project tsconfig.native.json && copyfiles -u 1 src/assets/**/* mobile/",
         "build": "yarn prebuild && yarn build:web && yarn build:mobile",
         "publish:local": "yarn build && yalc publish --files --no-scripts",
         "publish:npm": "yarn semantic-release"
