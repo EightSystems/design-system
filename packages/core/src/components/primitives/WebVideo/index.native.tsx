@@ -1,20 +1,50 @@
-import React from "react";
+import keys from "lodash/keys";
+import React, { useEffect } from "react";
 import WebView from "react-native-webview";
+import { Orientation } from "./Orientation";
 import { WebVideoContainer } from "./styled.native";
-import { NativeEventType, WebVideoProps } from "./types";
+import { CallbackMapping, NativeEventType, WebVideoProps } from "./types";
 
 export const WebVideo = ({
     options,
     source,
     rotateOnFullSreen = true,
-    eventsListener,
+    eventsListener = {},
     nativeVideoPlayerUrl = "https://eightsystems.github.io/design-system/assets/webvideo/webplayer.html",
 }: WebVideoProps) => {
+    const plyrEventsListener: CallbackMapping = {
+        ...eventsListener,
+        enterfullscreen: [
+            ...(eventsListener?.enterfullscreen || []),
+            () => {
+                if (rotateOnFullSreen) {
+                    Orientation.lockToLandscape();
+                }
+            },
+        ],
+        exitfullscreen: [
+            ...(eventsListener?.exitfullscreen || []),
+            () => {
+                if (rotateOnFullSreen) {
+                    Orientation.unlockAllOrientations();
+                }
+            },
+        ],
+    };
+
     const videoPlayerUrl = `${nativeVideoPlayerUrl}?options=${encodeURIComponent(
         JSON.stringify(options)
     )}&source=${encodeURIComponent(JSON.stringify(source))}&events=${encodeURIComponent(
-        JSON.stringify(Object.keys(eventsListener))
+        JSON.stringify(keys(plyrEventsListener))
     )}`;
+
+    useEffect(() => {
+        return () => {
+            if (rotateOnFullSreen) {
+                Orientation.unlockAllOrientations();
+            }
+        };
+    }, [rotateOnFullSreen]);
 
     return (
         <WebVideoContainer>
@@ -33,8 +63,8 @@ export const WebVideo = ({
                 onMessage={messageData => {
                     const { eventName, eventData } = JSON.parse(messageData.nativeEvent.data) as NativeEventType;
 
-                    if (eventsListener[eventName]) {
-                        for (var callbackEvent of eventsListener[eventName]) {
+                    if (plyrEventsListener[eventName]) {
+                        for (var callbackEvent of plyrEventsListener[eventName]) {
                             try {
                                 callbackEvent(eventData);
                             } catch (e) {

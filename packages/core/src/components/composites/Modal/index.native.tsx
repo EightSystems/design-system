@@ -29,7 +29,13 @@ const Modal = ({
     open,
 }: ModalProps) => {
     return (
-        <RNModal visible={open} onRequestClose={onClose} animationType="fade" transparent>
+        <RNModal
+            visible={open}
+            onRequestClose={onClose}
+            animationType="fade"
+            transparent
+            supportedOrientations={["landscape", "landscape-left", "landscape-right", "portrait"]}
+        >
             <TouchableWithoutFeedback onPress={onClose}>
                 <View style={StyleSheet.flatten([styles.backdrop, backdropStyle])} />
             </TouchableWithoutFeedback>
@@ -74,7 +80,7 @@ const styles = StyleSheet.create({
     },
     halfScreen: {
         width: "100%",
-        minHeight: "50%",
+        height: "50%",
     },
     overlay: {
         backgroundColor: "white",

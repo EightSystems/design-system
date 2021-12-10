@@ -9,6 +9,8 @@ export type WebModalProps = {
     onClose?: CallableFunction;
     initialFocus?: any;
     children: ReactNode;
+
+    halfScreen?: boolean;
 };
 
 export type NativeModalProps = Omit<WebModalProps, "className" | "overlayClass">;

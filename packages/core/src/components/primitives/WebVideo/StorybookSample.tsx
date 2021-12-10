@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { WebVideo } from ".";
+import { Platform } from "../../../utils/Platform";
 import { Modal } from "../../composites/Modal";
 import { Button } from "../../forms/Button";
 
@@ -9,9 +10,9 @@ export const WebVideoModalSample = () => {
     return (
         <Fragment>
             <Button onClick={() => setIsModalOpen(true)}>Open Video Modal</Button>
-            <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)} halfScreen={true}>
                 <WebVideo
-                    rotateOnFullSreen={false}
+                    rotateOnFullSreen={Platform.OS == "web" ? false : true}
                     options={{
                         controls: [
                             "rewind",

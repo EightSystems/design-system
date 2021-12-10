@@ -3,9 +3,11 @@ import { Html5EventMap, Options, SourceInfo, StandardEventMap, YoutubeEventMap }
 export type EventCallback = (eventData: any) => void;
 
 export type CallbackKeyName = keyof StandardEventMap | keyof Html5EventMap | keyof YoutubeEventMap;
-export type CallbackMapping = {
-    [key in CallbackKeyName]: EventCallback[];
-};
+export type CallbackMapping = Partial<
+    {
+        [key in CallbackKeyName]: EventCallback[];
+    }
+>;
 
 export type NativeEventType = {
     eventName: CallbackKeyName;
