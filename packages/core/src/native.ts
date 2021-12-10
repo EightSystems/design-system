@@ -4,7 +4,8 @@ export { Skeleton } from "./components/atoms/Skeleton";
 export { Accordion } from "./components/composites/Accordion";
 export { AccordionItem } from "./components/composites/AccordionItem";
 export { Modal } from "./components/composites/Modal";
-export { PaymentMethodItem, PaymentMethodItem as PaymentPrompt } from "./components/composites/PaymentMethodItem";
+export { PaymentMethodItem } from "./components/composites/PaymentMethodItem";
+export { PaymentPrompt } from "./components/composites/PaymentPrompt";
 export { PaymentStatus } from "./components/composites/PaymentStatus";
 export { SavedCardBadge } from "./components/composites/SavedCardBadge";
 export { ThemeProviderInjector } from "./components/core/ThemeProviderInjector";
@@ -23,6 +24,7 @@ export { Spacer } from "./components/layout/Spacer";
 export { Divider } from "./components/primitives/Divider";
 export { Icon } from "./components/primitives/Icon";
 export { Image } from "./components/primitives/Image";
+export { WebVideo } from "./components/primitives/WebVideo";
 export { Heading } from "./components/typography/Heading";
 export { Text } from "./components/typography/Text";
 export { useExtendedTheme } from "./hooks/useExtendedTheme";
@@ -31,4 +33,6 @@ export {
     media as createMediaMaxWidthQuery,
     mediaMinWidth as createMediaMinWidthQuery,
     withMediaWatcher,
-} from "./theme/media.native";
+} from "./theme/media";
+export { default as getUserLanguage } from "./utils/getUserLanguage";
+export { Platform } from "./utils/Platform";
