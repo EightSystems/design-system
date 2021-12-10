@@ -28,28 +28,14 @@ without any `GApps` installed.
 
 ### Landscape Orientation on fullscreen
 
-On Native you need to register the `enterfullscreen` and `exitfullscreen` events listener and handle the orientation changes yourself.
+On Native you need to setup some of the following orientation packages on your app: react-native-orientation-locker,
+react-native-orientation.
 
-Example:
+Please follow their instructions as they need some manual iOS and Android files changes in order to do the whole
+orientation changes.
 
-```jsx
-import Orientation from 'react-native-orientation-locker';
-
-<WebVideo
-    eventsListener={{
-        enterfullscreen: [
-            () => {
-                Orientation.lockToLandscapeLeft();
-            }
-        ],
-        exitfullscreen: [
-            () => {
-                Orientation.unlockAllOrientations();
-            }
-        ]
-    }}
-/>
-```
+After you have done that, we try to find which package you have installed, and try to use it, if we can't find any, or
+can't call the methods, we just give an error in your app but this won't crash the app or anything.
 
 ## Import
 
@@ -97,6 +83,7 @@ like it, but you can use the following code as a sample for the component usage:
         ],
         type: "video",
     }}
+    rotateOnFullSreen={false}
 />
 ```
 

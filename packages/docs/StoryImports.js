@@ -1,11 +1,12 @@
-import IntroductionStory from "../core/src/stories/0_Introduction.stories";
-import UsageStory from "../core/src/stories/1_Installing.stories";
-import ThemingStory from "../core/src/stories/2_Theming.stories";
-import NativeSupportStory from "../core/src/stories/4_NativeSupport.stories";
-import AvatarStory from "../core/src/stories/5_Avatar.stories";
-import ProgressRingStory from "../core/src/stories/7_ProgressRing.stories";
-import ButtonStory from "../core/src/stories/8_Button.stories";
-import BoxStory from "../core/src/stories/9_Box.stories";
+import IntroductionStory from "../core/src/stories/00_Introduction.stories";
+import UsageStory from "../core/src/stories/01_Installing.stories";
+import ThemingStory from "../core/src/stories/02_Theming.stories";
+import NativeSupportStory from "../core/src/stories/04_NativeSupport.stories";
+import AvatarStory from "../core/src/stories/05_Avatar.stories";
+import ProgressRingStory from "../core/src/stories/07_ProgressRing.stories";
+import ButtonStory from "../core/src/stories/08_Button.stories";
+import BoxStory from "../core/src/stories/09_Box.stories";
+import PlatformStory from "../core/src/stories/10_Platform.stories";
 import AccordionStory from "../core/src/stories/Accordion.stories";
 import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
 import DividerStory from "../core/src/stories/Divider.stories";
@@ -69,7 +70,8 @@ const storyList = {
 
     "Typography/Heading": HeadingStory,
     "Typography/Text": TextStory,
-    //Accordion: AccordionStory,
+
+    "Utils/Platform": PlatformStory,
 };
 
 export default storyList;

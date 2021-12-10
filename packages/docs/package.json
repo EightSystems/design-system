@@ -29,6 +29,7 @@
         "react-native-linear-gradient": "^2.5.6",
         "react-native-localize": "^2.1.1",
         "react-native-masked-text": "^1.13.0",
+        "react-native-orientation-locker": "^1.4.0",
         "react-native-popper": "^0.3.0",
         "react-native-svg": "^12.1.1",
         "react-native-svg-transformer": "^0.14.3",
