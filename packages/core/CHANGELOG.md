@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+# [0.8.0](https://github.com/EightSystems/design-system/compare/v0.7.5...v0.8.0) (2021-12-09)
+
+
+### Features
+
+* finish port of components to native and web ([4938b72](https://github.com/EightSystems/design-system/commit/4938b72c9f9585a6fef91f18c9d4d47ec67e0726))
+
 ## [0.7.5](https://github.com/EightSystems/design-system/compare/v0.7.4...v0.7.5) (2021-12-07)
 
 
