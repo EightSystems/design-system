@@ -1,4 +1,8 @@
-import { useActionSheet } from "@expo/react-native-action-sheet";
+let useActionSheet = null;
+try {
+    useActionSheet = require("@expo/react-native-action-sheet").useActionSheet;
+} catch (e) {}
+
 import React, { useState } from "react";
 import { onlyText } from "react-children-utilities";
 import * as S from "./styled.native";
@@ -7,6 +11,10 @@ import { NativeOptionProps, SelectProps } from "./types";
 export { Option } from "./Option.native";
 
 export const Select = (props: SelectProps) => {
+    if (!useActionSheet) {
+        return null;
+    }
+
     const borderColor = props.validationError ? "danger" : props.validationSuccess ? "success" : "darkTint";
 
     const optionList = React.Children.map(props.children, (child: React.ReactElement<NativeOptionProps>) => {

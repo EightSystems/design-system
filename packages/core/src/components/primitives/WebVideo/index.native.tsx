@@ -1,9 +1,14 @@
 import keys from "lodash/keys";
 import React, { useEffect } from "react";
-import WebView from "react-native-webview";
+import { Text } from "../../typography/Text";
 import { Orientation } from "./Orientation";
 import { WebVideoContainer } from "./styled.native";
 import { CallbackMapping, NativeEventType, WebVideoProps } from "./types";
+
+let WebView = null;
+try {
+    WebView = require("react-native-webview").default;
+} catch (e) {}
 
 export const WebVideo = ({
     options,
@@ -48,32 +53,36 @@ export const WebVideo = ({
 
     return (
         <WebVideoContainer>
-            <WebView
-                userAgent={
-                    "Mozilla/5.0 (Linux; Android 11; SM-A515F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36"
-                }
-                allowsFullscreenVideo={true}
-                javaScriptEnabled={true}
-                domStorageEnabled={true}
-                androidLayerType={"hardware"}
-                mixedContentMode={"always"}
-                allowsInlineMediaPlayback={true}
-                mediaPlaybackRequiresUserAction={false}
-                source={{ uri: videoPlayerUrl }}
-                onMessage={messageData => {
-                    const { eventName, eventData } = JSON.parse(messageData.nativeEvent.data) as NativeEventType;
+            {WebView ? (
+                <WebView
+                    userAgent={
+                        "Mozilla/5.0 (Linux; Android 11; SM-A515F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36"
+                    }
+                    allowsFullscreenVideo={true}
+                    javaScriptEnabled={true}
+                    domStorageEnabled={true}
+                    androidLayerType={"hardware"}
+                    mixedContentMode={"always"}
+                    allowsInlineMediaPlayback={true}
+                    mediaPlaybackRequiresUserAction={false}
+                    source={{ uri: videoPlayerUrl }}
+                    onMessage={messageData => {
+                        const { eventName, eventData } = JSON.parse(messageData.nativeEvent.data) as NativeEventType;
 
-                    if (plyrEventsListener[eventName]) {
-                        for (var callbackEvent of plyrEventsListener[eventName]) {
-                            try {
-                                callbackEvent(eventData);
-                            } catch (e) {
-                                console.error(`Event ${eventName} failed with error: ${e}`);
+                        if (plyrEventsListener[eventName]) {
+                            for (var callbackEvent of plyrEventsListener[eventName]) {
+                                try {
+                                    callbackEvent(eventData);
+                                } catch (e) {
+                                    console.error(`Event ${eventName} failed with error: ${e}`);
+                                }
                             }
                         }
-                    }
-                }}
-            />
+                    }}
+                />
+            ) : (
+                <Text>You need to install the react-native-webview package</Text>
+            )}
         </WebVideoContainer>
     );
 };

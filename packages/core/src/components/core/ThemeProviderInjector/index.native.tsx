@@ -1,4 +1,10 @@
-import { ActionSheetProvider } from "@expo/react-native-action-sheet";
+let ActionSheetProvider = React.Fragment;
+try {
+    ActionSheetProvider = require("@expo/react-native-action-sheet").ActionSheetProvider;
+} catch (e) {
+    console.log("@expo/react-native-action-sheet is not installed, you wont have Select support");
+}
+
 import keys from "lodash/keys";
 import merge from "lodash/merge";
 import React from "react";

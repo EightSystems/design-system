@@ -1,16 +1,20 @@
 import isArray from "lodash/isArray";
 import React, { useContext } from "react";
-import LinearGradient from "react-native-linear-gradient";
 import styled, { ThemeContext } from "styled-components";
 import { NativeThemeSchemaType } from "../components/core/ThemeProviderInjector/types";
 import { borderColors, borderRadius, marginSpacing, paddingSpacing } from "./mixins/native";
+let LinearGradient,
+    LinearGradientStyled = null;
+try {
+    LinearGradient = require("react-native-linear-gradient").default;
 
-const LinearGradientStyled = styled(LinearGradient)`
-    ${borderRadius};
-    ${borderColors};
-    ${paddingSpacing};
-    ${marginSpacing};
-`;
+    LinearGradientStyled = styled(LinearGradient)`
+        ${borderRadius};
+        ${borderColors};
+        ${paddingSpacing};
+        ${marginSpacing};
+    `;
+} catch (e) {}
 
 export function withGradientBackground<T, P = {}>(Component: any) {
     return React.forwardRef<T, P>((props, componentRef) => {
@@ -29,11 +33,15 @@ export function withGradientBackground<T, P = {}>(Component: any) {
                 "data-bordercolor": "transparent",
             };
 
-            return (
+            if (!LinearGradientStyled) {
+                console.error("You havent setup the react-native-linear-gradient package, so we are returning null");
+            }
+
+            return LinearGradientStyled ? (
                 <LinearGradientStyled colors={themeBackgroundValue} {...props}>
                     <Component {...extraProps} ref={componentRef} />
                 </LinearGradientStyled>
-            );
+            ) : null;
         } else {
             return <Component {...props} ref={componentRef} />;
         }
