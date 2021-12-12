@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.6](https://github.com/EightSystems/design-system/compare/v0.8.5...v0.8.6) (2021-12-12)
+
+
+### Bug Fixes
+
+* fix types and remove a lot of not used refs ([1296c54](https://github.com/EightSystems/design-system/commit/1296c54c049a46906d0e1530f1c2a0f7511d21b5))
+* wrong types ([951ce7a](https://github.com/EightSystems/design-system/commit/951ce7a5e03b9809b675e9dac613cc59ba6d8bad))
+
 ## [0.8.5](https://github.com/EightSystems/design-system/compare/v0.8.4...v0.8.5) (2021-12-12)
 
 
