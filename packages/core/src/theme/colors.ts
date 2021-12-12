@@ -60,6 +60,23 @@ const colors = {
     black: "#000000",
     transparent: "transparent",
     gray: "gray",
+    text: "#EFEFF2",
+
+    custom1: "#EFEFF2",
+    custom2: "#EFEFF2",
+    custom3: "#EFEFF2",
+    custom4: "#EFEFF2",
+    custom5: "#EFEFF2",
+    custom6: "#EFEFF2",
+    custom7: "#EFEFF2",
+    custom8: "#EFEFF2",
+    custom9: "#EFEFF2",
+    custom10: "#EFEFF2",
+    custom11: "#EFEFF2",
+    custom12: "#EFEFF2",
+    custom13: "#EFEFF2",
+    custom14: "#EFEFF2",
+    custom15: "#EFEFF2",
 };
 
 export default colors;
