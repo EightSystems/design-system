@@ -44,7 +44,6 @@ export const ButtonPressable = withGradientBackground<any, any>(
                   `
                 : null}
 
-        flex: 1;
         justify-content: center;
         align-items: center;
         flex-direction: row;
