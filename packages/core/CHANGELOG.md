@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.7](https://github.com/EightSystems/design-system/compare/v0.8.6...v0.8.7) (2021-12-12)
+
+
+### Bug Fixes
+
+* flex grow on button ([cc8c6f5](https://github.com/EightSystems/design-system/commit/cc8c6f552d2003bafd6621301aa2c6a5729ad7fa))
+
 ## [0.8.6](https://github.com/EightSystems/design-system/compare/v0.8.5...v0.8.6) (2021-12-12)
 
 
