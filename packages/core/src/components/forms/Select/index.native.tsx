@@ -39,6 +39,7 @@ export const Select = (props: SelectProps) => {
             {
                 options: [...optionList, props.placeholder || props.optionsCancelMessage || "Cancel"],
                 destructiveButtonIndex: props.placeholder ? null : optionList.length,
+                useModal: true,
             },
             selectedIndex => {
                 if (selectedIndex < optionList.length) {

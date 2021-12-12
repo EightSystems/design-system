@@ -6,6 +6,8 @@ export type BorderTypes = "sm" | "default" | "lg";
 
 export type SpacingTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg" | "xlg" | "xxlg";
 
+export type SpacingDirections = "all" | "horizontal" | "vertical";
+
 export type LetterSpacingTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg" | "xlg";
 
 export type LineHeightsTypes = "none" | "shorther" | "short" | "base" | "tall" | "taller";

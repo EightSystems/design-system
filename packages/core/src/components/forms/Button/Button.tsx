@@ -2,36 +2,36 @@ import * as React from "react";
 import { Spinner } from "../../feedback/Spinner";
 import Spacer from "../../layout/Spacer";
 import * as S from "./styled";
-import { WebButtonProps } from "./types";
+import { ButtonProps } from "./types";
 
-export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
-    (
-        {
-            disabled = false,
-            textColor = "primaryContrast",
-            fontFace = "primary",
-            fontWeight = "bold",
-            fontSize = "xs",
-            backgroundColor = "primary",
-            borderColor,
-            borderRadius = "md",
-            borderType = "default",
-            focusColor,
-            loading = false,
-            size = "large",
-            startIcon,
-            endIcon,
-            iconPadding,
-            spinnerColor = "primaryContrast",
-            spinnerSize = "xs",
-            children,
-            onPress,
-            onClick,
-            ...props
-        },
-        componentRef
-    ) => {
-        const onClickBinding = onClick || onPress;
+export const Button = React.memo<ButtonProps>(
+    ({
+        disabled = false,
+        textColor = "primaryContrast",
+        fontFace = "primary",
+        fontWeight = "bold",
+        fontSize = "xs",
+        backgroundColor = "primary",
+        borderColor,
+        borderRadius = "md",
+        borderType = "default",
+        focusColor,
+        loading = false,
+        size = "large",
+        startIcon,
+        endIcon,
+        iconPadding,
+        spinnerColor = "primaryContrast",
+        spinnerSize = "xs",
+        children,
+        onPress,
+        onClick,
+        onLongPress,
+        onPressIn,
+        onPressOut,
+        ...props
+    }: ButtonProps) => {
+        const onClickBinding = onPress || onClick;
 
         return (
             <S.ButtonWrapper
@@ -47,7 +47,6 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
                 data-bordertype={borderType}
                 data-size={size}
                 data-disabled={disabled || loading}
-                ref={componentRef}
             >
                 {startIcon && React.isValidElement(startIcon) ? startIcon : null}
 
@@ -68,5 +67,7 @@ export const Button = React.forwardRef<HTMLButtonElement, WebButtonProps>(
         );
     }
 );
+
+Button.displayName = "Button";
 
 export default Button;

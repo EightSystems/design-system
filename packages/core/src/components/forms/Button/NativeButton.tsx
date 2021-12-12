@@ -1,51 +1,52 @@
 import React, { isValidElement } from "react";
-import { PressableProps } from "react-native";
 import { Spinner } from "../../feedback/Spinner";
 import Spacer from "../../layout/Spacer";
 import * as S from "./styled.native";
-import { NativeButtonProps } from "./types";
+import { ButtonProps } from "./types";
 
-const Button = React.forwardRef<PressableProps, NativeButtonProps>(
-    (
-        {
-            disabled = false,
-            textColor = "primaryContrast",
-            fontFace = "primary",
-            fontWeight = "bold",
-            fontSize = "xs",
-            backgroundColor = "primary",
-            borderColor,
-            borderRadius = "md",
-            borderType = "default",
-            focusColor,
-            loading = false,
-            size = "large",
-            startIcon,
-            endIcon,
-            iconPadding,
-            spinnerColor = "primaryContrast",
-            spinnerSize = "sm",
-            children,
-            textAlign = "center",
-            onPress,
-            onClick,
-            ...props
-        },
-        componentRef
-    ) => {
-        const onClickBinding = onClick || onPress;
+const Button = React.memo<ButtonProps>(
+    ({
+        disabled = false,
+        textColor = "primaryContrast",
+        fontFace = "primary",
+        fontWeight = "bold",
+        fontSize = "xs",
+        backgroundColor = "primary",
+        borderColor,
+        borderRadius = "md",
+        borderType = "default",
+        focusColor,
+        loading = false,
+        size = "large",
+        startIcon,
+        endIcon,
+        iconPadding,
+        spinnerColor = "primaryContrast",
+        spinnerSize = "sm",
+        children,
+        textAlign = "center",
+        onPress,
+        onClick,
+        onLongPress,
+        onPressIn,
+        onPressOut,
+        ...props
+    }: ButtonProps) => {
+        const onClickBinding = onPress || onClick;
 
         return (
             <S.ButtonPressable
                 {...props}
                 onPress={onClickBinding}
+                onLongPress={onLongPress}
+                onPressIn={onPressIn}
+                onPressOut={onPressOut}
                 data-backgroundcolor={backgroundColor}
                 data-bordercolor={borderColor}
                 data-borderradius={borderRadius}
                 data-bordertype={borderType}
                 data-size={size}
                 data-disabled={disabled || loading}
-                ref={componentRef}
             >
                 {startIcon && isValidElement(startIcon) ? startIcon : null}
                 {startIcon && isValidElement(startIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
@@ -81,4 +82,5 @@ const Button = React.forwardRef<PressableProps, NativeButtonProps>(
     }
 );
 
+Button.displayName = "Button";
 export default Button;

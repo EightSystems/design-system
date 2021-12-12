@@ -1,7 +1,7 @@
 import * as React from "react";
-import { StyleProp, TextInputProps, ViewProps } from "react-native";
+import { TooltipProps } from "../../feedback/Tooltip/types";
 
-type CommonProps = {
+export type WebTextFieldProps = {
     /** Unique name used to generate de native input ID. */
     name: string;
 
@@ -50,65 +50,32 @@ type CommonProps = {
         | "custom"
         | string;
 
-    options?: any;
+    maskOptions?: any;
 
     /** Type of the `input` element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
     type?: "password" | "email" | "text" | "tel" | "number" | "search" | "url";
-};
 
-type WebProps = CommonProps & {
     /** If specified, determinates the content inside the Tooltip. Must be a valid React element. */
-    tooltipContent?: React.ReactNode | string;
+    tooltipContent?: TooltipProps["tooltipContent"];
 
     /** Determinates where the Tooltip will be positioned in relation to the component it's attached */
-    tooltipPlacement?:
-        | "auto"
-        | "auto-start"
-        | "auto-end"
-        | "top"
-        | "top-start"
-        | "top-end"
-        | "bottom"
-        | "bottom-start"
-        | "bottom-end"
-        | "right"
-        | "right-start"
-        | "right-end"
-        | "left"
-        | "left-start"
-        | "left-end";
-
-    /** Overrides or extends the style classes from the Tooltip component. */
-    tooltipClass?: string;
+    tooltipPlacement?: TooltipProps["placement"];
 
     /** Defines the distance between the Tooltip and the component to which it is attached. */
-    tooltipOffset?: number;
+    tooltipOffset?: TooltipProps["offset"];
 
     /** Distance between popover and trigger's cross axis. */
-    tooltipCrossOffset?: number;
-
-    /** Injects custom classes in the container that wraps the entire controller (label + input). */
-    controlClass?: string;
+    tooltipCrossOffset?: TooltipProps["crossOffset"];
 
     /** Receives the text value */
     onChange?: (textValue: string) => void;
+
+    required?: boolean;
+
+    onBlur?: (event: any) => void;
+    onFocus?: (event: any) => void;
 };
 
-type NativeProps = CommonProps & {
-    /** Used to pass custom styles to the entire container. */
-    controlStyle?: StyleProp<ViewProps>;
-
-    /** Used to pass custom styles to the validation container. */
-    validationStyle?: StyleProp<ViewProps>;
-
-    /** Used to pass custom styles to the native `TextInput` component. */
-    inputStyle?: StyleProp<TextInputProps>;
-
-    /** Receives the text value */
-    onChange?: (textValue: string) => void;
-
+export type NativeTextFieldProps = WebTextFieldProps & {
     keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
 };
-
-export type NativeTextFieldProps = Omit<TextInputProps, "onChange"> & NativeProps;
-export type WebTextFieldProps = Omit<React.ComponentProps<"input">, "onChange"> & WebProps;

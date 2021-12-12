@@ -7,4 +7,7 @@ export type IconProps = {
     style?: any;
     size?: FontSizeTypes;
     color?: ColorTypes;
+
+    onPress?: () => void;
+    onClick?: () => void;
 };

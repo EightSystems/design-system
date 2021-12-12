@@ -28,11 +28,11 @@ import { Box } from "@8sistemas/design-system";
 ## Example
 
 <Canvas>
-    <Story name="Box">
+    <Story name="Box" args={{backgroundColor: 'dangerGradient', padding: 'xs'}}>
         {args => {
             return (
-                <Box>
-                    <Text>My text inside the box</Text>
+                <Box {...args}>
+                    <Text>My text inside the xs padded box</Text>
                 </Box>
             );
         }}

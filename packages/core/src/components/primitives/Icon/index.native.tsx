@@ -1,4 +1,5 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Feather from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
@@ -13,7 +14,9 @@ import { ThemeContext } from "styled-components/native";
 import { nativeTheme } from "../../../theme";
 import { IconProps } from "./types";
 
-const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }: IconProps) => {
+const Icon = ({ familyName, icon, size = "sm", color = "black", onPress, onClick, ...otherProps }: IconProps) => {
+    const onClickListener = onPress || onClick;
+
     const themeContext = React.useContext<typeof nativeTheme>(ThemeContext);
 
     const fontRealSize =
@@ -69,7 +72,13 @@ const Icon = ({ familyName, icon, size = "sm", color = "black", ...otherProps }:
         }
 
         if (finalIconName) {
-            return <IconComponent name={finalIconName} color={fontRealColor} size={fontRealSize} {...otherProps} />;
+            return onClickListener ? (
+                <TouchableOpacity onPress={onClickListener}>
+                    <IconComponent name={finalIconName} color={fontRealColor} size={fontRealSize} {...otherProps} />
+                </TouchableOpacity>
+            ) : (
+                <IconComponent name={finalIconName} color={fontRealColor} size={fontRealSize} {...otherProps} />
+            );
         } else {
             console.log(`${icon} in ${familyName} is not supported (Tried these icon names: ${triedNames.join(", ")})`);
         }

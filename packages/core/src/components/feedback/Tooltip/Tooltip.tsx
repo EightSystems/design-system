@@ -2,24 +2,21 @@ import { Popover } from "@headlessui/react";
 import * as React from "react";
 import { usePopper } from "react-popper";
 import * as S from "./styled";
-import { WebTooltipProps } from "./types";
+import { TooltipProps } from "./types";
 
-const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
-    (
-        {
-            placement,
-            offset,
-            crossOffset,
-            tooltipContent,
-            children,
-            textColor = "white",
-            fontFace = "primary",
-            fontSize = "xs",
-            fontWeight = "bold",
-            ...props
-        },
-        componentRef
-    ) => {
+const Tooltip = React.memo<TooltipProps>(
+    ({
+        placement,
+        offset,
+        crossOffset,
+        tooltipContent,
+        children,
+        textColor = "white",
+        fontFace = "primary",
+        fontSize = "xs",
+        fontWeight = "bold",
+        ...props
+    }) => {
         const [referenceElement, setReferenceElement] = React.useState<any>();
         const [popperElement, setPopperElement] = React.useState<any>();
 
@@ -43,7 +40,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
         });
 
         return (
-            <Popover ref={componentRef}>
+            <Popover>
                 {({ open }) => (
                     <React.Fragment>
                         <Popover.Button
@@ -76,5 +73,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, WebTooltipProps>(
         );
     }
 );
+
+Tooltip.displayName = "Tooltip";
 
 export default Tooltip;

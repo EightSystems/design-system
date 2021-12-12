@@ -1,42 +1,55 @@
 import * as React from "react";
-import { MdCheck, MdError, MdInfo } from "react-icons/md";
 import { TextInputMask } from "react-web-mask";
 import { Spinner } from "../../feedback/Spinner";
 import { Tooltip } from "../../feedback/Tooltip";
+import { Icon } from "../../primitives/Icon";
 import * as S from "./styled";
 import { WebTextFieldProps } from "./types";
 
-const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
-    (
-        {
-            name,
-            label,
-            placeholder,
-            disabled = false,
-            required = false,
-            masked,
-            maskType = "only-numbers",
-            options,
-            validationSuccess,
-            validationError,
-            validationMessage,
-            tooltipContent,
-            tooltipPlacement,
-            tooltipOffset,
-            tooltipCrossOffset,
-            tooltipClass,
-            icon,
-            children,
-            value,
-            onBlur,
-            onFocus,
-            onChange,
-            ...props
-        },
-        componentRef
-    ) => {
+export const TextField = React.memo<WebTextFieldProps>(
+    ({
+        name,
+        label,
+        placeholder,
+        disabled = false,
+        required = false,
+        masked,
+        maskType = "only-numbers",
+        maskOptions,
+        validationSuccess,
+        validationError,
+        validationMessage,
+        tooltipContent,
+        tooltipPlacement,
+        tooltipOffset,
+        tooltipCrossOffset,
+        icon,
+        children,
+        value,
+        onBlur,
+        onFocus,
+        onChange,
+        ...props
+    }: WebTextFieldProps) => {
         const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
         const [focused, setFocused] = React.useState<boolean>(false);
+
+        const IconElement =
+            icon && icon !== "loadingSpinner" ? (
+                <S.IconWrapper>
+                    <React.Fragment>
+                        {icon === "info" ? (
+                            <Icon icon="md-info" color={"primary"} size={"sm"} familyName={"Material"} />
+                        ) : null}
+                        {icon === "error" ? (
+                            <Icon icon="md-error" color={"danger"} size={"sm"} familyName={"Material"} />
+                        ) : null}
+                        {icon === "success" ? (
+                            <Icon icon="md-check-circle" color={"success"} size={"sm"} familyName={"Material"} />
+                        ) : null}
+                    </React.Fragment>
+                </S.IconWrapper>
+            ) : null;
 
         return (
             <S.MainWrapper>
@@ -57,7 +70,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                                 {...props}
                                 disabled={disabled || null}
                                 kind={maskType}
-                                options={options}
+                                options={maskOptions}
                                 name={name}
                                 aria-label={label}
                                 aria-required={required}
@@ -80,7 +93,6 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                                     }
                                     setUncontrolledValue(e);
                                 }}
-                                ref={componentRef}
                                 value={value ? value : uncontrolledValue}
                             />
                         </S.MaskedInputComponent>
@@ -110,27 +122,25 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                                 }
                                 setUncontrolledValue(e);
                             }}
-                            ref={componentRef}
                             value={value ? value : uncontrolledValue}
                         />
                     )}
-                    {icon && tooltipContent ? (
-                        <Tooltip
-                            tooltipContent={tooltipContent}
-                            placement={tooltipPlacement}
-                            offset={tooltipOffset}
-                            crossOffset={tooltipCrossOffset}
-                            className={tooltipClass}
-                        >
-                            <S.IconWrapper>
-                                <React.Fragment>
-                                    {icon === "info" ? <MdInfo /> : null}
-                                    {icon === "error" ? <MdError /> : null}
-                                    {icon === "success" ? <MdCheck /> : null}
-                                </React.Fragment>
-                            </S.IconWrapper>
-                        </Tooltip>
+
+                    {icon && icon !== "loadingSpinner" ? (
+                        tooltipContent ? (
+                            <Tooltip
+                                tooltipContent={tooltipContent}
+                                placement={tooltipPlacement}
+                                offset={tooltipOffset}
+                                crossOffset={tooltipCrossOffset}
+                            >
+                                {IconElement}
+                            </Tooltip>
+                        ) : (
+                            IconElement
+                        )
                     ) : null}
+
                     {icon === "loadingSpinner" ? (
                         <S.IconWrapper>
                             <Spinner size={"sm"} color={"darkTint"} />
@@ -140,7 +150,7 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
                 <S.InputValidationContainer>
                     {validationMessage ? (
                         <React.Fragment>
-                            <MdInfo />
+                            <Icon icon="md-error" color={"danger"} size={"xxs"} familyName={"Material"} />
                             <S.InputValidationMessage>{validationMessage}</S.InputValidationMessage>
                         </React.Fragment>
                     ) : null}
@@ -150,4 +160,5 @@ const TextField = React.forwardRef<HTMLInputElement, WebTextFieldProps>(
     }
 );
 
+TextField.displayName = "TextField";
 export default TextField;

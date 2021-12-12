@@ -1,4 +1,4 @@
 import { default as Button } from "./Button";
 
-export type { WebButtonProps } from "./types";
+export type { ButtonProps } from "./types";
 export { Button };

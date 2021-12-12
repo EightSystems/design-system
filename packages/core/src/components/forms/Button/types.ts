@@ -9,7 +9,7 @@ import {
     TextAlignTypes,
 } from "../../../theme/types";
 
-export type WebButtonProps = {
+export type ButtonProps = {
     /** The color of the text inside the button. */
     textColor?: ColorTypes;
 
@@ -63,15 +63,13 @@ export type WebButtonProps = {
     /** When `true` the button is shown as disabled. */
     disabled?: boolean;
 
-    /** Replaces the `onClick` for HTML buttons */
     onPress?: null | ((event: any) => void) | undefined;
+    onLongPress?: null | ((event: any) => void) | undefined;
+    onPressIn?: null | ((event: any) => void) | undefined;
+    onPressOut?: null | ((event: any) => void) | undefined;
 
+    /** This prop is used for backwards compatibility, you should use onPress and it's variants */
     onClick?: null | ((event: any) => void) | undefined;
 
     children: React.ReactNode;
-};
-
-export type NativeButtonProps = Omit<WebButtonProps, "onClick"> & {
-    /** Replaces the `onPress` for Pressables */
-    onClick?: null | ((event: any) => void) | undefined;
 };

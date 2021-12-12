@@ -1,4 +1,4 @@
 import { default as Tooltip } from "./Tooltip";
 
-export type { WebTooltipProps } from "./types";
+export type { TooltipProps } from "./types";
 export { Tooltip };

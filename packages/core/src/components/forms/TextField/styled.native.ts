@@ -1,3 +1,4 @@
+import { Pressable } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import styled, { css } from "styled-components/native";
 
@@ -95,7 +96,7 @@ export const InputValidationMessage = styled.Text`
     padding-right: 4px;
 `;
 
-export const IconWrapper = styled.View`
+export const IconWrapper = styled(Pressable)`
     display: flex;
     justify-content: center;
     align-items: center;

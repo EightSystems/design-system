@@ -2,20 +2,29 @@ import * as React from "react";
 import { BoxStyled } from "./styled";
 import { BoxProps } from "./types";
 
-export const Box = React.forwardRef<HTMLDivElement, BoxProps>(
-    ({ children, backgroundColor, margin, padding, ...otherProps }, componentRef) => {
-        const styleProps = {
-            "data-backgroundcolor": backgroundColor,
-            "data-margin": margin,
-            "data-padding": padding,
-        };
+export const Box = ({
+    children,
+    backgroundColor,
+    margin,
+    padding,
+    paddingDirection = "all",
+    marginDirection = "all",
+    padded = false,
+    ...otherProps
+}: BoxProps) => {
+    const styleProps = {
+        "data-backgroundcolor": backgroundColor,
+        "data-margin": margin,
+        "data-margin-direction": marginDirection,
+        "data-padding": padded ? "default" : padding,
+        "data-padding-direction": padded ? "all" : paddingDirection,
+    };
 
-        return (
-            <BoxStyled {...otherProps} {...styleProps} ref={componentRef}>
-                {children}
-            </BoxStyled>
-        );
-    }
-);
+    return (
+        <BoxStyled {...otherProps} {...styleProps}>
+            {children}
+        </BoxStyled>
+    );
+};
 
 export default Box;

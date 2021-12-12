@@ -32,12 +32,16 @@ The `TextField` requires two obligatory props, `name` and `label`:
 ### Disabled
 
 <Canvas>
-    <Story name="Disabled TextField" args={{ name: "inputName", label: "Input Label Disabled", disabled: true, placeholder: "Disabled value" }}>
+    <Story
+        name="Disabled TextField"
+        args={{ name: "inputName", label: "Input Label Disabled", disabled: true, placeholder: "Disabled value" }}
+    >
         {args => <TextField {...args} />}
     </Story>
 </Canvas>
 
 ## Validation States
+
 Validation states can be achieved by using the props `validationError` to indicate validation error, `validationSuccess`
 to indicate validation success, and `validationMessage` to insert a helper message during the validation.
 
@@ -63,7 +67,7 @@ to indicate validation success, and `validationMessage` to insert a helper messa
 <Canvas>
     <Story
         name="Success TextField"
-        args={{ name: "inputName", label: "Input Label", value: "Right Input", validationSuccess: true }}
+        args={{ name: "inputName", label: "Input Label", value: "Right Input", icon: "success", validationSuccess: true }}
     >
         {args => <TextField {...args} />}
     </Story>
@@ -80,10 +84,11 @@ infomation that will be required by the input, using the props `icon` to show th
             name: "inputName",
             label: "Input Label",
             placeholder: "Placeholder Information",
-            icon: "loadingSpinner",
-            tooltipContent: "A vida é bela",
-            tooltipPlacement: "top-start",
-            tooltipOffset: [0, 6],
+            icon: "info",
+            tooltipContent:
+                "Fill this field with your information, and this is a long text line so we can see it break, and break more, and even more, and even even more.",
+            tooltipPlacement: "bottom-end",
+            tooltipOffset: 0,
         }}
     >
         {args => <TextField {...args} />}

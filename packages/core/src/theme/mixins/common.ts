@@ -78,10 +78,16 @@ export const textAlign = css`
 export const marginSpacing = css`
     ${props => {
         const marginValue = props["data-margin"];
+        const marginDirection = props["data-margin-direction"] || "all";
 
         if (typeof props.theme.spacing[marginValue] != "undefined") {
+            const marginValues = [
+                marginDirection == "all" || marginDirection == "vertical" ? props.theme.spacing[marginValue] : 0,
+                marginDirection == "all" || marginDirection == "horizontal" ? props.theme.spacing[marginValue] : 0,
+            ];
+
             return css`
-                margin: ${props.theme.spacing[marginValue]};
+                margin: ${marginValues.join(" ")};
             `;
         }
 
@@ -92,10 +98,16 @@ export const marginSpacing = css`
 export const paddingSpacing = css`
     ${props => {
         const paddingValue = props["data-padding"];
+        const paddingDirection = props["data-padding-direction"] || "all";
 
         if (typeof props.theme.spacing[paddingValue] != "undefined") {
+            const paddingValues = [
+                paddingDirection == "all" || paddingDirection == "vertical" ? props.theme.spacing[paddingValue] : 0,
+                paddingDirection == "all" || paddingDirection == "horizontal" ? props.theme.spacing[paddingValue] : 0,
+            ];
+
             return css`
-                padding: ${props.theme.spacing[paddingValue]};
+                padding: ${paddingValues.join(" ")};
             `;
         }
 

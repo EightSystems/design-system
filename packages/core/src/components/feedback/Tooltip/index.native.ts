@@ -1,4 +1,4 @@
 import { default as Tooltip } from "./NativeTooltip";
 
-export type { NativeTooltipProps } from "./types";
+export type { TooltipProps } from "./types";
 export { Tooltip };

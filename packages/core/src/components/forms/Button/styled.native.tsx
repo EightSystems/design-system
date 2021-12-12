@@ -1,4 +1,4 @@
-import { Pressable, Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
 import { withGradientBackground } from "../../../theme/gradient.native";
 import {
@@ -13,7 +13,7 @@ import {
 } from "../../../theme/mixins/native";
 
 export const ButtonPressable = withGradientBackground<any, any>(
-    styled(Pressable)`
+    styled(TouchableOpacity)`
         ${backgroundColors};
         ${borderColors};
         ${borderRadius};

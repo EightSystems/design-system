@@ -1,15 +1,17 @@
 import * as React from "react";
-import { IPopoverProps } from "react-native-popper/src/types";
 import { ColorTypes, FontFaceTypes, FontSizeTypes, FontWeightTypes } from "../../../theme/types";
 
-type CommonProps = {
-    children: React.ReactNode;
+export type TooltipProps = {
+    children: React.ReactElement | React.RefObject<any>;
 
     /** Determinates the tooltip positioning in relation to the component it's attached to. */
+    /**
+     * TODO: discover how to do this on native:
+     *  | "auto"
+     *  | "auto-start"
+     *  | "auto-end"
+     * */
     placement?:
-        | "auto"
-        | "auto-start"
-        | "auto-end"
         | "top"
         | "top-start"
         | "top-end"
@@ -47,25 +49,3 @@ type CommonProps = {
     /** The fontSize for the text inside the tooltip. */
     fontSize?: FontSizeTypes;
 };
-
-type NativeProps = Omit<CommonProps, "placement"> & {
-    children: React.ReactElement | React.RefObject<any>;
-
-    /** Determinates the tooltip positioning in relation to the component it's attached to. */
-    placement:
-        | "top"
-        | "top-start"
-        | "top-end"
-        | "bottom"
-        | "bottom-start"
-        | "bottom-end"
-        | "right"
-        | "right-start"
-        | "right-end"
-        | "left"
-        | "left-start"
-        | "left-end";
-};
-
-export type WebTooltipProps = React.ComponentPropsWithRef<"div"> & CommonProps;
-export type NativeTooltipProps = IPopoverProps & NativeProps;
