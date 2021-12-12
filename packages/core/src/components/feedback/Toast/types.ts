@@ -34,7 +34,7 @@ export type ToastProps = {
 };
 
 export type ToastProviderProps = {
-    children: React.ReactChild;
+    children: React.ReactNode;
 };
 
 export type ToastBodyProps = Omit<ToastProps, "show" | "position">;

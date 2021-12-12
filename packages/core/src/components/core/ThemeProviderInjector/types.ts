@@ -7,10 +7,10 @@ export type NativeThemeSchemaType = DeepPartial<typeof nativeTheme>;
 
 export type ThemeProviderProps = {
     theme?: ThemeSchemaType;
-    children: React.ReactNode | React.ReactElement;
+    children: React.ReactNode;
 };
 
 export type NativeThemeProviderProps = {
     theme?: NativeThemeSchemaType;
-    children: React.ReactNode | React.ReactElement;
+    children: React.ReactNode;
 };

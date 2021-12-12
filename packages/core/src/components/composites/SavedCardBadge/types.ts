@@ -1,4 +1,4 @@
-import { WebButtonProps } from "../../forms/Button/types";
+import { ButtonProps } from "../../forms/Button/types";
 
 export const brandNameMapping = {
     amex: "American Express",
@@ -33,5 +33,5 @@ export type SavedCardBadgeProps = {
     cardBrand: BrandNameKey;
     cardIdentifier?: string;
     cardLastDigits?: string;
-    onClick: WebButtonProps["onClick"];
+    onClick: ButtonProps["onClick"];
 };
