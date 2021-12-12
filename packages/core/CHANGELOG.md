@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.5](https://github.com/EightSystems/design-system/compare/v0.8.4...v0.8.5) (2021-12-12)
+
+
+### Bug Fixes
+
+* make peer dependencies ignoreable ([15d3847](https://github.com/EightSystems/design-system/commit/15d3847d3805b065e108415e9dd553622886e6ca))
+
 ## [0.8.4](https://github.com/EightSystems/design-system/compare/v0.8.3...v0.8.4) (2021-12-12)
 
 ## [0.8.3](https://github.com/EightSystems/design-system/compare/v0.8.2...v0.8.3) (2021-12-10)
