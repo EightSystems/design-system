@@ -63,20 +63,94 @@ const colors = {
     text: "#EFEFF2",
 
     custom1: "#EFEFF2",
+    custom1Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom1Shade: "#E5E5E5",
+    custom1Tint: "#F5F6F9",
+    custom1Contrast: "#090909",
+
     custom2: "#EFEFF2",
+    custom2Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom2Shade: "#E5E5E5",
+    custom2Tint: "#F5F6F9",
+    custom2Contrast: "#090909",
+
     custom3: "#EFEFF2",
+    custom3Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom3Shade: "#E5E5E5",
+    custom3Tint: "#F5F6F9",
+    custom3Contrast: "#090909",
+
     custom4: "#EFEFF2",
+    custom4Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom4Shade: "#E5E5E5",
+    custom4Tint: "#F5F6F9",
+    custom4Contrast: "#090909",
+
     custom5: "#EFEFF2",
+    custom5Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom5Shade: "#E5E5E5",
+    custom5Tint: "#F5F6F9",
+    custom5Contrast: "#090909",
+
     custom6: "#EFEFF2",
+    custom6Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom6Shade: "#E5E5E5",
+    custom6Tint: "#F5F6F9",
+    custom6Contrast: "#090909",
+
     custom7: "#EFEFF2",
+    custom7Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom7Shade: "#E5E5E5",
+    custom7Tint: "#F5F6F9",
+    custom7Contrast: "#090909",
+
     custom8: "#EFEFF2",
+    custom8Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom8Shade: "#E5E5E5",
+    custom8Tint: "#F5F6F9",
+    custom8Contrast: "#090909",
+
     custom9: "#EFEFF2",
+    custom9Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom9Shade: "#E5E5E5",
+    custom9Tint: "#F5F6F9",
+    custom9Contrast: "#090909",
+
     custom10: "#EFEFF2",
+    custom10Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom10Shade: "#E5E5E5",
+    custom10Tint: "#F5F6F9",
+    custom10Contrast: "#090909",
+
     custom11: "#EFEFF2",
+    custom11Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom11Shade: "#E5E5E5",
+    custom11Tint: "#F5F6F9",
+    custom11Contrast: "#090909",
+
     custom12: "#EFEFF2",
+    custom12Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom12Shade: "#E5E5E5",
+    custom12Tint: "#F5F6F9",
+    custom12Contrast: "#090909",
+
     custom13: "#EFEFF2",
+    custom13Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom13Shade: "#E5E5E5",
+    custom13Tint: "#F5F6F9",
+    custom13Contrast: "#090909",
+
     custom14: "#EFEFF2",
+    custom14Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom14Shade: "#E5E5E5",
+    custom14Tint: "#F5F6F9",
+    custom14Contrast: "#090909",
+
     custom15: "#EFEFF2",
+    custom15Gradient: ["#EFEFF2", "#cfcfcf"],
+    custom15Shade: "#E5E5E5",
+    custom15Tint: "#F5F6F9",
+    custom15Contrast: "#090909",
 };
 
 export default colors;
