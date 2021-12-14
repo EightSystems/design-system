@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.9](https://github.com/EightSystems/design-system/compare/v0.8.8...v0.8.9) (2021-12-14)
+
+
+### Bug Fixes
+
+* onchange, blur, and focus events on Select and TextField ([c85bf74](https://github.com/EightSystems/design-system/commit/c85bf741f901fef0881e9c933369bd7a203d938d))
+
 ## [0.8.8](https://github.com/EightSystems/design-system/compare/v0.8.7...v0.8.8) (2021-12-12)
 
 ## [0.8.7](https://github.com/EightSystems/design-system/compare/v0.8.6...v0.8.7) (2021-12-12)
