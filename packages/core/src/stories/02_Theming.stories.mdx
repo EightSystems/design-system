@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/addon-docs";
-import { CodeSyntaxHighlighter } from './helpers/SyntaxHighlighter';
+import { CodeSyntaxHighlighter } from "./helpers/SyntaxHighlighter";
 
-import { theme, nativeTheme } from '../theme';
+import { theme, nativeTheme } from "../theme";
 
 <Meta title="Theming" />
 
@@ -10,20 +10,30 @@ import { theme, nativeTheme } from '../theme';
 By default, the library ships with a default `Theme` object that can be provided to the `theme` prop of the
 `<ThemeProviderInjector>` component that is placed on the top level component of your project.
 
-The object has two "distinct" structures, one for web, and one for native, the major difference being the typography font faces, and shadow settings.
+The object has two "distinct" structures, one for web, and one for native, the major difference being the typography
+font faces, and shadow settings.
 
 #### Web defaults and theme format:
 
-<CodeSyntaxHighlighter language="javascript" codeString={`const Theme = ${JSON.stringify(theme, null, 2)}`}/>
+<CodeSyntaxHighlighter language="javascript" codeString={`const Theme = ${JSON.stringify(theme, null, 2)}`} />
 
 #### Native defaults and theme format:
 
-<CodeSyntaxHighlighter language="javascript" codeString={`const Theme = ${JSON.stringify(nativeTheme, null, 2)}`}/>
+<CodeSyntaxHighlighter language="javascript" codeString={`const Theme = ${JSON.stringify(nativeTheme, null, 2)}`} />
+
+#### What are these "customX" types?
+
+In order to allow a developer to use this in any project we added these `customX` types to some of the typography and
+color definitions, this would allow the dev to setup them right away without the need to mess with `*.d.ts` files in
+order to extend the types.
+
+We do know that this is kinda over-kill, but, as they say, better safe than sorry.
 
 ## Theme Customization
 
-You can customize this theme by creating your own theme object with this structure and providing the correspondent values
-to each property, with the support of deep-merge, we dont't need the whole theme object, and you can just update the properties you need.
+You can customize this theme by creating your own theme object with this structure and providing the correspondent
+values to each property, with the support of deep-merge, we dont't need the whole theme object, and you can just update
+the properties you need.
 
 You can then use this object at the `theme` prop for the `ThemeProviderInjector`:
 
@@ -35,9 +45,9 @@ import { ThemeProviderInjector } from "@8sistemas/design-system";
 
 const MyCustomTheme = {
     colors: {
-        primary: 'red'
-    }
-}
+        primary: "red",
+    },
+};
 
 ReactDOM.render(
     <React.StrictMode>
