@@ -72,8 +72,8 @@ export type WebTextFieldProps = {
 
     required?: boolean;
 
-    onBlur?: (event: any) => void;
-    onFocus?: (event: any) => void;
+    onBlur?: () => void;
+    onFocus?: () => void;
 };
 
 export type NativeTextFieldProps = WebTextFieldProps & {

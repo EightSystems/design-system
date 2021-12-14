@@ -3,10 +3,10 @@
 export const action = actionName => {
     return event => {
         if (event) {
+            console.log(`Action Executed: ${actionName}, check console for event data`);
             console.log(event);
-            alert(`Action Executed: ${actionName}, check console for event data`);
         } else {
-            alert(`Action Executed: ${actionName}`);
+            console.log(`Action Executed: ${actionName}`);
         }
     };
 };

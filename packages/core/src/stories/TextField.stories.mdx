@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { TextField } from "../components/forms/TextField";
+import { action } from "@storybook/addon-actions";
 
 <Meta title="Forms/TextField" component={TextField} />
 
@@ -24,7 +25,17 @@ import { TextField } from "@8sistemas/design-system";
 The `TextField` requires two obligatory props, `name` and `label`:
 
 <Canvas>
-    <Story name="Regular TextField" args={{ name: "inputName", label: "Input Label", placeholder: "Regular Value" }}>
+    <Story
+        name="Regular TextField"
+        args={{
+            name: "inputName",
+            label: "Input Label",
+            placeholder: "Regular Value",
+            onFocus: action("onFocus"),
+            onChange: action("onChange"),
+            onBlur: action("onBlur"),
+        }}
+    >
         {args => <TextField {...args} />}
     </Story>
 </Canvas>
@@ -34,7 +45,15 @@ The `TextField` requires two obligatory props, `name` and `label`:
 <Canvas>
     <Story
         name="Disabled TextField"
-        args={{ name: "inputName", label: "Input Label Disabled", disabled: true, placeholder: "Disabled value" }}
+        args={{
+            name: "inputName",
+            label: "Input Label Disabled",
+            disabled: true,
+            placeholder: "Disabled value",
+            onFocus: action("onFocus"),
+            onChange: action("onChange"),
+            onBlur: action("onBlur"),
+        }}
     >
         {args => <TextField {...args} />}
     </Story>
@@ -56,6 +75,9 @@ to indicate validation success, and `validationMessage` to insert a helper messa
             value: "Wrong Input",
             validationError: true,
             validationMessage: "There seems to be something wrong with your input",
+            onFocus: action("onFocus"),
+            onChange: action("onChange"),
+            onBlur: action("onBlur"),
         }}
     >
         {args => <TextField {...args} />}
@@ -67,7 +89,16 @@ to indicate validation success, and `validationMessage` to insert a helper messa
 <Canvas>
     <Story
         name="Success TextField"
-        args={{ name: "inputName", label: "Input Label", value: "Right Input", icon: "success", validationSuccess: true }}
+        args={{
+            name: "inputName",
+            label: "Input Label",
+            value: "Right Input",
+            icon: "success",
+            validationSuccess: true,
+            onFocus: action("onFocus"),
+            onChange: action("onChange"),
+            onBlur: action("onBlur"),
+        }}
     >
         {args => <TextField {...args} />}
     </Story>
@@ -89,6 +120,9 @@ infomation that will be required by the input, using the props `icon` to show th
                 "Fill this field with your information, and this is a long text line so we can see it break, and break more, and even more, and even even more.",
             tooltipPlacement: "bottom-end",
             tooltipOffset: 0,
+            onFocus: action("onFocus"),
+            onChange: action("onChange"),
+            onBlur: action("onBlur"),
         }}
     >
         {args => <TextField {...args} />}
@@ -112,9 +146,12 @@ available for mask controls on with IMask, use IMask's [official documentation](
             label="Date"
             masked="true"
             maskType={"datetime"}
-            options={{
+            maskOptions={{
                 format: "YYYY-MM-DD",
             }}
+            onFocus={action("onFocus")}
+            onChange={action("onChange")}
+            onBlur={action("onBlur")}
         />
     </Story>
 </Canvas>

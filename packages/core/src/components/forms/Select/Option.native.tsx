@@ -1,5 +1,5 @@
-import { NativeOptionProps } from "./types";
+import { OptionProps } from "./types";
 
-export const Option = (props: NativeOptionProps) => {
+export const Option = (props: OptionProps) => {
     return null;
 };

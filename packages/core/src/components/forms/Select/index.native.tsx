@@ -3,54 +3,110 @@ try {
     useActionSheet = require("@expo/react-native-action-sheet").useActionSheet;
 } catch (e) {}
 
-import React, { useState } from "react";
+import keys from "lodash/keys";
+import values from "lodash/values";
+import React, { useCallback, useEffect, useState } from "react";
 import { onlyText } from "react-children-utilities";
 import * as S from "./styled.native";
-import { NativeOptionProps, SelectProps } from "./types";
+import { OptionElement, SelectProps } from "./types";
 
 export { Option } from "./Option.native";
 
-export const Select = (props: SelectProps) => {
+export const Select = ({
+    onChange,
+    onBlur,
+    onFocus,
+    validationError,
+    validationSuccess,
+    validationMessage,
+    children,
+    placeholder,
+    label,
+    optionsCancelMessage,
+    value,
+}: SelectProps) => {
     if (!useActionSheet) {
         return null;
     }
 
-    const borderColor = props.validationError ? "danger" : props.validationSuccess ? "success" : "darkTint";
+    const extractChildValues = useCallback(() => {
+        const childMapped = React.Children.map(children, (child: OptionElement) => {
+            return {
+                value: child.props.value,
+                text: onlyText(child.props.children),
+            };
+        });
 
-    const optionList = React.Children.map(props.children, (child: React.ReactElement<NativeOptionProps>) => {
-        return onlyText(child.props.children);
-    });
+        const childReduced = childMapped.reduce<any>((previousValue, currentValue) => {
+            previousValue[currentValue.value] = currentValue.text;
+            return previousValue;
+        }, {});
 
-    const optionValueList = React.Children.map(props.children, (child: React.ReactElement<NativeOptionProps>) => {
-        return child.props.value;
-    });
+        return {
+            optionListMapped: childMapped,
+            optionListReduced: childReduced,
+            optionList: values(childReduced),
+            optionValueList: keys(childReduced),
+        };
+    }, [children]);
+
+    const { optionListReduced, optionList, optionValueList } = extractChildValues();
+
+    const borderColor = validationError ? "danger" : validationSuccess ? "success" : "darkTint";
 
     const [selectedOptionName, setSelectedOptionName] = useState(
-        props.placeholder || (optionList.length > 0 ? optionList[0] : "-- Empty Options --")
+        placeholder ||
+            (value && value in optionValueList
+                ? optionListReduced[value]
+                : optionList.length > 0
+                ? optionList[0]
+                : "-- Empty Options --")
     );
-    const [, setSelectedOptionValue] = useState(
-        props.placeholder ? "" : optionValueList.length > 0 ? optionValueList[0] : ""
+
+    const [selectedOptionValue, setSelectedOptionValue] = useState(
+        placeholder
+            ? ""
+            : value && value in optionValueList
+            ? value
+            : optionValueList.length > 0
+            ? optionValueList[0]
+            : ""
     );
+
+    useEffect(() => {
+        if (value !== selectedOptionValue) {
+            if (value in optionValueList) {
+                setSelectedOptionValue(value);
+                setSelectedOptionName(optionListReduced[value]);
+            }
+        }
+    }, [value]);
 
     const { showActionSheetWithOptions } = useActionSheet();
 
     const openSelectOptions = () => {
+        onFocus && onFocus();
+
         showActionSheetWithOptions(
             {
-                options: [...optionList, props.placeholder || props.optionsCancelMessage || "Cancel"],
-                destructiveButtonIndex: props.placeholder ? null : optionList.length,
+                options: [...optionList, placeholder || optionsCancelMessage || "Cancel"],
+                destructiveButtonIndex: placeholder ? null : optionList.length,
                 useModal: true,
             },
             selectedIndex => {
                 if (selectedIndex < optionList.length) {
                     setSelectedOptionName(optionList[selectedIndex]);
                     setSelectedOptionValue(optionValueList[selectedIndex]);
+                    onChange && onChange(optionValueList[selectedIndex]);
                 } else {
-                    if (props.placeholder) {
-                        setSelectedOptionName(props.placeholder);
+                    if (placeholder) {
+                        setSelectedOptionName(placeholder);
                         setSelectedOptionValue("");
+                        onChange && onChange("");
                     }
                 }
+
+                onBlur && onBlur();
             }
         );
     };
@@ -58,7 +114,7 @@ export const Select = (props: SelectProps) => {
     return (
         <S.MainWrapper>
             <S.InputLabel fontFace={"secondary"} fontWeight={"medium"} textColor={"dark"} fontSize={"xxs"}>
-                {props.label}
+                {label}
             </S.InputLabel>
             <S.SelectComponent
                 borderColor={borderColor}
@@ -73,11 +129,11 @@ export const Select = (props: SelectProps) => {
                 {selectedOptionName}
             </S.SelectComponent>
             <S.InputValidationContainer>
-                {props.validationMessage ? (
+                {validationMessage ? (
                     <React.Fragment>
                         <S.InputValidationIcon familyName={"Material"} icon={"info"} />
                         <S.InputValidationMessage fontFace={"primary"} textColor={"danger"} fontSize={"xxs"}>
-                            {props.validationMessage}
+                            {validationMessage}
                         </S.InputValidationMessage>
                     </React.Fragment>
                 ) : null}

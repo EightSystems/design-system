@@ -77,17 +77,17 @@ export const TextField = React.memo<WebTextFieldProps>(
                                 placeholder={placeholder}
                                 onFocus={e => {
                                     if (onFocus) {
-                                        onFocus(e);
+                                        onFocus();
                                     }
                                     setFocused(true);
                                 }}
                                 onBlur={e => {
                                     if (onBlur) {
-                                        onBlur(e);
+                                        onBlur();
                                     }
                                     setFocused(false);
                                 }}
-                                onChangeText={e => {
+                                onChangeText={(e: string) => {
                                     if (onChange) {
                                         onChange(e);
                                     }
@@ -106,21 +106,21 @@ export const TextField = React.memo<WebTextFieldProps>(
                             disabled={disabled}
                             onFocus={e => {
                                 if (onFocus) {
-                                    onFocus(e);
+                                    onFocus();
                                 }
                                 setFocused(true);
                             }}
                             onBlur={e => {
                                 if (onBlur) {
-                                    onBlur(e);
+                                    onBlur();
                                 }
                                 setFocused(false);
                             }}
-                            onChange={e => {
+                            onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
                                 if (onChange) {
-                                    onChange(e);
+                                    onChange(target.value);
                                 }
-                                setUncontrolledValue(e);
+                                setUncontrolledValue(target.value);
                             }}
                             value={value ? value : uncontrolledValue}
                         />

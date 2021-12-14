@@ -1,8 +1,18 @@
 import React from "react";
 
+export type OptionProps = {
+    disabled?: boolean;
+    selected?: boolean;
+    value: any;
+    label?: any;
+    children: React.ReactNode;
+};
+
+export type OptionElement = React.ReactElement<OptionProps>;
+
 export type SelectProps = {
     /** Os elementos de opção para preencher o `select`. Devem ser `<Option>` vindo do próprio componente. */
-    children: React.ReactNode;
+    children: OptionElement[];
 
     /** Atributo de nome do elemento `<select>`. Por padrão, o nome também será repassado para o atributo `for` do elemento `<label>`. */
     name: string;
@@ -25,12 +35,11 @@ export type SelectProps = {
     validationMessage?: string;
 
     optionsCancelMessage?: string;
-};
 
-export type NativeOptionProps = {
-    disabled?: boolean;
-    selected?: boolean;
-    value: any;
-    label?: any;
-    children: React.ReactNode;
+    onChange?: (value: any) => void;
+    onBlur?: () => void;
+    onFocus?: () => void;
+
+    /** Selected value */
+    value?: any;
 };

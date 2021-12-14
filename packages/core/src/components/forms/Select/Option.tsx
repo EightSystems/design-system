@@ -1,5 +1,6 @@
-import React, { OptionHTMLAttributes } from "react";
+import React from "react";
+import { OptionProps } from "./types";
 
-export const Option = ({ children, ...otherProps }: OptionHTMLAttributes<HTMLOptionElement>) => {
+export const Option = ({ children, ...otherProps }: OptionProps) => {
     return <option {...otherProps}>{children}</option>;
 };
