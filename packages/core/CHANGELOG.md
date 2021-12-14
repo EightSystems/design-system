@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.10](https://github.com/EightSystems/design-system/compare/v0.8.9...v0.8.10) (2021-12-14)
+
+
+### Bug Fixes
+
+* one or more option in select: ([4d90cf7](https://github.com/EightSystems/design-system/commit/4d90cf73933558db222425704e075b5ebb942545))
+
 ## [0.8.9](https://github.com/EightSystems/design-system/compare/v0.8.8...v0.8.9) (2021-12-14)
 
 
