@@ -12,7 +12,7 @@ export type OptionElement = React.ReactElement<OptionProps>;
 
 export type SelectProps = {
     /** Os elementos de opção para preencher o `select`. Devem ser `<Option>` vindo do próprio componente. */
-    children: OptionElement[];
+    children: OptionElement | OptionElement[];
 
     /** Atributo de nome do elemento `<select>`. Por padrão, o nome também será repassado para o atributo `for` do elemento `<label>`. */
     name: string;
