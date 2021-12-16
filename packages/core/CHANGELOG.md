@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.13](https://github.com/EightSystems/design-system/compare/v0.8.12...v0.8.13) (2021-12-16)
+
+
+### Bug Fixes
+
+* select styling match textinput, and remove garbage code ([bc36b06](https://github.com/EightSystems/design-system/commit/bc36b069b59913cc963b038d5068da252c96282c))
+
 ## [0.8.12](https://github.com/EightSystems/design-system/compare/v0.8.11...v0.8.12) (2021-12-16)
 
 
