@@ -1,12 +1,12 @@
 const borders = {
-    none: 0,
+    none: "0px",
     sm: "1px solid",
     default: "2px solid",
     lg: "4px solid",
 };
 
 export const borderRadius = {
-    none: 0,
+    none: "0px",
     sm: "3px",
     md: "4px",
     lg: "5px",

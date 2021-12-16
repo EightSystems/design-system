@@ -2,7 +2,9 @@ export type ShadowTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg" | "xlg" 
 
 export type RadiusTypes = "none" | "sm" | "md" | "lg" | "xl" | "pill" | "full";
 
-export type BorderTypes = "sm" | "default" | "lg";
+export type BorderTypes = "none" | "sm" | "default" | "lg";
+
+export type BorderPosition = "top" | "left" | "right" | "bottom" | "all";
 
 export type SpacingTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg" | "xlg" | "xxlg";
 

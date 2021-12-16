@@ -7,6 +7,7 @@ import keys from "lodash/keys";
 import values from "lodash/values";
 import React, { useCallback, useEffect, useState } from "react";
 import { onlyText } from "react-children-utilities";
+import { Icon } from "../../primitives/Icon";
 import * as S from "./styled.native";
 import { OptionElement, SelectProps } from "./types";
 
@@ -24,6 +25,10 @@ export const Select = ({
     label,
     optionsCancelMessage,
     value,
+    borderRadius = "sm",
+    borderPosition = "all",
+    borderType = "default",
+    borderColor = "darkTint",
 }: SelectProps) => {
     if (!useActionSheet) {
         return null;
@@ -52,7 +57,7 @@ export const Select = ({
 
     const { optionListReduced, optionList, optionValueList } = extractChildValues();
 
-    const borderColor = validationError ? "danger" : validationSuccess ? "success" : "darkTint";
+    const borderFinalColor = validationError ? "danger" : validationSuccess ? "success" : borderColor;
 
     const [selectedOptionName, setSelectedOptionName] = useState(
         placeholder ||
@@ -117,21 +122,24 @@ export const Select = ({
                 {label}
             </S.InputLabel>
             <S.SelectComponent
-                borderColor={borderColor}
+                borderColor={borderFinalColor}
+                borderType={borderType}
+                borderRadius={borderRadius}
+                borderPosition={borderPosition}
                 onClick={openSelectOptions}
                 backgroundColor={"white"}
                 fontFace={"secondary"}
                 fontWeight={"normal"}
                 textColor={"textSecondary"}
                 textAlign={"left"}
-                endIcon={<S.InputArrowIcon familyName={"FontAwesome"} icon={"chevron-down"} />}
+                endIcon={<Icon familyName={"FontAwesome"} icon={"chevron-down"} size={"sm"} />}
             >
                 {selectedOptionName}
             </S.SelectComponent>
             <S.InputValidationContainer>
                 {validationMessage ? (
                     <React.Fragment>
-                        <S.InputValidationIcon familyName={"Material"} icon={"info"} />
+                        <S.InputValidationIcon familyName={"Material"} icon={"info"} color={"danger"} />
                         <S.InputValidationMessage fontFace={"primary"} textColor={"danger"} fontSize={"xxs"}>
                             {validationMessage}
                         </S.InputValidationMessage>

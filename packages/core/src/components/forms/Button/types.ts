@@ -1,5 +1,6 @@
 import * as React from "react";
 import {
+    BorderPosition,
     BorderTypes,
     ColorTypes,
     FontFaceTypes,
@@ -35,6 +36,9 @@ export type ButtonProps = {
 
     /** Radius of the button border. */
     borderRadius?: RadiusTypes;
+
+    /** Position of the border, it can be a single string, or an array of strings */
+    borderPosition?: BorderPosition | BorderPosition[];
 
     /** Color when the button is focused. */
     focusColor?: ColorTypes;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderColors } from "../../../theme/mixins/web";
+import { borderColors, borderRadius } from "../../../theme/mixins/web";
 import * as T from "../../../theme/typography";
 
 export const MainWrapper = styled.div`
@@ -26,16 +26,15 @@ export const InputLabel = styled.label`
 export const SelectComponent = styled.select`
     ${T.FormInput};
 
-    border: ${props => props.theme.borders.default};
-
     ${borderColors};
+    ${borderRadius};
 
     appearance: none;
     padding: 12px 12px;
     width: 100%;
 
     background: ${props => props.theme.colors.white};
-    border-radius: 4px;
+
     transition: 150ms ease-in-out;
     :focus {
         outline: none;

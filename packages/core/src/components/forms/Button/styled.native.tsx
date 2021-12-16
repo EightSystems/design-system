@@ -18,22 +18,27 @@ export const ButtonPressable = withGradientBackground<any, any>(
         ${borderColors};
         ${borderRadius};
 
+        min-height: ${({ theme }) => theme.elements.minHeight.default};
+
         ${props =>
             props["data-size"] == "small"
                 ? css`
                       padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
+                      min-height: ${({ theme }) => theme.elements.minHeight.small};
                   `
                 : null}
         ${props =>
             props["data-size"] == "medium"
                 ? css`
                       padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
+                      min-height: ${({ theme }) => theme.elements.minHeight.medium};
                   `
                 : null}
             ${props =>
             props["data-size"] == "large"
                 ? css`
                       padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
+                      min-height: ${({ theme }) => theme.elements.minHeight.large};
                   `
                 : null}
 
@@ -48,7 +53,6 @@ export const ButtonPressable = withGradientBackground<any, any>(
         align-items: center;
         flex-direction: row;
         width: 100%;
-        min-height: 50px;
     `
 );
 

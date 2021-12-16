@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
     backgroundColors,
     borderColors,
@@ -17,20 +17,41 @@ export const ButtonWrapper = styled.button`
     ${fontWeights};
     ${borderColors};
 
-    &[data-size="small"] {
-        padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
-        font-size: ${({ theme }) => theme.typography.fontSizes.xxs};
-    }
+    min-height: ${({ theme }) => theme.elements.minHeight.default};
 
-    &[data-size="medium"] {
-        padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
-        font-size: ${({ theme }) => theme.typography.fontSizes.xs};
-    }
+    ${props =>
+        props["data-size"] == "small"
+            ? css`
+                  padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
+                  min-height: ${({ theme }) => theme.elements.minHeight.small};
+                  font-size: ${({ theme }) => theme.typography.fontSizes.xxs};
+              `
+            : null}
 
-    &[data-size="large"] {
-        padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
-        font-size: ${({ theme }) => theme.typography.fontSizes.xs};
-    }
+    ${props =>
+        props["data-size"] == "medium"
+            ? css`
+                  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
+                  min-height: ${({ theme }) => theme.elements.minHeight.medium};
+                  font-size: ${({ theme }) => theme.typography.fontSizes.xs};
+              `
+            : null}
+
+    ${props =>
+        props["data-size"] == "large"
+            ? css`
+                  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
+                  min-height: ${({ theme }) => theme.elements.minHeight.large};
+                  font-size: ${({ theme }) => theme.typography.fontSizes.xs};
+              `
+            : null}
+
+    ${props =>
+        props["data-disabled"]
+            ? css`
+                  opacity: 0.75;
+              `
+            : null}
 
     ${fontSizes};
 
@@ -48,8 +69,6 @@ export const ButtonWrapper = styled.button`
     appearance: none;
 
     width: 100%;
-    min-height: 50px;
-
     &:hover,
     :focus {
         box-shadow: ${({ theme }) => theme.shadows.xs};

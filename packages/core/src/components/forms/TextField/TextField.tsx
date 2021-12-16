@@ -4,35 +4,48 @@ import { Spinner } from "../../feedback/Spinner";
 import { Tooltip } from "../../feedback/Tooltip";
 import { Icon } from "../../primitives/Icon";
 import * as S from "./styled";
-import { WebTextFieldProps } from "./types";
+import { TextFieldProps } from "./types";
 
-export const TextField = React.memo<WebTextFieldProps>(
+export const TextField = React.memo<TextFieldProps>(
     ({
         name,
         label,
         placeholder,
+        masked = false,
         disabled = false,
-        required = false,
-        masked,
-        maskType = "only-numbers",
+        type = "text",
         maskOptions,
         validationSuccess,
         validationError,
         validationMessage,
+        children,
+        value,
+        icon,
+        keyboardType,
+        maskType = "only-numbers",
         tooltipContent,
         tooltipPlacement,
         tooltipOffset,
         tooltipCrossOffset,
-        icon,
-        children,
-        value,
         onBlur,
         onFocus,
         onChange,
-        ...props
-    }: WebTextFieldProps) => {
+        borderRadius = "sm",
+        borderPosition = "all",
+        borderType = "default",
+        borderColor = "darkTint",
+        required = false,
+        maxLength,
+    }: TextFieldProps) => {
         const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
         const [focused, setFocused] = React.useState<boolean>(false);
+        const borderFinalColor = validationError
+            ? "danger"
+            : validationSuccess
+            ? "success"
+            : focused
+            ? "primary"
+            : borderColor;
 
         const IconElement =
             icon && icon !== "loadingSpinner" ? (
@@ -59,17 +72,21 @@ export const TextField = React.memo<WebTextFieldProps>(
                 <S.InputWrapper
                     data-disabled={disabled}
                     data-focused={focused}
-                    data-validation-success={validationSuccess}
-                    data-validation-error={validationError}
+                    data-bordercolor={borderFinalColor}
+                    data-borderradius={borderRadius}
+                    data-bordertype={borderType}
+                    data-borderposition={borderPosition}
                 >
                     {children ? (
                         children
                     ) : masked ? (
-                        <S.MaskedInputComponent>
+                        <S.MaskedInputComponent data-borderradius={borderRadius} data-borderposition={borderPosition}>
                             <TextInputMask
-                                {...props}
+                                maxLength={maxLength}
+                                required={required}
                                 disabled={disabled || null}
                                 kind={maskType}
+                                type={type}
                                 options={maskOptions}
                                 name={name}
                                 aria-label={label}
@@ -98,7 +115,11 @@ export const TextField = React.memo<WebTextFieldProps>(
                         </S.MaskedInputComponent>
                     ) : (
                         <S.InputComponent
-                            {...props}
+                            data-borderradius={borderRadius}
+                            data-borderposition={borderPosition}
+                            maxLength={maxLength}
+                            required={required}
+                            type={type}
                             name={name}
                             aria-label={label}
                             aria-required={required}

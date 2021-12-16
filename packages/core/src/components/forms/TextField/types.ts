@@ -1,7 +1,8 @@
 import * as React from "react";
+import { BorderPosition, BorderTypes, ColorTypes, RadiusTypes } from "../../../theme/types";
 import { TooltipProps } from "../../feedback/Tooltip/types";
 
-export type WebTextFieldProps = {
+export type TextFieldProps = {
     /** Unique name used to generate de native input ID. */
     name: string;
 
@@ -74,8 +75,21 @@ export type WebTextFieldProps = {
 
     onBlur?: () => void;
     onFocus?: () => void;
-};
 
-export type NativeTextFieldProps = WebTextFieldProps & {
+    /**
+     * This only works on native
+     */
     keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
+
+    /** Color of the input border. */
+    borderColor?: ColorTypes;
+
+    /** Type of the input border. */
+    borderType?: BorderTypes;
+
+    /** Radius of the input border. */
+    borderRadius?: RadiusTypes;
+
+    /** Position of the border, it can be a single string, or an array of strings */
+    borderPosition?: BorderPosition | BorderPosition[];
 };

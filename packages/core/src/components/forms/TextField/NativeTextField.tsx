@@ -4,9 +4,9 @@ import { Spinner } from "../../feedback/Spinner";
 import { Tooltip } from "../../feedback/Tooltip";
 import { Icon } from "../../primitives/Icon";
 import * as S from "./styled.native";
-import { NativeTextFieldProps } from "./types";
+import { TextFieldProps } from "./types";
 
-export const TextField = React.memo<NativeTextFieldProps>(
+export const TextField = React.memo<TextFieldProps>(
     ({
         name,
         label,
@@ -30,13 +30,26 @@ export const TextField = React.memo<NativeTextFieldProps>(
         onBlur,
         onFocus,
         onChange,
-        ...props
-    }: NativeTextFieldProps) => {
+        borderRadius = "sm",
+        borderPosition = "all",
+        borderType = "default",
+        borderColor = "darkTint",
+        required = false,
+        maxLength,
+    }: TextFieldProps) => {
         const accessibilityState = { disabled: disabled };
         const elementUniqueId = uniqueId(name);
 
         const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
         const [focused, setFocused] = React.useState<boolean>(false);
+
+        const borderFinalColor = validationError
+            ? "danger"
+            : validationSuccess
+            ? "success"
+            : focused
+            ? "primary"
+            : borderColor;
 
         let secureTextEntry = false;
         if (!keyboardType) {
@@ -61,7 +74,7 @@ export const TextField = React.memo<NativeTextFieldProps>(
         }
 
         const inputProps = {
-            maxLength: props.maxLength ? props.maxLength : null,
+            maxLength: maxLength,
             "data-disabled": disabled,
             nativeID: elementUniqueId,
             editable: !disabled,
@@ -92,15 +105,15 @@ export const TextField = React.memo<NativeTextFieldProps>(
             <S.MainWrapper accessible accessibilityLabel={label} accessibilityState={accessibilityState}>
                 <S.InputLabel data-focused={focused}>{label}</S.InputLabel>
                 <S.InputWrapper
-                    data-validationSuccess={validationSuccess}
-                    data-validationError={validationError}
-                    data-focused={focused}
                     data-icon={icon}
+                    data-bordercolor={borderFinalColor}
+                    data-borderradius={borderRadius}
+                    data-bordertype={borderType}
+                    data-borderposition={borderPosition}
                 >
                     {masked ? (
                         <S.MaskedInputComponent
                             options={maskOptions}
-                            {...props}
                             {...inputProps}
                             type={maskType}
                             onFocus={e => {
@@ -125,7 +138,6 @@ export const TextField = React.memo<NativeTextFieldProps>(
                         />
                     ) : (
                         <S.InputComponent
-                            {...props}
                             {...inputProps}
                             onFocus={e => {
                                 if (onFocus) {

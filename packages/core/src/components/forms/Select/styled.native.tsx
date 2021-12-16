@@ -26,16 +26,10 @@ export const InputValidationContainer = styled(Box)`
     padding-top: 6px;
     display: flex;
     flex-direction: row;
-    min-height: 26px;
+    min-height: ${({ theme }) => theme.elements.minHeight.small};
     align-items: flex-start;
 `;
 
 export const InputValidationIcon = styled(Icon)`
-    color: ${({ theme }) => theme.colors.danger};
     padding-top: 3px;
-`;
-
-export const InputArrowIcon = styled(Icon)`
-    font-size: ${({ theme }) => theme.nativeTypography.fontSizes.sm};
-    font-family: ${({ theme }) => theme.nativeTypography.fontFaces.primaryBold};
 `;

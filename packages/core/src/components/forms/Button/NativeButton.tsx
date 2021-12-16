@@ -15,6 +15,7 @@ const Button = React.memo<ButtonProps>(
         borderColor,
         borderRadius = "md",
         borderType = "default",
+        borderPosition = "all",
         focusColor,
         loading = false,
         size = "large",
@@ -45,6 +46,7 @@ const Button = React.memo<ButtonProps>(
                 data-bordercolor={borderColor}
                 data-borderradius={borderRadius}
                 data-bordertype={borderType}
+                data-borderposition={borderPosition}
                 data-size={size}
                 data-disabled={disabled || loading}
             >

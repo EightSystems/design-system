@@ -6,10 +6,27 @@ import { SelectProps } from "./types";
 
 export { Option } from "./Option";
 
-export const Select = ({ onFocus, onBlur, onChange, ...props }: SelectProps) => {
-    const borderColor = props.validationError ? "danger" : props.validationSuccess ? "success" : null;
+export const Select = ({
+    onFocus,
+    onBlur,
+    onChange,
+    validationError,
+    validationSuccess,
+    validationMessage,
+    children,
+    placeholder,
+    label,
+    name,
+    value,
+    required = false,
+    borderRadius = "sm",
+    borderPosition = "all",
+    borderType = "default",
+    borderColor = "darkTint",
+}: SelectProps) => {
+    const borderFinalColor = validationError ? "danger" : validationSuccess ? "success" : borderColor;
 
-    const elementUniqueId = uniqueId(props.name);
+    const elementUniqueId = uniqueId(name);
 
     const handleFocus = () => {
         onFocus && onFocus();
@@ -25,26 +42,29 @@ export const Select = ({ onFocus, onBlur, onChange, ...props }: SelectProps) => 
 
     return (
         <S.MainWrapper>
-            <S.InputLabel htmlFor={elementUniqueId}>{props.label}</S.InputLabel>
+            <S.InputLabel htmlFor={elementUniqueId}>{label}</S.InputLabel>
             <S.SelectComponent
-                {...props}
+                value={value}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 onFocus={handleFocus}
                 id={elementUniqueId}
-                aria-label={props.label}
-                aria-required={props.required}
-                name={props.name}
-                placeholder={props.placeholder}
-                data-bordercolor={borderColor}
+                aria-label={label}
+                aria-required={required}
+                name={name}
+                placeholder={placeholder}
+                data-bordercolor={borderFinalColor}
+                data-borderradius={borderRadius}
+                data-bordertype={borderType}
+                data-borderposition={borderPosition}
             >
-                {props.children}
+                {children}
             </S.SelectComponent>
             <S.InputValidationContainer>
-                {props.validationMessage ? (
+                {validationMessage ? (
                     <React.Fragment>
                         <MdInfo />
-                        <S.InputValidationMessage>{props.validationMessage}</S.InputValidationMessage>
+                        <S.InputValidationMessage>{validationMessage}</S.InputValidationMessage>
                     </React.Fragment>
                 ) : null}
             </S.InputValidationContainer>

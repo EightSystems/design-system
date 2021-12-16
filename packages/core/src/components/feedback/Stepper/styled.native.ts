@@ -33,7 +33,7 @@ export const ActiveStepLabel = withMediaWatcher(
 export const NextStepLabel = withMediaWatcher(
     styled.Text`
         color: ${props => props.theme.colors.lightContrast};
-        font-family: ${props => props.theme.nativeTypography.fontFaces.primaryRegular};
+        font-family: ${props => props.theme.nativeTypography.fontFaces.primaryNormal};
         font-size: 16px;
         ${media.tablet`
             font-size: 14px;

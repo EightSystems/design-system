@@ -1,12 +1,14 @@
 import styled, { css } from "styled-components";
+import { borderColors, borderRadius } from "../../../theme/mixins/web";
 
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
     width: 100%;
-    min-height: 80px;
+    min-height: ${({ theme }) => theme.elements.minHeight.display};
 `;
+
 export const InputLabel = styled.label`
     transition: 150ms ease-in-out;
     padding-bottom: ${props => props.theme.spacing.xxs};
@@ -24,29 +26,20 @@ export const InputLabel = styled.label`
         opacity: 0.8;
     }
 `;
+
 export const InputWrapper = styled.div`
     display: flex;
     align-items: center;
     transition: 150ms ease-in-out;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 6px;
-    border-color: ${({ theme }) => theme.colors.darkTint};
+    ${borderRadius};
+    ${borderColors};
 
     &:hover {
         border-color: ${({ theme }) => theme.colors.primary};
     }
 
     &[data-focused="true"] {
-        border-color: ${({ theme }) => theme.colors.primary};
         box-shadow: ${props => props.theme.shadows.default};
-    }
-
-    &[data-validation-success="true"] {
-        border-color: ${({ theme }) => theme.colors.success};
-    }
-    &[data-validation-error="true"] {
-        border-color: ${({ theme }) => theme.colors.danger};
     }
 
     &[data-disabled="true"] {
@@ -61,7 +54,8 @@ const InputComponentCommonStyles = css`
     font-weight: 600;
     line-height: 20px;
 
-    border-radius: 6px;
+    ${borderRadius};
+
     padding: 12px 12px;
     width: 100%;
     border: none;

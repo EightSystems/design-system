@@ -1,4 +1,5 @@
 import React from "react";
+import { ButtonProps } from "../Button/types";
 
 export type OptionProps = {
     disabled?: boolean;
@@ -42,4 +43,9 @@ export type SelectProps = {
 
     /** Selected value */
     value?: any;
+
+    borderRadius?: ButtonProps["borderRadius"];
+    borderPosition?: ButtonProps["borderPosition"];
+    borderType?: ButtonProps["borderType"];
+    borderColor?: ButtonProps["borderColor"];
 };

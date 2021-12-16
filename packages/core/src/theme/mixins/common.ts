@@ -1,3 +1,4 @@
+import castArray from "lodash/castArray";
 import { css } from "styled-components";
 
 export const textColors = css`
@@ -18,25 +19,63 @@ export const borderColors = css`
     ${props => {
         const borderColor = props["data-bordercolor"];
         const borderType = props["data-bordertype"] || "default";
+        const borderPosition = castArray(props["data-borderposition"] || "all");
 
         if (typeof props.theme.colors[borderColor] != "undefined") {
+            const borderValue = `${props.theme.borders[borderType] || props.theme.borders.default}`.split(" ");
+            const borderColorValue = props.theme.colors[borderColor] || props.theme.colors.darkTint;
+            const borderStyle = borderValue.length > 1 ? borderValue[1] : "solid";
+            const borderSize = borderValue[0];
+
             return css`
-                border: ${props.theme.borders[borderType] || props.theme.borders.default}
-                    ${props.theme.colors[borderColor]};
+                border-style: ${borderStyle};
+                border-color: ${borderColorValue};
+                border-top-width: ${borderPosition.indexOf("all") > -1 || borderPosition.indexOf("top") > -1
+                    ? borderSize
+                    : "0px"};
+                border-right-width: ${borderPosition.indexOf("all") > -1 || borderPosition.indexOf("right") > -1
+                    ? borderSize
+                    : "0px"};
+                border-bottom-width: ${borderPosition.indexOf("all") > -1 || borderPosition.indexOf("bottom") > -1
+                    ? borderSize
+                    : "0px"};
+                border-left-width: ${borderPosition.indexOf("all") > -1 || borderPosition.indexOf("left") > -1
+                    ? borderSize
+                    : "0px"};
             `;
         }
 
         return null;
     }}
 `;
-
 export const borderRadius = css`
     ${props => {
         const borderRadius = props["data-borderradius"];
+        const borderPosition = castArray(props["data-borderposition"] || "all");
 
         if (typeof props.theme.borderRadius[borderRadius] != "undefined") {
+            const borderRadiusValue = props.theme.borderRadius[borderRadius];
+
             return css`
-                border-radius: ${props.theme.borderRadius[borderRadius]};
+                border-top-left-radius: ${borderPosition.indexOf("all") > -1 ||
+                (borderPosition.indexOf("top") > -1 && borderPosition.indexOf("left") > -1)
+                    ? borderRadiusValue
+                    : "0px"};
+
+                border-top-right-radius: ${borderPosition.indexOf("all") > -1 ||
+                (borderPosition.indexOf("top") > -1 && borderPosition.indexOf("right") > -1)
+                    ? borderRadiusValue
+                    : "0px"};
+
+                border-bottom-left-radius: ${borderPosition.indexOf("all") > -1 ||
+                (borderPosition.indexOf("bottom") > -1 && borderPosition.indexOf("left") > -1)
+                    ? borderRadiusValue
+                    : "0px"};
+
+                border-bottom-right-radius: ${borderPosition.indexOf("all") > -1 ||
+                (borderPosition.indexOf("bottom") > -1 && borderPosition.indexOf("right") > -1)
+                    ? borderRadiusValue
+                    : "0px"};
             `;
         }
 

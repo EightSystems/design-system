@@ -1,11 +1,12 @@
 import { Pressable } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import styled, { css } from "styled-components/native";
+import { borderColors, borderRadius } from "../../../theme/mixins/native";
 
 export const MainWrapper = styled.View`
     flex-direction: column;
     width: 100%;
-    min-height: 80px;
+    min-height: ${({ theme }) => theme.elements.minHeight.display};
 `;
 
 export const InputLabel = styled.Text`
@@ -27,6 +28,7 @@ export const InputWrapper = styled.View`
     display: flex;
     align-items: center;
     flex-direction: row;
+
     ${props =>
         props["data-icon"]
             ? css`
@@ -34,23 +36,10 @@ export const InputWrapper = styled.View`
               `
             : null}
 
-    border-color: ${({ theme }) => theme.colors.darkTint};
-    background-color: white;
-    border-width: 2px;
-    border-radius: 5px;
-    ${props =>
-        props["data-validationError"] == true
-            ? css`
-                  border-color: ${({ theme }) => theme.colors.danger};
-              `
-            : null}
+    ${borderRadius};
+    ${borderColors};
 
-    ${props =>
-        props["data-validationSuccess"] == true
-            ? css`
-                  border-color: ${({ theme }) => theme.colors.success};
-              `
-            : null}
+    background-color: white;
 
     ${props =>
         props["data-focused"] == true
@@ -90,7 +79,7 @@ export const InputValidationContainer = styled.View`
 `;
 
 export const InputValidationMessage = styled.Text`
-    font-family: ${props => props.theme.nativeTypography.fontFaces.primaryRegular};
+    font-family: ${props => props.theme.nativeTypography.fontFaces.primaryNormal};
     color: ${props => props.theme.colors.danger};
     padding-left: 4px;
     padding-right: 4px;
