@@ -1,2 +1,2 @@
 export { TextField } from "./NativeTextField";
-export type { NativeTextFieldProps } from "./types";
+export type { TextFieldProps } from "./types";
