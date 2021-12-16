@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { borderColors, borderRadius } from "../../../theme/mixins/web";
-import * as T from "../../../theme/typography";
 
 export const MainWrapper = styled.div`
     display: flex;
@@ -20,11 +19,19 @@ export const MainWrapper = styled.div`
     }
 `;
 export const InputLabel = styled.label`
-    ${T.FormLabel};
+    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
+    color: ${({ theme }) => theme.colors.textBody};
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
     padding-bottom: 4px;
 `;
 export const SelectComponent = styled.select`
-    ${T.FormInput};
+    font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
+    color: ${({ theme }) => theme.colors.dark};
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
 
     ${borderColors};
     ${borderRadius};
@@ -48,7 +55,9 @@ export const SelectComponent = styled.select`
 `;
 export const InputValidationMessage = styled.span`
     padding-left: 2px;
-    ${T.FormValidationMessage};
+    font-family: ${({ theme }) => theme.typography.fontFaces.primary};
+    color: ${({ theme }) => theme.colors.danger};
+    font-size: 13px;
 `;
 export const InputValidationContainer = styled.div`
     svg {

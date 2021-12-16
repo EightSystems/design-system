@@ -87,6 +87,27 @@ export const Select = ({
         }
     }, [value]);
 
+    useEffect(() => {
+        setSelectedOptionName(
+            placeholder ||
+                (value && value in optionValueList
+                    ? optionListReduced[value]
+                    : optionList.length > 0
+                    ? optionList[0]
+                    : "-- Empty Options --")
+        );
+
+        setSelectedOptionValue(
+            placeholder
+                ? ""
+                : value && value in optionValueList
+                ? value
+                : optionValueList.length > 0
+                ? optionValueList[0]
+                : ""
+        );
+    }, [children]);
+
     const { showActionSheetWithOptions } = useActionSheet();
 
     const openSelectOptions = () => {
@@ -129,8 +150,8 @@ export const Select = ({
                 onClick={openSelectOptions}
                 backgroundColor={"white"}
                 fontFace={"secondary"}
-                fontWeight={"normal"}
-                textColor={"textSecondary"}
+                fontWeight={"medium"}
+                textColor={"dark"}
                 textAlign={"left"}
                 endIcon={<Icon familyName={"FontAwesome"} icon={"chevron-down"} size={"sm"} />}
             >
