@@ -5,7 +5,7 @@ try {
 
 import keys from "lodash/keys";
 import values from "lodash/values";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { onlyText } from "react-children-utilities";
 import { Icon } from "../../primitives/Icon";
 import * as S from "./styled.native";
@@ -34,7 +34,7 @@ export const Select = ({
         return null;
     }
 
-    const extractChildValues = useCallback(() => {
+    const { optionListReduced, optionList, optionValueList } = useMemo(() => {
         const childMapped = React.Children.map(children, (child: OptionElement) => {
             return {
                 value: child.props.value,
@@ -54,8 +54,6 @@ export const Select = ({
             optionValueList: keys(childReduced),
         };
     }, [children]);
-
-    const { optionListReduced, optionList, optionValueList } = extractChildValues();
 
     const borderFinalColor = validationError ? "danger" : validationSuccess ? "success" : borderColor;
 
@@ -106,7 +104,7 @@ export const Select = ({
                 ? optionValueList[0]
                 : ""
         );
-    }, [children]);
+    }, [optionValueList]);
 
     const { showActionSheetWithOptions } = useActionSheet();
 
