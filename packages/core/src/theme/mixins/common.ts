@@ -85,13 +85,13 @@ export const borderRadius = css`
 
 export const textDecoration = css`
     ${props =>
-        props["data-italic"] === "true"
+        props["data-italic"]
             ? css`
                   font-style: italic;
               `
             : null}
     ${props =>
-        props["data-underline"] === "true"
+        props["data-underline"]
             ? css`
                   text-decoration-line: underline;
                   text-decoration-style: solid;

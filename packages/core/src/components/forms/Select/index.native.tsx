@@ -113,8 +113,8 @@ export const Select = ({
 
         showActionSheetWithOptions(
             {
-                options: [...optionList, placeholder || optionsCancelMessage || "Cancel"],
-                destructiveButtonIndex: placeholder ? null : optionList.length,
+                options: [...optionList, optionsCancelMessage || "Cancel"],
+                destructiveButtonIndex: optionList.length,
                 useModal: true,
             },
             selectedIndex => {
@@ -122,12 +122,6 @@ export const Select = ({
                     setSelectedOptionName(optionList[selectedIndex]);
                     setSelectedOptionValue(optionValueList[selectedIndex]);
                     onChange && onChange(optionValueList[selectedIndex]);
-                } else {
-                    if (placeholder) {
-                        setSelectedOptionName(placeholder);
-                        setSelectedOptionValue("");
-                        onChange && onChange("");
-                    }
                 }
 
                 onBlur && onBlur();
