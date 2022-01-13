@@ -129,6 +129,28 @@ infomation that will be required by the input, using the props `icon` to show th
     </Story>
 </Canvas>
 
+## TextAreas
+
+To mimic the `native` props we use `multiline` and `numberOfLines` as the props to transform the input into a `TextArea`
+
+<Canvas>
+    <Story
+        name="TextArea TextField"
+        args={{
+            name: "inputName",
+            label: "Input Label",
+            placeholder: "Regular Value",
+            multiline: true,
+            numberOfLines: 4,
+            onFocus: action("onFocus"),
+            onChange: action("onChange"),
+            onBlur: action("onBlur"),
+        }}
+    >
+        {args => <TextField {...args} />}
+    </Story>
+</Canvas>
+
 ## Masks
 
 Under the hood, `TextField` uses react-imask to configure masks on inputs. To see more information about the props

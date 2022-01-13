@@ -92,4 +92,9 @@ export type TextFieldProps = {
 
     /** Position of the border, it can be a single string, or an array of strings */
     borderPosition?: BorderPosition | BorderPosition[];
+
+    /** Use this to create a textarea */
+    multiline?: boolean;
+
+    numberOfLines?: number;
 };

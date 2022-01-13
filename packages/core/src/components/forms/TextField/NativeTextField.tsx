@@ -35,6 +35,8 @@ export const TextField = React.memo<TextFieldProps>(
         borderType = "default",
         borderColor = "darkTint",
         required = false,
+        multiline = false,
+        numberOfLines = 1,
         maxLength,
     }: TextFieldProps) => {
         const accessibilityState = { disabled: disabled };
@@ -82,6 +84,9 @@ export const TextField = React.memo<TextFieldProps>(
             placeholderTextColor: "rgba(0, 0, 0, 0.5)",
             keyboardType,
             secureTextEntry,
+            multiline,
+            numberOfLines,
+            textAlignVertical: multiline ? "top" : "auto",
         };
 
         const IconElement =
