@@ -80,6 +80,10 @@ export const InputComponent = styled.input`
     ${InputComponentCommonStyles};
 `;
 
+export const TextAreaComponent = styled.textarea`
+    ${InputComponentCommonStyles};
+`;
+
 export const IconWrapper = styled.div`
     display: flex;
     justify-content: center;

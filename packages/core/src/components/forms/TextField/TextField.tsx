@@ -36,6 +36,8 @@ export const TextField = React.memo<TextFieldProps>(
         borderColor = "darkTint",
         required = false,
         maxLength,
+        multiline = false,
+        numberOfLines = 1,
     }: TextFieldProps) => {
         const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
         const [focused, setFocused] = React.useState<boolean>(false);
@@ -113,6 +115,38 @@ export const TextField = React.memo<TextFieldProps>(
                                 value={value ? value : uncontrolledValue}
                             />
                         </S.MaskedInputComponent>
+                    ) : multiline ? (
+                        <S.TextAreaComponent
+                            data-borderradius={borderRadius}
+                            data-borderposition={borderPosition}
+                            maxLength={maxLength}
+                            required={required}
+                            name={name}
+                            aria-label={label}
+                            aria-required={required}
+                            placeholder={placeholder}
+                            disabled={disabled}
+                            onFocus={e => {
+                                if (onFocus) {
+                                    onFocus();
+                                }
+                                setFocused(true);
+                            }}
+                            onBlur={e => {
+                                if (onBlur) {
+                                    onBlur();
+                                }
+                                setFocused(false);
+                            }}
+                            onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
+                                if (onChange) {
+                                    onChange(target.value);
+                                }
+                                setUncontrolledValue(target.value);
+                            }}
+                            value={value ? value : uncontrolledValue}
+                            rows={numberOfLines}
+                        />
                     ) : (
                         <S.InputComponent
                             data-borderradius={borderRadius}
