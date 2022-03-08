@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.17](https://github.com/EightSystems/design-system/compare/v0.8.16...v0.8.17) (2022-03-08)
+
+
+### Bug Fixes
+
+* uncontrolled value from text field ([9e66c02](https://github.com/EightSystems/design-system/commit/9e66c027c27f94f4b397c92cb8c61a2eb6888baa))
+
 ## [0.8.16](https://github.com/EightSystems/design-system/compare/v0.8.15...v0.8.16) (2022-01-13)
 
 ## [0.8.15](https://github.com/EightSystems/design-system/compare/v0.8.14...v0.8.15) (2022-01-11)
