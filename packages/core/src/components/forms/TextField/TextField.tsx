@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { TextInputMask } from "react-web-mask";
 import { Spinner } from "../../feedback/Spinner";
 import { Tooltip } from "../../feedback/Tooltip";
@@ -65,6 +65,12 @@ export const TextField = React.memo<TextFieldProps>(
                     </React.Fragment>
                 </S.IconWrapper>
             ) : null;
+
+        useEffect(() => {
+            if (value != null) {
+                setUncontrolledValue(value);
+            }
+        }, [value]);
 
         return (
             <S.MainWrapper>

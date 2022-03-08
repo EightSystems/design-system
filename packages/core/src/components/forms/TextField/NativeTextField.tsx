@@ -1,5 +1,5 @@
 import uniqueId from "lodash/uniqueId";
-import * as React from "react";
+import React, { useEffect } from "react";
 import { Spinner } from "../../feedback/Spinner";
 import { Tooltip } from "../../feedback/Tooltip";
 import { Icon } from "../../primitives/Icon";
@@ -44,6 +44,12 @@ export const TextField = React.memo<TextFieldProps>(
 
         const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
         const [focused, setFocused] = React.useState<boolean>(false);
+
+        useEffect(() => {
+            if (value != null) {
+                setUncontrolledValue(value);
+            }
+        }, [value]);
 
         const borderFinalColor = validationError
             ? "danger"
