@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.18](https://github.com/EightSystems/design-system/compare/v0.8.17...v0.8.18) (2022-03-24)
+
+
+### Bug Fixes
+
+* force string for value in TextField, and add numberOfLines property to text ([448f508](https://github.com/EightSystems/design-system/commit/448f5081fb804676d1e5caf14e3db9565bc4c615))
+
 ## [0.8.17](https://github.com/EightSystems/design-system/compare/v0.8.16...v0.8.17) (2022-03-08)
 
 
