@@ -132,7 +132,25 @@
 
             const player = new Plyr("#plyr-instance", _.merge(defaultOptions, options));
             player.source = source || defaultSource;
-            console.log(eventsListener);
+
+            function enterFullScreen() {
+                if (player) {
+                    player.fullscreen.enter();
+                }
+            }
+
+            function exitFullScreen() {
+                if (player) {
+                    player.fullscreen.exit();
+                }
+            }
+
+            function toggleFullScreen() {
+                if (player) {
+                    player.fullscreen.toggle();
+                }
+            }
+
             for (var eventName of eventsListener) {
                 const __eventNameCopy = eventName;
                 player.on(__eventNameCopy, function (eventData) {
