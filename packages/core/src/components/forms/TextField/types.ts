@@ -16,7 +16,7 @@ export type TextFieldProps = {
     disabled?: boolean;
 
     /** The `value` for the internal TextInput component. */
-    value: any;
+    value?: string;
 
     /** If `true` the input will indicate validation succcess. */
     validationSuccess?: boolean;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
     fontFaces,
     fontSizes,
@@ -12,8 +12,9 @@ import {
     textDecoration,
     textSelectable,
 } from "../../../theme/mixins/web";
+import { TextProps } from "./types";
 
-export const Text = styled.p`
+export const Text = styled.p<TextProps>`
     ${textDecoration};
     ${textAlign};
     ${fontFaces};
@@ -25,4 +26,13 @@ export const Text = styled.p`
     ${marginSpacing};
     ${paddingSpacing};
     ${textSelectable};
+
+    ${(props: TextProps) =>
+        props.numberOfLines
+            ? css`
+                  display: -webkit-box;
+                  -webkit-line-clamp: ${(props: TextProps) => props.numberOfLines};
+                  -webkit-box-orient: vertical;
+              `
+            : null}
 `;

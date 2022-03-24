@@ -37,4 +37,6 @@ export type TextProps = {
 
     /** Allows the text to be user selectable */
     selectable?: boolean;
+
+    numberOfLines?: Number;
 };

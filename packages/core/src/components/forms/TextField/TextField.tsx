@@ -39,7 +39,7 @@ export const TextField = React.memo<TextFieldProps>(
         multiline = false,
         numberOfLines = 1,
     }: TextFieldProps) => {
-        const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
+        const [uncontrolledValue, setUncontrolledValue] = React.useState<string>("");
         const [focused, setFocused] = React.useState<boolean>(false);
         const borderFinalColor = validationError
             ? "danger"

@@ -42,7 +42,7 @@ export const TextField = React.memo<TextFieldProps>(
         const accessibilityState = { disabled: disabled };
         const elementUniqueId = uniqueId(name);
 
-        const [uncontrolledValue, setUncontrolledValue] = React.useState<any>("");
+        const [uncontrolledValue, setUncontrolledValue] = React.useState<string>("");
         const [focused, setFocused] = React.useState<boolean>(false);
 
         useEffect(() => {
