@@ -3,7 +3,7 @@
 
 
 "@8sistemas/design-system@file:../core":
-  version "0.8.2"
+  version "0.8.19"
   dependencies:
     dinero.js "^1.8.1"
     lodash "^4.17.21"
@@ -11,6 +11,7 @@
     react-children-utilities "^2.6.3"
     react-native-masked-text "^1.13.0"
     react-native-toast-notifications "^3.2.3"
+    semver-compare "^1.0.0"
     styled-components "^5.3.0"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.14.5":

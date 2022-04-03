@@ -44,4 +44,12 @@ export class Platform {
             isPad: this.isPad,
         };
     }
+
+    static isAndroidVersionGreaterThan(expectedAndroidVersion): boolean {
+        return false;
+    }
+
+    static isIOSVersionGreaterThan(expectedIOSVersion): boolean {
+        return false;
+    }
 }

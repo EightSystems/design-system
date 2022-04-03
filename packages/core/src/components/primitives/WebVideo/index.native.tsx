@@ -1,8 +1,11 @@
 import keys from "lodash/keys";
-import React, { useEffect, useImperativeHandle, useRef } from "react";
+import React, { Fragment, useEffect, useImperativeHandle, useRef, useState } from "react";
+import { Platform } from "../../../utils/Platform";
+import { Spinner } from "../../feedback/Spinner";
 import { Text } from "../../typography/Text";
+import { Image } from "../Image";
 import { Orientation } from "./Orientation";
-import { WebVideoContainer } from "./styled.native";
+import { WebVideoContainer, WebVideoPlaceholderContainer, WebVideoPlaceholderSpinnerContainer } from "./styled.native";
 import { CallbackMapping, NativeEventType, WebVideoProps } from "./types";
 
 let WebView = null;
@@ -22,6 +25,9 @@ export const WebVideo = React.forwardRef(
         ref
     ) => {
         const webviewRef = useRef(null);
+        const [isLoading, setIsLoading] = useState(true);
+        const [isReady, setIsReady] = useState(false);
+        const hasNeededAndroidVersion = Platform.OS == "android" ? Platform.isAndroidVersionGreaterThan("8.1") : true;
 
         useImperativeHandle(ref, () => ({
             enterFullScreen: () => {
@@ -53,6 +59,12 @@ export const WebVideo = React.forwardRef(
                     }
                 },
             ],
+            ready: [
+                ...(eventsListener?.ready || []),
+                () => {
+                    setIsReady(true);
+                },
+            ],
         };
 
         const videoPlayerUrl = `${nativeVideoPlayerUrl}?options=${encodeURIComponent(
@@ -71,35 +83,56 @@ export const WebVideo = React.forwardRef(
 
         return (
             <WebVideoContainer>
-                {WebView ? (
-                    <WebView
-                        allowsFullscreenVideo={true}
-                        javaScriptEnabled={true}
-                        domStorageEnabled={true}
-                        androidLayerType={"hardware"}
-                        mixedContentMode={"always"}
-                        allowsInlineMediaPlayback={true}
-                        ref={webviewRef}
-                        mediaPlaybackRequiresUserAction={false}
-                        source={{ uri: videoPlayerUrl }}
-                        onMessage={messageData => {
-                            const { eventName, eventData } = JSON.parse(
-                                messageData.nativeEvent.data
-                            ) as NativeEventType;
+                {hasNeededAndroidVersion ? (
+                    WebView ? (
+                        <Fragment>
+                            {isLoading || !isReady ? (
+                                <Fragment>
+                                    <WebVideoPlaceholderContainer>
+                                        {source.poster ? <Image src={source.poster} layout={"fill"} /> : null}
+                                    </WebVideoPlaceholderContainer>
+                                    <WebVideoPlaceholderSpinnerContainer>
+                                        <Spinner color={"white"} size={"xxl"} />
+                                    </WebVideoPlaceholderSpinnerContainer>
+                                </Fragment>
+                            ) : null}
 
-                            if (plyrEventsListener[eventName]) {
-                                for (var callbackEvent of plyrEventsListener[eventName]) {
-                                    try {
-                                        callbackEvent(eventData);
-                                    } catch (e) {
-                                        console.error(`Event ${eventName} failed with error: ${e}`);
+                            <WebView
+                                allowsFullscreenVideo={true}
+                                javaScriptEnabled={true}
+                                domStorageEnabled={true}
+                                androidLayerType={"hardware"}
+                                mixedContentMode={"always"}
+                                allowsInlineMediaPlayback={true}
+                                startInLoadingState={true}
+                                ref={webviewRef}
+                                mediaPlaybackRequiresUserAction={false}
+                                source={{ uri: videoPlayerUrl }}
+                                onNavigationStateChange={navState => {
+                                    setIsLoading(navState.loading);
+                                }}
+                                onMessage={messageData => {
+                                    const { eventName, eventData } = JSON.parse(
+                                        messageData.nativeEvent.data
+                                    ) as NativeEventType;
+
+                                    if (plyrEventsListener[eventName]) {
+                                        for (var callbackEvent of plyrEventsListener[eventName]) {
+                                            try {
+                                                callbackEvent(eventData);
+                                            } catch (e) {
+                                                console.error(`Event ${eventName} failed with error: ${e}`);
+                                            }
+                                        }
                                     }
-                                }
-                            }
-                        }}
-                    />
+                                }}
+                            />
+                        </Fragment>
+                    ) : (
+                        <Text>You need to install the react-native-webview package</Text>
+                    )
                 ) : (
-                    <Text>You need to install the react-native-webview package</Text>
+                    <Text>Your Operating System is too old, you need at least Android 8.1</Text>
                 )}
             </WebVideoContainer>
         );
