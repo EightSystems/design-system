@@ -63,6 +63,7 @@
         "css-loader": "^6.5.1",
         "path": "^0.12.7",
         "plyr-react": "^3.2.1",
+        "plyr": "https://github.com/EightSystems/plyr.git",
         "react-collapse": "^5.1.0",
         "react-dom": "^17.0.1",
         "react-icons": "^4.2.0",
@@ -110,6 +111,7 @@
         "build:mobile": "tsc --project tsconfig.native.json && copyfiles -u 1 src/assets/**/* mobile/",
         "build": "yarn prebuild && yarn build:web && yarn build:mobile",
         "publish:local": "yarn build && yalc publish --files --no-scripts",
-        "publish:npm": "yarn semantic-release"
+        "publish:npm": "yarn semantic-release",
+        "postinstall": "rm -rf node_modules/plyr-react/node_modules/plyr"
     }
 }
