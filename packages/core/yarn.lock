@@ -13843,9 +13843,9 @@ plyr@^3.6.8:
     rangetouch "^2.0.1"
     url-polyfill "^1.1.12"
 
-"plyr@https://github.com/EightSystems/plyr.git":
+"plyr@https://github.com/EightSystems/plyr.git#fc88bf46877824eb872bf3bbb304c967152c9d58":
   version "3.6.12"
-  resolved "https://github.com/EightSystems/plyr.git#b46b6bb3201dcd72526d9f9741b38ffdb98dce6f"
+  resolved "https://github.com/EightSystems/plyr.git#fc88bf46877824eb872bf3bbb304c967152c9d58"
   dependencies:
     core-js "^3.20.0"
     custom-event-polyfill "^1.0.7"
