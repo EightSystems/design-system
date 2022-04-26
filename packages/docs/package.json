@@ -19,7 +19,7 @@
         "asyncstorage-down": "^4.2.0",
         "node-libs-react-native": "^1.2.1",
         "path-dirname": "^1.0.2",
-        "react": "17.0.1",
+        "react": ">=17.0.1",
         "react-children-utilities": "^2.6.3",
         "react-icons": "^4.2.0",
         "react-native": "0.64.2",

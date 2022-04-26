@@ -95,7 +95,7 @@
     "dependencies": {
         "dinero.js": "^1.8.1",
         "lodash": "^4.17.21",
-        "react": "^17.0.1",
+        "react": ">=17.0.1",
         "react-children-utilities": "^2.6.3",
         "react-native-masked-text": "^1.13.0",
         "react-native-toast-notifications": "^3.2.3",
