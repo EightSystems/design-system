@@ -76,4 +76,9 @@ export type ButtonProps = {
     onClick?: null | ((event: any) => void) | undefined;
 
     children: React.ReactNode;
+
+    /**
+     * This adds support to Styled-Component as prop, but keep in mind that this is platform specific.
+     */
+    as?: React.ElementType | keyof JSX.IntrinsicElements;
 };
