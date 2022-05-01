@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.8.26](https://github.com/EightSystems/design-system/compare/v0.8.25...v0.8.26) (2022-05-01)
+
 ## [0.8.25](https://github.com/EightSystems/design-system/compare/v0.8.24...v0.8.25) (2022-04-27)
 
 ## [0.8.24](https://github.com/EightSystems/design-system/compare/v0.8.23...v0.8.24) (2022-04-26)
