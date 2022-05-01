@@ -8,7 +8,7 @@ export type AvatarProps = {
     alt: string;
 
     /** The `src` attribute of the `img` element. */
-    src?: string;
+    src?: any;
 
     /** Defines the component size. */
     size: "large" | "medium" | "small";
