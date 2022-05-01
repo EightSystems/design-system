@@ -1,24 +1,8 @@
 import React from "react";
-import {
-    Modal as RNModal,
-    ModalProps as RNModalProps,
-    StyleProp,
-    StyleSheet,
-    TouchableWithoutFeedback,
-    View,
-    ViewStyle,
-} from "react-native";
+import { Modal as RNModal, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { nativeTheme } from "../../../theme";
+import { ModalProps } from "./types";
 
-export type ModalProps = RNModalProps & {
-    children: React.ReactNode;
-    backdropStyle?: StyleProp<ViewStyle>;
-    overlayStyle?: StyleProp<ViewStyle>;
-    onClose?(): void;
-    fullScreen?: boolean;
-    halfScreen?: boolean;
-    open: boolean;
-};
 const Modal = ({
     children,
     backdropStyle,

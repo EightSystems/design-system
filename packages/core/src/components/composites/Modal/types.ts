@@ -1,16 +1,24 @@
 import { ReactNode } from "react";
 
-export type WebModalProps = {
+export type ModalProps = {
+    /**
+     * You can only use it with the Web version
+     */
     className?: string;
-    overlayClass?: string;
+
+    /**
+     * Style for the modal itself
+     */
+    overlayStyle?: any;
+    backdropStyle?: any;
+
     style?: any;
 
     open?: boolean;
-    onClose?: CallableFunction;
+    onClose?: () => void;
     initialFocus?: any;
     children: ReactNode;
 
+    fullScreen?: boolean;
     halfScreen?: boolean;
 };
-
-export type NativeModalProps = Omit<WebModalProps, "className" | "overlayClass">;

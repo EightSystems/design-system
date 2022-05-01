@@ -1,9 +1,9 @@
 import { Transition } from "@headlessui/react";
 import React from "react";
 import * as S from "./styled";
-import { WebModalProps } from "./types";
+import { ModalProps } from "./types";
 
-const Modal = (props: WebModalProps) => {
+const Modal = (props: ModalProps) => {
     const onClose = props.onClose || (() => null);
 
     return (
@@ -36,4 +36,4 @@ const Modal = (props: WebModalProps) => {
 };
 
 export { Modal };
-export type { WebModalProps };
+export type { ModalProps };
