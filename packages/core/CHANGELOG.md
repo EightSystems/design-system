@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.9.1](https://github.com/EightSystems/design-system/compare/v0.9.0...v0.9.1) (2022-05-02)
+
+
+### Bug Fixes
+
+* **Gradient:** shadows on gradients ([b03eedc](https://github.com/EightSystems/design-system/commit/b03eedc9a032a445f3c292dc6b6a8038e7d4e263))
+
 # [0.9.0](https://github.com/EightSystems/design-system/compare/v0.8.28...v0.9.0) (2022-05-02)
 
 
