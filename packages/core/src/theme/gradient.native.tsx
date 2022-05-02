@@ -2,7 +2,7 @@ import isArray from "lodash/isArray";
 import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
 import { NativeThemeSchemaType } from "../components/core/ThemeProviderInjector/types";
-import { borderColors, borderRadius, marginSpacing, paddingSpacing } from "./mixins/native";
+import { borderColors, borderRadius, marginSpacing, paddingSpacing, shadowMaker } from "./mixins/native";
 let LinearGradient,
     LinearGradientStyled = null;
 try {
@@ -13,6 +13,7 @@ try {
         ${borderColors};
         ${paddingSpacing};
         ${marginSpacing};
+        ${shadowMaker};
     `;
 } catch (e) {}
 
@@ -31,6 +32,7 @@ export function withGradientBackground<T, P = {}>(Component: any) {
                 "data-margin": "none",
                 "data-padding": "none",
                 "data-bordercolor": "transparent",
+                "data-shadowsize": "none",
             };
 
             if (!LinearGradientStyled) {
