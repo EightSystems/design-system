@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+# [0.9.0](https://github.com/EightSystems/design-system/compare/v0.8.28...v0.9.0) (2022-05-02)
+
+
+### Features
+
+* **Box:** add support for box shadows ([c7fc901](https://github.com/EightSystems/design-system/commit/c7fc90169b92d6173c546d101441a6b4dea070c9))
+
 ## [0.8.28](https://github.com/EightSystems/design-system/compare/v0.8.27...v0.8.28) (2022-05-01)
 
 ## [0.8.27](https://github.com/EightSystems/design-system/compare/v0.8.26...v0.8.27) (2022-05-01)
