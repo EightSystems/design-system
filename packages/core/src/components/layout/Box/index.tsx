@@ -10,6 +10,11 @@ export const Box = ({
     paddingDirection = "all",
     marginDirection = "all",
     padded = false,
+    borderColor,
+    borderPosition,
+    borderType,
+    borderRadius,
+    shadowSize,
     ...otherProps
 }: BoxProps) => {
     const styleProps = {
@@ -18,6 +23,11 @@ export const Box = ({
         "data-margin-direction": marginDirection,
         "data-padding": padded ? "default" : padding,
         "data-padding-direction": padded ? "all" : paddingDirection,
+        "data-bordercolor": borderColor,
+        "data-borderradius": borderRadius,
+        "data-bordertype": borderType,
+        "data-borderposition": borderPosition,
+        "data-shadowsize": shadowSize,
     };
 
     return (

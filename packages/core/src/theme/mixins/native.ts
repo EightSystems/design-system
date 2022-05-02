@@ -1,4 +1,5 @@
 import isArray from "lodash/isArray";
+import { Platform } from "react-native";
 import { css } from "styled-components";
 
 export {
@@ -102,5 +103,26 @@ export const fontFaces = css`
         }
 
         return null;
+    }}
+`;
+
+export const shadowMaker = css`
+    ${props => {
+        const shadowSize = props["data-shadowsize"];
+
+        if (typeof props.theme.nativeShadows[shadowSize] != "undefined") {
+            return Platform.OS == "android"
+                ? css`
+                      elevation: ${props.theme.nativeShadows[shadowSize].elevation};
+                  `
+                : css`
+                      elevation: ${props.theme.nativeShadows[shadowSize].elevation};
+                      shadow-color: ${props.theme.nativeShadows[shadowSize].shadowColor};
+                      shadow-offset: ${props.theme.nativeShadows[shadowSize].shadowOffset.width}px
+                          ${props.theme.nativeShadows[shadowSize].shadowOffset.height}px;
+                      shadow-opacity: ${props.theme.nativeShadows[shadowSize].shadowOpacity};
+                      shadow-radius: ${props.theme.nativeShadows[shadowSize].shadowRadius};
+                  `;
+        }
     }}
 `;

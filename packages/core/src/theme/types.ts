@@ -1,4 +1,4 @@
-export type ShadowTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg" | "xlg" | "xxlg";
+export type ShadowTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg";
 
 export type RadiusTypes = "none" | "sm" | "md" | "lg" | "xl" | "pill" | "full";
 

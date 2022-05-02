@@ -1,7 +1,14 @@
 import { View } from "react-native";
 import styled from "styled-components/native";
 import { withGradientBackground } from "../../../theme/gradient.native";
-import { backgroundColors, marginSpacing, paddingSpacing } from "../../../theme/mixins/native";
+import {
+    backgroundColors,
+    borderColors,
+    borderRadius,
+    marginSpacing,
+    paddingSpacing,
+    shadowMaker,
+} from "../../../theme/mixins/native";
 import { BoxProps } from "./types";
 
 export const BoxStyled = withGradientBackground<View, BoxProps>(
@@ -9,5 +16,8 @@ export const BoxStyled = withGradientBackground<View, BoxProps>(
         ${backgroundColors};
         ${paddingSpacing};
         ${marginSpacing};
+        ${borderColors};
+        ${borderRadius};
+        ${shadowMaker};
     `
 );

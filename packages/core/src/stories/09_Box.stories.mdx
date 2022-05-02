@@ -7,14 +7,13 @@ import { Text } from "../components/typography/Text";
 
 # Box
 
-A replacement to `div` on Web and `View` on Native.
-You should be using this component instead of divs and Views, as it will allow your code to be platform agnostic.
-That way you can simply do:
+A replacement to `div` on Web and `View` on Native. You should be using this component instead of divs and Views, as it
+will allow your code to be platform agnostic. That way you can simply do:
 
 ```jsx
 const MyContainerComponent = styled(Box)`
     padding-left: 100px;
-`
+`;
 ```
 
 And it will work on **both** the platforms
@@ -28,11 +27,28 @@ import { Box } from "@8sistemas/design-system";
 ## Example
 
 <Canvas>
-    <Story name="Box" args={{backgroundColor: 'dangerGradient', padding: 'xs'}}>
+    <Story name="Box" args={{ backgroundColor: "dangerGradient", padding: "xs" }}>
         {args => {
             return (
                 <Box {...args}>
                     <Text>My text inside the xs padded box</Text>
+                </Box>
+            );
+        }}
+    </Story>
+</Canvas>
+
+# Shadow Support
+
+We do some Platform specific tests to know which property we need to apply, on web we just use `box-shadow`, on native,
+Android only has support for `elevation`, and iOS has support for all others.
+
+<Canvas>
+    <Story name="Box" args={{ backgroundColor: "light", padding: "xs", shadowSize: "sm" }}>
+        {args => {
+            return (
+                <Box {...args}>
+                    <Text>This is a sm shadow box</Text>
                 </Box>
             );
         }}

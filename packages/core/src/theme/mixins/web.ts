@@ -112,3 +112,15 @@ export const fontFaces = css`
         return null;
     }}
 `;
+
+export const shadowMaker = css`
+    ${props => {
+        const shadowSize = props["data-shadowsize"];
+
+        if (typeof props.theme.shadows[shadowSize] != "undefined") {
+            return css`
+                box-shadow: ${props.theme.shadows[shadowSize]};
+            `;
+        }
+    }}
+`;

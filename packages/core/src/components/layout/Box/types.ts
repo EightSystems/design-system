@@ -1,5 +1,13 @@
 import React from "react";
-import { ColorTypes, SpacingDirections, SpacingTypes } from "../../../theme/types";
+import {
+    BorderPosition,
+    BorderTypes,
+    ColorTypes,
+    RadiusTypes,
+    ShadowTypes,
+    SpacingDirections,
+    SpacingTypes,
+} from "../../../theme/types";
 
 export type BoxProps = {
     children: React.ReactNode | React.ReactElement;
@@ -21,4 +29,18 @@ export type BoxProps = {
      * This adds support to Styled-Component as prop, but keep in mind that this is platform specific.
      */
     as?: React.ElementType | keyof JSX.IntrinsicElements;
+
+    /** Color of the button border. */
+    borderColor?: ColorTypes;
+
+    /** Type of the button border. */
+    borderType?: BorderTypes;
+
+    /** Radius of the button border. */
+    borderRadius?: RadiusTypes;
+
+    /** Position of the border, it can be a single string, or an array of strings */
+    borderPosition?: BorderPosition | BorderPosition[];
+
+    shadowSize?: ShadowTypes;
 };
