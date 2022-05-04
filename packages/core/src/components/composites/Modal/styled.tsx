@@ -31,6 +31,7 @@ export const StyledDialog = styled(Dialog)`
         transition-duration: 200ms;
     }
 `;
+
 export const StyledDialogOverlay = styled(Dialog.Overlay)`
     position: fixed;
     top: 0;
@@ -43,7 +44,8 @@ export const StyledDialogOverlay = styled(Dialog.Overlay)`
     transition: 300ms ease-in-out;
     overflow: scroll;
 `;
-export const ModalWrapper = styled.div`
+
+export const ModalWrapper = styled(Dialog.Panel)`
     background-color: ${props => props.theme.colors.background};
     border: solid 1px ${props => props.theme.colors.gray};
     border-radius: 4px;

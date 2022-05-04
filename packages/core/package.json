@@ -34,7 +34,7 @@
     },
     "devDependencies": {
         "@expo/react-native-action-sheet": "^3.12.0",
-        "@headlessui/react": "^1.2.0",
+        "@headlessui/react": "^1.6.1",
         "@popperjs/core": "^2.9.2",
         "@rollup/plugin-commonjs": "^15.1.0",
         "@rollup/plugin-json": "^4.1.0",
