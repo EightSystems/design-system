@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.9.2](https://github.com/EightSystems/design-system/compare/v0.9.1...v0.9.2) (2022-05-04)
+
+
+### Bug Fixes
+
+* upgrade headless react ([343ec9c](https://github.com/EightSystems/design-system/commit/343ec9c40d1252473d028002ee13e5f0003782bc))
+
 ## [0.9.1](https://github.com/EightSystems/design-system/compare/v0.9.0...v0.9.1) (2022-05-02)
 
 
