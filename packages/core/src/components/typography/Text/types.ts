@@ -44,4 +44,5 @@ export type TextProps = {
      * This adds support to Styled-Component as prop, but keep in mind that this is platform specific.
      */
     as?: React.ElementType | keyof JSX.IntrinsicElements;
+    [key: string]: any;
 };
