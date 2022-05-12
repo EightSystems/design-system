@@ -102,13 +102,13 @@ export const TextField = React.memo<TextFieldProps>(
                                 placeholder={placeholder}
                                 onFocus={e => {
                                     if (onFocus) {
-                                        onFocus();
+                                        onFocus(e);
                                     }
                                     setFocused(true);
                                 }}
                                 onBlur={e => {
                                     if (onBlur) {
-                                        onBlur();
+                                        onBlur(e);
                                     }
                                     setFocused(false);
                                 }}

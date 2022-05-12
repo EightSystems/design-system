@@ -129,13 +129,13 @@ export const TextField = React.memo<TextFieldProps>(
                             type={maskType}
                             onFocus={e => {
                                 if (onFocus) {
-                                    onFocus();
+                                    onFocus(e);
                                 }
                                 setFocused(true);
                             }}
                             onBlur={e => {
                                 if (onBlur) {
-                                    onBlur();
+                                    onBlur(e);
                                 }
                                 setFocused(false);
                             }}
@@ -158,7 +158,7 @@ export const TextField = React.memo<TextFieldProps>(
                             }}
                             onBlur={e => {
                                 if (onBlur) {
-                                    onBlur();
+                                    onBlur(e);
                                 }
                                 setFocused(false);
                             }}

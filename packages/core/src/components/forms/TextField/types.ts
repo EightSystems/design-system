@@ -73,8 +73,8 @@ export type TextFieldProps = {
 
     required?: boolean;
 
-    onBlur?: () => void;
-    onFocus?: () => void;
+    onBlur?: (event?: any) => void;
+    onFocus?: (event?: any) => void;
 
     /**
      * This only works on native
