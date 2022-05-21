@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.9.5](https://github.com/EightSystems/design-system/compare/v0.9.4...v0.9.5) (2022-05-21)
+
+
+### Bug Fixes
+
+* button disabled state propagating onclick ([7ef8469](https://github.com/EightSystems/design-system/commit/7ef846963a3e0a160ed9b9204450aad5ec328dcf))
+* fix box stories repeated story id ([84df2ce](https://github.com/EightSystems/design-system/commit/84df2ce0a571f6dc748b0bc3fc02c5dd8950beb6))
+
 ## [0.9.4](https://github.com/EightSystems/design-system/compare/v0.9.3...v0.9.4) (2022-05-12)
 
 ## [0.9.3](https://github.com/EightSystems/design-system/compare/v0.9.2...v0.9.3) (2022-05-12)
