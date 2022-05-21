@@ -14,7 +14,7 @@ export class Platform {
     static get isTV(): boolean {
         if (
             navigator.userAgent.match(
-                /GoogleTV|SmartTV|Internet.TV|NetCast|NETTV|AppleTV|boxee|Kylo|Roku|DLNADOC|CE\-HTML/i
+                /GoogleTV|SmartTV|Internet.TV|NetCast|NETTV|AppleTV|boxee|Kylo|Roku|DLNADOC|CE-HTML/i
             )
         ) {
             return true;
