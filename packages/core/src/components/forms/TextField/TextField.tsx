@@ -1,3 +1,4 @@
+import uniqueId from "lodash/uniqueId";
 import React, { useEffect } from "react";
 import { TextInputMask } from "react-web-mask";
 import { Spinner } from "../../feedback/Spinner";
@@ -45,6 +46,8 @@ export const TextField = React.memo<TextFieldProps>(
         numberOfLines = 1,
         returnKeyType,
     }: TextFieldProps) => {
+        const elementUniqueId = uniqueId(`input-${name}`);
+
         const isEventComposing = nativeEvent => {
             return nativeEvent.isComposing || nativeEvent.keyCode === 229;
         };
@@ -138,11 +141,9 @@ export const TextField = React.memo<TextFieldProps>(
             }
         }
 
-        console.log(returnKeyType);
-
         return (
             <S.MainWrapper>
-                <S.InputLabel data-disabled={disabled} data-focused={focused} htmlFor={name}>
+                <S.InputLabel data-disabled={disabled} data-focused={focused} htmlFor={elementUniqueId}>
                     {label}
                 </S.InputLabel>
                 <S.InputWrapper
@@ -193,6 +194,7 @@ export const TextField = React.memo<TextFieldProps>(
                                 autoCorrect={autoCorrect ? "on" : "off"}
                                 spellCheck={autoCorrect}
                                 inputMode={inputMode as any}
+                                id={elementUniqueId}
                             />
                         </S.MaskedInputComponent>
                     ) : multiline ? (
@@ -232,6 +234,7 @@ export const TextField = React.memo<TextFieldProps>(
                             autoCorrect={autoCorrect ? "on" : "off"}
                             spellCheck={autoCorrect}
                             inputMode={inputMode as any}
+                            id={elementUniqueId}
                         />
                     ) : (
                         <S.InputComponent
@@ -270,6 +273,7 @@ export const TextField = React.memo<TextFieldProps>(
                             autoCorrect={autoCorrect ? "on" : "off"}
                             spellCheck={autoCorrect}
                             inputMode={inputMode as any}
+                            id={elementUniqueId}
                         />
                     )}
 

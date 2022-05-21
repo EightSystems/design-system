@@ -83,16 +83,7 @@ export type TextFieldProps = {
     /** Distance between popover and trigger's cross axis. */
     tooltipCrossOffset?: TooltipProps["crossOffset"];
 
-    /** Receives the text value */
-    onChange?: (textValue: string) => void;
-
     required?: boolean;
-
-    onBlur?: (event?: any) => void;
-    onFocus?: (event?: any) => void;
-
-    onSubmitEditing?: (event: any) => void;
-    onKeyPress?: (event: any) => void;
 
     /** Color of the input border. */
     borderColor?: ColorTypes;
@@ -113,4 +104,11 @@ export type TextFieldProps = {
 
     /** This is the respective react-native `returnKeyType` that works in both of the platforms, and is mapped to `enterKeyHint` on Web */
     returnKeyType?: "done" | "go" | "next" | "search" | "send";
+
+    /** Receives the text value */
+    onChange?: (textValue: string) => void;
+    onBlur?: (event?: any) => void;
+    onFocus?: (event?: any) => void;
+    onSubmitEditing?: (event?: any) => void;
+    onKeyPress?: (event?: any) => void;
 };
