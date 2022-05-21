@@ -20,7 +20,7 @@ export const ButtonWrapper = styled.button`
     min-height: ${({ theme }) => theme.elements.minHeight.default};
 
     ${props =>
-        props["data-size"] == "small"
+        props["data-size"] === "small"
             ? css`
                   padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
                   min-height: ${({ theme }) => theme.elements.minHeight.small};
@@ -29,7 +29,7 @@ export const ButtonWrapper = styled.button`
             : null}
 
     ${props =>
-        props["data-size"] == "medium"
+        props["data-size"] === "medium"
             ? css`
                   padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
                   min-height: ${({ theme }) => theme.elements.minHeight.medium};
@@ -38,7 +38,7 @@ export const ButtonWrapper = styled.button`
             : null}
 
     ${props =>
-        props["data-size"] == "large"
+        props["data-size"] === "large"
             ? css`
                   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
                   min-height: ${({ theme }) => theme.elements.minHeight.large};

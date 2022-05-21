@@ -48,6 +48,7 @@ const Button = React.memo<ButtonProps>(
                 data-bordertype={borderType}
                 data-borderposition={borderPosition}
                 data-size={size}
+                disabled={disabled || loading}
                 data-disabled={disabled || loading}
             >
                 {startIcon && isValidElement(startIcon) ? startIcon : null}

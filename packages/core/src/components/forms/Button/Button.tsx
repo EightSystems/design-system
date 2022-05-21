@@ -49,6 +49,7 @@ export const Button = React.memo<ButtonProps>(
                 data-borderposition={borderPosition}
                 data-size={size}
                 data-disabled={disabled || loading}
+                disabled={disabled || loading}
             >
                 {startIcon && React.isValidElement(startIcon) ? startIcon : null}
 
