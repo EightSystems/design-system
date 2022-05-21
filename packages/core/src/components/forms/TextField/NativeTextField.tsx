@@ -1,5 +1,7 @@
 import uniqueId from "lodash/uniqueId";
 import React, { useEffect } from "react";
+import { TextInput, TouchableWithoutFeedback } from "react-native";
+import { TextInputMask } from "react-native-masked-text";
 import { Spinner } from "../../feedback/Spinner";
 import { Tooltip } from "../../feedback/Tooltip";
 import { Icon } from "../../primitives/Icon";
@@ -8,6 +10,8 @@ import { TextFieldProps } from "./types";
 
 export const TextField = React.memo<TextFieldProps>(
     ({
+        autoFocus = false,
+        blurOnSubmit,
         name,
         label,
         placeholder,
@@ -30,6 +34,7 @@ export const TextField = React.memo<TextFieldProps>(
         onBlur,
         onFocus,
         onChange,
+        onKeyPress,
         borderRadius = "sm",
         borderPosition = "all",
         borderType = "default",
@@ -38,12 +43,28 @@ export const TextField = React.memo<TextFieldProps>(
         multiline = false,
         numberOfLines = 1,
         maxLength,
+        returnKeyType,
+        onSubmitEditing,
     }: TextFieldProps) => {
+        const blurOnSubmitDefault = !multiline;
+        const shouldBlurOnSubmit = blurOnSubmit == null ? blurOnSubmitDefault : blurOnSubmit;
+
         const accessibilityState = { disabled: disabled };
         const elementUniqueId = uniqueId(name);
 
         const [uncontrolledValue, setUncontrolledValue] = React.useState<string>("");
         const [focused, setFocused] = React.useState<boolean>(false);
+        const inputRef = React.useRef<TextInput | TextInputMask>(null);
+
+        const focusInputElement = () => {
+            if (!disabled) {
+                if (inputRef.current instanceof TextInputMask) {
+                    (inputRef.current as any)?.getElement()?.focus();
+                } else {
+                    inputRef.current?.focus();
+                }
+            }
+        };
 
         useEffect(() => {
             if (value != null) {
@@ -70,7 +91,7 @@ export const TextField = React.memo<TextFieldProps>(
                     secureTextEntry = true;
                     break;
                 case "number":
-                    keyboardType = "number-pad";
+                    keyboardType = "decimal-pad";
                     break;
                 case "tel":
                     keyboardType = "phone-pad";
@@ -93,6 +114,7 @@ export const TextField = React.memo<TextFieldProps>(
             multiline,
             numberOfLines,
             textAlignVertical: multiline ? "top" : "auto",
+            autoFocus,
         };
 
         const IconElement =
@@ -114,7 +136,9 @@ export const TextField = React.memo<TextFieldProps>(
 
         return (
             <S.MainWrapper accessible accessibilityLabel={label} accessibilityState={accessibilityState}>
-                <S.InputLabel data-focused={focused}>{label}</S.InputLabel>
+                <TouchableWithoutFeedback onPress={() => focusInputElement()}>
+                    <S.InputLabel data-focused={focused}>{label}</S.InputLabel>
+                </TouchableWithoutFeedback>
                 <S.InputWrapper
                     data-icon={icon}
                     data-bordercolor={borderFinalColor}
@@ -146,6 +170,11 @@ export const TextField = React.memo<TextFieldProps>(
                                 setUncontrolledValue(e);
                             }}
                             value={value ? value : uncontrolledValue}
+                            ref={inputRef}
+                            blurOnSubmit={shouldBlurOnSubmit}
+                            onSubmitEditing={onSubmitEditing}
+                            onKeyPress={onKeyPress}
+                            returnKeyType={returnKeyType}
                         />
                     ) : (
                         <S.InputComponent
@@ -169,6 +198,11 @@ export const TextField = React.memo<TextFieldProps>(
                                 setUncontrolledValue(e);
                             }}
                             value={value ? value : uncontrolledValue}
+                            ref={inputRef}
+                            blurOnSubmit={shouldBlurOnSubmit}
+                            onSubmitEditing={onSubmitEditing}
+                            returnKeyType={returnKeyType}
+                            onKeyPress={onKeyPress}
                         />
                     )}
 

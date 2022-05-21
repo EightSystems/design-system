@@ -8,6 +8,9 @@ import { TextFieldProps } from "./types";
 
 export const TextField = React.memo<TextFieldProps>(
     ({
+        autoCorrect = true,
+        autoFocus = false,
+        blurOnSubmit,
         name,
         label,
         placeholder,
@@ -30,6 +33,8 @@ export const TextField = React.memo<TextFieldProps>(
         onBlur,
         onFocus,
         onChange,
+        onKeyPress,
+        onSubmitEditing,
         borderRadius = "sm",
         borderPosition = "all",
         borderType = "default",
@@ -38,7 +43,46 @@ export const TextField = React.memo<TextFieldProps>(
         maxLength,
         multiline = false,
         numberOfLines = 1,
+        returnKeyType,
     }: TextFieldProps) => {
+        const isEventComposing = nativeEvent => {
+            return nativeEvent.isComposing || nativeEvent.keyCode === 229;
+        };
+
+        const handleKeyDown = e => {
+            const hostNode = e.target;
+            // Prevent key events bubbling (see #612)
+            e.stopPropagation();
+
+            const blurOnSubmitDefault = !multiline;
+            const shouldBlurOnSubmit = blurOnSubmit == null ? blurOnSubmitDefault : blurOnSubmit;
+
+            const nativeEvent = e.nativeEvent;
+            const isComposing = isEventComposing(nativeEvent);
+
+            if (onKeyPress) {
+                onKeyPress(e);
+            }
+
+            if (
+                e.key === "Enter" &&
+                !e.shiftKey &&
+                // Do not call submit if composition is occuring.
+                !isComposing &&
+                !e.isDefaultPrevented()
+            ) {
+                if ((blurOnSubmit || !multiline) && onSubmitEditing) {
+                    // prevent "Enter" from inserting a newline or submitting a form
+                    e.preventDefault();
+                    nativeEvent.text = e.target.value;
+                    onSubmitEditing(e);
+                }
+                if (shouldBlurOnSubmit && hostNode != null) {
+                    hostNode.blur();
+                }
+            }
+        };
+
         const [uncontrolledValue, setUncontrolledValue] = React.useState<string>("");
         const [focused, setFocused] = React.useState<boolean>(false);
         const borderFinalColor = validationError
@@ -72,6 +116,30 @@ export const TextField = React.memo<TextFieldProps>(
             }
         }, [value]);
 
+        let inputMode = "text";
+        if (keyboardType) {
+            switch (keyboardType) {
+                case "email-address":
+                    inputMode = "email";
+                    break;
+                case "number-pad":
+                case "numeric":
+                    inputMode = "numeric";
+                    break;
+                case "decimal-pad":
+                    inputMode = "decimal";
+                    break;
+                case "phone-pad":
+                    inputMode = "tel";
+                    break;
+                default:
+                    type = "text";
+                    break;
+            }
+        }
+
+        console.log(returnKeyType);
+
         return (
             <S.MainWrapper>
                 <S.InputLabel data-disabled={disabled} data-focused={focused} htmlFor={name}>
@@ -92,6 +160,7 @@ export const TextField = React.memo<TextFieldProps>(
                             <TextInputMask
                                 maxLength={maxLength}
                                 required={required}
+                                autoFocus={autoFocus}
                                 disabled={disabled || null}
                                 kind={maskType}
                                 type={type}
@@ -118,7 +187,12 @@ export const TextField = React.memo<TextFieldProps>(
                                     }
                                     setUncontrolledValue(e);
                                 }}
+                                onKeyDown={handleKeyDown}
                                 value={value ? value : uncontrolledValue}
+                                enterKeyHint={returnKeyType}
+                                autoCorrect={autoCorrect ? "on" : "off"}
+                                spellCheck={autoCorrect}
+                                inputMode={inputMode as any}
                             />
                         </S.MaskedInputComponent>
                     ) : multiline ? (
@@ -127,6 +201,7 @@ export const TextField = React.memo<TextFieldProps>(
                             data-borderposition={borderPosition}
                             maxLength={maxLength}
                             required={required}
+                            autoFocus={autoFocus}
                             name={name}
                             aria-label={label}
                             aria-required={required}
@@ -150,8 +225,13 @@ export const TextField = React.memo<TextFieldProps>(
                                 }
                                 setUncontrolledValue(target.value);
                             }}
+                            onKeyDown={handleKeyDown}
                             value={value ? value : uncontrolledValue}
                             rows={numberOfLines}
+                            enterKeyHint={returnKeyType}
+                            autoCorrect={autoCorrect ? "on" : "off"}
+                            spellCheck={autoCorrect}
+                            inputMode={inputMode as any}
                         />
                     ) : (
                         <S.InputComponent
@@ -159,6 +239,7 @@ export const TextField = React.memo<TextFieldProps>(
                             data-borderposition={borderPosition}
                             maxLength={maxLength}
                             required={required}
+                            autoFocus={autoFocus}
                             type={type}
                             name={name}
                             aria-label={label}
@@ -183,7 +264,12 @@ export const TextField = React.memo<TextFieldProps>(
                                 }
                                 setUncontrolledValue(target.value);
                             }}
+                            onKeyDown={handleKeyDown}
                             value={value ? value : uncontrolledValue}
+                            enterKeyHint={returnKeyType}
+                            autoCorrect={autoCorrect ? "on" : "off"}
+                            spellCheck={autoCorrect}
+                            inputMode={inputMode as any}
                         />
                     )}
 

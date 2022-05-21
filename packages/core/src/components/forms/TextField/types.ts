@@ -3,6 +3,14 @@ import { BorderPosition, BorderTypes, ColorTypes, RadiusTypes } from "../../../t
 import { TooltipProps } from "../../feedback/Tooltip/types";
 
 export type TextFieldProps = {
+    autoCorrect?: boolean;
+
+    /** AutoFocus on Page Load for Web, and componentDidMount or useEffect */
+    autoFocus?: boolean;
+
+    /** On Native this prevents the keyboard going away when you press the return key button */
+    blurOnSubmit?: boolean;
+
     /** Unique name used to generate de native input ID. */
     name: string;
 
@@ -39,6 +47,9 @@ export type TextFieldProps = {
     /** If specified, defines that this TextField should be masked */
     masked?: boolean;
 
+    /**
+     * The mask type when `masked` is `true`, when you use "custom" you need to define `maskOptions` otherwise it will crash.
+     */
     maskType?:
         | "credit-card"
         | "cpf"
@@ -48,13 +59,17 @@ export type TextFieldProps = {
         | "money"
         | "cel-phone"
         | "datetime"
-        | "custom"
-        | string;
+        | "custom";
 
     maskOptions?: any;
 
     /** Type of the `input` element. Must be a valid `type` element for the HTML5 `<input>` element, and applicable for text inputs.  */
     type?: "password" | "email" | "text" | "tel" | "number" | "search" | "url";
+
+    /**
+     * Respective keyboardType in Native (the ones that are cross-platform), and we map this to `inputMode` in Web
+     */
+    keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
 
     /** If specified, determinates the content inside the Tooltip. Must be a valid React element. */
     tooltipContent?: TooltipProps["tooltipContent"];
@@ -76,10 +91,8 @@ export type TextFieldProps = {
     onBlur?: (event?: any) => void;
     onFocus?: (event?: any) => void;
 
-    /**
-     * This only works on native
-     */
-    keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
+    onSubmitEditing?: (event: any) => void;
+    onKeyPress?: (event: any) => void;
 
     /** Color of the input border. */
     borderColor?: ColorTypes;
@@ -97,4 +110,7 @@ export type TextFieldProps = {
     multiline?: boolean;
 
     numberOfLines?: number;
+
+    /** This is the respective react-native `returnKeyType` that works in both of the platforms, and is mapped to `enterKeyHint` on Web */
+    returnKeyType?: "done" | "go" | "next" | "search" | "send";
 };
