@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ThemeContext } from "styled-components";
 import * as S from "./styled";
 import { HeadingProps } from "./types";
 
@@ -16,6 +17,13 @@ export const Heading = React.memo<HeadingProps>(
         selectable = false,
         ...props
     }: HeadingProps) => {
+        const themeContext = React.useContext(ThemeContext) as any;
+
+        const isTextSelectable =
+            selectable ||
+            themeContext?.typography?.defaultTextSelectable ||
+            themeContext?.nativeTypography?.defaultTextSelectable;
+
         const styleProps = {
             "data-fontsize": fontSize,
             "data-textcolor": textColor,
@@ -24,7 +32,7 @@ export const Heading = React.memo<HeadingProps>(
             "data-fontweight": fontWeight,
             "data-underline": underline,
             "data-textalign": textAlign,
-            selectable,
+            selectable: isTextSelectable,
         };
 
         switch (elementLevel) {

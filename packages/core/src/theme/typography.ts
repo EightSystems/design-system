@@ -1,4 +1,5 @@
 export const typography = {
+    defaultTextSelectable: false,
     lineHeights: {
         none: 1,
         shorter: 1.3,

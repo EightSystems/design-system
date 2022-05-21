@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ThemeContext } from "styled-components";
 import * as S from "./styled";
 import { TextProps } from "./types";
 
@@ -14,9 +15,16 @@ export const Text = React.memo<TextProps>(
         underline = false,
         margin,
         padding,
-        selectable = false,
+        selectable,
         ...props
     }: TextProps) => {
+        const themeContext = React.useContext(ThemeContext) as any;
+
+        const isTextSelectable =
+            selectable ||
+            themeContext?.typography?.defaultTextSelectable ||
+            themeContext?.nativeTypography?.defaultTextSelectable;
+
         const styleProps = {
             "data-fontsize": fontSize,
             "data-textcolor": textColor,
@@ -27,7 +35,7 @@ export const Text = React.memo<TextProps>(
             "data-margin": margin,
             "data-padding": padding,
             "data-textalign": textAlign,
-            selectable,
+            selectable: isTextSelectable,
         };
 
         return (

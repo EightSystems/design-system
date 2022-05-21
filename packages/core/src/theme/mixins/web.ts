@@ -18,7 +18,7 @@ export const textSelectable = css`
                   user-select: initial;
               `
             : css`
-                  user-select: none;
+                  user-select: ${props.theme.typography.defaultTextSelectable ? "initial" : "none"};
               `;
     }}
 `;

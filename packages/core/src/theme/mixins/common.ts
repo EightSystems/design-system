@@ -121,8 +121,8 @@ export const marginSpacing = css`
 
         if (typeof props.theme.spacing[marginValue] != "undefined") {
             const marginValues = [
-                marginDirection == "all" || marginDirection == "vertical" ? props.theme.spacing[marginValue] : 0,
-                marginDirection == "all" || marginDirection == "horizontal" ? props.theme.spacing[marginValue] : 0,
+                marginDirection === "all" || marginDirection === "vertical" ? props.theme.spacing[marginValue] : 0,
+                marginDirection === "all" || marginDirection === "horizontal" ? props.theme.spacing[marginValue] : 0,
             ];
 
             return css`
@@ -141,8 +141,8 @@ export const paddingSpacing = css`
 
         if (typeof props.theme.spacing[paddingValue] != "undefined") {
             const paddingValues = [
-                paddingDirection == "all" || paddingDirection == "vertical" ? props.theme.spacing[paddingValue] : 0,
-                paddingDirection == "all" || paddingDirection == "horizontal" ? props.theme.spacing[paddingValue] : 0,
+                paddingDirection === "all" || paddingDirection === "vertical" ? props.theme.spacing[paddingValue] : 0,
+                paddingDirection === "all" || paddingDirection === "horizontal" ? props.theme.spacing[paddingValue] : 0,
             ];
 
             return css`
