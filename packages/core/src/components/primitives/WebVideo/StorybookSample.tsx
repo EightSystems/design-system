@@ -15,7 +15,7 @@ export const WebVideoModalSample = () => {
                 <Button onClick={() => videoRef.current?.enterFullScreen()}>Enter FullScreen</Button>
 
                 <WebVideo
-                    rotateOnFullSreen={Platform.OS == "web" ? false : true}
+                    rotateOnFullSreen={Platform.OS === "web" ? false : true}
                     ref={videoRef}
                     options={{
                         controls: [
