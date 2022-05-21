@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for guidelines.
 
+## [0.9.6](https://github.com/EightSystems/design-system/compare/v0.9.5...v0.9.6) (2022-05-21)
+
+
+### Bug Fixes
+
+* textfield label for and remove console log ([ac53f71](https://github.com/EightSystems/design-system/commit/ac53f715b4dcd1f7efa5b6fa771b4b54d3dd791a))
+
 ## [0.9.5](https://github.com/EightSystems/design-system/compare/v0.9.4...v0.9.5) (2022-05-21)
 
 
