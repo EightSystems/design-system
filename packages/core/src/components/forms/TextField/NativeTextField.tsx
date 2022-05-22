@@ -11,6 +11,8 @@ import { TextFieldProps } from "./types";
 export const TextField = React.memo<TextFieldProps>(
     ({
         autoFocus = false,
+        autoComplete,
+        autoCompleteType,
         blurOnSubmit,
         name,
         label,
@@ -117,6 +119,11 @@ export const TextField = React.memo<TextFieldProps>(
             autoFocus,
         };
 
+        const autoCompleteMapped = {
+            "one-time-code": "sms-otp",
+            "new-password": "password-new",
+        };
+
         const IconElement =
             icon && icon !== "loadingSpinner" ? (
                 <S.IconWrapper>
@@ -175,6 +182,7 @@ export const TextField = React.memo<TextFieldProps>(
                             onSubmitEditing={onSubmitEditing}
                             onKeyPress={onKeyPress}
                             returnKeyType={returnKeyType}
+                            autoComplete={(autoComplete ? autoCompleteMapped[autoComplete] : null) || autoCompleteType}
                         />
                     ) : (
                         <S.InputComponent
@@ -203,6 +211,7 @@ export const TextField = React.memo<TextFieldProps>(
                             onSubmitEditing={onSubmitEditing}
                             returnKeyType={returnKeyType}
                             onKeyPress={onKeyPress}
+                            autoComplete={(autoComplete ? autoCompleteMapped[autoComplete] : null) || autoCompleteType}
                         />
                     )}
 

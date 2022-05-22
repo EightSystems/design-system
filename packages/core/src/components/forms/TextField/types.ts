@@ -2,13 +2,63 @@ import * as React from "react";
 import { BorderPosition, BorderTypes, ColorTypes, RadiusTypes } from "../../../theme/types";
 import { TooltipProps } from "../../feedback/Tooltip/types";
 
+export type AutoCompleteType =
+    | "cc-csc"
+    | "cc-exp"
+    | "cc-exp-month"
+    | "cc-exp-year"
+    | "cc-number"
+    | "email"
+    | "name"
+    | "password"
+    | "postal-code"
+    | "street-address"
+    | "tel"
+    | "username"
+    | "off"
+    | undefined;
+
+export type AutoCompleteWebType = "one-time-code" | "new-password";
+
 export type TextFieldProps = {
     autoCorrect?: boolean;
+
+    /**
+     * Determines which content to suggest on auto complete, e.g.`username`.
+     * To disable auto complete, use `off`.
+     *
+     * *Android and Web Only*
+     *
+     * The following values work on Android and Web only:
+     *
+     * - `username`
+     * - `password`
+     * - `email`
+     * - `name`
+     * - `tel`
+     * - `street-address`
+     * - `postal-code`
+     * - `cc-number`
+     * - `cc-csc`
+     * - `cc-exp`
+     * - `cc-exp-month`
+     * - `cc-exp-year`
+     * - `off`
+     */
+    autoCompleteType?: AutoCompleteType;
+
+    /**
+     * Same as `autoCompleteType` with some extra options, but this only works on React Native 0.66+ or Web.
+     * Extra options:
+     * - `one-time-code`
+     * - `new-password`
+     */
+    autoComplete?: AutoCompleteType | AutoCompleteWebType;
 
     /** AutoFocus on Page Load for Web, and componentDidMount or useEffect */
     autoFocus?: boolean;
 
-    /** On Native this prevents the keyboard going away when you press the return key button */
+    /** This prevents the keyboard going away when you press the return key button */
     blurOnSubmit?: boolean;
 
     /** Unique name used to generate de native input ID. */
@@ -67,7 +117,7 @@ export type TextFieldProps = {
     type?: "password" | "email" | "text" | "tel" | "number" | "search" | "url";
 
     /**
-     * Respective keyboardType in Native (the ones that are cross-platform), and we map this to `inputMode` in Web
+     * Respective `keyboardType` in Native (the ones that are cross-platform), and we map this to `inputMode` in Web
      */
     keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
 
@@ -83,6 +133,9 @@ export type TextFieldProps = {
     /** Distance between popover and trigger's cross axis. */
     tooltipCrossOffset?: TooltipProps["crossOffset"];
 
+    /**
+     * Only works on Web
+     */
     required?: boolean;
 
     /** Color of the input border. */

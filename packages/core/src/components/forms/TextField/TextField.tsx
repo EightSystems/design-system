@@ -11,6 +11,8 @@ export const TextField = React.memo<TextFieldProps>(
     ({
         autoCorrect = true,
         autoFocus = false,
+        autoComplete,
+        autoCompleteType,
         blurOnSubmit,
         name,
         label,
@@ -195,6 +197,7 @@ export const TextField = React.memo<TextFieldProps>(
                                 spellCheck={autoCorrect}
                                 inputMode={inputMode as any}
                                 id={elementUniqueId}
+                                autoComplete={autoComplete || autoCompleteType || "on"}
                             />
                         </S.MaskedInputComponent>
                     ) : multiline ? (
@@ -235,6 +238,7 @@ export const TextField = React.memo<TextFieldProps>(
                             spellCheck={autoCorrect}
                             inputMode={inputMode as any}
                             id={elementUniqueId}
+                            autoComplete={autoComplete || autoCompleteType || "on"}
                         />
                     ) : (
                         <S.InputComponent
@@ -274,6 +278,7 @@ export const TextField = React.memo<TextFieldProps>(
                             spellCheck={autoCorrect}
                             inputMode={inputMode as any}
                             id={elementUniqueId}
+                            autoComplete={autoComplete || autoCompleteType || "on"}
                         />
                     )}
 
