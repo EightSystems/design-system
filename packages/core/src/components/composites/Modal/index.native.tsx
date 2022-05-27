@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     },
     halfScreen: {
         width: "100%",
-        height: "50%",
+        minHeight: "50%",
     },
     overlay: {
         backgroundColor: "white",
