@@ -16,7 +16,7 @@ export class Orientation {
         }
     }
 
-    public static unlockAllOrientations() {
+    public static unlockAllOrientations(returnToInitial = false) {
         const orientation =
             window.screen && window.screen.orientation
                 ? (((window.screen.orientation || {}).type ||

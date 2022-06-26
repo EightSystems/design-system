@@ -10,10 +10,11 @@ import {
 } from "../../../theme/types";
 
 export type BoxProps = {
-    children: React.ReactNode | React.ReactElement;
+    children?: React.ReactNode | React.ReactElement;
     style?: any;
     className?: string;
-    /** Color of the button background. */
+
+    /** Color of the Box background. */
     backgroundColor?: ColorTypes;
 
     /** This is the same as `padding` = "default" */
@@ -25,13 +26,13 @@ export type BoxProps = {
     margin?: SpacingTypes;
     marginDirection?: SpacingDirections;
 
-    /** Color of the button border. */
+    /** Color of the Box border. */
     borderColor?: ColorTypes;
 
-    /** Type of the button border. */
+    /** Type of the Box border. */
     borderType?: BorderTypes;
 
-    /** Radius of the button border. */
+    /** Radius of the Box border. */
     borderRadius?: RadiusTypes;
 
     /** Position of the border, it can be a single string, or an array of strings */

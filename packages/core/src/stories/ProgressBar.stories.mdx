@@ -1,5 +1,28 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { ProgressBar } from "../components/feedback/ProgressBar";
 
-<Meta title="Feedback/Progress Bar" />
+<Meta title="Feedback/Progress Bar" component={ProgressBar} />
 
-https://callstack.github.io/react-native-paper/progress-bar.html
+# Progress Bar
+
+Progress bar is an indicator used to present progress of some activity in the app.
+
+## Import
+
+```jsx
+import { ProgressBar } from "@8sistemas/design-system";
+```
+
+## Example
+
+<Canvas>
+    <Story name="ProgressBar">
+        {args => {
+            return <ProgressBar {...args} />;
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={ProgressBar} />

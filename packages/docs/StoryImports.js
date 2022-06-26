@@ -8,6 +8,7 @@ import ButtonStory from "../core/src/stories/08_Button.stories";
 import BoxStory from "../core/src/stories/09_Box.stories";
 import PlatformStory from "../core/src/stories/10_Platform.stories";
 import AccordionStory from "../core/src/stories/Accordion.stories";
+import BadgeStory from "../core/src/stories/Badge.stories";
 import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
 import DividerStory from "../core/src/stories/Divider.stories";
 import FlexBox from "../core/src/stories/FlexBox.stories";
@@ -19,6 +20,7 @@ import ModalStory from "../core/src/stories/Modal.stories";
 import PaymentMethodItemStory from "../core/src/stories/PaymentMethodItem.stories";
 import PaymentPromptStory from "../core/src/stories/PaymentPrompt.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
+import ProgressBarStory from "../core/src/stories/ProgressBar.stories";
 import SavedCardBadge from "../core/src/stories/SavedCardBadge.stories";
 import SelectStory from "../core/src/stories/Select.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
@@ -43,6 +45,8 @@ const storyList = {
     "Composites/Modal": ModalStory,
 
     "Feedback/ProgressRing": ProgressRingStory,
+    "Feedback/Badge": BadgeStory,
+    "Feedback/ProgressBar": ProgressBarStory,
     "Feedback/Spinner": SpinnerStory,
     "Feedback/Stepper": StepperStory,
     "Feedback/Toast": ToastStory,

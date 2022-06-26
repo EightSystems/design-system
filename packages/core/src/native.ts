@@ -9,6 +9,8 @@ export { PaymentPrompt } from "./components/composites/PaymentPrompt";
 export { PaymentStatus } from "./components/composites/PaymentStatus";
 export { SavedCardBadge } from "./components/composites/SavedCardBadge";
 export { ThemeProviderInjector } from "./components/core/ThemeProviderInjector";
+export { Badge } from "./components/feedback/Badge";
+export { ProgressBar } from "./components/feedback/ProgressBar";
 export { ProgressRing } from "./components/feedback/ProgressRing";
 export { Spinner } from "./components/feedback/Spinner";
 export { Stepper } from "./components/feedback/Stepper";
