@@ -9,7 +9,7 @@ export const ProgressBarBackground = styled(Box)`
 
 export const ProgressBarElement = styled(Box)`
     ${(props: ProgressBarProps) => css`
-        width: ${props.progress * 100}%;
+        width: ${Math.round(props.progress * 100)}%;
     `}
 
     height: ${props => props.height}px;
