@@ -9,6 +9,7 @@ module.exports = {
     addons: [
         "@storybook/addon-docs",
         "@storybook/addon-a11y",
+        "@storybook/addon-backgrounds",
         "@storybook/addon-essentials",
         "@storybook/preset-create-react-app",
     ],

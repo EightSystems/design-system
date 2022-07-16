@@ -47,6 +47,7 @@ export const KeyPad = ({
                     <Button
                         onPress={onCancelButtonPressed}
                         backgroundColor={"danger"}
+                        textColor={"darkContrast"}
                         fontSize={"xs"}
                         disabled={disableCancelButton}
                     >
@@ -69,6 +70,7 @@ export const KeyPad = ({
                     <Button
                         onPress={onCleanButtonPressed}
                         backgroundColor={"warning"}
+                        textColor={"darkContrast"}
                         fontSize={"xs"}
                         disabled={disableCleanButton}
                     >
@@ -88,7 +90,7 @@ export const KeyPad = ({
                         backgroundColor={"success"}
                         fontFace={"primary"}
                         fontWeight={"bold"}
-                        textColor={"white"}
+                        textColor={"successContrast"}
                         disabled={disableConfirmButton}
                         fontSize={"sm"}
                     >
