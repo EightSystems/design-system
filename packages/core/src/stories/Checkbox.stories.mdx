@@ -1,5 +1,53 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { CheckBox } from "../components/forms/CheckBox";
+import { action } from "@storybook/addon-actions";
 
-<Meta title="Forms/Checkbox" />
+<Meta title="Forms/Checkbox" component={CheckBox} />
 
-https://callstack.github.io/react-native-paper/checkbox.html
+# CheckBox
+
+Checkboxes allow the selection of multiple options from a set.
+
+## Import
+
+```jsx
+import { CheckBox } from "@8sistemas/design-system";
+```
+
+## Examples
+
+### Unchecked
+
+<Canvas>
+    <Story name="Unchecked">
+        {args => {
+            return <CheckBox {...args} label={"Unchecked"} onPress={action("Unchecked")} />;
+        }}
+    </Story>
+</Canvas>
+
+### Checked
+
+<Canvas>
+    <Story name="Checked">
+        {args => {
+            return <CheckBox {...args} checked={true} label={"Checked"} onPress={action("Checked")} />;
+        }}
+    </Story>
+</Canvas>
+
+### Inderterminate
+
+<Canvas>
+    <Story name="Inderterminate">
+        {args => {
+            return (
+                <CheckBox {...args} indeterminate={true} label={"Indeterminate"} onPress={action("Indeterminate")} />
+            );
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={CheckBox} />

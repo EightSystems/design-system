@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { Pressable, View } from "react-native";
 import styled from "styled-components/native";
 import { withGradientBackground } from "../../../theme/gradient.native";
 import {
@@ -11,13 +11,17 @@ import {
 } from "../../../theme/mixins/native";
 import { BoxProps } from "./types";
 
-export const BoxStyled = withGradientBackground<View, BoxProps>(
-    styled.View`
-        ${backgroundColors};
-        ${paddingSpacing};
-        ${marginSpacing};
-        ${borderColors};
-        ${borderRadius};
-        ${shadowMaker};
-    `
+const BaseBoxComponent = styled.View`
+    ${backgroundColors};
+    ${paddingSpacing};
+    ${marginSpacing};
+    ${borderColors};
+    ${borderRadius};
+    ${shadowMaker};
+`;
+
+export const BoxStyled = withGradientBackground<View, BoxProps>(BaseBoxComponent);
+
+export const BoxPressableStyled = withGradientBackground<typeof Pressable, BoxProps>(
+    BaseBoxComponent.withComponent(Pressable)
 );

@@ -7,10 +7,16 @@ export const FlexBoxStyled = styled(Box)`
     ${props =>
         css`
             flex-direction: ${props.flexDirection || "row"};
-        `}
-`;
 
-export const CenteredFlexBoxStyled = styled(FlexBoxStyled)`
-    align-items: center;
-    justify-content: center;
+            ${props.alignItems
+                ? css`
+                      align-items: ${props => props.alignItems};
+                  `
+                : null}
+            ${props.justifyContent
+                ? css`
+                      justify-content: ${props => props.justifyContent};
+                  `
+                : null}
+        `}
 `;

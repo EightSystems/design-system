@@ -9,12 +9,12 @@ export const PaymentMethodItem = ({ onClick, title, description, icon }: Payment
 
     return (
         <S.MainWrapper onClick={onClick} backgroundColor={"white"} borderColor={"mediumTint"} borderType={"sm"}>
-            <Text textColor={"lightContrast"} fontSize={"xs"} fontWeight={"bold"}>
+            <Text textColor={"lightContrast"} fontSize={"xs"} fontWeight={"bold"} textAlign={"center"}>
                 {title}
             </Text>
             <S.IconWrapper>{IconComponent ? <IconComponent /> : null}</S.IconWrapper>
             {description ? (
-                <Text textColor={"lightContrast"} fontSize={"xs"}>
+                <Text textColor={"lightContrast"} fontSize={"xs"} textAlign={"center"}>
                     {description}
                 </Text>
             ) : null}

@@ -49,6 +49,12 @@ export type ButtonProps = {
     /** The size of the button. */
     size?: "small" | "medium" | "large";
 
+    /** Adds padding based on size */
+    padded?: boolean;
+
+    /** Make it 100% width */
+    fluid?: boolean;
+
     /** The startIcon to use in the Button. */
     startIcon?: React.ReactNode;
 

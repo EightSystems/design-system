@@ -1,5 +1,41 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Radio } from "../components/forms/Radio";
+import { action } from "@storybook/addon-actions";
 
-<Meta title="Forms/Radio" />
+<Meta title="Forms/Radio" component={Radio} />
 
-https://callstack.github.io/react-native-paper/radio-button.html
+# Radio
+
+Radio buttons allow the selection a single option from a set.
+
+## Import
+
+```jsx
+import { Radio } from "@8sistemas/design-system";
+```
+
+## Examples
+
+### Unchecked
+
+<Canvas>
+    <Story name="Unchecked">
+        {args => {
+            return <Radio {...args} label={"Unchecked"} onPress={action("Unchecked")} />;
+        }}
+    </Story>
+</Canvas>
+
+### Checked
+
+<Canvas>
+    <Story name="Checked">
+        {args => {
+            return <Radio {...args} checked={true} label={"Checked"} onPress={action("Checked")} />;
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Radio} />

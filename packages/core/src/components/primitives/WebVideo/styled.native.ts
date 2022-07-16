@@ -24,6 +24,7 @@ export const WebVideoPlaceholderSpinnerContainer = styled(Box)`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;

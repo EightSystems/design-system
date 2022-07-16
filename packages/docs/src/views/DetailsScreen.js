@@ -7,7 +7,7 @@ const DetailsScreen = ({ route }) => {
     const MdxComponent = StoryList[indexName];
 
     return (
-        <KeyboardAwareScrollView style={{ padding: 16, width: "100%" }}>
+        <KeyboardAwareScrollView style={{ paddingLeft: 16, paddingRight: 16, width: "100%" }}>
             <MdxComponent />
         </KeyboardAwareScrollView>
     );

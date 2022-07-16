@@ -4,7 +4,7 @@ import ThemeProviderInjector from "../core/src/components/core/ThemeProviderInje
 import { nativeTheme } from "../core/src/theme";
 import NativeUIExplorer from "./src/views/NativeUIExplorer";
 
-const App = () => {
+export const App = props => {
     return (
         <SafeAreaView style={{ backgroundColor: "white", width: "100%", height: "100%" }}>
             <StatusBar barStyle={Platform.OS == "ios" ? "dark-content" : "default"} />

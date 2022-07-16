@@ -31,9 +31,13 @@ export const InputWrapper = styled.View`
 
     ${props =>
         props["data-icon"]
-            ? css`
-                  padding-right: 28px;
-              `
+            ? props.iconPosition == "end"
+                ? css`
+                      padding-right: 28px;
+                  `
+                : css`
+                      padding-left: 28px;
+                  `
             : null}
 
     ${borderRadius};
@@ -89,8 +93,16 @@ export const IconWrapper = styled(Pressable)`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 12px;
     height: 100%;
     position: absolute;
-    right: 0px;
+    ${props =>
+        props.iconPosition == "start"
+            ? css`
+                  padding-left: 12px;
+                  left: 0px;
+              `
+            : css`
+                  padding-right: 12px;
+                  right: 0px;
+              `}
 `;

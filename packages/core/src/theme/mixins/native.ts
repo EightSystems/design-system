@@ -116,12 +116,11 @@ export const shadowMaker = css`
                       elevation: ${props.theme.nativeShadows[shadowSize].elevation};
                   `
                 : css`
-                      elevation: ${props.theme.nativeShadows[shadowSize].elevation};
                       shadow-color: ${props.theme.nativeShadows[shadowSize].shadowColor};
                       shadow-offset: ${props.theme.nativeShadows[shadowSize].shadowOffset.width}px
                           ${props.theme.nativeShadows[shadowSize].shadowOffset.height}px;
                       shadow-opacity: ${props.theme.nativeShadows[shadowSize].shadowOpacity};
-                      shadow-radius: ${props.theme.nativeShadows[shadowSize].shadowRadius};
+                      shadow-radius: ${props.theme.nativeShadows[shadowSize].shadowRadius}px;
                   `;
         }
     }}

@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { KeyPad } from "../components/composites/KeyPad";
+import { action } from "@storybook/addon-actions";
+
+<Meta title="Composites/KeyPad" component={KeyPad} />
+
+# KeyPad
+
+A KeyPad allows you to collect user numbers simply.
+
+## Import
+
+```jsx
+import { KeyPad } from "@8sistemas/design-system";
+```
+
+## Example
+
+<Canvas>
+    <Story name="KeyPad">
+        {args => {
+            return (
+                <KeyPad
+                    {...args}
+                    onButtonPressed={action("buttonPressed")}
+                    onCancelButtonPressed={action("cancelButtonPressed")}
+                    onConfirmButtonPressed={action("confirmButtonPressed")}
+                    onCleanButtonPressed={action("cleanButtonPressed")}
+                />
+            );
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={KeyPad} />

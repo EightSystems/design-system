@@ -16,6 +16,8 @@
         "@mdx-js/runtime": "^1.6.22",
         "@react-aria/utils": "^3.8.2",
         "@types/react-native": "^0.66.6",
+        "@types/react": "^17.0.16",
+        "@types/react-native-vector-icons": "^6.4.8",
         "asyncstorage-down": "^4.2.0",
         "node-libs-react-native": "^1.2.1",
         "path-dirname": "^1.0.2",

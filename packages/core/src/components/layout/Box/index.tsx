@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BoxStyled } from "./styled";
+import { BoxStyled, BoxPressableStyled } from "./styled";
 import { BoxProps } from "./types";
 
 export const Box = ({
@@ -15,6 +15,7 @@ export const Box = ({
     borderType,
     borderRadius,
     shadowSize,
+    onPress,
     ...otherProps
 }: BoxProps) => {
     const styleProps = {
@@ -30,7 +31,11 @@ export const Box = ({
         "data-shadowsize": shadowSize,
     };
 
-    return (
+    return onPress ? (
+        <BoxPressableStyled {...otherProps} {...styleProps} onPress={onPress} onClick={onPress}>
+            {children}
+        </BoxPressableStyled>
+    ) : (
         <BoxStyled {...otherProps} {...styleProps}>
             {children}
         </BoxStyled>

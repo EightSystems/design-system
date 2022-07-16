@@ -88,7 +88,16 @@ export const IconWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 12px;
+
+    ${props =>
+        props.iconPosition === "start"
+            ? css`
+                  padding-left: 12px;
+              `
+            : css`
+                  padding-right: 12px;
+              `}
+
     height: 100%;
     position: relative;
 `;

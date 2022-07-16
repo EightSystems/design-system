@@ -1,5 +1,29 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { SearchBar } from "../components/composites/SearchBar";
+import { action } from "@storybook/addon-actions";
 
-<Meta title="Composites/SearchBar" />
+<Meta title="Composites/SearchBar" component={SearchBar} />
 
-https://callstack.github.io/react-native-paper/searchbar.html
+# SearchBar
+
+Searchbar is a simple input box where users can type search queries.
+
+## Import
+
+```jsx
+import { SearchBar } from "@8sistemas/design-system";
+```
+
+## Examples
+
+<Canvas>
+    <Story name="SearchBar">
+        {args => {
+            return <SearchBar {...args} placeholder={"Search"} />;
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={SearchBar} />

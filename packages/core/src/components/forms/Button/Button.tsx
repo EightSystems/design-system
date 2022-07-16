@@ -6,28 +6,30 @@ import { ButtonProps } from "./types";
 
 export const Button = React.memo<ButtonProps>(
     ({
-        disabled = false,
-        textColor = "primaryContrast",
-        fontFace = "primary",
-        fontWeight = "bold",
-        fontSize = "xs",
         backgroundColor = "primary",
         borderColor,
+        borderPosition = "all",
         borderRadius = "md",
         borderType = "default",
-        borderPosition = "all",
-        focusColor,
-        loading = false,
-        size = "large",
-        startIcon,
+        children,
+        disabled = false,
         endIcon,
+        fluid = true,
+        focusColor,
+        fontFace = "primary",
+        fontSize = "xs",
+        fontWeight = "bold",
         iconPadding,
+        loading = false,
+        padded = true,
+        size = "large",
         spinnerColor = "primaryContrast",
         spinnerSize = "xs",
-        children,
-        onPress,
+        startIcon,
+        textColor = "primaryContrast",
         onClick,
         onLongPress,
+        onPress,
         onPressIn,
         onPressOut,
         ...props
@@ -50,6 +52,8 @@ export const Button = React.memo<ButtonProps>(
                 data-size={size}
                 data-disabled={disabled || loading}
                 disabled={disabled || loading}
+                padded={padded}
+                fluid={fluid}
             >
                 {startIcon && React.isValidElement(startIcon) ? startIcon : null}
 

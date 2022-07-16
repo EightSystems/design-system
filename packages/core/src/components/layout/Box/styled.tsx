@@ -16,3 +16,7 @@ export const BoxStyled = styled.div`
     ${borderColors};
     ${shadowMaker};
 `;
+
+export const BoxPressableStyled = styled(BoxStyled)`
+    cursor: pointer;
+`;

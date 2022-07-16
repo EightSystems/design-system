@@ -24,7 +24,11 @@ const Spinner = ({ color = "primary", size = "lg" }: SpinnerProps) => {
             <ActivityIndicator
                 color={spinnerRealColor}
                 size={"large"}
-                style={{ transform: [{ scale: spinnerRealSize / 36 }], width: size, height: size }}
+                style={{
+                    transform: [{ scale: spinnerRealSize / 36 }],
+                    width: spinnerRealSize,
+                    height: spinnerRealSize,
+                }}
             />
         );
     }

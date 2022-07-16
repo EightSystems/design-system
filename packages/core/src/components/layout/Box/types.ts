@@ -40,6 +40,9 @@ export type BoxProps = {
 
     shadowSize?: ShadowTypes;
 
+    /** If you set this we will transform it into a clickable element */
+    onPress?: () => void;
+
     /**
      * This adds support to Styled-Component as prop, but keep in mind that this is platform specific.
      */

@@ -1,4 +1,5 @@
 import isArray from "lodash/isArray";
+import isObject from "lodash/isPlainObject";
 import { css } from "styled-components";
 
 export {
@@ -28,13 +29,45 @@ export const backgroundColors = css`
         const backgroundColor = props["data-backgroundcolor"];
 
         if (typeof props.theme.colors[backgroundColor] != "undefined") {
-            if (!isArray(props.theme.colors[backgroundColor])) {
+            if (!isArray(props.theme.colors[backgroundColor]) && !isObject(props.theme.colors[backgroundColor])) {
                 return css`
                     background-color: ${props.theme.colors[backgroundColor]};
                 `;
             } else {
+                const themeBackgroundValue = props.theme.colors[backgroundColor];
+
+                let gradientContent = "";
+
+                if (isObject(themeBackgroundValue)) {
+                    if (
+                        (typeof themeBackgroundValue.direction == "undefined" &&
+                            typeof themeBackgroundValue.angle == "undefined") ||
+                        typeof themeBackgroundValue.colors == "undefined"
+                    ) {
+                        console.error(
+                            "Your theme background property doesnt have the needed direction, or angle, and/or colors values"
+                        );
+
+                        return null;
+                    } else {
+                        const colorsListing = themeBackgroundValue.colors;
+                        const direction = themeBackgroundValue.direction;
+                        const angle = themeBackgroundValue.angle ? +themeBackgroundValue.angle : null;
+
+                        if (direction) {
+                            gradientContent = `to ${direction}, ${colorsListing.join(", ")}`;
+                        } else if (angle) {
+                            gradientContent = `${angle}deg, ${colorsListing.join(", ")}`;
+                        } else {
+                            gradientContent = colorsListing.join(", ");
+                        }
+                    }
+                } else {
+                    gradientContent = themeBackgroundValue.join(", ");
+                }
+
                 return css`
-                    background-image: linear-gradient(${props.theme.colors[backgroundColor].join(", ")});
+                    background-image: linear-gradient(${gradientContent});
                 `;
             }
         }

@@ -27,6 +27,8 @@ export const TextField = React.memo<TextFieldProps>(
         children,
         value,
         icon,
+        iconFamily,
+        iconPosition = "end",
         keyboardType,
         maskType = "only-numbers",
         tooltipContent,
@@ -126,17 +128,17 @@ export const TextField = React.memo<TextFieldProps>(
 
         const IconElement =
             icon && icon !== "loadingSpinner" ? (
-                <S.IconWrapper>
+                <S.IconWrapper iconPosition={iconPosition}>
                     <React.Fragment>
                         {icon === "info" ? (
                             <Icon icon="md-info" color={"primary"} size={"sm"} familyName={"Material"} />
-                        ) : null}
-                        {icon === "error" ? (
+                        ) : icon === "error" ? (
                             <Icon icon="md-error" color={"danger"} size={"sm"} familyName={"Material"} />
-                        ) : null}
-                        {icon === "success" ? (
+                        ) : icon === "success" ? (
                             <Icon icon="md-check-circle" color={"success"} size={"sm"} familyName={"Material"} />
-                        ) : null}
+                        ) : (
+                            <Icon icon={icon} color={"primary"} size={"sm"} familyName={iconFamily} />
+                        )}
                     </React.Fragment>
                 </S.IconWrapper>
             ) : null;
@@ -147,12 +149,28 @@ export const TextField = React.memo<TextFieldProps>(
                     <S.InputLabel data-focused={focused}>{label}</S.InputLabel>
                 </TouchableWithoutFeedback>
                 <S.InputWrapper
+                    iconPosition={iconPosition}
                     data-icon={icon}
                     data-bordercolor={borderFinalColor}
                     data-borderradius={borderRadius}
                     data-bordertype={borderType}
                     data-borderposition={borderPosition}
                 >
+                    {icon && icon !== "loadingSpinner" && iconPosition == "start" ? (
+                        tooltipContent ? (
+                            <Tooltip
+                                tooltipContent={tooltipContent}
+                                placement={tooltipPlacement}
+                                offset={tooltipOffset}
+                                crossOffset={tooltipCrossOffset}
+                            >
+                                {IconElement}
+                            </Tooltip>
+                        ) : (
+                            IconElement
+                        )
+                    ) : null}
+
                     {masked ? (
                         <S.MaskedInputComponent
                             options={maskOptions}
@@ -215,7 +233,7 @@ export const TextField = React.memo<TextFieldProps>(
                         />
                     )}
 
-                    {icon && icon !== "loadingSpinner" ? (
+                    {icon && icon !== "loadingSpinner" && iconPosition == "end" ? (
                         tooltipContent ? (
                             <Tooltip
                                 tooltipContent={tooltipContent}

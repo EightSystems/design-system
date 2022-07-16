@@ -1,6 +1,7 @@
 import * as React from "react";
 import { BorderPosition, BorderTypes, ColorTypes, RadiusTypes } from "../../../theme/types";
 import { TooltipProps } from "../../feedback/Tooltip/types";
+import { IconProps } from "../../primitives/Icon";
 
 export type AutoCompleteType =
     | "cc-csc"
@@ -92,7 +93,9 @@ export type TextFieldProps = {
     maxLength?: number;
 
     /** If specified, will define what of icon will be shown inside the component. */
-    icon?: "info" | "error" | "success" | "loadingSpinner";
+    icon?: "info" | "error" | "success" | "loadingSpinner" | IconProps["icon"];
+    iconFamily?: IconProps["familyName"];
+    iconPosition?: "start" | "end";
 
     /** If specified, defines that this TextField should be masked */
     masked?: boolean;

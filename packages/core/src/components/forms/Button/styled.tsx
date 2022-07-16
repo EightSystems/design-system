@@ -22,7 +22,7 @@ export const ButtonWrapper = styled.button`
     ${props =>
         props["data-size"] === "small"
             ? css`
-                  padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm}`};
+                  padding: ${({ theme, padded }) => (padded ? `${theme.spacing.xxs} ${theme.spacing.sm}` : "0px")};
                   min-height: ${({ theme }) => theme.elements.minHeight.small};
                   font-size: ${({ theme }) => theme.typography.fontSizes.xxs};
               `
@@ -31,7 +31,7 @@ export const ButtonWrapper = styled.button`
     ${props =>
         props["data-size"] === "medium"
             ? css`
-                  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.default}`};
+                  padding: ${({ theme, padded }) => (padded ? `${theme.spacing.xs} ${theme.spacing.default}` : "0px")};
                   min-height: ${({ theme }) => theme.elements.minHeight.medium};
                   font-size: ${({ theme }) => theme.typography.fontSizes.xs};
               `
@@ -40,7 +40,7 @@ export const ButtonWrapper = styled.button`
     ${props =>
         props["data-size"] === "large"
             ? css`
-                  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.default}`};
+                  padding: ${({ theme, padded }) => (padded ? `${theme.spacing.sm} ${theme.spacing.default}` : "0px")};
                   min-height: ${({ theme }) => theme.elements.minHeight.large};
                   font-size: ${({ theme }) => theme.typography.fontSizes.xs};
               `
@@ -68,7 +68,13 @@ export const ButtonWrapper = styled.button`
     cursor: pointer;
     appearance: none;
 
-    width: 100%;
+    ${props =>
+        props.fluid
+            ? css`
+                  width: 100%;
+              `
+            : null}
+
     &:hover,
     :focus {
         box-shadow: ${({ theme }) => theme.shadows.xs};
