@@ -2,6 +2,7 @@ import AccordionStory from "../core/src/stories/Accordion.stories";
 import ApplicationContainerStory from "../core/src/stories/ApplicationContainer.stories";
 import AvatarStory from "../core/src/stories/05_Avatar.stories";
 import BadgeStory from "../core/src/stories/Badge.stories";
+import BannerStory from "../core/src/stories/Banner.stories";
 import BoxStory from "../core/src/stories/09_Box.stories";
 import ButtonStory from "../core/src/stories/08_Button.stories";
 import CheckboxStory from "../core/src/stories/Checkbox.stories";
@@ -54,6 +55,7 @@ const storyList = {
     "Composites/SearchBar": SearchBarStory,
 
     "Feedback/Badge": BadgeStory,
+    "Feedback/Banner": BannerStory,
     "Feedback/ProgressBar": ProgressBarStory,
     "Feedback/ProgressRing": ProgressRingStory,
     "Feedback/Spinner": SpinnerStory,
