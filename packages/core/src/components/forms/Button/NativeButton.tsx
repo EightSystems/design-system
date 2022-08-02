@@ -56,7 +56,9 @@ const Button = React.memo<ButtonProps>(
                 fluid={fluid}
             >
                 {startIcon && isValidElement(startIcon) ? startIcon : null}
-                {startIcon && isValidElement(startIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
+                {startIcon && isValidElement(startIcon) ? (
+                    <Spacer size={iconPadding ? iconPadding : 0} axis={"horizontal"} />
+                ) : null}
 
                 {React.Children.map(children, childrenElement =>
                     typeof childrenElement === "string" ? (
@@ -82,7 +84,9 @@ const Button = React.memo<ButtonProps>(
                     </React.Fragment>
                 ) : null}
 
-                {endIcon && isValidElement(endIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
+                {endIcon && isValidElement(endIcon) ? (
+                    <Spacer size={iconPadding ? iconPadding : 0} axis={"horizontal"} />
+                ) : null}
                 {endIcon && isValidElement(endIcon) ? endIcon : null}
             </S.ButtonPressable>
         );

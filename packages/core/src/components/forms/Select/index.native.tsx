@@ -42,10 +42,12 @@ export const Select = ({
             };
         });
 
-        const childReduced = childMapped.reduce<any>((previousValue, currentValue) => {
-            previousValue[currentValue.value] = currentValue.text;
-            return previousValue;
-        }, {});
+        const childReduced = childMapped
+            ? childMapped.reduce<any>((previousValue, currentValue) => {
+                  previousValue[currentValue.value] = currentValue.text;
+                  return previousValue;
+              }, {})
+            : {};
 
         return {
             optionListMapped: childMapped,
@@ -104,7 +106,7 @@ export const Select = ({
                 ? optionValueList[0]
                 : ""
         );
-    }, [optionValueList]);
+    }, [optionValueList, placeholder]);
 
     const { showActionSheetWithOptions } = useActionSheet();
 

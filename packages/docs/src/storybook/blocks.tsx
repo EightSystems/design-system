@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect } from "react";
-import { Platform, StyleSheet, View } from "react-native";
+import { Platform, StyleSheet, View, Text } from "react-native";
 
 const styles = StyleSheet.create({
     story: {
@@ -58,5 +58,9 @@ export const Description = props => {
 };
 
 export const ArgsTable = props => {
-    return <View style={{ marginTop: 20, marginBottom: 20 }}></View>;
+    return (
+        <View style={{ marginTop: 20, marginBottom: 20 }}>
+            <Text>ArgTable goes here</Text>
+        </View>
+    );
 };

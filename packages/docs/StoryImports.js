@@ -1,8 +1,8 @@
 import AccordionStory from "../core/src/stories/Accordion.stories";
+import ApplicationContainerStory from "../core/src/stories/ApplicationContainer.stories";
 import AvatarStory from "../core/src/stories/05_Avatar.stories";
 import BadgeStory from "../core/src/stories/Badge.stories";
 import BoxStory from "../core/src/stories/09_Box.stories";
-import ApplicationContainerStory from "../core/src/stories/ApplicationContainer.stories";
 import ButtonStory from "../core/src/stories/08_Button.stories";
 import CheckboxStory from "../core/src/stories/Checkbox.stories";
 import CurrencyLabelStory from "../core/src/stories/CurrencyLabel.stories";
@@ -13,19 +13,20 @@ import HeadingStory from "../core/src/stories/Heading.stories";
 import IconStory from "../core/src/stories/Icon.stories";
 import Image from "../core/src/stories/Image.stories";
 import IntroductionStory from "../core/src/stories/00_Introduction.stories";
+import KeyPadStory from "../core/src/stories/KeyPad.stories";
+import ListStory from "../core/src/stories/List.stories";
 import ModalStory from "../core/src/stories/Modal.stories";
 import NativeSupportStory from "../core/src/stories/04_NativeSupport.stories";
 import PaymentMethodItemStory from "../core/src/stories/PaymentMethodItem.stories";
 import PaymentPromptStory from "../core/src/stories/PaymentPrompt.stories";
 import PaymentStatusStory from "../core/src/stories/PaymentStatus.stories";
 import PlatformStory from "../core/src/stories/10_Platform.stories";
-import KeyPadStory from "../core/src/stories/KeyPad.stories";
 import ProgressBarStory from "../core/src/stories/ProgressBar.stories";
 import ProgressRingStory from "../core/src/stories/07_ProgressRing.stories";
 import RadioStory from "../core/src/stories/Radio.stories";
 import SavedCardBadge from "../core/src/stories/SavedCardBadge.stories";
-import SelectStory from "../core/src/stories/Select.stories";
 import SearchBarStory from "../core/src/stories/Searchbar.stories";
+import SelectStory from "../core/src/stories/Select.stories";
 import SkeletonStory from "../core/src/stories/Skeleton.stories";
 import SpacerStory from "../core/src/stories/Spacer.stories";
 import SpinnerStory from "../core/src/stories/Spinner.stories";
@@ -48,13 +49,13 @@ const storyList = {
     "Atoms/CurrencyLabel": CurrencyLabelStory,
     "Atoms/Skeleton": SkeletonStory,
 
-    "Composites/Modal": ModalStory,
     "Composites/KeyPad": KeyPadStory,
+    "Composites/Modal": ModalStory,
     "Composites/SearchBar": SearchBarStory,
 
-    "Feedback/ProgressRing": ProgressRingStory,
     "Feedback/Badge": BadgeStory,
     "Feedback/ProgressBar": ProgressBarStory,
+    "Feedback/ProgressRing": ProgressRingStory,
     "Feedback/Spinner": SpinnerStory,
     "Feedback/Stepper": StepperStory,
     "Feedback/Toast": ToastStory,
@@ -71,6 +72,7 @@ const storyList = {
     "Layout/Box": BoxStory,
     "Layout/FlexBox": FlexBox,
     "Layout/Grid": GridStory,
+    "Layout/List": ListStory,
     "Layout/Spacer": SpacerStory,
 
     "Molecules/Accordion": AccordionStory,

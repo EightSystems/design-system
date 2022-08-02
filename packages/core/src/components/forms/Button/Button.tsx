@@ -57,11 +57,15 @@ export const Button = React.memo<ButtonProps>(
             >
                 {startIcon && React.isValidElement(startIcon) ? startIcon : null}
 
-                {startIcon && React.isValidElement(startIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
+                {startIcon && React.isValidElement(startIcon) ? (
+                    <Spacer size={iconPadding ? iconPadding : 0} axis={"horizontal"} />
+                ) : null}
 
                 {children}
 
-                {endIcon && React.isValidElement(endIcon) ? <Spacer size={iconPadding ? iconPadding : 0} /> : null}
+                {endIcon && React.isValidElement(endIcon) ? (
+                    <Spacer size={iconPadding ? iconPadding : 0} axis={"horizontal"} />
+                ) : null}
 
                 {loading ? (
                     <S.SpinnerContainer>

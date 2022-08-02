@@ -1,20 +1,101 @@
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { List, ListItem } from "../components/layout/List";
+import { Avatar } from "../components/atoms/Avatar";
 
-<Meta title="Layout/List" />
+<Meta title="Layout/List" component={List} />
 
-* ListItemWithTitle (with background support)
-    * Icon (Left of Title, Right of whole component 'like arrow')
-    * Heading
-    * Text
+# List
 
-* ListItemWithBoxedIcon (with background support)
-    * Icon / Avatar (inside a Box com size from prop)
-    * Heading
-    * Text (like paragraph)
-    * Lighter Text Right or Bottom from Heading
+A simple List element with a ListItem composite, this will use FlatList on Native and a simple div with overflow-x auto
+on web.
 
-* ListItemWithBackgroundImage
-    * Image no Background
-    * Title (align prop)
-    * Text (align prop)
-    * Lighter Text (align prop)
+## Import
+
+```jsx
+import { List, ListItem } from "@8sistemas/design-system";
+```
+
+## Examples
+
+### Quick List
+
+<Canvas>
+    <Story name="List">
+        {args => {
+            return (
+                <List
+                    {...args}
+                    data={[1, 2, 3, 4]}
+                    keyExtractor={item => `key-${item}`}
+                    renderItem={({ item }) => {
+                        return (
+                            <ListItem
+                                title={`Title ${item}`}
+                                subTitle={`This is my sub-title ${item}, and it might overflow to the next line`}
+                                text={`Really big text ext here ${item}, for helping understand a big list item`}
+                                icon={"fa-heart"}
+                                rightIcon={"fa-arrow-right"}
+                            />
+                        );
+                    }}
+                />
+            );
+        }}
+    </Story>
+</Canvas>
+
+### List Item Only
+
+<Canvas>
+    <Story name="List Item Only">
+        {args => {
+            return (
+                <ListItem
+                    title={`Title Only`}
+                    subTitle={`This is my sub-title, and it might overflow to the next line`}
+                    text={`Really big text ext here, for helping understand a big list item`}
+                    icon={"fa-heart"}
+                    rightIcon={"fa-arrow-right"}
+                />
+            );
+        }}
+    </Story>
+</Canvas>
+
+### Avatar List
+
+<Canvas>
+    <Story name="Avatar List">
+        {args => {
+            return (
+                <List
+                    {...args}
+                    data={[1, 2, 3, 4]}
+                    keyExtractor={item => `key-${item}`}
+                    renderItem={({ item }) => {
+                        return (
+                            <ListItem
+                                title={`Title ${item}`}
+                                icon={
+                                    <Avatar
+                                        alt={`I${item}`}
+                                        size={"small"}
+                                        src={`https://picsum.photos/seed/${item}/200?grayscale`}
+                                    />
+                                }
+                                subTitle={`This is my sub-title ${item}.`}
+                                rightIcon={"fa-arrow-right"}
+                            />
+                        );
+                    }}
+                />
+            );
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={List} />
+
+<ArgsTable of={ListItem} />
