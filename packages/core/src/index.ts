@@ -37,6 +37,8 @@ export { ThemeProviderInjector } from "./components/core/ThemeProviderInjector";
 export { Toast } from "./components/feedback/Toast";
 export { Tooltip } from "./components/feedback/Tooltip";
 export { WebVideo } from "./components/primitives/WebVideo";
+export { useClipboard } from "./hooks/useClipboard";
+export { useColorScheme } from "./hooks/useColorScheme";
 export { useContainerDimensions } from "./hooks/useContainerDimensions";
 export { useDetectOutsideClick } from "./hooks/useDetectOutsideClick";
 export { useExtendedTheme } from "./hooks/useExtendedTheme";

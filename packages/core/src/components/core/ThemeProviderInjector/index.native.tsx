@@ -1,10 +1,3 @@
-let ActionSheetProvider = React.Fragment;
-try {
-    ActionSheetProvider = require("@expo/react-native-action-sheet").ActionSheetProvider;
-} catch (e) {
-    console.log("@expo/react-native-action-sheet is not installed, you wont have Select support");
-}
-
 import keys from "lodash/keys";
 import merge from "lodash/merge";
 import React from "react";
@@ -15,7 +8,7 @@ import { NativeThemeProviderProps, NativeThemeSchemaType } from "./types";
 
 const cacheFontWeight = (themeMerged: NativeThemeSchemaType): NativeThemeSchemaType => {
     const fontFacesNames = keys(themeMerged.nativeTypography.fontFaces);
-    const fontFacesLowerCase = fontFacesNames.reduce((acc, keyName) => {
+    const fontFacesLowerCase = fontFacesNames.reduce((acc: any, keyName: string) => {
         acc[keyName.toLowerCase()] = themeMerged.nativeTypography.fontFaces[keyName];
         return acc;
     }, {});
@@ -33,9 +26,7 @@ export const ThemeProviderInjector = React.memo<NativeThemeProviderProps>(
 
         return (
             <ThemeProvider theme={themeMerged}>
-                <ActionSheetProvider>
-                    <ToastProvider>{children}</ToastProvider>
-                </ActionSheetProvider>
+                <ToastProvider>{children}</ToastProvider>
             </ThemeProvider>
         );
     }

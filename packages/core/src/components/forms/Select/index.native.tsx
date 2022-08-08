@@ -1,6 +1,6 @@
-let useActionSheet = null;
+let MenuView = null;
 try {
-    useActionSheet = require("@expo/react-native-action-sheet").useActionSheet;
+    MenuView = require("@react-native-menu/menu").MenuView;
 } catch (e) {}
 
 import keys from "lodash/keys";
@@ -8,8 +8,10 @@ import values from "lodash/values";
 import React, { useEffect, useMemo, useState } from "react";
 import { onlyText } from "react-children-utilities";
 import { Icon } from "../../primitives/Icon";
+import { useColorScheme } from "react-native";
 import * as S from "./styled.native";
 import { OptionElement, SelectProps } from "./types";
+import { Text } from "../../typography/Text";
 
 export { Option } from "./Option.native";
 
@@ -30,9 +32,11 @@ export const Select = ({
     borderType = "default",
     borderColor = "darkTint",
 }: SelectProps) => {
-    if (!useActionSheet) {
-        return null;
+    if (!MenuView) {
+        return <Text>You need to install @react-native-menu/menu package</Text>;
     }
+
+    const colorScheme = useColorScheme();
 
     const { optionListReduced, optionList, optionValueList } = useMemo(() => {
         const childMapped = React.Children.map(children, (child: OptionElement) => {
@@ -108,49 +112,50 @@ export const Select = ({
         );
     }, [optionValueList, placeholder]);
 
-    const { showActionSheetWithOptions } = useActionSheet();
-
-    const openSelectOptions = () => {
-        onFocus && onFocus();
-
-        showActionSheetWithOptions(
-            {
-                options: [...optionList, optionsCancelMessage || "Cancel"],
-                destructiveButtonIndex: optionList.length,
-                useModal: true,
-            },
-            selectedIndex => {
-                if (selectedIndex < optionList.length) {
-                    setSelectedOptionName(optionList[selectedIndex]);
-                    setSelectedOptionValue(optionValueList[selectedIndex]);
-                    onChange && onChange(optionValueList[selectedIndex]);
-                }
-
-                onBlur && onBlur();
-            }
-        );
-    };
-
     return (
         <S.MainWrapper>
             <S.InputLabel fontFace={"secondary"} fontWeight={"medium"} textColor={"dark"} fontSize={"xxs"}>
                 {label}
             </S.InputLabel>
-            <S.SelectComponent
-                borderColor={borderFinalColor}
-                borderType={borderType}
-                borderRadius={borderRadius}
-                borderPosition={borderPosition}
-                onClick={openSelectOptions}
-                backgroundColor={"white"}
-                fontFace={"secondary"}
-                fontWeight={"medium"}
-                textColor={"dark"}
-                textAlign={"left"}
-                endIcon={<Icon familyName={"FontAwesome"} icon={"chevron-down"} size={"sm"} />}
+            <MenuView
+                actions={[...optionList, optionsCancelMessage || "Cancel"].map((value, index) => {
+                    return {
+                        id: `${index}`,
+                        title: value,
+                        titleColor: colorScheme === "dark" ? "#ffffff" : "#000000",
+                        attributes: {
+                            destructive: index == optionList.length,
+                        },
+                    };
+                })}
+                isAnchoredToRight={true}
+                onPressAction={({ nativeEvent }) => {
+                    const selectedIndex = +nativeEvent.event;
+
+                    if (selectedIndex < optionList.length) {
+                        setSelectedOptionName(optionList[selectedIndex]);
+                        setSelectedOptionValue(optionValueList[selectedIndex]);
+                        onChange && onChange(optionValueList[selectedIndex]);
+                    }
+
+                    onBlur && onBlur();
+                }}
             >
-                {selectedOptionName}
-            </S.SelectComponent>
+                <S.SelectComponent
+                    borderColor={borderFinalColor}
+                    borderType={borderType}
+                    borderRadius={borderRadius}
+                    borderPosition={borderPosition}
+                    backgroundColor={"white"}
+                    fontFace={"secondary"}
+                    fontWeight={"medium"}
+                    textColor={"dark"}
+                    textAlign={"left"}
+                    endIcon={<Icon familyName={"FontAwesome"} icon={"chevron-down"} size={"sm"} />}
+                >
+                    {selectedOptionName}
+                </S.SelectComponent>
+            </MenuView>
             <S.InputValidationContainer>
                 {validationMessage ? (
                     <React.Fragment>

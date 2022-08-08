@@ -36,6 +36,8 @@ export { ThemeProviderInjector } from "./components/core/ThemeProviderInjector";
 export { Toast } from "./components/feedback/Toast";
 export { Tooltip } from "./components/feedback/Tooltip";
 export { WebVideo } from "./components/primitives/WebVideo";
+export { useClipboard } from "./hooks/useClipboard";
+export { useColorScheme } from "./hooks/useColorScheme";
 export { useExtendedTheme } from "./hooks/useExtendedTheme";
 export { useThemeColor } from "./hooks/useThemeColor";
 export { useThemeFontSize } from "./hooks/useThemeFontSize";

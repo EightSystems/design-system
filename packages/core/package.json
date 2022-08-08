@@ -19,7 +19,7 @@
     "license": "MIT",
     "private": false,
     "peerDependencies": {
-        "@expo/react-native-action-sheet": ">=3.12.0",
+        "@react-native-menu/menu": ">=0.5.2",
         "react": ">=17.0.1",
         "react-dom": ">=17.0.1",
         "react-native": ">=0.64.2",
@@ -33,9 +33,9 @@
         "styled-components": ">=5.3.5"
     },
     "devDependencies": {
-        "@expo/react-native-action-sheet": "^3.12.0",
         "@headlessui/react": "^1.6.1",
         "@popperjs/core": "^2.9.2",
+        "@react-native-menu/menu": "^0.5.2",
         "@rollup/plugin-commonjs": "^15.1.0",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^9.0.0",
