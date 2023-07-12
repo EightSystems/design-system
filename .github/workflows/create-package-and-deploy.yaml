@@ -10,13 +10,13 @@ jobs:
         if: "!contains(github.event.head_commit.message, '[skip-package]')"
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
             - name: Setup Node.js
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v3
               env: 
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_SEMANTIC_TOKEN }}
               with:
-                  node-version: "12.x"
+                  node-version: "14.x"
                   always-auth: true
                   registry-url: "https://registry.npmjs.org"
             - name: Install dependencies
