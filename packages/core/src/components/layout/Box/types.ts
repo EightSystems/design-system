@@ -21,10 +21,10 @@ export type BoxProps = {
     padded?: boolean;
 
     padding?: SpacingTypes;
-    paddingDirection?: SpacingDirections;
+    paddingDirection?: SpacingDirections | SpacingDirections[];
 
     margin?: SpacingTypes;
-    marginDirection?: SpacingDirections;
+    marginDirection?: SpacingDirections | SpacingDirections[];
 
     /** Color of the Box border. */
     borderColor?: ColorTypes;

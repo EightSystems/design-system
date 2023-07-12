@@ -117,12 +117,30 @@ export const textAlign = css`
 export const marginSpacing = css`
     ${props => {
         const marginValue = props["data-margin"];
-        const marginDirection = props["data-margin-direction"] || "all";
+        const marginDirection = castArray(props["data-margin-direction"] || "all");
 
         if (typeof props.theme.spacing[marginValue] != "undefined") {
             const marginValues = [
-                marginDirection === "all" || marginDirection === "vertical" ? props.theme.spacing[marginValue] : 0,
-                marginDirection === "all" || marginDirection === "horizontal" ? props.theme.spacing[marginValue] : 0,
+                marginDirection.indexOf("all") > -1 ||
+                marginDirection.indexOf("vertical") > -1 ||
+                marginDirection.indexOf("top") > -1
+                    ? props.theme.spacing[marginValue]
+                    : 0,
+                marginDirection.indexOf("all") > -1 ||
+                marginDirection.indexOf("horizontal") > -1 ||
+                marginDirection.indexOf("right") > -1
+                    ? props.theme.spacing[marginValue]
+                    : 0,
+                marginDirection.indexOf("all") > -1 ||
+                marginDirection.indexOf("vertical") > -1 ||
+                marginDirection.indexOf("bottom") > -1
+                    ? props.theme.spacing[marginValue]
+                    : 0,
+                marginDirection.indexOf("all") > -1 ||
+                marginDirection.indexOf("horizontal") > -1 ||
+                marginDirection.indexOf("left") > -1
+                    ? props.theme.spacing[marginValue]
+                    : 0,
             ];
 
             return css`
@@ -137,12 +155,30 @@ export const marginSpacing = css`
 export const paddingSpacing = css`
     ${props => {
         const paddingValue = props["data-padding"];
-        const paddingDirection = props["data-padding-direction"] || "all";
+        const paddingDirection = castArray(props["data-padding-direction"] || "all");
 
         if (typeof props.theme.spacing[paddingValue] != "undefined") {
             const paddingValues = [
-                paddingDirection === "all" || paddingDirection === "vertical" ? props.theme.spacing[paddingValue] : 0,
-                paddingDirection === "all" || paddingDirection === "horizontal" ? props.theme.spacing[paddingValue] : 0,
+                paddingDirection.indexOf("all") > -1 ||
+                paddingDirection.indexOf("vertical") > -1 ||
+                paddingDirection.indexOf("top") > -1
+                    ? props.theme.spacing[paddingValue]
+                    : 0,
+                paddingDirection.indexOf("all") > -1 ||
+                paddingDirection.indexOf("horizontal") > -1 ||
+                paddingDirection.indexOf("right") > -1
+                    ? props.theme.spacing[paddingValue]
+                    : 0,
+                paddingDirection.indexOf("all") > -1 ||
+                paddingDirection.indexOf("vertical") > -1 ||
+                paddingDirection.indexOf("bottom") > -1
+                    ? props.theme.spacing[paddingValue]
+                    : 0,
+                paddingDirection.indexOf("all") > -1 ||
+                paddingDirection.indexOf("horizontal") > -1 ||
+                paddingDirection.indexOf("left") > -1
+                    ? props.theme.spacing[paddingValue]
+                    : 0,
             ];
 
             return css`

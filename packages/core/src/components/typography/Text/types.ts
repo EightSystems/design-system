@@ -4,6 +4,7 @@ import {
     FontFaceTypes,
     FontSizeTypes,
     FontWeightTypes,
+    SpacingDirections,
     SpacingTypes,
     TextAlignTypes,
 } from "../../../theme/types";
@@ -31,7 +32,10 @@ export type TextProps = {
     underline?: boolean;
 
     padding?: SpacingTypes;
+    paddingDirection?: SpacingDirections | SpacingDirections[];
+
     margin?: SpacingTypes;
+    marginDirection?: SpacingDirections | SpacingDirections[];
 
     textAlign?: TextAlignTypes;
 

@@ -8,7 +8,7 @@ export type BorderPosition = "top" | "left" | "right" | "bottom" | "all";
 
 export type SpacingTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg" | "xlg" | "xxlg";
 
-export type SpacingDirections = "all" | "horizontal" | "vertical";
+export type SpacingDirections = "all" | "horizontal" | "vertical" | "top" | "left" | "right" | "bottom";
 
 export type LetterSpacingTypes = "xxs" | "xs" | "sm" | "default" | "md" | "lg" | "xlg";
 

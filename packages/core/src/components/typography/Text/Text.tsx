@@ -14,7 +14,9 @@ export const Text = React.memo<TextProps>(
         italic = false,
         underline = false,
         margin,
+        marginDirection = "all",
         padding,
+        paddingDirection = "all",
         selectable,
         ...props
     }: TextProps) => {
@@ -33,7 +35,9 @@ export const Text = React.memo<TextProps>(
             "data-italic": italic,
             "data-underline": underline,
             "data-margin": margin,
+            "data-margin-direction": marginDirection,
             "data-padding": padding,
+            "data-padding-direction": paddingDirection,
             "data-textalign": textAlign,
             selectable: isTextSelectable,
         };
