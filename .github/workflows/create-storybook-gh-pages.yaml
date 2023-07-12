@@ -10,6 +10,14 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              env: 
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_SEMANTIC_TOKEN }}
+              with:
+                  node-version: "14.x"
+                  always-auth: true
+                  registry-url: "https://registry.npmjs.org"
             - name: Install and Build
               working-directory: ./packages/core
               run: |
@@ -17,7 +25,7 @@ jobs:
                   yarn build-storybook
 
             - name: Deploy
-              uses: JamesIves/github-pages-deploy-action@4.4.3
+              uses: JamesIves/github-pages-deploy-action@v4.4.3
               with:
                   branch: gh-pages
                   folder: ./packages/core/storybook-static
