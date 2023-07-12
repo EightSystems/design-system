@@ -4,6 +4,8 @@ import FlexImage, { Props as ImageProps, Source as ImageSourcePropType } from ".
 export type NativeImageProps = React.Component<ImageProps> & {
     src: string | ImageSourcePropType;
     style?: any;
+    thumbnailStyle?: any;
+    imageStyle?: any;
 };
 
 function isValidUrl(string) {

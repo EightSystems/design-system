@@ -6,7 +6,17 @@
  */
 
 import React, { Component, ReactNode } from "react";
-import { ActivityIndicator, Animated, Image, StyleProp, Text, TouchableOpacity, View, ViewStyle } from "react-native";
+import {
+    ActivityIndicator,
+    Animated,
+    Image,
+    ImageStyle,
+    StyleProp,
+    Text,
+    TouchableOpacity,
+    View,
+    ViewStyle,
+} from "react-native";
 // @ts-ignore
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
@@ -19,6 +29,8 @@ export type Source = number | { uri: string; width?: number; height?: number };
 export type Props = {
     source: Source;
     style?: StyleProp<ViewStyle>;
+    imageStyle?: StyleProp<ImageStyle>;
+    thumbnailStyle?: StyleProp<ImageStyle>;
     loadingComponent?: ReactNode;
     onPress?: () => void;
     thumbnail?: Source;
@@ -82,8 +94,18 @@ export default class FlexImage extends Component<Props, State> {
     }
 
     render() {
-        let { source, style, onPress, loadingComponent, thumbnail, loadingMethod, errorComponent, ...otherProps } =
-            this.props;
+        let {
+            source,
+            style,
+            onPress,
+            loadingComponent,
+            thumbnail,
+            loadingMethod,
+            errorComponent,
+            imageStyle = {},
+            thumbnailStyle = {},
+            ...otherProps
+        } = this.props;
         let { isLoading, ratio, error, thumbnailOpacity } = this.state;
 
         if (isLoading && loadingMethod !== "progressive") {
@@ -119,6 +141,7 @@ export default class FlexImage extends Component<Props, State> {
                             height: "100%",
                             opacity: thumbnailOpacity,
                             zIndex: 1,
+                            ...(thumbnailStyle as any),
                         }}
                         onLoad={this._onThumbnailLoad}
                         testID="progressiveThumbnail"
@@ -127,7 +150,7 @@ export default class FlexImage extends Component<Props, State> {
                 <Animated.Image
                     {...otherProps}
                     source={imageSource}
-                    style={{ width: "100%", height: "100%", position: "absolute" }}
+                    style={{ width: "100%", height: "100%", position: "absolute", ...(imageStyle as any) }}
                     onLoad={this._onLoad}
                 />
             </TouchableOpacity>

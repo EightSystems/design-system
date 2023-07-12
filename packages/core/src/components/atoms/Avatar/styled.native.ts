@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components/native";
+import { backgroundColors } from "../../../theme/mixins/native";
 
 export const AvatarWrapper = styled.View`
-    background: ${({ theme }) => theme.colors.mediumShade};
+    ${backgroundColors}
+
     color: ${({ theme }) => theme.colors.lightTint};
 
     align-items: center;
@@ -29,6 +31,22 @@ export const AvatarWrapper = styled.View`
                   height: ${({ theme }) => theme.spacing.lg};
               `
             : null}
+
+    ${props =>
+        props["data-size"] == "xs"
+            ? css`
+                  width: ${({ theme }) => theme.spacing.md};
+                  height: ${({ theme }) => theme.spacing.md};
+              `
+            : null}
+
+    ${props =>
+        props["data-size"] == "xxs"
+            ? css`
+                  width: ${({ theme }) => theme.spacing.sm};
+                  height: ${({ theme }) => theme.spacing.sm};
+              `
+            : null}
 `;
 
 export const Image = styled.Image`
@@ -51,6 +69,22 @@ export const Image = styled.Image`
             ? css`
                   width: ${({ theme }) => theme.spacing.lg};
                   height: ${({ theme }) => theme.spacing.lg};
+              `
+            : null}
+
+    ${props =>
+        props["data-size"] == "xs"
+            ? css`
+                  width: ${({ theme }) => theme.spacing.md};
+                  height: ${({ theme }) => theme.spacing.md};
+              `
+            : null}
+
+    ${props =>
+        props["data-size"] == "xxs"
+            ? css`
+                  width: ${({ theme }) => theme.spacing.sm};
+                  height: ${({ theme }) => theme.spacing.sm};
               `
             : null}
 
@@ -77,6 +111,20 @@ export const FallbackText = styled.Text`
         props["data-size"] == "small"
             ? css`
                   font-size: ${({ theme }) => theme.nativeTypography.fontSizes.md};
+              `
+            : null}
+
+    ${props =>
+        props["data-size"] == "xs"
+            ? css`
+                  font-size: ${({ theme }) => theme.nativeTypography.fontSizes.sm};
+              `
+            : null}
+
+    ${props =>
+        props["data-size"] == "xxs"
+            ? css`
+                  font-size: ${({ theme }) => theme.nativeTypography.fontSizes.xs};
               `
             : null}
 `;

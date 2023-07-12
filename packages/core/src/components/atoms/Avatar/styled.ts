@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import { backgroundColors } from "../../../theme/mixins/web";
 
 export const AvatarWrapper = styled.div`
     font-family: ${({ theme }) => theme.typography.fontFaces.secondary};
-    background: ${({ theme }) => theme.colors.mediumShade};
+
+    ${backgroundColors}
+
     color: ${({ theme }) => theme.colors.lightTint};
 
     font-weight: 700;
@@ -31,6 +34,16 @@ export const AvatarWrapper = styled.div`
         width: ${({ theme }) => theme.spacing.lg};
         height: ${({ theme }) => theme.spacing.lg};
         font-size: ${({ theme }) => theme.typography.fontSizes.md};
+    }
+    &[data-size="xs"] {
+        width: ${({ theme }) => theme.spacing.md};
+        height: ${({ theme }) => theme.spacing.md};
+        font-size: ${({ theme }) => theme.typography.fontSizes.sm};
+    }
+    &[data-size="xxs"] {
+        width: ${({ theme }) => theme.spacing.sm};
+        height: ${({ theme }) => theme.spacing.sm};
+        font-size: ${({ theme }) => theme.typography.fontSizes.xxs};
     }
 `;
 

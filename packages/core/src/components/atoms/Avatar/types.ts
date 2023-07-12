@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ColorTypes } from "../../../theme/types";
 
 export type AvatarProps = {
     /** Used to render icons or text elements inside the component if `src` is not defined. Can be a valid React element, or just a string. */
@@ -11,5 +12,7 @@ export type AvatarProps = {
     src?: any;
 
     /** Defines the component size. */
-    size: "large" | "medium" | "small";
+    size: "large" | "medium" | "small" | "xs" | "xxs";
+
+    backgroundColor?: ColorTypes;
 };

@@ -31,6 +31,19 @@ export type WebImageProps = {
     unoptimized?: boolean;
     quality?: number;
 
+    /**
+     * Container style in Native, and as of today, img style in web
+     */
     style?: any;
     className?: string;
+
+    /**
+     * This defines the internal image style
+     */
+    imageStyle?: any;
+
+    /**
+     * This defines the thumbnail image style
+     */
+    thumbnailStyle?: any;
 };

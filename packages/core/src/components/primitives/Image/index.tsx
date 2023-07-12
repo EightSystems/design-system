@@ -8,6 +8,8 @@ export const Image: React.FC<WebImageProps> = ({
     placeholder = "empty",
     quality = 75,
     layout = "responsive",
+    thumbnailStyle,
+    imageStyle,
     ...otherProps
 }: WebImageProps) => {
     return <img src={src} alt={alt} {...otherProps} />;
