@@ -19,6 +19,7 @@
                     { "type": "perf", "release": "minor" },
                     { "type": "build", "release": "minor" },
                     { "type": "chore", "release": "patch" },
+                    { "type": "major", "release": "major" },
                     { "type": "ci", "release": false },
                     { "scope": "no-release", "release": false }
                 ],

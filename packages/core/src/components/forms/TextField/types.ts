@@ -23,6 +23,7 @@ export type AutoCompleteWebType = "one-time-code" | "new-password";
 
 export type TextFieldProps = {
     autoCorrect?: boolean;
+    autoCapitalize?: "none" | "sentences" | "words" | "characters";
 
     /**
      * Determines which content to suggest on auto complete, e.g.`username`.

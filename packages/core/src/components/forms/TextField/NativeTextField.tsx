@@ -13,6 +13,7 @@ export const TextField = React.memo<TextFieldProps>(
         autoFocus = false,
         autoComplete,
         autoCompleteType,
+        autoCapitalize,
         blurOnSubmit,
         name,
         label,
@@ -119,6 +120,7 @@ export const TextField = React.memo<TextFieldProps>(
             numberOfLines,
             textAlignVertical: multiline ? "top" : "auto",
             autoFocus,
+            autoCapitalize,
         };
 
         const autoCompleteMapped = {

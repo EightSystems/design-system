@@ -2,12 +2,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Feather from "react-native-vector-icons/Feather";
-import FontAwesome from "react-native-vector-icons/FontAwesome5";
-import AntDesignGlyphMap from "react-native-vector-icons/glyphmaps/AntDesign.json";
-import FeatherGlyphMap from "react-native-vector-icons/glyphmaps/Feather.json";
-import FontAwesomeGlyphMap from "react-native-vector-icons/glyphmaps/FontAwesome5Free.json";
-import IonicGlyphMap from "react-native-vector-icons/glyphmaps/Ionicons.json";
-import MaterialGlyphMap from "react-native-vector-icons/glyphmaps/MaterialIcons.json";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionic from "react-native-vector-icons/Ionicons";
 import Material from "react-native-vector-icons/MaterialIcons";
 import { ThemeContext } from "styled-components/native";
@@ -33,23 +28,23 @@ const Icon = ({ familyName, icon, size = "sm", color = "black", onPress, onClick
     switch (familyName) {
         case "AntDesign":
             IconComponent = AntDesign;
-            glyphMap = AntDesignGlyphMap;
+            glyphMap = AntDesign.getRawGlyphMap();
             break;
         case "Feather":
             IconComponent = Feather;
-            glyphMap = FeatherGlyphMap;
+            glyphMap = Feather.getRawGlyphMap();
             break;
         case "FontAwesome":
             IconComponent = FontAwesome;
-            glyphMap = FontAwesomeGlyphMap;
+            glyphMap = FontAwesome.getRawGlyphMap();
             break;
         case "Ionic":
             IconComponent = Ionic;
-            glyphMap = IonicGlyphMap;
+            glyphMap = Ionic.getRawGlyphMap();
             break;
         case "Material":
             IconComponent = Material;
-            glyphMap = MaterialGlyphMap;
+            glyphMap = Material.getRawGlyphMap();
             break;
         default:
             console.log(`${familyName} is not supported`);

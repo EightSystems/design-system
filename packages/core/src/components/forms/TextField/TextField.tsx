@@ -11,6 +11,7 @@ export const TextField = React.memo<TextFieldProps>(
     ({
         autoCorrect = true,
         autoFocus = false,
+        autoCapitalize,
         autoComplete,
         autoCompleteType,
         blurOnSubmit,
@@ -214,6 +215,7 @@ export const TextField = React.memo<TextFieldProps>(
                                 spellCheck={autoCorrect}
                                 inputMode={inputMode as any}
                                 id={elementUniqueId}
+                                autoCapitalize={autoCapitalize}
                                 autoComplete={autoComplete || autoCompleteType || "on"}
                             />
                         </S.MaskedInputComponent>
@@ -228,6 +230,7 @@ export const TextField = React.memo<TextFieldProps>(
                             aria-label={label}
                             aria-required={required}
                             placeholder={placeholder}
+                            autoCapitalize={autoCapitalize}
                             disabled={disabled}
                             onFocus={e => {
                                 if (onFocus) {
@@ -270,6 +273,7 @@ export const TextField = React.memo<TextFieldProps>(
                             aria-required={required}
                             placeholder={placeholder}
                             disabled={disabled}
+                            autoCapitalize={autoCapitalize}
                             onFocus={e => {
                                 if (onFocus) {
                                     onFocus();
