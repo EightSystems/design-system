@@ -2,7 +2,8 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Feather from "react-native-vector-icons/Feather";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import FontAwesome from "react-native-vector-icons/FontAwesome5";
+import FontAwesomeGlyphMap from "react-native-vector-icons/glyphmaps/FontAwesome5Free.json";
 import Ionic from "react-native-vector-icons/Ionicons";
 import Material from "react-native-vector-icons/MaterialIcons";
 import { ThemeContext } from "styled-components/native";
@@ -36,7 +37,7 @@ const Icon = ({ familyName, icon, size = "sm", color = "black", onPress, onClick
             break;
         case "FontAwesome":
             IconComponent = FontAwesome;
-            glyphMap = FontAwesome.getRawGlyphMap();
+            glyphMap = FontAwesomeGlyphMap;
             break;
         case "Ionic":
             IconComponent = Ionic;
