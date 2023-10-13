@@ -21,6 +21,7 @@ export const WebVideo = React.forwardRef(
             rotateOnFullSreen = true,
             eventsListener = {},
             nativeVideoPlayerUrl = "https://eightsystems.github.io/design-system/assets/webvideo/webplayer.html",
+            tooOldAndroidVersion,
         }: WebVideoProps,
         ref
     ) => {
@@ -132,7 +133,9 @@ export const WebVideo = React.forwardRef(
                         <Text>You need to install the react-native-webview package</Text>
                     )
                 ) : (
-                    <Text>Your Operating System is too old, you need at least Android 8.1</Text>
+                    <Text>
+                        {tooOldAndroidVersion || "Your Operating System is too old, you need at least Android 8.1"}
+                    </Text>
                 )}
             </WebVideoContainer>
         );

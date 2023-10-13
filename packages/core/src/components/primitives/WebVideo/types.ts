@@ -30,4 +30,6 @@ export type WebVideoProps = {
 
     /** Replaces the native webview URL used for rendering the player */
     nativeVideoPlayerUrl?: string;
+
+    tooOldAndroidVersion?: string;
 };
