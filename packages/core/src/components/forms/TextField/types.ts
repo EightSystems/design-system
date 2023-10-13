@@ -168,4 +168,18 @@ export type TextFieldProps = {
     onFocus?: (event?: any) => void;
     onSubmitEditing?: (event?: any) => void;
     onKeyPress?: (event?: any) => void;
+
+    /**
+     * You can only use it with the Web version
+     */
+    className?: string;
+    style?: any;
+
+    inputWrapperStyle?: any;
+    inputStyle?: any;
+
+    labelStyle?: any;
+
+    validationWrapperStyle?: any;
+    validationStyle?: any;
 };

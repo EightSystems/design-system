@@ -50,6 +50,16 @@ export const TextField = React.memo<TextFieldProps>(
         maxLength,
         returnKeyType,
         onSubmitEditing,
+
+        style,
+
+        inputStyle,
+        inputWrapperStyle,
+
+        labelStyle,
+
+        validationWrapperStyle,
+        validationStyle,
     }: TextFieldProps) => {
         const blurOnSubmitDefault = !multiline;
         const shouldBlurOnSubmit = blurOnSubmit == null ? blurOnSubmitDefault : blurOnSubmit;
@@ -121,6 +131,7 @@ export const TextField = React.memo<TextFieldProps>(
             textAlignVertical: multiline ? "top" : "auto",
             autoFocus,
             autoCapitalize,
+            style: inputStyle,
         };
 
         const autoCompleteMapped = {
@@ -146,9 +157,11 @@ export const TextField = React.memo<TextFieldProps>(
             ) : null;
 
         return (
-            <S.MainWrapper accessible accessibilityLabel={label} accessibilityState={accessibilityState}>
+            <S.MainWrapper accessible accessibilityLabel={label} accessibilityState={accessibilityState} style={style}>
                 <TouchableWithoutFeedback onPress={() => focusInputElement()}>
-                    <S.InputLabel data-focused={focused}>{label}</S.InputLabel>
+                    <S.InputLabel data-focused={focused} style={labelStyle}>
+                        {label}
+                    </S.InputLabel>
                 </TouchableWithoutFeedback>
                 <S.InputWrapper
                     iconPosition={iconPosition}
@@ -157,6 +170,7 @@ export const TextField = React.memo<TextFieldProps>(
                     data-borderradius={borderRadius}
                     data-bordertype={borderType}
                     data-borderposition={borderPosition}
+                    style={inputWrapperStyle}
                 >
                     {icon && icon !== "loadingSpinner" && iconPosition == "start" ? (
                         tooltipContent ? (
@@ -256,11 +270,13 @@ export const TextField = React.memo<TextFieldProps>(
                         </S.IconWrapper>
                     ) : null}
                 </S.InputWrapper>
-                <S.InputValidationContainer>
+                <S.InputValidationContainer style={validationWrapperStyle}>
                     {validationMessage ? (
                         <React.Fragment>
                             <Icon icon="md-error" color={"danger"} size={"xxs"} familyName={"Material"} />
-                            <S.InputValidationMessage>{validationMessage}</S.InputValidationMessage>
+                            <S.InputValidationMessage style={validationStyle}>
+                                {validationMessage}
+                            </S.InputValidationMessage>
                         </React.Fragment>
                     ) : null}
                 </S.InputValidationContainer>
