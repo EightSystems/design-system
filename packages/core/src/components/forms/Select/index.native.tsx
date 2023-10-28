@@ -12,6 +12,7 @@ import { useColorScheme } from "react-native";
 import * as S from "./styled.native";
 import { OptionElement, SelectProps } from "./types";
 import { Text } from "../../typography/Text";
+import { useThemeColor } from "../../../native";
 
 export { Option } from "./Option.native";
 
@@ -19,24 +20,29 @@ export const Select = ({
     onChange,
     onBlur,
     onFocus,
+    hideValidationContainer = false,
     validationError,
     validationSuccess,
     validationMessage,
     children,
     placeholder,
-    label,
+    label = null,
     optionsCancelMessage,
     value,
     borderRadius = "sm",
     borderPosition = "all",
     borderType = "default",
     borderColor = "darkTint",
+
+    backgroundColor = "white",
+    textColor = "dark",
+    menuTextColor = "black",
 }: SelectProps) => {
     if (!MenuView) {
         return <Text>You need to install @react-native-menu/menu package</Text>;
     }
 
-    const colorScheme = useColorScheme();
+    const menuTextColorTranslated = useThemeColor(menuTextColor);
 
     const { optionListReduced, optionList, optionValueList } = useMemo(() => {
         const childMapped = React.Children.map(children, (child: OptionElement) => {
@@ -114,15 +120,18 @@ export const Select = ({
 
     return (
         <S.MainWrapper>
-            <S.InputLabel fontFace={"secondary"} fontWeight={"medium"} textColor={"dark"} fontSize={"xxs"}>
-                {label}
-            </S.InputLabel>
+            {label ? (
+                <S.InputLabel fontFace={"secondary"} fontWeight={"medium"} textColor={"dark"} fontSize={"xxs"}>
+                    {label}
+                </S.InputLabel>
+            ) : null}
+
             <MenuView
                 actions={[...optionList, optionsCancelMessage || "Cancel"].map((value, index) => {
                     return {
                         id: `${index}`,
                         title: value,
-                        titleColor: colorScheme === "dark" ? "#ffffff" : "#000000",
+                        titleColor: menuTextColorTranslated,
                         attributes: {
                             destructive: index == optionList.length,
                         },
@@ -146,26 +155,28 @@ export const Select = ({
                     borderType={borderType}
                     borderRadius={borderRadius}
                     borderPosition={borderPosition}
-                    backgroundColor={"white"}
+                    backgroundColor={backgroundColor}
                     fontFace={"secondary"}
                     fontWeight={"medium"}
-                    textColor={"dark"}
+                    textColor={textColor}
                     textAlign={"left"}
                     endIcon={<Icon familyName={"FontAwesome"} icon={"chevron-down"} size={"sm"} />}
                 >
                     {selectedOptionName}
                 </S.SelectComponent>
             </MenuView>
-            <S.InputValidationContainer>
-                {validationMessage ? (
-                    <React.Fragment>
-                        <S.InputValidationIcon familyName={"Material"} icon={"info"} color={"danger"} />
-                        <S.InputValidationMessage fontFace={"primary"} textColor={"danger"} fontSize={"xxs"}>
-                            {validationMessage}
-                        </S.InputValidationMessage>
-                    </React.Fragment>
-                ) : null}
-            </S.InputValidationContainer>
+            {!hideValidationContainer || validationMessage ? (
+                <S.InputValidationContainer>
+                    {validationMessage ? (
+                        <React.Fragment>
+                            <S.InputValidationIcon familyName={"Material"} icon={"info"} color={"danger"} />
+                            <S.InputValidationMessage fontFace={"primary"} textColor={"danger"} fontSize={"xxs"}>
+                                {validationMessage}
+                            </S.InputValidationMessage>
+                        </React.Fragment>
+                    ) : null}
+                </S.InputValidationContainer>
+            ) : null}
         </S.MainWrapper>
     );
 };
