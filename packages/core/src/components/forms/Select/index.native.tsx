@@ -7,12 +7,11 @@ import keys from "lodash/keys";
 import values from "lodash/values";
 import React, { useEffect, useMemo, useState } from "react";
 import { onlyText } from "react-children-utilities";
+import { useThemeColor } from "../../../native";
 import { Icon } from "../../primitives/Icon";
-import { useColorScheme } from "react-native";
+import { Text } from "../../typography/Text";
 import * as S from "./styled.native";
 import { OptionElement, SelectProps } from "./types";
-import { Text } from "../../typography/Text";
-import { useThemeColor } from "../../../native";
 
 export { Option } from "./Option.native";
 
@@ -42,18 +41,20 @@ export const Select = ({
         return <Text>You need to install @react-native-menu/menu package</Text>;
     }
 
+    const valueAsString: string | null = value ? `${value}` : null;
+
     const menuTextColorTranslated = useThemeColor(menuTextColor);
 
     const { optionListReduced, optionList, optionValueList } = useMemo(() => {
-        const childMapped = React.Children.map(children, (child: OptionElement) => {
+        const childMapped = React.Children.map(children, (child: OptionElement): { value: string; text: string } => {
             return {
-                value: child.props.value,
+                value: `${child.props.value}`,
                 text: onlyText(child.props.children),
             };
         });
 
         const childReduced = childMapped
-            ? childMapped.reduce<any>((previousValue, currentValue) => {
+            ? childMapped.reduce<{ [key: string]: string }>((previousValue, currentValue) => {
                   previousValue[currentValue.value] = currentValue.text;
                   return previousValue;
               }, {})
@@ -62,8 +63,8 @@ export const Select = ({
         return {
             optionListMapped: childMapped,
             optionListReduced: childReduced,
-            optionList: values(childReduced),
-            optionValueList: keys(childReduced),
+            optionList: values(childReduced) as string[],
+            optionValueList: keys(childReduced) as string[],
         };
     }, [children]);
 
@@ -71,8 +72,8 @@ export const Select = ({
 
     const [selectedOptionName, setSelectedOptionName] = useState(
         placeholder ||
-            (value && value in optionValueList
-                ? optionListReduced[value]
+            (valueAsString && optionValueList.indexOf(valueAsString) > -1
+                ? optionListReduced[valueAsString]
                 : optionList.length > 0
                 ? optionList[0]
                 : "-- Empty Options --")
@@ -81,27 +82,27 @@ export const Select = ({
     const [selectedOptionValue, setSelectedOptionValue] = useState(
         placeholder
             ? ""
-            : value && value in optionValueList
-            ? value
+            : valueAsString && optionValueList.indexOf(valueAsString) > -1
+            ? valueAsString
             : optionValueList.length > 0
             ? optionValueList[0]
             : ""
     );
 
     useEffect(() => {
-        if (value !== selectedOptionValue) {
-            if (value in optionValueList) {
-                setSelectedOptionValue(value);
-                setSelectedOptionName(optionListReduced[value]);
+        if (valueAsString !== selectedOptionValue) {
+            if (optionValueList.indexOf(valueAsString) > -1) {
+                setSelectedOptionValue(valueAsString);
+                setSelectedOptionName(optionListReduced[valueAsString]);
             }
         }
-    }, [value]);
+    }, [valueAsString]);
 
     useEffect(() => {
         setSelectedOptionName(
             placeholder ||
-                (value && value in optionValueList
-                    ? optionListReduced[value]
+                (valueAsString && optionValueList.indexOf(valueAsString) > -1
+                    ? optionListReduced[valueAsString]
                     : optionList.length > 0
                     ? optionList[0]
                     : "-- Empty Options --")
@@ -110,8 +111,8 @@ export const Select = ({
         setSelectedOptionValue(
             placeholder
                 ? ""
-                : value && value in optionValueList
-                ? value
+                : valueAsString && optionValueList.indexOf(valueAsString) > -1
+                ? valueAsString
                 : optionValueList.length > 0
                 ? optionValueList[0]
                 : ""
